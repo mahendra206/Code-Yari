@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Portfolio — Code Yari | Case Studies & Projects{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <div class="d-inline-flex align-items-center gap-2 mb-3">
+      <span class="badge-pill-custom">
+        <i class="bi bi-briefcase-fill"></i> Proven Track Record
+      </span>
+      <span class="demo-banner">Demo Showcase</span>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">Recent Work & <span class="gradient-text">Case Studies</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
+      Take a closer look at the digital products, web platforms, and mobile apps we've designed, architected, and shipped.
+    </p>
+  </div>
+</section>
+
+<!-- Portfolio Section with Filtering -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <!-- Category Filter Controls -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+      <button type="button" class="filter-btn {% if not active_category %}active{% endif %}" data-filter="all">
+        All Projects
+      </button>
+      {% for cat in categories %}
+      <button type="button" class="filter-btn {% if active_category.slug == cat.slug %}active{% endif %}" data-filter="{{ cat.slug }}">
+        {{ cat.name }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-4" id="portfolio-grid">
+      {% for project in projects %}
+      <div class="col-md-6 col-lg-4 portfolio-item-card" data-category="{{ project.category.slug }}">
+        <div class="card-custom h-100 p-3 d-flex flex-column">
+          <div class="portfolio-img-wrapper mb-3 position-relative">
+            {% if project.featured_image %}
+            <img src="{{ project.featured_image.url }}" alt="{{ project.title }}">
+            {% else %}
+            <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
+              <i class="bi bi-window-fullscreen fs-1 text-primary mb-2"></i>
+              <span class="small text-muted font-monospace">{{ project.category.name }}</span>
+            </div>
+            {% endif %}
+            <div class="portfolio-overlay">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-brand btn-sm-custom w-100">
+                <span>View Case Study</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-pill-custom py-1 px-2 small" style="font-size: 0.75rem;">
+              {{ project.category.name }}
+            </span>
+            <span class="demo-banner">Demo</span>
+          </div>
+
+          <h2 class="h5 fw-bold mb-2">
+            <a href="{% url 'portfolio:detail' project.slug %}" class="text-reset">
+              {{ project.title }}
+            </a>
+          </h2>
+          <p class="text-secondary small flex-grow-1 mb-3" style="line-height: 1.6;">
+            {{ project.short_description }}
+          </p>
+
+          <div class="d-flex flex-wrap gap-1 pt-3 border-top border-subtle">
+            {% for tech in project.technologies|slice:":3" %}
+            <span class="badge-tech">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <p class="text-secondary">No projects found in this category.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

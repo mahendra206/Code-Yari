@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog & Insights — Code Yari | Web, Tech & Growth Articles{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <div class="d-inline-flex align-items-center gap-2 mb-3">
+      <span class="badge-pill-custom">
+        <i class="bi bi-journal-richtext"></i> Knowledge Base
+      </span>
+      <span class="demo-banner">Demo Articles</span>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">Tech Insights, Guides & <span class="gradient-text">Strategies</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
+      Practical engineering walkthroughs, SEO case studies, and business growth advice curated by our development team.
+    </p>
+  </div>
+</section>
+
+<!-- Blog List Section -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <!-- Category Pills -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+      <a href="{% url 'blog:list' %}" class="filter-btn {% if not active_category %}active{% endif %}">
+        All Posts
+      </a>
+      {% for cat in categories %}
+      <a href="{% url 'blog:list' %}?category={{ cat.slug }}" class="filter-btn {% if active_category.slug == cat.slug %}active{% endif %}">
+        {{ cat.name }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="row g-4">
+      {% for post in page_obj %}
+      <div class="col-md-6 col-lg-4">
+        <a href="{% url 'blog:detail' post.slug %}" class="blog-card-link">
+          <article class="blog-card-v2 {{ post.get_theme }}">
+            <!-- Cover Banner -->
+            <div class="blog-card-cover">
+              {% if post.featured_image %}
+              <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
+              {% else %}
+              <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
+                <i class="bi {{ post.get_badge_icon }} fs-1 text-white opacity-50"></i>
+              </div>
+              {% endif %}
+              <div class="blog-card-cover-overlay"></div>
+              
+              <!-- Category Badge & Demo Tag -->
+              <span class="blog-card-badge">
+                <i class="bi {{ post.get_badge_icon }}"></i>
+                <span>{{ post.category.name|default:"Insights" }}</span>
+              </span>
+              <span class="blog-card-demo-tag">Demo</span>
+            </div>
+
+            <!-- Card Content -->
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">
+                {{ post.title }}
+              </h2>
+              <p class="blog-card-desc">
+                {{ post.excerpt|truncatewords:22 }}
+              </p>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="blog-card-footer">
+              <span class="blog-card-meta">
+                <i class="bi bi-clock-history"></i>
+                <span>{{ post.read_time }} min read</span>
+              </span>
+              <span class="blog-card-read-btn">
+                <span>Read Article</span>
+                <i class="bi bi-arrow-right"></i>
+              </span>
+            </div>
+          </article>
+        </a>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <p class="text-secondary">No articles found in this category.</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-5 d-flex justify-content-center" aria-label="Blog pagination">
+      <ul class="pagination gap-1">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);" href="?page={{ page_obj.previous_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}">
+            <i class="bi bi-chevron-left"></i>
+          </a>
+        </li>
+        {% endif %}
+
+        {% for p in page_obj.paginator.page_range %}
+        <li class="page-item {% if page_obj.number == p %}active{% endif %}">
+          <a class="page-link rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; {% if page_obj.number == p %}background: var(--brand-primary); border-color: var(--brand-primary); color: #fff;{% else %}background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);{% endif %}" href="?page={{ p }}{% if active_category %}&category={{ active_category.slug }}{% endif %}">
+            {{ p }}
+          </a>
+        </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-primary);" href="?page={{ page_obj.next_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}">
+            <i class="bi bi-chevron-right"></i>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

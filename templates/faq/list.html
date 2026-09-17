@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Frequently Asked Questions — Code Yari{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <div class="d-inline-flex align-items-center gap-2 mb-3">
+      <span class="badge-pill-custom">
+        <i class="bi bi-question-circle-fill"></i> Clear Answers
+      </span>
+      <span class="demo-banner">Demo FAQs</span>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">Frequently Asked <span class="gradient-text">Questions</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
+      Everything you need to know about our project engagement process, pricing, technologies, and post-launch maintenance.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ Accordion Section -->
+<section class="section-wrapper py-5">
+  <div class="container" style="max-width: 900px;">
+    {% for item in faqs_by_category %}
+    <div class="mb-5">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <div class="brand-icon-wrapper" style="width: 32px; height: 32px; font-size: 0.85rem;">
+          <i class="bi bi-layers"></i>
+        </div>
+        <h2 class="h4 fw-bold mb-0">{{ item.category.name }}</h2>
+      </div>
+
+      <div class="accordion faq-accordion" id="accordion-cat-{{ item.category.id }}">
+        {% for faq in item.faqs %}
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="heading-{{ faq.id }}">
+            <button class="accordion-button {% if not forloop.first or not forloop.parentloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ faq.id }}" aria-expanded="{% if forloop.first and forloop.parentloop.first %}true{% else %}false{% endif %}" aria-controls="collapse-{{ faq.id }}">
+              {{ faq.question }}
+            </button>
+          </h3>
+          <div id="collapse-{{ faq.id }}" class="accordion-collapse collapse {% if forloop.first and forloop.parentloop.first %}show{% endif %}" aria-labelledby="heading-{{ faq.id }}" data-bs-parent="#accordion-cat-{{ item.category.id }}">
+            <div class="accordion-body">
+              {{ faq.answer|safe }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if uncategorized %}
+    <div class="mb-5">
+      <h2 class="h4 fw-bold mb-3">General Inquiries</h2>
+      <div class="accordion faq-accordion" id="accordion-uncat">
+        {% for faq in uncategorized %}
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="heading-uncat-{{ faq.id }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-uncat-{{ faq.id }}" aria-expanded="false" aria-controls="collapse-uncat-{{ faq.id }}">
+              {{ faq.question }}
+            </button>
+          </h3>
+          <div id="collapse-uncat-{{ faq.id }}" class="accordion-collapse collapse" aria-labelledby="heading-uncat-{{ faq.id }}" data-bs-parent="#accordion-uncat">
+            <div class="accordion-body">
+              {{ faq.answer|safe }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Unanswered Question Card -->
+    <div class="card-custom p-4 text-center mt-5" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(17, 24, 39, 0.85) 100%);">
+      <div class="brand-icon-wrapper mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.4rem;">
+        <i class="bi bi-chat-quote-fill"></i>
+      </div>
+      <h3 class="h5 fw-bold mb-2">Have a question not listed here?</h3>
+      <p class="text-secondary small mx-auto mb-3" style="max-width: 480px;">
+        We’re always happy to discuss custom technical setups, integrations, timelines, and budgets.
+      </p>
+      <a href="{% url 'core:contact' %}" class="btn-brand btn-sm-custom">
+        <span>Send Us Your Question</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

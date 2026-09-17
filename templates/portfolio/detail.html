@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ project.get_seo_title }}{% endblock %}
+{% block meta_description %}{{ project.get_seo_description }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container py-4">
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <a href="{% url 'portfolio:list' %}" class="text-secondary small d-inline-flex align-items-center gap-1">
+        <i class="bi bi-chevron-left"></i> All Case Studies
+      </a>
+      <span class="text-muted">/</span>
+      <span class="badge-pill-custom py-1 px-2" style="font-size: 0.75rem;">{{ project.category.name }}</span>
+      <span class="demo-banner">Demo Project</span>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">{{ project.title }}</h1>
+    <p class="text-secondary mb-0" style="max-width: 720px; font-size: 1.2rem;">
+      {{ project.short_description }}
+    </p>
+  </div>
+</section>
+
+<!-- Detail Content -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Main Content -->
+      <div class="col-lg-8">
+        <!-- Main Media Frame -->
+        <div class="card-custom p-2 mb-4 overflow-hidden">
+          {% if project.featured_image %}
+          <img src="{{ project.featured_image.url }}" alt="{{ project.title }}" class="rounded w-100" style="max-height: 480px; object-fit: cover;">
+          {% else %}
+          <div class="w-100 d-flex flex-column align-items-center justify-content-center py-5 rounded" style="background: linear-gradient(135deg, #1e293b, #0f172a); min-height: 320px;">
+            <i class="bi bi-display fs-1 text-primary mb-2"></i>
+            <span class="small text-muted font-monospace">{{ project.title }} — Demo Visual</span>
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Gallery Images if any -->
+        {% if gallery %}
+        <div class="row g-3 mb-4">
+          {% for img in gallery %}
+          <div class="col-6 col-md-4">
+            <div class="card-custom p-1">
+              <img src="{{ img.image.url }}" alt="{{ img.caption|default:project.title }}" class="rounded w-100" style="height: 140px; object-fit: cover;">
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Project Narrative -->
+        <div class="card-custom p-4 p-md-5 mb-4">
+          <h2 class="h4 fw-bold mb-3">Project Overview</h2>
+          <div class="text-secondary mb-4" style="line-height: 1.8;">
+            {{ project.description|safe }}
+          </div>
+
+          {% if project.challenge %}
+          <h3 class="h5 fw-bold mb-2 text-primary">The Challenge</h3>
+          <p class="text-secondary mb-4" style="line-height: 1.7;">
+            {{ project.challenge }}
+          </p>
+          {% endif %}
+
+          {% if project.solution %}
+          <h3 class="h5 fw-bold mb-2 text-primary">Our Solution</h3>
+          <p class="text-secondary mb-4" style="line-height: 1.7;">
+            {{ project.solution }}
+          </p>
+          {% endif %}
+
+          {% if project.results %}
+          <h3 class="h5 fw-bold mb-2 text-primary">Results & Business Impact</h3>
+          <p class="text-secondary mb-0" style="line-height: 1.7;">
+            {{ project.results }}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Metadata Sidebar -->
+      <div class="col-lg-4">
+        <div class="card-custom p-4 mb-4">
+          <h3 class="h5 fw-bold mb-4 border-bottom border-subtle pb-3">Project Metadata</h3>
+
+          <div class="d-flex flex-column gap-3">
+            <div>
+              <div class="text-muted small">Client</div>
+              <div class="fw-semibold">{{ project.client_name|default:"Confidential Client (Demo)" }}</div>
+            </div>
+
+            <div>
+              <div class="text-muted small">Category</div>
+              <div class="fw-semibold">{{ project.category.name }}</div>
+            </div>
+
+            {% if project.completion_date %}
+            <div>
+              <div class="text-muted small">Delivered</div>
+              <div class="fw-semibold">{{ project.completion_date|date:"F Y" }}</div>
+            </div>
+            {% endif %}
+
+            {% if project.project_url %}
+            <div>
+              <div class="text-muted small">Live Link</div>
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="fw-semibold text-primary d-inline-flex align-items-center gap-1">
+                <span>Visit Project</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+            {% endif %}
+
+            <!-- Tech Stack -->
+            {% if technologies %}
+            <div class="pt-2">
+              <div class="text-muted small mb-2">Technologies Used</div>
+              <div class="d-flex flex-wrap gap-1">
+                {% for tech in technologies %}
+                <span class="badge-tech">{{ tech }}</span>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Need Similar Solution Card -->
+        <div class="card-custom p-4 text-center" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(17, 24, 39, 0.85) 100%);">
+          <h4 class="h5 fw-bold mb-2">Want a Similar Project?</h4>
+          <p class="text-secondary small mb-3">
+            We can architect and deliver a comparable solution designed specifically for your brand.
+          </p>
+          <a href="{% url 'leads:get_quote' %}" class="btn-brand btn-sm-custom w-100">
+            <span>Request a Quote</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

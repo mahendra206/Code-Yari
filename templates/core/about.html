@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us — Code Yari | Digital Agency & Technology Partner{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <span class="badge-pill-custom mb-3">
+      <i class="bi bi-rocket-takeoff-fill"></i> Who We Are
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Building With Heart, Code and <span class="gradient-text">Yari</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
+      We are a passionate collective of engineers, designers, and growth specialists committed to turning bold ideas into scalable digital platforms.
+    </p>
+  </div>
+</section>
+
+<!-- Company Story & Philosophy -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6">
+        <span class="badge-pill-custom mb-3">
+          <i class="bi bi-compass"></i> Our Philosophy
+        </span>
+        <h2 class="display-6 fw-bold mb-4">"Sirf code nahi, Yari ke saath solution."</h2>
+        <p class="text-secondary" style="line-height: 1.8;">
+          At Code Yari, we believe that software isn't just about syntax, frameworks, or database queries. It's about empathy, partnership, and helping founders and businesses scale without friction.
+        </p>
+        <p class="text-secondary" style="line-height: 1.8;">
+          Too many agencies treat projects as one-off transactions. We treat our clients as long-term allies ("Yari"). When you work with us, you get a dedicated engineering team that cares as much about your bottom line and user experience as you do.
+        </p>
+        <div class="row g-3 pt-2">
+          <div class="col-sm-6">
+            <div class="p-3 card-custom">
+              <i class="bi bi-lightning-charge-fill text-warning fs-3 mb-2"></i>
+              <h4 class="h6 fw-bold mb-1">Agile & Rapid</h4>
+              <p class="small text-secondary mb-0">Quick turnarounds without sacrificing code quality.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 card-custom">
+              <i class="bi bi-shield-check text-success fs-3 mb-2"></i>
+              <h4 class="h6 fw-bold mb-1">Transparent</h4>
+              <p class="small text-secondary mb-0">Clear communication, no hidden fees, honest guidance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card-custom p-4 p-md-5" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);">
+          <h3 class="h4 fw-bold mb-4 text-primary">Our Core Pillars</h3>
+          <div class="d-flex gap-3 mb-4">
+            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
+              01
+            </div>
+            <div>
+              <h4 class="h6 fw-bold mb-1">Performance-First Architecture</h4>
+              <p class="small text-secondary mb-0">Every millisecond counts. We optimize database queries, caching, and assets for blazing speed.</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mb-4">
+            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
+              02
+            </div>
+            <div>
+              <h4 class="h6 fw-bold mb-1">Modern Aesthetic UI/UX</h4>
+              <p class="small text-secondary mb-0">Clean visual hierarchy, intuitive flows, responsive design across mobile and desktop.</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mb-4">
+            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
+              03
+            </div>
+            <div>
+              <h4 class="h6 fw-bold mb-1">Data & SEO Driven</h4>
+              <p class="small text-secondary mb-0">We build websites that Google loves. Clean semantic markup, structured schemas, fast core web vitals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

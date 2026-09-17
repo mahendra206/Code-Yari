@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Client Testimonials — Code Yari | Real Reviews & Feedback{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <div class="d-inline-flex align-items-center gap-2 mb-3">
+      <span class="badge-pill-custom">
+        <i class="bi bi-star-fill text-warning"></i> Client Reviews
+      </span>
+      <span class="demo-banner">Demo Feedback</span>
+    </div>
+    <h1 class="display-4 fw-bold mb-3">What Our Partners <span class="gradient-text">Say</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
+      Don't just take our word for it. Here is what founders, product owners, and business leaders say about partnering with Code Yari.
+    </p>
+  </div>
+</section>
+
+<!-- Testimonials Grid -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <div class="row g-4">
+      {% for item in testimonials %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom h-100 p-4 d-flex flex-column">
+          <!-- Rating & Demo Badge -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="testimonial-stars">
+              {% for i in "12345" %}
+              <i class="bi bi-star-fill"></i>
+              {% endfor %}
+            </div>
+            <span class="demo-banner">Demo</span>
+          </div>
+
+          <!-- Quote -->
+          <p class="text-secondary flex-grow-1 mb-4 fst-italic" style="line-height: 1.7; font-size: 0.98rem;">
+            "{{ item.quote }}"
+          </p>
+
+          <!-- Client Info -->
+          <div class="d-flex align-items-center gap-3 pt-3 border-top border-subtle">
+            {% if item.client_image %}
+            <img src="{{ item.client_image.url }}" alt="{{ item.client_name }}" class="client-avatar">
+            {% else %}
+            <div class="client-initials">
+              {{ item.client_name|slice:":1" }}
+            </div>
+            {% endif %}
+            <div>
+              <div class="fw-bold">{{ item.client_name }}</div>
+              <div class="text-secondary small">{{ item.client_role }}{% if item.client_company %}, {{ item.client_company }}{% endif %}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5">
+        <p class="text-secondary">No testimonials added yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+{% include 'partials/cta_banner.html' %}
+
+{% endblock %}

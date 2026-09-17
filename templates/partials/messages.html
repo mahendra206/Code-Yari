@@ -1,0 +1,13 @@
+{% if messages %}
+<div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 2000; margin-top: 80px; width: 90%; max-width: 600px;">
+  {% for message in messages %}
+  <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags|default:'primary' }}{% endif %} alert-dismissible fade show shadow-lg border-0 d-flex align-items-center gap-3" role="alert" style="border-radius: var(--radius-md);">
+    <i class="bi {% if message.tags == 'success' %}bi-check-circle-fill text-success{% elif message.tags == 'error' %}bi-exclamation-octagon-fill text-danger{% else %}bi-info-circle-fill text-primary{% endif %} fs-4"></i>
+    <div class="flex-grow-1">
+      {{ message }}
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

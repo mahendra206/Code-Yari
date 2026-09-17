@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}500 — Server Error | Code Yari{% endblock %}
+
+{% block content %}
+<section class="d-flex align-items-center justify-content-center text-center py-5" style="min-height: 75vh; padding-top: calc(var(--nav-height) + 4rem) !important;">
+  <div class="container">
+    <div class="card-custom p-5 mx-auto" style="max-width: 600px;">
+      <div class="display-1 fw-bold text-danger mb-2">500</div>
+      <h1 class="h3 fw-bold mb-3">Internal Server Error</h1>
+      <p class="text-secondary mb-4">
+        Something unexpected happened on our end. Our engineering team has been notified and is looking into the problem.
+      </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'core:home' %}" class="btn-brand">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Back to Safety</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

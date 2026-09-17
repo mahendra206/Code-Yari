@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy — Code Yari{% endblock %}
+
+{% block content %}
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <span class="badge-pill-custom mb-3">
+      <i class="bi bi-shield-check"></i> Legal Information
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Privacy Policy</h1>
+    <p class="text-secondary mx-auto" style="max-width: 600px;">
+      Last updated: {% now "F d, Y" %}
+    </p>
+  </div>
+</section>
+
+<section class="section-wrapper py-5">
+  <div class="container" style="max-width: 860px;">
+    <div class="card-custom p-4 p-md-5" style="line-height: 1.8;">
+      <h2 class="h4 fw-bold mb-3">1. Information We Collect</h2>
+      <p class="text-secondary">
+        At Code Yari ("we", "our", "us"), we value your privacy. We only collect personal details that you voluntarily submit to us via our contact forms, quote request forms, or direct correspondence (such as name, email address, phone number, and project specifications).
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">2. How We Use Your Information</h2>
+      <p class="text-secondary">
+        We use collected data solely to:
+      </p>
+      <ul class="text-secondary">
+        <li>Respond to your requests, questions, and project quotes.</li>
+        <li>Deliver, maintain, and optimize our digital services and solutions.</li>
+        <li>Send operational project updates and essential notices.</li>
+        <li>Protect our website against spam, malicious activities, and fraud.</li>
+      </ul>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">3. Data Sharing and Confidentiality</h2>
+      <p class="text-secondary">
+        We do not sell, trade, or rent your personal information to third parties. We may disclose data only if required by law or to protect our legal rights, privacy, safety, or property.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">4. Security of Data</h2>
+      <p class="text-secondary">
+        We implement industry-standard encryption, firewall defenses, and secure servers to safeguard your submitted information.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">5. Contact Us</h2>
+      <p class="text-secondary">
+        If you have questions regarding this Privacy Policy, please contact us at: <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

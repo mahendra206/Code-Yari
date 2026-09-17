@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Terms & Conditions — Code Yari{% endblock %}
+
+{% block content %}
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <span class="badge-pill-custom mb-3">
+      <i class="bi bi-file-earmark-text"></i> Legal Terms
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Terms & Conditions</h1>
+    <p class="text-secondary mx-auto" style="max-width: 600px;">
+      Last updated: {% now "F d, Y" %}
+    </p>
+  </div>
+</section>
+
+<section class="section-wrapper py-5">
+  <div class="container" style="max-width: 860px;">
+    <div class="card-custom p-4 p-md-5" style="line-height: 1.8;">
+      <h2 class="h4 fw-bold mb-3">1. Agreement to Terms</h2>
+      <p class="text-secondary">
+        By accessing or using the website and services of Code Yari, you agree to be bound by these Terms and Conditions. If you disagree with any part of these terms, you may not use our services.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">2. Digital Services & Projects</h2>
+      <p class="text-secondary">
+        Code Yari delivers custom digital services including web development, mobile app development, search engine optimization (SEO), and UI/UX design. All bespoke engagements are governed by individual project proposals, statements of work, and delivery milestones.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">3. Intellectual Property Rights</h2>
+      <p class="text-secondary">
+        Upon full payment of agreed project invoices, custom code and digital deliverables designed specifically for the client are assigned to the client, subject to standard open-source library licenses used.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">4. Limitation of Liability</h2>
+      <p class="text-secondary">
+        In no event shall Code Yari, its directors, employees, or partners be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use our website or services.
+      </p>
+
+      <h2 class="h4 fw-bold mt-4 mb-3">5. Governing Law</h2>
+      <p class="text-secondary">
+        These Terms shall be governed by and defined following the laws of India. Code Yari and yourself irrevocably consent that the courts of India shall have exclusive jurisdiction to resolve any dispute.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

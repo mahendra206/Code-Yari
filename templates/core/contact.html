@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us — Code Yari | Let's Talk About Your Project{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header-section">
+  <div class="container text-center py-4">
+    <span class="badge-pill-custom mb-3">
+      <i class="bi bi-chat-dots-fill"></i> We're Here to Help
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Let's Start a <span class="gradient-text">Conversation</span></h1>
+    <p class="text-secondary mx-auto" style="max-width: 640px; font-size: 1.15rem;">
+      Whether you need a full-fledged web application, a mobile app, or guidance on ranking #1 on Google, our team is ready.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section-wrapper py-5">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Left Column: Direct Info -->
+      <div class="col-lg-5">
+        <div class="card-custom p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+          <div>
+            <h2 class="h3 fw-bold mb-4">Get in Touch</h2>
+            <p class="text-secondary mb-4" style="line-height: 1.7;">
+              Have a question, feedback, or an upcoming project? Fill out the form or reach out through our direct communication channels.
+            </p>
+
+            <div class="d-flex flex-column gap-4 mb-4">
+              {% if site_settings.email %}
+              <div class="d-flex align-items-start gap-3">
+                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
+                  <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div>
+                  <div class="text-muted small">Email Address</div>
+                  <a href="mailto:{{ site_settings.email }}" class="fw-semibold text-primary">{{ site_settings.email }}</a>
+                </div>
+              </div>
+              {% endif %}
+
+              {% if site_settings.phone %}
+              <div class="d-flex align-items-start gap-3">
+                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div>
+                  <div class="text-muted small">Phone / Calling</div>
+                  <a href="tel:{{ site_settings.phone }}" class="fw-semibold text-primary">{{ site_settings.phone }}</a>
+                </div>
+              </div>
+              {% endif %}
+
+              {% if site_settings.business_hours %}
+              <div class="d-flex align-items-start gap-3">
+                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
+                  <i class="bi bi-clock-fill"></i>
+                </div>
+                <div>
+                  <div class="text-muted small">Working Hours</div>
+                  <div class="fw-semibold">{{ site_settings.business_hours }}</div>
+                </div>
+              </div>
+              {% endif %}
+
+              {% if site_settings.address %}
+              <div class="d-flex align-items-start gap-3">
+                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                  <div class="text-muted small">Location</div>
+                  <div class="fw-semibold">{{ site_settings.address }}</div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- WhatsApp Direct Card -->
+          {% if site_settings.whatsapp %}
+          <div class="p-3 card-custom mt-3" style="background: rgba(37, 211, 102, 0.08); border-color: rgba(37, 211, 102, 0.25);">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-whatsapp fs-2 text-success"></i>
+                <div>
+                  <div class="fw-bold">Fast WhatsApp Response</div>
+                  <div class="small text-secondary">Chat directly with an engineer</div>
+                </div>
+              </div>
+              <a href="https://wa.me/{{ site_settings.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill px-3">
+                Chat
+              </a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="col-lg-7">
+        <div class="card-custom p-4 p-md-5">
+          <h2 class="h3 fw-bold mb-2">Send a Message</h2>
+          <p class="text-secondary small mb-4">We usually respond within 24 business hours.</p>
+
+          <form method="post" action="{% url 'core:contact' %}" novalidate>
+            {% csrf_token %}
+
+            <!-- Honeypot anti-spam field (hidden) -->
+            <div style="display:none !important;" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="{{ form.name.id_for_label }}" class="form-label">Your Name <span class="text-danger">*</span></label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="col-md-6">
+                <label for="{{ form.email.id_for_label }}" class="form-label">Email Address <span class="text-danger">*</span></label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="col-md-6">
+                <label for="{{ form.phone.id_for_label }}" class="form-label">Phone Number (Optional)</label>
+                {{ form.phone }}
+                {% if form.phone.errors %}
+                <div class="text-danger small mt-1">{{ form.phone.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="col-md-6">
+                <label for="{{ form.subject.id_for_label }}" class="form-label">Subject <span class="text-danger">*</span></label>
+                {{ form.subject }}
+                {% if form.subject.errors %}
+                <div class="text-danger small mt-1">{{ form.subject.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="col-12">
+                <label for="{{ form.message.id_for_label }}" class="form-label">Message <span class="text-danger">*</span></label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
+                {% endif %}
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn-brand w-100 py-3">
+                  <span>Send Message</span>
+                  <i class="bi bi-send-fill ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
