@@ -41,7 +41,9 @@
       <div class="col-md-6 col-lg-4 portfolio-item-card" data-category="{{ project.category.slug }}">
         <div class="card-custom h-100 p-3 d-flex flex-column">
           <div class="portfolio-img-wrapper mb-3 position-relative">
-            {% if project.featured_image %}
+            {% if project.get_image_url %}
+            <img src="{{ project.get_image_url }}" alt="{{ project.title }}">
+            {% elif project.featured_image %}
             <img src="{{ project.featured_image.url }}" alt="{{ project.title }}">
             {% else %}
             <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e293b, #0f172a);">

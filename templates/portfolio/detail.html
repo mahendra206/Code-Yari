@@ -31,7 +31,9 @@
       <div class="col-lg-8">
         <!-- Main Media Frame -->
         <div class="card-custom p-2 mb-4 overflow-hidden">
-          {% if project.featured_image %}
+          {% if project.get_image_url %}
+          <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="rounded w-100" style="max-height: 480px; object-fit: cover;">
+          {% elif project.featured_image %}
           <img src="{{ project.featured_image.url }}" alt="{{ project.title }}" class="rounded w-100" style="max-height: 480px; object-fit: cover;">
           {% else %}
           <div class="w-100 d-flex flex-column align-items-center justify-content-center py-5 rounded" style="background: linear-gradient(135deg, #1e293b, #0f172a); min-height: 320px;">

@@ -96,6 +96,19 @@ class PortfolioProject(models.Model):
     def description(self):
         return self.full_description
 
+    @property
+    def get_image_url(self):
+        if self.featured_image:
+            return self.featured_image.url
+        slug = self.slug or slugify(self.name)
+        if 'teachmantra' in slug:
+            return '/static/images/portfolio/teachmantra_cover.jpg'
+        if 'nexplay' in slug:
+            return '/static/images/portfolio/nexplay_cover.jpg'
+        if 'houzez' in slug:
+            return '/static/images/portfolio/houzez_cover.jpg'
+        return None
+
 
 class PortfolioImage(models.Model):
     """Gallery images for a portfolio project."""

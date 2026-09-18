@@ -416,7 +416,9 @@
       <div class="col-md-4">
         <div class="service-card h-100 p-3">
           <div class="rounded overflow-hidden mb-3" style="height: 180px; background: #0F172A;">
-            {% if project.featured_image %}
+            {% if project.get_image_url %}
+            <img src="{{ project.get_image_url }}" alt="{{ project.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+            {% elif project.featured_image %}
             <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" style="width: 100%; height: 100%; object-fit: cover;">
             {% else %}
             <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-secondary">
