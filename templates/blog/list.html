@@ -43,7 +43,9 @@
           <article class="blog-card-v2 {{ post.get_theme }}">
             <!-- Cover Banner -->
             <div class="blog-card-cover">
-              {% if post.featured_image %}
+              {% if post.get_image_url %}
+              <img src="{{ post.get_image_url }}" alt="{{ post.title }}" loading="lazy">
+              {% elif post.featured_image %}
               <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
               {% else %}
               <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">

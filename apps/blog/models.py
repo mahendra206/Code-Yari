@@ -111,6 +111,19 @@ class BlogPost(models.Model):
         minutes = max(1, words // 200)
         return minutes
 
+    @property
+    def get_image_url(self):
+        if self.featured_image:
+            return self.featured_image.url
+        slug = self.slug or slugify(self.title)
+        if 'django' in slug:
+            return '/static/images/blog/cover_django.jpg'
+        elif 'seo' in slug or 'google' in slug:
+            return '/static/images/blog/cover_seo.jpg'
+        elif '2025' in slug or 'website' in slug or 'business' in slug:
+            return '/static/images/blog/cover_website2025.jpg'
+        return None
+
     def get_theme(self):
         """Returns visual theme for the blog card."""
         if not self.category:

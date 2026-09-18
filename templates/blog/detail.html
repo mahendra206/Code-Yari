@@ -88,7 +88,9 @@
           <a href="{% url 'blog:detail' rel.slug %}" class="blog-card-link">
             <article class="blog-card-v2 {{ rel.get_theme }}">
               <div class="blog-card-cover" style="height: 140px;">
-                {% if rel.featured_image %}
+                {% if rel.get_image_url %}
+                <img src="{{ rel.get_image_url }}" alt="{{ rel.title }}" loading="lazy">
+                {% elif rel.featured_image %}
                 <img src="{{ rel.featured_image.url }}" alt="{{ rel.title }}" loading="lazy">
                 {% else %}
                 <div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
