@@ -13,4 +13,10 @@ python manage.py collectstatic --no-input
 echo "=== Running database migrations ==="
 python manage.py migrate
 
+echo "=== Seeding initial/demo content & admin ==="
+python manage.py seed_demo_data
+
+echo "=== Collecting static files ==="
+python manage.py collectstatic --no-input
+
 echo "=== Build complete! ==="

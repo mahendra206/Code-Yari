@@ -28,11 +28,19 @@ class Command(BaseCommand):
         self._seed_testimonials()
         self._seed_blog()
         self._seed_faq()
+        self._seed_admin()
         self.stdout.write(self.style.SUCCESS('\n[OK] Demo data seeded successfully!'))
         self.stdout.write(self.style.WARNING(
             '\nNOTE: All demo content is labeled as demo. '
             'Remove with: python manage.py clear_demo_data'
         ))
+
+    def _seed_admin(self):
+        if not User.objects.filter(is_superuser=True).exists():
+            User.objects.create_superuser('admin', 'admin@codeyari.com', 'admin123')
+            self.stdout.write('  [OK] Default Superuser created (user: admin, pass: admin123)')
+        else:
+            self.stdout.write('  [OK] Superuser already exists')
 
     def _seed_site_settings(self):
         settings, _ = SiteSettings.objects.get_or_create(pk=1)
