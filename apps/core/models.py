@@ -98,6 +98,26 @@ class TeamMember(models.Model):
     def __str__(self):
         return f'{self.name} — {self.role}'
 
+    @property
+    def get_photo_url(self):
+        if self.photo:
+            try:
+                return self.photo.url
+            except Exception:
+                pass
+        name_lower = self.name.lower()
+        if 'alex' in name_lower:
+            return '/static/images/team/alex.jpg'
+        elif 'priya' in name_lower:
+            return '/static/images/team/priya.jpg'
+        elif 'rahul' in name_lower:
+            return '/static/images/team/rahul.jpg'
+        elif 'neha' in name_lower:
+            return '/static/images/team/neha.jpg'
+        elif 'mahendra' in name_lower:
+            return '/static/images/mahendra.png'
+        return None
+
 
 class ContactMessage(models.Model):
     """Contact form submissions."""
