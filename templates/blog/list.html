@@ -11,7 +11,6 @@
       <span class="badge-pill-custom">
         <i class="bi bi-journal-richtext"></i> Knowledge Base
       </span>
-      <span class="demo-banner">Demo Articles</span>
     </div>
     <h1 class="display-4 fw-bold mb-3">Tech Insights, Guides & <span class="gradient-text">Strategies</span></h1>
     <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
@@ -54,12 +53,11 @@
               {% endif %}
               <div class="blog-card-cover-overlay"></div>
               
-              <!-- Category Badge & Demo Tag -->
+              <!-- Category Badge -->
               <span class="blog-card-badge">
                 <i class="bi {{ post.get_badge_icon }}"></i>
                 <span>{{ post.category.name|default:"Insights" }}</span>
               </span>
-              <span class="blog-card-demo-tag">Demo</span>
             </div>
 
             <!-- Card Content -->
