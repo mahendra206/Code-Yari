@@ -8,12 +8,18 @@
      1. Hero Section
      ========================================================================== -->
 <section class="hero-full-bleed-section">
+  <!-- Workspace Background Photo with Configured Transparency -->
+  <div class="hero-bg-photo" style="background-image: url('{% static 'images/hero_desk_exact.png' %}');"></div>
+  <!-- Color Combination & Contrast Overlay -->
+  <div class="hero-bg-overlay"></div>
+
   <div class="hero-full-container">
     <!-- Left Hero Content -->
     <div class="hero-left-content">
       <div>
         <span class="hero-pill-partner">
-          Your Digital Growth Partner
+          <i class="bi bi-patch-check-fill text-primary"></i>
+          <span>Your Digital Growth Partner</span>
         </span>
       </div>
 
@@ -48,11 +54,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Right Hero Image Flush to Right Edge with Organic Curve -->
-    <div class="hero-right-bleed">
-      <img src="{% static 'images/hero_desk_exact.png' %}" alt="Code Yari Workspace" class="hero-desk-photo">
     </div>
   </div>
 </section>
