@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoDismissAlerts();
   initScrollToTop();
   initCustomCursor();
+  initLogoAnimation();
 });
 
 /* --------------------------------------------------------------------------
@@ -332,6 +333,7 @@ function initPagePreloader() {
       clearInterval(timer);
       setTimeout(() => {
         preloader.classList.add('loaded');
+        triggerLogoReveal();
         setTimeout(() => {
           preloader.style.display = 'none';
         }, 600);
@@ -348,6 +350,7 @@ function initPagePreloader() {
       if (percentText) percentText.textContent = '100%';
       setTimeout(() => {
         preloader.classList.add('loaded');
+        triggerLogoReveal();
         setTimeout(() => {
           preloader.style.display = 'none';
         }, 600);
@@ -355,5 +358,46 @@ function initPagePreloader() {
     }
   }, 2000);
 }
+
+/* --------------------------------------------------------------------------
+   9. Animated Brand Logo Controller (Letter-by-Letter Stagger & Hover Wave)
+   -------------------------------------------------------------------------- */
+function triggerLogoReveal() {
+  const logos = document.querySelectorAll('.brand-logo-wrap');
+  logos.forEach(logo => {
+    if (!logo.classList.contains('is-revealed')) {
+      logo.classList.add('is-revealed');
+    }
+  });
+}
+
+function initLogoAnimation() {
+  const preloader = document.getElementById('page-preloader');
+  
+  // If preloader doesn't exist or is already marked loaded, trigger immediately
+  if (!preloader || preloader.classList.contains('loaded')) {
+    setTimeout(triggerLogoReveal, 80);
+  } else {
+    // Safety fallback so logo always shows up even if preloader timer encounters any lag
+    setTimeout(triggerLogoReveal, 900);
+  }
+
+  // Interactive Replay: Re-trigger entrance animation on double click / logo click with Ctrl
+  const logos = document.querySelectorAll('.brand-logo-wrap');
+  logos.forEach(logo => {
+    logo.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      replayLogoAnimation(logo);
+    });
+  });
+}
+
+function replayLogoAnimation(logo) {
+  if (!logo) return;
+  logo.classList.remove('is-revealed');
+  void logo.offsetWidth; // Force DOM reflow
+  logo.classList.add('is-revealed');
+}
+
 
 

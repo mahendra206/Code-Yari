@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg site-navbar" id="site-navbar">
   <div class="container-fluid px-lg-5 px-3">
     <!-- Brand Logo -->
-    <a class="navbar-brand d-flex align-items-center me-lg-5" href="{% url 'core:home' %}">
-      <img src="{% static 'images/logo.svg' %}" alt="Code Yari" class="brand-logo-img">
+    <a class="navbar-brand d-flex align-items-center me-lg-5 p-0" href="{% url 'core:home' %}" aria-label="Code Yari">
+      {% include 'partials/brand_logo.html' %}
     </a>
 
     <!-- Mobile Menu Toggler -->

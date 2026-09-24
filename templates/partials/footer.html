@@ -4,8 +4,8 @@
     <div class="row g-4 mb-5">
       <!-- Col 1: Brand & Bio -->
       <div class="col-lg-4 col-md-6">
-        <a class="navbar-brand mb-3 d-inline-block" href="{% url 'core:home' %}">
-          <img src="{% static 'images/logo.svg' %}" alt="Code Yari" class="brand-logo-img mb-2" style="height: 36px;">
+        <a class="navbar-brand mb-3 d-inline-block text-decoration-none" href="{% url 'core:home' %}" aria-label="Code Yari">
+          {% include 'partials/brand_logo.html' with logo_class="logo-footer" %}
         </a>
         <p class="text-secondary mt-3 mb-4 pe-lg-4" style="font-size: 0.95rem;">
           {{ site_settings.meta_description|default:"Code. Create. Grow. We build custom websites, mobile apps, SEO engines, and AI automation tailored to accelerate your business." }}

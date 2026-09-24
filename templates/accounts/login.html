@@ -180,7 +180,9 @@
     <div class="login-card">
       <!-- Logo -->
       <div class="text-center mb-4">
-        <img src="{% static 'images/logo.svg' %}" alt="Code Yari" class="login-logo">
+        <a href="{% url 'core:home' %}" class="d-inline-block mb-3 text-decoration-none" aria-label="Code Yari">
+          {% include 'partials/brand_logo.html' with logo_class="logo-center" %}
+        </a>
         <h1 class="login-title">Welcome Back</h1>
         <p class="login-subtitle">Sign in to your Code Yari account</p>
       </div>
