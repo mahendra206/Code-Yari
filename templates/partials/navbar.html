@@ -21,20 +21,125 @@
             <i class="bi bi-chevron-right ms-auto small opacity-50 d-lg-none"></i>
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown services-nav-dropdown">
           <a class="nav-link nav-link-custom dropdown-toggle {% if request.resolver_match.app_name == 'services' %}active{% endif %}" href="{% url 'services:list' %}" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="nav-item-icon"><i class="bi bi-grid-fill"></i></span>
             <span>Services</span>
           </a>
-          <ul class="dropdown-menu border-0 shadow-lg p-2" aria-labelledby="servicesDropdown" style="border-radius: var(--radius-md); background: var(--bg-card);">
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:list' %}">All Services</a></li>
-            <li><hr class="dropdown-divider my-1"></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'web-development' %}"><i class="bi bi-globe2 me-2 text-primary"></i>Web Development</a></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'app-development' %}"><i class="bi bi-phone me-2 text-success"></i>App Development</a></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'seo-google-ranking' %}"><i class="bi bi-search me-2 text-warning"></i>SEO & Ranking</a></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'digital-marketing' %}"><i class="bi bi-megaphone me-2" style="color: #8B5CF6;"></i>Digital Marketing</a></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'uiux-design' %}"><i class="bi bi-palette me-2 text-danger"></i>UI/UX Design</a></li>
-            <li><a class="dropdown-item py-2 px-3 rounded" href="{% url 'services:detail' 'ai-automation' %}"><i class="bi bi-cpu me-2 text-info"></i>AI & Automation</a></li>
+          <ul class="dropdown-menu dropdown-menu-services border-0 p-2" aria-labelledby="servicesDropdown">
+            <!-- All Services -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.url_name == 'list' and request.resolver_match.app_name == 'services' %}active{% endif %}" href="{% url 'services:list' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-indigo">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">All Services</span>
+                    <span class="service-item-tag">Explore all solutions</span>
+                  </div>
+                </div>
+                <i class="bi bi-arrow-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <li><hr class="dropdown-divider my-1 opacity-25"></li>
+
+            <!-- Web Development -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'web-development' %}active{% endif %}" href="{% url 'services:detail' 'web-development' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-blue">
+                    <i class="bi bi-globe2"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">Web Development</span>
+                    <span class="service-item-tag">Modern & High Speed</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <!-- App Development -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'app-development' %}active{% endif %}" href="{% url 'services:detail' 'app-development' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-green">
+                    <i class="bi bi-phone-fill"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">App Development</span>
+                    <span class="service-item-tag">iOS, Android & Hybrid</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <!-- SEO & Ranking -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'seo-google-ranking' %}active{% endif %}" href="{% url 'services:detail' 'seo-google-ranking' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-amber">
+                    <i class="bi bi-search"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">SEO & Ranking</span>
+                    <span class="service-item-tag">Google #1 Rank Growth</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <!-- Digital Marketing -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'digital-marketing' %}active{% endif %}" href="{% url 'services:detail' 'digital-marketing' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-purple">
+                    <i class="bi bi-megaphone-fill"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">Digital Marketing</span>
+                    <span class="service-item-tag">Ads, ROI & Lead Gen</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <!-- UI/UX Design -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'uiux-design' %}active{% endif %}" href="{% url 'services:detail' 'uiux-design' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-rose">
+                    <i class="bi bi-palette-fill"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">UI/UX Design</span>
+                    <span class="service-item-tag">Figma & User Journeys</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
+
+            <!-- AI & Automation -->
+            <li class="service-menu-item">
+              <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.kwargs.slug == 'ai-automation' %}active{% endif %}" href="{% url 'services:detail' 'ai-automation' %}">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="service-icon-pill pill-cyan">
+                    <i class="bi bi-cpu-fill"></i>
+                  </span>
+                  <div class="service-text-group">
+                    <span class="service-item-title">AI & Automation</span>
+                    <span class="service-item-tag">Chatbots & Smart Flows</span>
+                  </div>
+                </div>
+                <i class="bi bi-chevron-right service-item-arrow"></i>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item">
