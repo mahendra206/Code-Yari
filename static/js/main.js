@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPagePreloader();
   initTheme();
   initNavbarScroll();
   initMobileNavbar();
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortfolioFilter();
   initAutoDismissAlerts();
   initScrollToTop();
+  initCustomCursor();
 });
 
 /* --------------------------------------------------------------------------
@@ -200,3 +202,158 @@ function initScrollToTop() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   7. Custom Interactive Cursor (Dot + Circle Ring Follower)
+   -------------------------------------------------------------------------- */
+function initCustomCursor() {
+  // Only enable on desktop devices with fine pointer (mouse)
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const dot = document.getElementById('cursorDot');
+  const circle = document.getElementById('cursorCircle');
+  if (!dot || !circle) return;
+
+  document.body.classList.add('custom-cursor-active');
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let circleX = -100;
+  let circleY = -100;
+  let isVisible = false;
+
+  // Track mouse position
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!isVisible) {
+      isVisible = true;
+      circleX = mouseX;
+      circleY = mouseY;
+      dot.style.opacity = '1';
+      circle.style.opacity = '1';
+    }
+
+    // Dot snaps directly to mouse coordinates
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  }, { passive: true });
+
+  // Outer circle follows with smooth fluid easing (LERP)
+  const speed = 0.16; // Easing speed
+  function animateCircle() {
+    if (isVisible) {
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+      circle.style.left = circleX + 'px';
+      circle.style.top = circleY + 'px';
+    }
+    requestAnimationFrame(animateCircle);
+  }
+  requestAnimationFrame(animateCircle);
+
+  // Fade out on window leave
+  document.addEventListener('mouseleave', () => {
+    isVisible = false;
+    dot.style.opacity = '0';
+    circle.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    isVisible = true;
+    dot.style.opacity = '1';
+    circle.style.opacity = '1';
+  });
+
+  // Clicking effect
+  window.addEventListener('mousedown', () => {
+    circle.classList.add('cursor-clicking');
+    dot.classList.add('cursor-clicking');
+  });
+
+  window.addEventListener('mouseup', () => {
+    circle.classList.remove('cursor-clicking');
+    dot.classList.remove('cursor-clicking');
+  });
+
+  // Interactive hover expansion
+  const interactiveSelector = 'a, button, input, select, textarea, [role="button"], .btn, .service-v2-card-link, .portfolio-card, .filter-btn, .theme-toggle-btn, .social-icon-link';
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
+      circle.classList.add('cursor-hover');
+      dot.classList.add('cursor-hover');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
+      circle.classList.remove('cursor-hover');
+      dot.classList.remove('cursor-hover');
+    }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Premium Page Preloader & Dynamic Progress Indicator
+   -------------------------------------------------------------------------- */
+function initPagePreloader() {
+  const preloader = document.getElementById('page-preloader');
+  const progressBar = document.getElementById('preloaderBar');
+  const percentText = document.getElementById('preloaderPercent');
+  if (!preloader) return;
+
+  let progress = 0;
+  let isWindowLoaded = (document.readyState === 'complete');
+
+  window.addEventListener('load', () => {
+    isWindowLoaded = true;
+  });
+
+  const timer = setInterval(() => {
+    // Smooth progress increment
+    if (progress < 65) {
+      progress += Math.floor(Math.random() * 7) + 5;
+    } else if (progress < 85) {
+      progress += isWindowLoaded ? 7 : 3;
+    } else if (progress < 99 && isWindowLoaded) {
+      progress += 6;
+    } else if (isWindowLoaded) {
+      progress = 100;
+    }
+
+    if (progress > 100) progress = 100;
+
+    if (progressBar) progressBar.style.width = progress + '%';
+    if (percentText) percentText.textContent = progress + '%';
+
+    if (progress >= 100) {
+      clearInterval(timer);
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 600);
+      }, 180);
+    }
+  }, 28);
+
+  // Fallback safety timeout (max 2 seconds)
+  setTimeout(() => {
+    isWindowLoaded = true;
+    if (progress < 100) {
+      progress = 100;
+      if (progressBar) progressBar.style.width = '100%';
+      if (percentText) percentText.textContent = '100%';
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 600);
+      }, 150);
+    }
+  }, 2000);
+}
+
+

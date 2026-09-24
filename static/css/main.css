@@ -2835,3 +2835,284 @@ img {
   background-color: var(--brand-blue);
   color: #ffffff;
 }
+
+/* ==========================================================================
+   Custom Interactive Cursor (Dot + Circle Ring)
+   ========================================================================== */
+@media (pointer: fine) and (hover: hover) {
+
+  .custom-cursor-dot,
+  .custom-cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9999999;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    will-change: left, top, transform, opacity;
+  }
+
+  /* Inner Solid Point */
+  .custom-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--brand-blue, #2563EB);
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.45);
+    transition: opacity 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+  }
+
+  /* Outer Circle Ring */
+  .custom-cursor-circle {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--brand-blue, #2563EB);
+    background-color: rgba(37, 99, 235, 0.04);
+    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  /* Dark mode cursor styling */
+  [data-theme="dark"] .custom-cursor-dot {
+    background-color: #60A5FA;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.7);
+  }
+
+  [data-theme="dark"] .custom-cursor-circle {
+    border-color: rgba(96, 165, 250, 0.8);
+    background-color: rgba(96, 165, 250, 0.08);
+  }
+
+  /* Hover state over interactive items */
+  .custom-cursor-circle.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.45);
+    background-color: rgba(37, 99, 235, 0.12);
+    border-color: var(--brand-blue, #2563EB);
+  }
+
+  [data-theme="dark"] .custom-cursor-circle.cursor-hover {
+    background-color: rgba(96, 165, 250, 0.22);
+    border-color: #60A5FA;
+  }
+
+  .custom-cursor-dot.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  /* Clicking state */
+  .custom-cursor-circle.cursor-clicking {
+    transform: translate(-50%, -50%) scale(0.85);
+    background-color: rgba(37, 99, 235, 0.25);
+  }
+
+  .custom-cursor-dot.cursor-clicking {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
+
+/* Touch devices (Mobile / Tablet) - completely hide */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor-dot,
+  .custom-cursor-circle {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Page Preloader Animation & Modern Loader Screen
+   ========================================================================== */
+.page-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFFF;
+  z-index: 99999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-theme="dark"] .page-preloader {
+  background-color: #0B0F19;
+}
+
+.page-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px) scale(1.02);
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 320px;
+}
+
+/* Glowing Logo with Concentric Pulse Rings */
+.preloader-logo-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.preloader-logo-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #4F46E5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  position: relative;
+  z-index: 2;
+  animation: preloaderFloat 2.2s ease-in-out infinite;
+}
+
+@keyframes preloaderFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.preloader-pulse-ring,
+.preloader-pulse-ring-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 99, 235, 0.45);
+  pointer-events: none;
+  animation: preloaderRipple 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.preloader-pulse-ring-2 {
+  animation-delay: 0.8s;
+}
+
+@keyframes preloaderRipple {
+  0% {
+    width: 56px;
+    height: 56px;
+    opacity: 0.85;
+  }
+  100% {
+    width: 115px;
+    height: 115px;
+    opacity: 0;
+  }
+}
+
+/* Brand Text */
+.preloader-brand {
+  margin-bottom: 1.35rem;
+}
+
+.preloader-brand-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+  display: block;
+}
+
+[data-theme="dark"] .preloader-brand-title {
+  color: #F8FAFC;
+}
+
+.preloader-brand-accent {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .preloader-brand-accent {
+  background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.preloader-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #64748B;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+[data-theme="dark"] .preloader-tagline {
+  color: #94A3B8;
+}
+
+/* Sleek Minimal Progress Track & Bar */
+.preloader-progress-track {
+  width: 190px;
+  height: 4px;
+  background-color: #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.65rem;
+}
+
+[data-theme="dark"] .preloader-progress-track {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563EB, #60A5FA, #4F46E5);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+  animation: preloaderGradientShift 2s linear infinite;
+  transition: width 0.1s linear;
+}
+
+@keyframes preloaderGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Percentage Number Counter */
+.preloader-percentage {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2563EB;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-theme="dark"] .preloader-percentage {
+  color: #60A5FA;
+}
