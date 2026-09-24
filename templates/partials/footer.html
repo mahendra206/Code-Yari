@@ -1,112 +1,109 @@
 {% load static %}
 <footer class="site-footer">
   <div class="container">
-    <div class="row g-4 mb-5">
+    <div class="row g-4 g-lg-5 mb-5">
       <!-- Col 1: Brand & Bio -->
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-3 col-md-12 col-12 mb-4 mb-lg-0">
         <a class="navbar-brand mb-3 d-inline-block text-decoration-none" href="{% url 'core:home' %}" aria-label="Code Yari">
           {% include 'partials/brand_logo.html' with logo_class="logo-footer" %}
         </a>
-        <p class="text-secondary mt-3 mb-4 pe-lg-4" style="font-size: 0.95rem;">
-          {{ site_settings.meta_description|default:"Code. Create. Grow. We build custom websites, mobile apps, SEO engines, and AI automation tailored to accelerate your business." }}
+        <p class="footer-bio-text pe-xl-3" style="max-width: 480px;">
+          A young digital technology team, providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.
         </p>
-        <div class="d-flex gap-2">
-          {% if site_settings.github_url %}
-          <a href="{{ site_settings.github_url }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="GitHub">
-            <i class="bi bi-github"></i>
-          </a>
-          {% endif %}
-          {% if site_settings.linkedin_url %}
-          <a href="{{ site_settings.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn">
+        <div class="d-flex gap-2 mt-4">
+          <a href="{{ site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          {% endif %}
-          {% if site_settings.instagram_url %}
-          <a href="{{ site_settings.instagram_url }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Instagram">
+          <a href="{{ site_settings.instagram_url|default:'https://instagram.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          {% endif %}
-          {% if site_settings.twitter_url %}
-          <a href="{{ site_settings.twitter_url }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Twitter">
-            <i class="bi bi-twitter-x"></i>
+          <a href="{{ site_settings.youtube_url|default:'https://youtube.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
           </a>
-          {% endif %}
+          <a href="{{ site_settings.github_url|default:'https://github.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
         </div>
       </div>
 
-      <!-- Col 2: Services Quick Links -->
-      <div class="col-lg-3 col-md-6">
+      <!-- Col 2: Services -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Services</h4>
         <ul class="footer-links">
-          <li><a href="{% url 'services:list' %}">Web Development</a></li>
-          <li><a href="{% url 'services:list' %}">Mobile App Development</a></li>
-          <li><a href="{% url 'services:list' %}">SEO & Google Ranking</a></li>
-          <li><a href="{% url 'services:list' %}">UI/UX & Product Design</a></li>
-          <li><a href="{% url 'services:list' %}">AI & Automation Solutions</a></li>
-          <li><a href="{% url 'services:list' %}">Digital Marketing & Growth</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'web-development' %}">Web Development</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'app-development' %}">Mobile App Development</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'seo-google-ranking' %}">SEO & Google Ranking</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'uiux-design' %}">UI/UX & Product Design</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'ai-automation' %}">AI & Automation Solutions</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'digital-marketing' %}">Digital Marketing & Growth</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Navigation & Company -->
-      <div class="col-lg-2 col-md-6">
+      <!-- Col 3: Company -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Company</h4>
         <ul class="footer-links">
-          <li><a href="{% url 'core:about' %}">About Us</a></li>
-          <li><a href="{% url 'core:team' %}">Our Team</a></li>
-          <li><a href="{% url 'portfolio:list' %}">Portfolio</a></li>
-          <li><a href="{% url 'blog:list' %}">Blog & Articles</a></li>
-          <li><a href="{% url 'testimonials:list' %}">Client Reviews</a></li>
-          <li><a href="{% url 'faq:list' %}">FAQs</a></li>
-          <li><a href="{% url 'core:contact' %}">Contact</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:about' %}">About Us</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:team' %}">Our Team</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'portfolio:list' %}">Portfolio</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Blog & Articles</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'testimonials:list' %}">Client Reviews</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'faq:list' %}">FAQs</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:contact' %}">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Contact Info -->
-      <div class="col-lg-3 col-md-6">
-        <h4 class="footer-heading">Get in Touch</h4>
+      <!-- Col 4: Resources -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
+        <h4 class="footer-heading">Resources</h4>
         <ul class="footer-links">
-          {% if site_settings.email %}
-          <li class="d-flex align-items-center gap-2 text-secondary">
-            <i class="bi bi-envelope-fill text-primary"></i>
-            <a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>
-          </li>
-          {% endif %}
-          {% if site_settings.phone %}
-          <li class="d-flex align-items-center gap-2 text-secondary">
-            <i class="bi bi-telephone-fill text-primary"></i>
-            <a href="tel:{{ site_settings.phone }}">{{ site_settings.phone }}</a>
-          </li>
-          {% endif %}
-          {% if site_settings.address %}
-          <li class="d-flex align-items-center gap-2 text-secondary">
-            <i class="bi bi-geo-alt-fill text-primary"></i>
-            <span>{{ site_settings.address }}</span>
-          </li>
-          {% endif %}
-          {% if site_settings.business_hours %}
-          <li class="d-flex align-items-center gap-2 text-secondary">
-            <i class="bi bi-clock-fill text-primary"></i>
-            <span>{{ site_settings.business_hours }}</span>
-          </li>
-          {% endif %}
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Blog</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'portfolio:list' %}">Case Studies</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:list' %}">Tools & Resources</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Guides</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:about' %}#career">Career</a></li>
+          <li><span class="footer-bullet">&bull;</span><a href="{% url 'faq:list' %}">Support</a></li>
         </ul>
-        <div class="mt-3">
-          <a href="{% url 'leads:get_quote' %}" class="btn-brand-outline btn-sm-custom w-100 text-center">
-            <span>Request a Quote</span>
+      </div>
+
+      <!-- Col 5: Get in Touch -->
+      <div class="col-lg-3 col-md-3 col-6 mb-4 mb-md-0">
+        <h4 class="footer-heading">Get in Touch</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:{{ site_settings.email|default:'hello@codeyari.com' }}">{{ site_settings.email|default:'hello@codeyari.com' }}</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:{{ site_settings.phone|default:'+919876543210' }}">{{ site_settings.phone|default:'+91 98765 43210' }}</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>{{ site_settings.address|default:'India' }}</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="bi bi-clock-fill"></i>
+            <span>{{ site_settings.business_hours|default:'Mon–Sat, 10AM–7PM IST' }}</span>
+          </li>
+        </ul>
+        <div class="mt-3 mt-md-4">
+          <a href="{% url 'leads:get_quote' %}" class="btn-footer-quote">
+            Request a Quote
           </a>
         </div>
       </div>
     </div>
 
     <!-- Bottom Bar: Copyright & Legal -->
-    <div class="pt-4 border-top border-subtle d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <p class="text-secondary small mb-0">
+    <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="footer-copyright-text mb-0">
         &copy; {% now "Y" %} Code Yari. All rights reserved. Sirf code nahi, Yari ke saath solution.
       </p>
-      <div class="d-flex gap-3 small">
-        <a href="{% url 'core:privacy_policy' %}" class="text-secondary">Privacy Policy</a>
-        <span class="text-muted">&bull;</span>
-        <a href="{% url 'core:terms' %}" class="text-secondary">Terms & Conditions</a>
+      <div class="d-flex align-items-center gap-2 footer-legal-links">
+        <a href="{% url 'core:privacy_policy' %}">Privacy Policy</a>
+        <span class="legal-dot">&bull;</span>
+        <a href="{% url 'core:terms' %}">Terms & Conditions</a>
       </div>
     </div>
   </div>

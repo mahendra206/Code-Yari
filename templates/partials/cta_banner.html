@@ -1,26 +1,31 @@
 {% load static %}
-<section class="section-wrapper py-5">
+<section class="site-cta-section">
   <div class="container">
-    <div class="cta-banner-card p-4 p-md-5 text-center position-relative overflow-hidden">
-      <div class="cta-glow"></div>
-      <div class="position-relative z-1 py-3">
-        <span class="badge-pill-custom mb-3">
-          <i class="bi bi-rocket-takeoff-fill"></i> Ready to Accelerate?
-        </span>
-        <h2 class="display-6 fw-bold mb-3 text-white">
-          Have a Project in Mind? <span style="color: #38BDF8;">Let's Build It Together.</span>
-        </h2>
-        <p class="mx-auto mb-4" style="max-width: 620px; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85);">
-          From responsive websites to mobile apps and high-ranking SEO setups, Code Yari brings your vision to reality with speed and precision.
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="{% url 'leads:get_quote' %}" class="btn-brand">
-            <span>Get a Free Project Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="{% url 'core:contact' %}" class="btn-brand-outline">
-            <i class="bi bi-chat-dots"></i>
-            <span>Talk to Our Team</span>
+    <div class="cta-inner-card position-relative overflow-hidden">
+      <!-- Decorative Glow Orbs -->
+      <div class="cta-orb-ring cta-orb-outer" aria-hidden="true"></div>
+      <div class="cta-orb-ring cta-orb-inner" aria-hidden="true"></div>
+      <div class="cta-orb-dot" aria-hidden="true"></div>
+
+      <div class="row align-items-center justify-content-between position-relative z-1 g-3 g-md-4">
+        <!-- Left: Badge, Heading & Subtitle -->
+        <div class="col-lg-8 col-md-8 col-12">
+          <div class="cta-badge-pill mb-3">
+            <i class="bi bi-megaphone-fill me-2"></i>Let's Work Together
+          </div>
+          <h2 class="cta-main-title mb-2 mb-md-3">
+            Let's Build Something <span class="cta-accent-text">Great Together.</span>
+          </h2>
+          <p class="cta-sub-text mb-0">
+            Have an idea? Let's turn it into a digital solution that grows your business.
+          </p>
+        </div>
+
+        <!-- Right: Action Button -->
+        <div class="col-lg-4 col-md-4 col-12 text-md-end text-start pt-2 pt-md-0">
+          <a href="{% url 'leads:get_quote' %}" class="btn-cta-quote">
+            <span>Get a Quote</span>
+            <i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
       </div>

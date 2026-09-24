@@ -2256,33 +2256,556 @@ img {
 }
 
 /* ==========================================================================
-   Footer
+   CTA Banner Section — Light & Dark Modes
    ========================================================================== */
-.site-footer-clean {
-  background-color: var(--bg-card);
-  border-top: 1px solid var(--border-card);
-  padding: 4.5rem 0 2rem 0;
+.site-cta-section {
+  padding: 3.5rem 0 1.5rem 0;
+  background-color: transparent;
+  position: relative;
 }
 
+.cta-inner-card {
+  border-radius: 28px;
+  padding: 3rem 3.5rem;
+  background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #DBEAFE 100%);
+  border: 1.5px solid rgba(191, 219, 254, 0.7);
+  box-shadow: 0 20px 45px -15px rgba(37, 99, 235, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #DBEAFE;
+  color: #1D4ED8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.95rem;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+}
+
+.cta-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.cta-accent-text {
+  color: #2563EB;
+}
+
+.cta-sub-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.02rem;
+  color: #475569;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.btn-cta-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563EB;
+  color: #FFFFFF !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-cta-quote:hover {
+  background: #1D4ED8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+}
+
+/* Decorative Background Rings & Dots in CTA */
+.cta-orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-orb-outer {
+  width: 320px;
+  height: 320px;
+  top: -80px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, rgba(219, 234, 254, 0.1) 70%, transparent 100%);
+  border: 1.5px solid rgba(191, 219, 254, 0.4);
+}
+
+.cta-orb-inner {
+  width: 180px;
+  height: 180px;
+  top: -20px;
+  right: 40px;
+  background: radial-gradient(circle, rgba(224, 231, 255, 0.6) 0%, transparent 70%);
+}
+
+.cta-orb-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 35px;
+  right: 220px;
+  border-radius: 50%;
+  background: #60A5FA;
+  box-shadow: 0 0 14px rgba(96, 165, 250, 0.8);
+}
+
+/* Dark Theme CTA */
+[data-theme="dark"] .cta-inner-card {
+  background: linear-gradient(135deg, #05142B 0%, #07224A 45%, #031024 100%) !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.25) !important;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.8),
+              0 0 30px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="dark"] .cta-badge-pill {
+  background: rgba(37, 99, 235, 0.25) !important;
+  color: #93C5FD !important;
+  border: 1px solid rgba(96, 165, 250, 0.3) !important;
+}
+
+[data-theme="dark"] .cta-main-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .cta-accent-text {
+  color: #38BDF8 !important;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="dark"] .cta-sub-text {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .btn-cta-quote {
+  background: #2563EB !important;
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.55) !important;
+}
+
+[data-theme="dark"] .btn-cta-quote:hover {
+  background: #1D4ED8 !important;
+  box-shadow: 0 10px 32px rgba(56, 189, 248, 0.6) !important;
+}
+
+[data-theme="dark"] .cta-orb-outer {
+  background: radial-gradient(circle, rgba(14, 116, 144, 0.25) 0%, rgba(30, 58, 138, 0.1) 70%, transparent 100%) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 0 50px rgba(37, 99, 235, 0.25);
+}
+
+[data-theme="dark"] .cta-orb-inner {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%) !important;
+}
+
+[data-theme="dark"] .cta-orb-dot {
+  background: #38BDF8 !important;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 1) !important;
+}
+
+/* ==========================================================================
+   Main Footer — Light & Dark Modes
+   ========================================================================== */
+.site-footer {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #E2E8F0 !important;
+  padding: 4.5rem 0 2rem 0 !important;
+  color: #475569 !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-bio-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #64748B;
+  margin-top: 0.85rem;
+}
+
+/* Headings */
+.footer-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+/* Bullet Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.footer-bullet {
+  color: #2563EB;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+
+.footer-links li a {
+  color: #475569;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  flex: 1;
+  word-break: break-word;
+}
+
+.footer-links li a:hover {
+  color: #2563EB;
+  transform: translateX(4px);
+}
+
+/* Social Icon Buttons */
 .social-circle-link {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid var(--border-card);
+  border: 1px solid #E2E8F0;
+  background: #F1F5F9;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-  background: var(--bg-card);
+  color: #2563EB;
+  font-size: 1.05rem;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
 }
 
 .social-circle-link:hover {
-  background-color: var(--brand-blue);
-  border-color: var(--brand-blue);
+  background-color: #2563EB;
+  border-color: #2563EB;
   color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* Contact Info List */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.footer-contact-item i {
+  color: #2563EB;
+  font-size: 1rem;
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+
+.footer-contact-item a {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  flex: 1;
+  word-break: break-word;
+}
+
+.footer-contact-item a:hover {
+  color: #2563EB;
+}
+
+.footer-contact-item span {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Request a Quote Button in Footer */
+.btn-footer-quote {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.65rem 1.25rem;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  border: 1.5px solid #2563EB;
+  color: #2563EB;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-footer-quote:hover {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
   transform: translateY(-2px);
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  border-top: 1px solid #E2E8F0;
+  padding-top: 1.75rem;
+  margin-top: 3.5rem;
+}
+
+.footer-copyright-text {
+  font-size: 0.88rem;
+  color: #64748B;
+}
+
+.footer-legal-links a {
+  color: #64748B;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #2563EB;
+}
+
+.legal-dot {
+  color: #CBD5E1;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Main Footer — Dark Theme Mode
+   ========================================================================== */
+[data-theme="dark"] .site-footer {
+  background-color: #060B14 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-bio-text {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-heading {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .footer-bullet {
+  color: #38BDF8 !important;
+}
+
+[data-theme="dark"] .footer-links li a {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-links li a:hover {
+  color: #38BDF8 !important;
+}
+
+[data-theme="dark"] .social-circle-link {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .social-circle-link:hover {
+  background-color: #2563EB !important;
+  border-color: #2563EB !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.5) !important;
+}
+
+[data-theme="dark"] .footer-contact-item {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-contact-item i {
+  color: #38BDF8 !important;
+}
+
+[data-theme="dark"] .footer-contact-item a {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-contact-item a:hover {
+  color: #38BDF8 !important;
+}
+
+[data-theme="dark"] .btn-footer-quote {
+  background-color: #2563EB !important;
+  border: 1.5px solid #2563EB !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45) !important;
+}
+
+[data-theme="dark"] .btn-footer-quote:hover {
+  background-color: #1D4ED8 !important;
+  box-shadow: 0 8px 26px rgba(56, 189, 248, 0.6) !important;
+}
+
+[data-theme="dark"] .footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .footer-copyright-text {
+  color: #64748B !important;
+}
+
+[data-theme="dark"] .footer-legal-links a {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .footer-legal-links a:hover {
+  color: #38BDF8 !important;
+}
+
+[data-theme="dark"] .legal-dot {
+  color: #334155 !important;
+}
+
+/* ==========================================================================
+   Responsive Optimizations — Tablet (768px - 991px)
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .cta-inner-card {
+    padding: 2.4rem 2rem !important;
+    border-radius: 22px !important;
+  }
+  .cta-main-title {
+    font-size: 1.85rem !important;
+  }
+  .cta-sub-text {
+    font-size: 0.95rem !important;
+  }
+  .site-footer {
+    padding: 3.5rem 0 2.5rem 0 !important;
+  }
+  .footer-heading {
+    font-size: 0.96rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+  .footer-links li {
+    font-size: 0.86rem !important;
+    margin-bottom: 0.55rem !important;
+  }
+  .footer-contact-item {
+    font-size: 0.86rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+  .btn-footer-quote {
+    font-size: 0.86rem !important;
+    padding: 0.55rem 0.8rem !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Optimizations — Mobile Screens (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .site-cta-section {
+    padding: 2.2rem 0 1rem 0 !important;
+  }
+  .cta-inner-card {
+    padding: 1.85rem 1.35rem !important;
+    border-radius: 20px !important;
+  }
+  .cta-badge-pill {
+    font-size: 0.76rem !important;
+    padding: 0.3rem 0.75rem !important;
+  }
+  .cta-main-title {
+    font-size: 1.45rem !important;
+    line-height: 1.3 !important;
+  }
+  .cta-sub-text {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+  .btn-cta-quote {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.92rem !important;
+  }
+  .cta-orb-outer {
+    width: 180px !important;
+    height: 180px !important;
+    right: -50px !important;
+    top: -40px !important;
+    opacity: 0.35 !important;
+  }
+  .cta-orb-inner,
+  .cta-orb-dot {
+    display: none !important;
+  }
+  .site-footer {
+    padding: 2.8rem 0 5.5rem 0 !important; /* Bottom clearance for WhatsApp floating button */
+  }
+  .footer-bio-text {
+    font-size: 0.88rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .footer-heading {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 0.35rem !important;
+  }
+  .footer-links li {
+    font-size: 0.84rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .footer-contact-item {
+    font-size: 0.84rem !important;
+    gap: 0.55rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .btn-footer-quote {
+    font-size: 0.88rem !important;
+    padding: 0.65rem 1rem !important;
+  }
+  .footer-bottom-bar {
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.65rem !important;
+  }
+  .footer-copyright-text {
+    font-size: 0.82rem !important;
+    text-align: center !important;
+  }
+  .footer-legal-links {
+    justify-content: center !important;
+  }
 }
 
 /* ==========================================================================
@@ -2597,25 +3120,7 @@ img {
   color: var(--text-main) !important;
 }
 
-/* --- Footer --- */
-[data-theme="dark"] .site-footer,
-[data-theme="dark"] .site-footer-clean {
-  background-color: #0a0d16 !important;
-  border-top-color: var(--border-card) !important;
-  color: var(--text-muted) !important;
-}
 
-[data-theme="dark"] .footer-heading {
-  color: #F8FAFC !important;
-}
-
-[data-theme="dark"] .footer-links li a {
-  color: var(--text-muted) !important;
-}
-
-[data-theme="dark"] .footer-links li a:hover {
-  color: var(--brand-blue) !important;
-}
 
 /* --- Hero Section --- */
 [data-theme="dark"] .hero-full-bleed-section {
