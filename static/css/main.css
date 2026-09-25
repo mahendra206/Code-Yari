@@ -716,6 +716,22 @@ img {
   pointer-events: auto;
 }
 
+@media (min-width: 992px) {
+  .services-nav-dropdown:hover > .dropdown-menu-services {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+  }
+  .services-nav-dropdown:hover > .dropdown-menu-services .service-menu-item {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+  .services-nav-dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg) !important;
+  }
+}
+
 /* Staggered entrance for each option */
 .dropdown-menu-services .service-menu-item {
   list-style: none;
@@ -726,7 +742,8 @@ img {
 }
 
 .services-nav-dropdown .dropdown-menu-services.show .service-menu-item,
-.services-nav-dropdown.show .dropdown-menu-services .service-menu-item {
+.services-nav-dropdown.show .dropdown-menu-services .service-menu-item,
+.services-nav-dropdown:hover > .dropdown-menu-services .service-menu-item {
   opacity: 1;
   transform: translateX(0);
 }
@@ -1223,11 +1240,16 @@ img {
   }
 
   .site-navbar .nav-item.dropdown .dropdown-menu.show,
-  .site-navbar .nav-item.dropdown.show .dropdown-menu {
+  .site-navbar .nav-item.dropdown.show .dropdown-menu,
+  .site-navbar .services-nav-dropdown.mobile-open .dropdown-menu {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     animation: mobileSubmenuIn 0.2s ease forwards;
+  }
+
+  .services-nav-dropdown.mobile-open .dropdown-toggle::after {
+    transform: rotate(180deg) !important;
   }
 
   @keyframes mobileSubmenuIn {
@@ -1242,7 +1264,8 @@ img {
   }
 
   .site-navbar .nav-item.dropdown .dropdown-menu.show .service-menu-item,
-  .site-navbar .nav-item.dropdown.show .dropdown-menu .service-menu-item {
+  .site-navbar .nav-item.dropdown.show .dropdown-menu .service-menu-item,
+  .site-navbar .services-nav-dropdown.mobile-open .dropdown-menu .service-menu-item {
     opacity: 1 !important;
     transform: none !important;
     pointer-events: auto !important;

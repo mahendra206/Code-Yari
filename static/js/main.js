@@ -77,7 +77,23 @@ function initMobileNavbar() {
   const navbarCollapse = document.getElementById('navbarMain');
   if (!navbarCollapse) return;
 
-  // Auto-close drawer on standard link click
+  const servicesDropdownToggle = document.getElementById('servicesDropdown');
+  const servicesDropdownParent = servicesDropdownToggle ? servicesDropdownToggle.closest('.services-nav-dropdown') : null;
+
+  // Toggle Services dropdown on mobile without Bootstrap collision
+  if (servicesDropdownToggle && servicesDropdownParent) {
+    servicesDropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopPropagation();
+        servicesDropdownParent.classList.toggle('mobile-open');
+        const isOpen = servicesDropdownParent.classList.contains('mobile-open');
+        servicesDropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    });
+  }
+
+  // Auto-close drawer on standard link click (excluding the dropdown toggle itself)
   const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn-navbar-quote, .btn-navbar-login');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -88,41 +104,20 @@ function initMobileNavbar() {
     });
   });
 
-  // Ensure Services dropdown toggles cleanly in mobile drawer
-  const servicesDropdownToggle = document.getElementById('servicesDropdown');
-  if (servicesDropdownToggle) {
-    servicesDropdownToggle.addEventListener('click', (e) => {
-      if (window.innerWidth < 992) {
-        e.preventDefault();
-        e.stopPropagation();
-        const menu = servicesDropdownToggle.nextElementSibling;
-        const parent = servicesDropdownToggle.closest('.dropdown');
-        if (menu) {
-          const isOpen = menu.classList.contains('show');
-          if (isOpen) {
-            menu.classList.remove('show');
-            if (parent) parent.classList.remove('show');
-            servicesDropdownToggle.setAttribute('aria-expanded', 'false');
-          } else {
-            menu.classList.add('show');
-            if (parent) parent.classList.add('show');
-            servicesDropdownToggle.setAttribute('aria-expanded', 'true');
-          }
-        }
-      }
-    });
-  }
-
   // When mobile drawer closes, collapse dropdown
   navbarCollapse.addEventListener('hidden.bs.collapse', () => {
-    const openDropdowns = navbarCollapse.querySelectorAll('.dropdown-menu.show');
-    openDropdowns.forEach(menu => {
-      menu.classList.remove('show');
-      const toggle = menu.previousElementSibling;
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      const parent = menu.closest('.dropdown');
-      if (parent) parent.classList.remove('show');
-    });
+    if (servicesDropdownParent) {
+      servicesDropdownParent.classList.remove('mobile-open');
+      servicesDropdownToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Clean up mobile state when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992 && servicesDropdownParent) {
+      servicesDropdownParent.classList.remove('mobile-open');
+      servicesDropdownToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 }
 
@@ -351,14 +346,12 @@ function initPagePreloader() {
   });
 
   const timer = setInterval(() => {
-    // Smooth progress increment
-    if (progress < 65) {
-      progress += Math.floor(Math.random() * 7) + 5;
-    } else if (progress < 85) {
-      progress += isWindowLoaded ? 7 : 3;
-    } else if (progress < 99 && isWindowLoaded) {
-      progress += 6;
-    } else if (isWindowLoaded) {
+    // Fast, smooth progress increment
+    if (progress < 70) {
+      progress += Math.floor(Math.random() * 8) + 10;
+    } else if (progress < 95) {
+      progress += 8;
+    } else {
       progress = 100;
     }
 
@@ -369,32 +362,31 @@ function initPagePreloader() {
 
     if (progress >= 100) {
       clearInterval(timer);
+      preloader.style.pointerEvents = 'none';
       setTimeout(() => {
         preloader.classList.add('loaded');
         triggerLogoReveal();
         setTimeout(() => {
           preloader.style.display = 'none';
-        }, 600);
-      }, 180);
+        }, 350);
+      }, 80);
     }
-  }, 28);
+  }, 18);
 
-  // Fallback safety timeout (max 2 seconds)
+  // Fallback safety timeout (snappy max 500ms cap)
   setTimeout(() => {
-    isWindowLoaded = true;
-    if (progress < 100) {
-      progress = 100;
+    clearInterval(timer);
+    preloader.style.pointerEvents = 'none';
+    if (!preloader.classList.contains('loaded')) {
       if (progressBar) progressBar.style.width = '100%';
       if (percentText) percentText.textContent = '100%';
+      preloader.classList.add('loaded');
+      triggerLogoReveal();
       setTimeout(() => {
-        preloader.classList.add('loaded');
-        triggerLogoReveal();
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 600);
-      }, 150);
+        preloader.style.display = 'none';
+      }, 350);
     }
-  }, 2000);
+  }, 500);
 }
 
 /* --------------------------------------------------------------------------
