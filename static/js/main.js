@@ -365,10 +365,11 @@ function initPagePreloader() {
       preloader.style.pointerEvents = 'none';
       setTimeout(() => {
         preloader.classList.add('loaded');
-        triggerLogoReveal();
+        // Trigger letter-by-letter reveal right after preloader fades out so it is 100% visible
         setTimeout(() => {
           preloader.style.display = 'none';
-        }, 350);
+          triggerLogoReveal();
+        }, 320);
       }, 80);
     }
   }, 18);
@@ -381,10 +382,10 @@ function initPagePreloader() {
       if (progressBar) progressBar.style.width = '100%';
       if (percentText) percentText.textContent = '100%';
       preloader.classList.add('loaded');
-      triggerLogoReveal();
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 350);
+        triggerLogoReveal();
+      }, 320);
     }
   }, 500);
 }
@@ -392,8 +393,8 @@ function initPagePreloader() {
 /* --------------------------------------------------------------------------
    9. Animated Brand Logo Controller (Letter-by-Letter Stagger & Hover Wave)
    -------------------------------------------------------------------------- */
-function triggerLogoReveal() {
-  const logos = document.querySelectorAll('.brand-logo-wrap');
+function triggerLogoReveal(targetLogo) {
+  const logos = targetLogo ? [targetLogo] : document.querySelectorAll('.brand-logo-wrap');
   logos.forEach(logo => {
     if (!logo.classList.contains('is-revealed')) {
       logo.classList.add('is-revealed');
@@ -403,28 +404,83 @@ function triggerLogoReveal() {
 
 function initLogoAnimation() {
   const preloader = document.getElementById('page-preloader');
+  const navbarLogo = document.querySelector('.site-navbar .brand-logo-wrap');
   
   // If preloader doesn't exist or is already marked loaded, trigger immediately
-  if (!preloader || preloader.classList.contains('loaded')) {
-    setTimeout(triggerLogoReveal, 80);
+  if (!preloader || preloader.classList.contains('loaded') || window.getComputedStyle(preloader).display === 'none') {
+    setTimeout(() => {
+      if (navbarLogo) triggerLogoReveal(navbarLogo);
+      else triggerLogoReveal();
+    }, 120);
   } else {
     // Safety fallback so logo always shows up even if preloader timer encounters any lag
-    setTimeout(triggerLogoReveal, 900);
+    setTimeout(() => {
+      if (navbarLogo) triggerLogoReveal(navbarLogo);
+      else triggerLogoReveal();
+    }, 700);
   }
 
-  // Interactive Replay: Re-trigger entrance animation on double click / logo click with Ctrl
-  const logos = document.querySelectorAll('.brand-logo-wrap');
-  logos.forEach(logo => {
+  // Scroll reveal for other logos (like footer or modal logo) when scrolled into view
+  const otherLogos = document.querySelectorAll('.brand-logo-wrap:not(.site-navbar .brand-logo-wrap)');
+  if (otherLogos.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          triggerLogoReveal(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    otherLogos.forEach(logo => observer.observe(logo));
+  } else {
+    // Fallback if no IntersectionObserver
+    setTimeout(() => {
+      otherLogos.forEach(logo => triggerLogoReveal(logo));
+    }, 800);
+  }
+
+  // Interactive Replay & Touch Wave for Mobile, Tablet & Desktop
+  const allLogos = document.querySelectorAll('.brand-logo-wrap');
+  allLogos.forEach(logo => {
+    const playWave = () => {
+      logo.classList.remove('is-waving');
+      void logo.offsetWidth; // Force DOM reflow
+      logo.classList.add('is-waving');
+      setTimeout(() => {
+        logo.classList.remove('is-waving');
+      }, 750);
+    };
+
+    // Mobile tap & tablet touch & desktop click wave
+    logo.addEventListener('click', playWave);
+    logo.addEventListener('touchstart', playWave, { passive: true });
+
+    // Double click replay full entrance animation
     logo.addEventListener('dblclick', (e) => {
       e.preventDefault();
       replayLogoAnimation(logo);
     });
   });
+
+  // Periodic subtle wave on mobile/tablet so the logo always feels alive and active
+  setInterval(() => {
+    allLogos.forEach(logo => {
+      if (logo.classList.contains('is-revealed') && !logo.classList.contains('is-waving')) {
+        const rect = logo.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          logo.classList.add('is-waving');
+          setTimeout(() => logo.classList.remove('is-waving'), 750);
+        }
+      }
+    });
+  }, 10000);
 }
 
 function replayLogoAnimation(logo) {
   if (!logo) return;
   logo.classList.remove('is-revealed');
+  logo.classList.remove('is-waving');
   void logo.offsetWidth; // Force DOM reflow
   logo.classList.add('is-revealed');
 }
