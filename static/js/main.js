@@ -77,6 +77,7 @@ function initMobileNavbar() {
   const navbarCollapse = document.getElementById('navbarMain');
   if (!navbarCollapse) return;
 
+  // Auto-close drawer on standard link click
   const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item, .btn-navbar-quote, .btn-navbar-login');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -84,6 +85,43 @@ function initMobileNavbar() {
         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
         bsCollapse.hide();
       }
+    });
+  });
+
+  // Ensure Services dropdown toggles cleanly in mobile drawer
+  const servicesDropdownToggle = document.getElementById('servicesDropdown');
+  if (servicesDropdownToggle) {
+    servicesDropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopPropagation();
+        const menu = servicesDropdownToggle.nextElementSibling;
+        const parent = servicesDropdownToggle.closest('.dropdown');
+        if (menu) {
+          const isOpen = menu.classList.contains('show');
+          if (isOpen) {
+            menu.classList.remove('show');
+            if (parent) parent.classList.remove('show');
+            servicesDropdownToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            menu.classList.add('show');
+            if (parent) parent.classList.add('show');
+            servicesDropdownToggle.setAttribute('aria-expanded', 'true');
+          }
+        }
+      }
+    });
+  }
+
+  // When mobile drawer closes, collapse dropdown
+  navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+    const openDropdowns = navbarCollapse.querySelectorAll('.dropdown-menu.show');
+    openDropdowns.forEach(menu => {
+      menu.classList.remove('show');
+      const toggle = menu.previousElementSibling;
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      const parent = menu.closest('.dropdown');
+      if (parent) parent.classList.remove('show');
     });
   });
 }
