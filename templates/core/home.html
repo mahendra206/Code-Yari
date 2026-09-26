@@ -9,15 +9,22 @@
      1. Hero Section
      ========================================================================== -->
 <section class="hero-full-bleed-section">
-  <!-- Exact Modern Workspace Background Photo -->
+  <!-- Exact Modern Workspace Background Photo (Light Mode) -->
   <div class="hero-bg-photo" style="background-image: url('{% static 'images/hero_exact_clean.png' %}');"></div>
+
+  <!-- Ambient Dynamic Lighting & Tech Grid for Dark Mode -->
+  <div class="hero-dark-ambient-glow" aria-hidden="true">
+    <div class="glow-orb orb-indigo"></div>
+    <div class="glow-orb orb-cyan"></div>
+    <div class="glow-orb orb-purple"></div>
+  </div>
 
   <div class="hero-full-container">
     <!-- Left Hero Content -->
     <div class="hero-left-content">
       <div>
         <span class="hero-pill-partner">
-          <i class="bi bi-patch-check-fill text-primary"></i>
+          <span class="partner-pulse-dot" aria-hidden="true"></span>
           <span>Your Digital Growth Partner</span>
         </span>
       </div>
@@ -53,6 +60,88 @@
             <span class="rating-num">4.9/5</span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Right Hero Stage: Interactive Glass IDE Terminal & Floating Tech Cards (Dark Mode) -->
+    <div class="hero-dark-stage d-none d-lg-flex" aria-hidden="true">
+      <div class="hero-terminal-stage-wrapper position-relative">
+        <!-- Ambient Backlight Behind Terminal -->
+        <div class="terminal-backlight-glow"></div>
+
+        <!-- Floating Badge 1 (Top-Right): Performance -->
+        <div class="hero-floating-badge badge-top-right">
+          <div class="badge-icon-box bg-warning-subtle">
+            <i class="bi bi-lightning-charge-fill text-warning"></i>
+          </div>
+          <div>
+            <div class="badge-metric-num">99.8%</div>
+            <div class="badge-metric-label">Performance & SEO</div>
+          </div>
+        </div>
+
+        <!-- The IDE Code Terminal Window -->
+        <div class="hero-ide-terminal">
+          <!-- Terminal Header Bar -->
+          <div class="terminal-header d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-1.5">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
+            </div>
+            <div class="terminal-tab-pill d-flex align-items-center gap-1.5">
+              <i class="bi bi-file-earmark-code-fill text-info small"></i>
+              <span class="tab-filename">CodeYari.launch.ts</span>
+            </div>
+            <div class="terminal-live-status d-flex align-items-center gap-1.5">
+              <span class="term-ping-dot"></span>
+              <span class="term-live-text">PROD READY</span>
+            </div>
+          </div>
+
+          <!-- Terminal Code Lines -->
+          <div class="terminal-code-body">
+            <div class="term-code-line"><span class="line-num">01</span><span class="tok-kw">import</span> { <span class="tok-brand">CodeYari</span> } <span class="tok-kw">from</span> <span class="tok-str">'@codeyari/agency'</span>;</div>
+            <div class="term-code-line"><span class="line-num">02</span></div>
+            <div class="term-code-line"><span class="line-num">03</span><span class="tok-comment">// 🚀 Architecting modern scalable solutions</span></div>
+            <div class="term-code-line"><span class="line-num">04</span><span class="tok-kw">export const</span> <span class="tok-fn">growBusiness</span> = <span class="tok-kw">async</span> () => {</div>
+            <div class="term-code-line"><span class="line-num">05</span>  <span class="tok-kw">return await</span> <span class="tok-brand">CodeYari</span>.<span class="tok-fn">build</span>({</div>
+            <div class="term-code-line"><span class="line-num">06</span>    <span class="tok-prop">deliverables</span>: [<span class="tok-str">"Custom Web"</span>, <span class="tok-str">"Apps"</span>, <span class="tok-str">"AI"</span>],</div>
+            <div class="term-code-line"><span class="line-num">07</span>    <span class="tok-prop">velocity</span>: <span class="tok-str">"10x High-Speed Sprints"</span>,</div>
+            <div class="term-code-line"><span class="line-num">08</span>    <span class="tok-prop">partnership</span>: <span class="tok-str">"Lifetime Yari Support"</span>,</div>
+            <div class="term-code-line"><span class="line-num">09</span>    <span class="tok-prop">status</span>: <span class="tok-str">"Shipped & Scaled ⚡"</span></div>
+            <div class="term-code-line"><span class="line-num">10</span>  });</div>
+            <div class="term-code-line"><span class="line-num">11</span>};</div>
+          </div>
+
+          <!-- Terminal Footer Bar -->
+          <div class="terminal-footer d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-2 text-secondary small">
+              <span class="font-monospace small"><i class="bi bi-check2-all text-success me-1"></i>Build Passing</span>
+              <span class="opacity-50">|</span>
+              <span class="font-monospace small text-muted">0 errors, 0 warnings</span>
+            </div>
+            <span class="term-branch-tag"><i class="bi bi-git me-1"></i>main</span>
+          </div>
+        </div>
+
+        <!-- Floating Badge 2 (Bottom-Left): 10x Velocity -->
+        <div class="hero-floating-badge badge-bottom-left">
+          <div class="badge-icon-box bg-purple-subtle">
+            <i class="bi bi-rocket-takeoff-fill text-primary"></i>
+          </div>
+          <div>
+            <div class="badge-metric-num">10x Speed</div>
+            <div class="badge-metric-label">Rapid Delivery & Scale</div>
+          </div>
+        </div>
+
+        <!-- Floating Badge 3 (Bottom-Right): Active Dev Status -->
+        <div class="hero-floating-badge badge-bottom-right">
+          <span class="badge-dot-emerald"></span>
+          <span class="badge-active-text">Open for New Projects</span>
+        </div>
+
       </div>
     </div>
   </div>
