@@ -1,5 +1,6 @@
 {% load static %}
-<div class="brand-logo-wrap {{ logo_class|default:'' }}" id="{% if logo_id %}{{ logo_id }}{% else %}brandLogo{% endif %}">
+{% with uid=logo_id|default:'brandLogo' %}
+<div class="brand-logo-wrap {{ logo_class|default:'' }}" id="{{ uid }}">
   <!-- Glowing Ambient Aura -->
   <div class="logo-ambient-glow" aria-hidden="true"></div>
 
@@ -7,24 +8,27 @@
   <div class="logo-icon-mark" aria-hidden="true">
     <svg class="logo-svg-mark" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Left Bracket < -->
-      <path class="mark-bracket mark-bracket-left" d="M13 7 L5 17 L13 27" stroke="url(#markBlueGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="mark-bracket mark-bracket-left" d="M13 7 L5 17 L13 27" stroke="url(#{{ uid }}_blueGrad)"
+        stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
       <!-- Slash / -->
-      <path class="mark-slash" d="M20 7 L16 27" stroke="url(#markIndigoGrad)" stroke-width="3.8" stroke-linecap="round"/>
+      <path class="mark-slash" d="M20 7 L16 27" stroke="url(#{{ uid }}_indigoGrad)" stroke-width="3.8"
+        stroke-linecap="round" />
       <!-- Right Bracket > -->
-      <path class="mark-bracket mark-bracket-right" d="M23 7 L31 17 L23 27" stroke="url(#markPurpleGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
-      
+      <path class="mark-bracket mark-bracket-right" d="M23 7 L31 17 L23 27" stroke="url(#{{ uid }}_purpleGrad)"
+        stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+
       <defs>
-        <linearGradient id="markBlueGrad" x1="5" y1="7" x2="13" y2="27" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#3B82F6"/>
-          <stop offset="1" stop-color="#1D4ED8"/>
+        <linearGradient id="{{ uid }}_blueGrad" x1="5" y1="7" x2="13" y2="27" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#3B82F6" />
+          <stop offset="1" stop-color="#1D4ED8" />
         </linearGradient>
-        <linearGradient id="markIndigoGrad" x1="16" y1="7" x2="20" y2="27" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#818CF8"/>
-          <stop offset="1" stop-color="#6366F1"/>
+        <linearGradient id="{{ uid }}_indigoGrad" x1="16" y1="7" x2="20" y2="27" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#818CF8" />
+          <stop offset="1" stop-color="#6366F1" />
         </linearGradient>
-        <linearGradient id="markPurpleGrad" x1="23" y1="7" x2="31" y2="27" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#A855F7"/>
-          <stop offset="1" stop-color="#7C3AED"/>
+        <linearGradient id="{{ uid }}_purpleGrad" x1="23" y1="7" x2="31" y2="27" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#A855F7" />
+          <stop offset="1" stop-color="#7C3AED" />
         </linearGradient>
       </defs>
     </svg>
@@ -34,13 +38,14 @@
   <span class="logo-text-stream" aria-label="Code Yari">
     <!-- Word: Code -->
     <span class="logo-word logo-word-code">
-      <span class="logo-char" style="--i:1;">C</span><span class="logo-char" style="--i:2;">o</span><span class="logo-char" style="--i:3;">d</span><span class="logo-char" style="--i:4;">e</span>
+      <span class="logo-char" style="--i:1;">C</span><span class="logo-char" style="--i:2;">o</span><span
+        class="logo-char" style="--i:3;">d</span><span class="logo-char" style="--i:4;">e</span>
     </span>
     <!-- Word: Yari -->
     <span class="logo-word logo-word-yari">
-      <span class="logo-char" style="--i:5;">Y</span><span class="logo-char" style="--i:6;">a</span><span class="logo-char" style="--i:7;">r</span><span class="logo-char" style="--i:8;">i</span>
+      <span class="logo-char" style="--i:5;">Y</span><span class="logo-char" style="--i:6;">a</span><span
+        class="logo-char" style="--i:7;">r</span><span class="logo-char" style="--i:8;">i</span>
     </span>
-    <!-- Sleek Tech Typing Cursor -->
-    <span class="logo-type-cursor" aria-hidden="true"></span>
   </span>
 </div>
+{% endwith %}

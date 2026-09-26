@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Case Studies — Real Projects. Real Solutions. | Code Yari{% endblock %}
+{% block meta_description %}Explore how Code Yari turns ideas into powerful digital solutions. Browse our latest case studies and real project deliveries.{% endblock %}
+
+{% block content %}
+<div class="case-studies-page-wrapper">
+  
+  <!-- Hero Section -->
+  <section class="case-studies-hero position-relative">
+    <!-- Ambient Radial Glows -->
+    <div class="case-ambient-glow case-glow-top-right"></div>
+    <div class="case-ambient-glow case-glow-bottom-left"></div>
+
+    <div class="container position-relative py-5">
+      
+      <!-- Top Row: Left Content & Right Hand-drawn Doodle -->
+      <div class="row align-items-center mb-4">
+        
+        <!-- Left: Badge & Headline & Description -->
+        <div class="col-lg-7 position-relative">
+          
+          <!-- Decorative Dot Pattern on Left -->
+          <div class="case-dots-grid" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+
+          <!-- Section Pill Badge -->
+          <div class="mb-3">
+            <span class="case-section-badge">
+              <span class="case-badge-dash">—</span> CASE STUDIES
+            </span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="case-hero-title mb-3">
+            Real Projects.<br>
+            <span class="case-gradient-text">Real Solutions.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="case-hero-subtitle mb-4">
+            Explore how we turn ideas into powerful digital solutions.<br class="d-none d-md-inline">
+            Here are some of our recent projects and the impact we created for our clients.
+          </p>
+
+          <!-- Filter Pills -->
+          <div class="case-filter-group d-flex flex-wrap gap-2 pt-1" id="caseFilterTabs">
+            {% for f in filters %}
+            <button type="button" 
+                    class="case-filter-btn {% if forloop.first %}active{% endif %}" 
+                    data-filter="{{ f.slug }}">
+              {% if f.icon %}<i class="bi {{ f.icon }} me-1.5"></i>{% endif %}
+              <span>{{ f.name }}</span>
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Right: Illuminated Innovation Pipeline Card with Dynamic Lighting -->
+        <div class="col-lg-5 text-lg-end d-none d-lg-block pt-lg-4 mt-lg-3">
+          <div class="case-pipeline-card text-start">
+            <!-- Ambient Multi-Color Backlight Mesh -->
+            <div class="case-pipeline-glow" aria-hidden="true"></div>
+
+            <!-- Card Header -->
+            <div class="case-pipeline-header d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="pipeline-pulse-dot"></span>
+                <span class="pipeline-status-text">OUR PROVEN LIFECYCLE</span>
+              </div>
+              <span class="pipeline-badge-live">
+                <i class="bi bi-lightning-charge-fill text-warning me-1"></i>High Velocity
+              </span>
+            </div>
+
+            <!-- 3-Step Illuminated Flow with Colorful Cards -->
+            <div class="case-pipeline-steps position-relative">
+              <!-- Animated Glowing Connector Laser Line -->
+              <div class="pipeline-laser-track" aria-hidden="true">
+                <div class="pipeline-laser-comet"></div>
+              </div>
+
+              <!-- Step 1: Ideas & Architecture (Warm Amber Glow) -->
+              <div class="pipeline-step-item step-item-ideas d-flex align-items-center gap-3 mb-2.5">
+                <div class="pipeline-icon-circle icon-ideas">
+                  <i class="bi bi-lightbulb-fill"></i>
+                </div>
+                <div class="pipeline-step-content flex-grow-1">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="pipeline-step-title mb-0">1. Ideas & Architecture</h4>
+                    <span class="step-micro-tag tag-ideas">Sprint 0</span>
+                  </div>
+                  <p class="pipeline-step-sub mb-0">UX Wireframes, Tech Discovery & Flow</p>
+                </div>
+              </div>
+
+              <!-- Step 2: Clean Scalable Code (Electric Blue Glow) -->
+              <div class="pipeline-step-item step-item-code d-flex align-items-center gap-3 mb-2.5">
+                <div class="pipeline-icon-circle icon-code">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <div class="pipeline-step-content flex-grow-1">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="pipeline-step-title mb-0">2. Clean Scalable Code</h4>
+                    <span class="step-micro-tag tag-code">Active Build</span>
+                  </div>
+                  <p class="pipeline-step-sub mb-0">Full-Stack Modern Stack & Rigorous Testing</p>
+                </div>
+              </div>
+
+              <!-- Step 3: Real Business Impact (Neon Purple/Violet Glow) -->
+              <div class="pipeline-step-item step-item-impact d-flex align-items-center gap-3">
+                <div class="pipeline-icon-circle icon-impact">
+                  <i class="bi bi-rocket-takeoff-fill"></i>
+                </div>
+                <div class="pipeline-step-content flex-grow-1">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="pipeline-step-title mb-0">3. Real Business Impact</h4>
+                    <span class="step-micro-tag tag-impact">Shipped</span>
+                  </div>
+                  <p class="pipeline-step-sub mb-0">Lightning Speed, SEO Growth & High ROI</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Stats Ribbon with Vivid Color Badges -->
+            <div class="case-pipeline-footer d-flex align-items-center justify-content-between mt-3 pt-2.5">
+              <span class="pipeline-footer-stat stat-delivery">
+                <i class="bi bi-check-circle-fill me-1 text-success"></i>
+                <strong>99.8%</strong> On-Time Delivery
+              </span>
+              <span class="pipeline-footer-stat stat-rating">
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <strong>100%</strong> Verified Work
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Studies 4-Card Grid -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4 pt-3" id="caseStudiesGrid">
+        {% for project in case_studies %}
+        <div class="col case-study-item" data-category="{{ project.category_slug }}">
+          <div class="case-card h-100 d-flex flex-column">
+            
+            <!-- Browser Mockup Window -->
+            <div class="case-mockup-frame position-relative">
+              <!-- Browser Header Bar with 3 Dots -->
+              <div class="case-browser-dots d-flex align-items-center gap-1">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              
+              <!-- Screen Preview Image -->
+              <div class="case-mockup-screen">
+                <img src="{% static project.image %}" alt="{{ project.title }}" class="img-fluid w-100" loading="lazy">
+              </div>
+
+              <!-- Category Badge Pill Overlap -->
+              <div class="case-category-pill-overlap">
+                <span class="case-category-pill {{ project.category_badge }}">
+                  {{ project.category }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Body Content -->
+            <div class="case-card-body d-flex flex-column flex-grow-1 p-3 pt-3">
+              <!-- Title -->
+              <h3 class="case-card-title mb-2">
+                {{ project.title }}
+              </h3>
+
+              <!-- Short Description -->
+              <p class="case-card-desc mb-3">
+                {{ project.description }}
+              </p>
+
+              <!-- Tech Stack Badges -->
+              <div class="case-tech-stack d-flex flex-wrap gap-1.5 mt-auto mb-3">
+                {% for tech in project.tech_tags %}
+                <span class="case-tech-pill" title="{{ tech.name }}">
+                  <i class="bi {{ tech.icon }} tech-icon" style="color: {{ tech.color }};"></i>
+                  <span class="tech-name">{{ tech.name }}</span>
+                </span>
+                {% endfor %}
+              </div>
+
+              <!-- View Case Study Link -->
+              <div class="case-card-footer pt-2">
+                <a href="{% url 'leads:get_quote' %}?project={{ project.slug }}" class="case-study-link d-inline-flex align-items-center gap-2">
+                  <span>View Case Study</span>
+                  <i class="bi bi-arrow-right case-link-arrow"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- No items found state (for filter) -->
+      <div id="noCaseStudies" class="text-center py-5 d-none">
+        <i class="bi bi-folder-x fs-1 text-muted mb-3 d-block"></i>
+        <h4 class="text-muted fw-normal">No case studies in this category yet.</h4>
+        <p class="text-secondary small">Check back soon or explore other categories above.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bottom Call to Action Banner matching Image 2 -->
+  {% include 'partials/cta_banner.html' %}
+
+</div>
+
+<!-- Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.case-filter-btn');
+  const items = document.querySelectorAll('.case-study-item');
+  const noResult = document.getElementById('noCaseStudies');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Set active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filterValue = this.getAttribute('data-filter');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (filterValue === 'all' || itemCategory === filterValue) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (noResult) {
+        if (visibleCount === 0) {
+          noResult.classList.remove('d-none');
+        } else {
+          noResult.classList.add('d-none');
+        }
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

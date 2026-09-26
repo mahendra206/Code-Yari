@@ -9,6 +9,7 @@ from django.contrib.sitemaps.views import sitemap
 from apps.core.sitemaps import (
     StaticViewSitemap, ServiceSitemap, PortfolioSitemap, BlogSitemap
 )
+from apps.portfolio import views as views_portfolio
 
 # Customize admin site
 admin.site.site_header = "Code Yari Admin"
@@ -29,6 +30,7 @@ urlpatterns = [
     path('', include('apps.core.urls', namespace='core')),
     path('services/', include('apps.services.urls', namespace='services')),
     path('portfolio/', include('apps.portfolio.urls', namespace='portfolio')),
+    path('case-studies/', views_portfolio.case_studies_view, name='case_studies'),
     path('blog/', include('apps.blog.urls', namespace='blog')),
     path('faq/', include('apps.faq.urls', namespace='faq')),
     path('leads/', include('apps.leads.urls', namespace='leads')),

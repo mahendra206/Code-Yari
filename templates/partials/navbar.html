@@ -3,7 +3,7 @@
   <div class="container-fluid px-lg-5 px-3">
     <!-- Brand Logo -->
     <a class="navbar-brand d-flex align-items-center me-lg-5 p-0" href="{% url 'core:home' %}" aria-label="Code Yari">
-      {% include 'partials/brand_logo.html' %}
+      {% include 'partials/brand_logo.html' with logo_id='navbarBrandLogo' %}
     </a>
 
     <!-- Mobile Menu Toggler -->
@@ -143,9 +143,16 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-custom {% if request.resolver_match.app_name == 'portfolio' %}active{% endif %}" href="{% url 'portfolio:list' %}">
+          <a class="nav-link nav-link-custom {% if request.resolver_match.app_name == 'portfolio' and request.resolver_match.url_name == 'list' %}active{% endif %}" href="{% url 'portfolio:list' %}">
             <span class="nav-item-icon"><i class="bi bi-briefcase-fill"></i></span>
             <span>Portfolio</span>
+            <i class="bi bi-chevron-right ms-auto small opacity-50 d-lg-none"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'portfolio:case_studies' %}">
+            <span class="nav-item-icon"><i class="bi bi-folder-check"></i></span>
+            <span>Case Studies</span>
             <i class="bi bi-chevron-right ms-auto small opacity-50 d-lg-none"></i>
           </a>
         </li>

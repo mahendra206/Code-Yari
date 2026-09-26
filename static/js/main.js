@@ -23,7 +23,8 @@ function initTheme() {
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
   
-  const savedTheme = localStorage.getItem('codeyari_theme');
+  const urlParam = new URLSearchParams(window.location.search).get('theme');
+  const savedTheme = urlParam || localStorage.getItem('codeyari_theme');
   const currentTheme = savedTheme || 'light'; // Default to clean light agency aesthetic matching brand guide
 
   document.documentElement.setAttribute('data-theme', currentTheme);
@@ -334,9 +335,14 @@ function initCustomCursor() {
    -------------------------------------------------------------------------- */
 function initPagePreloader() {
   const preloader = document.getElementById('page-preloader');
+  if (!preloader) return;
+  if (new URLSearchParams(window.location.search).get('nopreload')) {
+    preloader.style.display = 'none';
+    return;
+  }
+
   const progressBar = document.getElementById('preloaderBar');
   const percentText = document.getElementById('preloaderPercent');
-  if (!preloader) return;
 
   let progress = 0;
   let isWindowLoaded = (document.readyState === 'complete');
@@ -365,10 +371,8 @@ function initPagePreloader() {
       preloader.style.pointerEvents = 'none';
       setTimeout(() => {
         preloader.classList.add('loaded');
-        // Trigger letter-by-letter reveal right after preloader fades out so it is 100% visible
         setTimeout(() => {
           preloader.style.display = 'none';
-          triggerLogoReveal();
         }, 320);
       }, 80);
     }
@@ -384,105 +388,32 @@ function initPagePreloader() {
       preloader.classList.add('loaded');
       setTimeout(() => {
         preloader.style.display = 'none';
-        triggerLogoReveal();
       }, 320);
     }
   }, 500);
 }
 
 /* --------------------------------------------------------------------------
-   9. Animated Brand Logo Controller (Letter-by-Letter Stagger & Hover Wave)
+   9. Animated Brand Logo Interactive Controller (Touch & Click Reactive Waves)
    -------------------------------------------------------------------------- */
-function triggerLogoReveal(targetLogo) {
-  const logos = targetLogo ? [targetLogo] : document.querySelectorAll('.brand-logo-wrap');
-  logos.forEach(logo => {
-    if (!logo.classList.contains('is-revealed')) {
-      logo.classList.add('is-revealed');
-    }
-  });
-}
-
 function initLogoAnimation() {
-  const preloader = document.getElementById('page-preloader');
-  const navbarLogo = document.querySelector('.site-navbar .brand-logo-wrap');
-  
-  // If preloader doesn't exist or is already marked loaded, trigger immediately
-  if (!preloader || preloader.classList.contains('loaded') || window.getComputedStyle(preloader).display === 'none') {
-    setTimeout(() => {
-      if (navbarLogo) triggerLogoReveal(navbarLogo);
-      else triggerLogoReveal();
-    }, 120);
-  } else {
-    // Safety fallback so logo always shows up even if preloader timer encounters any lag
-    setTimeout(() => {
-      if (navbarLogo) triggerLogoReveal(navbarLogo);
-      else triggerLogoReveal();
-    }, 700);
-  }
-
-  // Scroll reveal for other logos (like footer or modal logo) when scrolled into view
-  const otherLogos = document.querySelectorAll('.brand-logo-wrap:not(.site-navbar .brand-logo-wrap)');
-  if (otherLogos.length > 0 && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          triggerLogoReveal(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    otherLogos.forEach(logo => observer.observe(logo));
-  } else {
-    // Fallback if no IntersectionObserver
-    setTimeout(() => {
-      otherLogos.forEach(logo => triggerLogoReveal(logo));
-    }, 800);
-  }
-
-  // Interactive Replay & Touch Wave for Mobile, Tablet & Desktop
   const allLogos = document.querySelectorAll('.brand-logo-wrap');
+  if (!allLogos.length) return;
+
   allLogos.forEach(logo => {
-    const playWave = () => {
-      logo.classList.remove('is-waving');
-      void logo.offsetWidth; // Force DOM reflow
+    let waveTimer = null;
+    const triggerInteractiveWave = () => {
       logo.classList.add('is-waving');
-      setTimeout(() => {
+      clearTimeout(waveTimer);
+      waveTimer = setTimeout(() => {
         logo.classList.remove('is-waving');
-      }, 750);
+      }, 650);
     };
 
-    // Mobile tap & tablet touch & desktop click wave
-    logo.addEventListener('click', playWave);
-    logo.addEventListener('touchstart', playWave, { passive: true });
-
-    // Double click replay full entrance animation
-    logo.addEventListener('dblclick', (e) => {
-      e.preventDefault();
-      replayLogoAnimation(logo);
-    });
+    // Mobile tap, tablet touch & desktop click extra reactivity
+    logo.addEventListener('click', triggerInteractiveWave);
+    logo.addEventListener('touchstart', triggerInteractiveWave, { passive: true });
   });
-
-  // Periodic subtle wave on mobile/tablet so the logo always feels alive and active
-  setInterval(() => {
-    allLogos.forEach(logo => {
-      if (logo.classList.contains('is-revealed') && !logo.classList.contains('is-waving')) {
-        const rect = logo.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          logo.classList.add('is-waving');
-          setTimeout(() => logo.classList.remove('is-waving'), 750);
-        }
-      }
-    });
-  }, 10000);
-}
-
-function replayLogoAnimation(logo) {
-  if (!logo) return;
-  logo.classList.remove('is-revealed');
-  logo.classList.remove('is-waving');
-  void logo.offsetWidth; // Force DOM reflow
-  logo.classList.add('is-revealed');
 }
 
 
