@@ -3,6 +3,7 @@ Core app — Views
 Home, About, Contact, Privacy, Terms, Error pages
 """
 from django.shortcuts import render, redirect
+from django.db.models import Case, When, Value, IntegerField
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
@@ -26,9 +27,19 @@ def home(request):
 
     all_services = Service.objects.filter(is_active=True).order_by('order')[:12]
 
+    portfolio_priority = Case(
+        When(slug__icontains='teachmantra', then=Value(1)),
+        When(slug__icontains='nexplay', then=Value(2)),
+        When(slug__icontains='houzez', then=Value(3)),
+        default=Value(99),
+        output_field=IntegerField()
+    )
+
     featured_portfolio = PortfolioProject.objects.filter(
         published=True, featured=True
-    ).select_related('category').order_by('-completion_date')[:6]
+    ).select_related('category').annotate(
+        priority=portfolio_priority
+    ).order_by('priority', 'created_at')[:6]
 
     featured_testimonials = Testimonial.objects.filter(
         published=True, featured=True

@@ -39,54 +39,291 @@
     <div class="row g-4" id="portfolio-grid">
       {% for project in projects %}
       <div class="col-md-6 col-lg-4 portfolio-item-card" data-category="{{ project.category.slug }}">
-        <div class="card-custom h-100 p-3 d-flex flex-column">
-          <div class="portfolio-img-wrapper mb-3 position-relative">
-            {% if project.get_image_url %}
-            <img src="{{ project.get_image_url }}" alt="{{ project.title }}">
-            {% elif project.featured_image %}
-            <img src="{{ project.featured_image.url }}" alt="{{ project.title }}">
-            {% else %}
-            <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
-              <i class="bi bi-window-fullscreen fs-1 text-primary mb-2"></i>
-              <span class="small text-muted font-monospace">{{ project.category.name }}</span>
-            </div>
-            {% endif %}
-            <div class="portfolio-overlay">
-              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-brand btn-sm-custom w-100">
-                <span>View Case Study</span>
-                <i class="bi bi-arrow-right"></i>
+        {% if 'teachmantra' in project.slug %}
+        <!-- Card 1: TeachMANTRA (EdTech / Amber Gold Theme) -->
+        <div class="showcase-card theme-amber h-100 d-flex flex-column">
+          <div class="showcase-accent-bar"></div>
+          <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
+            <div class="showcase-media-stage position-relative mb-3">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% else %}
+              <img src="{% static 'images/portfolio/teachmantra_cover.jpg' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% endif %}
+
+              <div class="showcase-badge-glass">
+                <span class="badge-dot dot-amber"></span>
+                <span>EdTech & Academy</span>
+              </div>
+
+              {% if project.project_url %}
+              <div class="showcase-live-badge">
+                <span class="live-pulse-dot dot-amber"></span>
+                <span>Live Portal</span>
+              </div>
+              {% endif %}
+
+              <a href="{% url 'portfolio:detail' project.slug %}" class="showcase-hover-link" aria-label="View {{ project.name }}">
+                <span class="showcase-hover-btn">
+                  <span>Explore Case Study</span>
+                  <i class="bi bi-arrow-right"></i>
+                </span>
               </a>
             </div>
-          </div>
 
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-pill-custom py-1 px-2 small" style="font-size: 0.75rem;">
-              {{ project.category.name }}
-            </span>
-            {% if project.is_demo %}
-            <span class="demo-banner">Demo</span>
-            {% elif project.project_url %}
-            <span class="showcase-live-badge position-static py-0.5 px-2" style="font-size: 0.68rem; background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25);">
-              <span class="live-pulse-dot dot-emerald"></span> Live
-            </span>
-            {% endif %}
-          </div>
+            <div class="showcase-metric-ribbon metric-amber mb-2">
+              <i class="bi bi-mortarboard-fill me-1"></i>
+              <span>10,000+ Students &bull; Syllabus & Mock Tests</span>
+            </div>
 
-          <h2 class="h5 fw-bold mb-2">
-            <a href="{% url 'portfolio:detail' project.slug %}" class="text-reset">
-              {{ project.title }}
-            </a>
-          </h2>
-          <p class="text-secondary small flex-grow-1 mb-3" style="line-height: 1.6;">
-            {{ project.short_description }}
-          </p>
+            <h2 class="showcase-title h5 mb-2">
+              <a href="{% url 'portfolio:detail' project.slug %}">{{ project.name }}</a>
+            </h2>
 
-          <div class="d-flex flex-wrap gap-1 pt-3 border-top border-subtle">
-            {% for tech in project.technologies|slice:":3" %}
-            <span class="badge-tech">{{ tech }}</span>
-            {% endfor %}
+            <p class="showcase-desc mb-3 flex-grow-1">
+              {{ project.short_description|truncatewords:14 }}
+            </p>
+
+            <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
+              <span class="tech-chip chip-amber"><i class="bi bi-filetype-py"></i> Python</span>
+              <span class="tech-chip chip-amber"><i class="bi bi-layers-half"></i> Django</span>
+              <span class="tech-chip chip-amber"><i class="bi bi-bootstrap-fill"></i> Bootstrap</span>
+              <span class="tech-chip chip-amber"><i class="bi bi-filetype-js"></i> JavaScript</span>
+            </div>
+
+            <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-showcase-explore btn-explore-amber">
+                <span>Read Case Study</span>
+                <i class="bi bi-arrow-right arrow-icon"></i>
+              </a>
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live" title="Visit Live Platform">
+                <span>Live</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
           </div>
         </div>
+
+        {% elif 'nexplay' in project.slug %}
+        <!-- Card 2: NEXPLAY (Gaming / Cyber Violet Theme) -->
+        <div class="showcase-card theme-purple h-100 d-flex flex-column">
+          <div class="showcase-accent-bar"></div>
+          <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
+            <div class="showcase-media-stage position-relative mb-3">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% else %}
+              <img src="{% static 'images/portfolio/nexplay_cover.jpg' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% endif %}
+
+              <div class="showcase-badge-glass">
+                <span class="badge-dot dot-purple"></span>
+                <span>Gaming & Tech</span>
+              </div>
+
+              {% if project.project_url %}
+              <div class="showcase-live-badge">
+                <span class="live-pulse-dot dot-purple"></span>
+                <span>Live Rig Builder</span>
+              </div>
+              {% endif %}
+
+              <a href="{% url 'portfolio:detail' project.slug %}" class="showcase-hover-link" aria-label="View {{ project.name }}">
+                <span class="showcase-hover-btn">
+                  <span>Explore Case Study</span>
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="showcase-metric-ribbon metric-purple mb-2">
+              <i class="bi bi-controller me-1"></i>
+              <span>3.5x Faster Builder &bull; Custom Battlestations</span>
+            </div>
+
+            <h2 class="showcase-title h5 mb-2">
+              <a href="{% url 'portfolio:detail' project.slug %}">{{ project.name }}</a>
+            </h2>
+
+            <p class="showcase-desc mb-3 flex-grow-1">
+              {{ project.short_description|truncatewords:14 }}
+            </p>
+
+            <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
+              <span class="tech-chip chip-purple"><i class="bi bi-browser-chrome"></i> React</span>
+              <span class="tech-chip chip-purple"><i class="bi bi-lightning-charge-fill"></i> Vite</span>
+              <span class="tech-chip chip-purple"><i class="bi bi-wind"></i> Tailwind</span>
+              <span class="tech-chip chip-purple"><i class="bi bi-cpu"></i> 3D Rig</span>
+            </div>
+
+            <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-showcase-explore btn-explore-purple">
+                <span>Read Case Study</span>
+                <i class="bi bi-arrow-right arrow-icon"></i>
+              </a>
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live" title="Visit Live Platform">
+                <span>Live</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% elif 'houzez' in project.slug %}
+        <!-- Card 3: Houzez (Luxury PropTech / Emerald Teal Theme) -->
+        <div class="showcase-card theme-emerald h-100 d-flex flex-column">
+          <div class="showcase-accent-bar"></div>
+          <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
+            <div class="showcase-media-stage position-relative mb-3">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% else %}
+              <img src="{% static 'images/portfolio/houzez_cover.jpg' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% endif %}
+
+              <div class="showcase-badge-glass">
+                <span class="badge-dot dot-emerald"></span>
+                <span>Luxury PropTech</span>
+              </div>
+
+              {% if project.project_url %}
+              <div class="showcase-live-badge">
+                <span class="live-pulse-dot dot-emerald"></span>
+                <span>Live Marketplace</span>
+              </div>
+              {% endif %}
+
+              <a href="{% url 'portfolio:detail' project.slug %}" class="showcase-hover-link" aria-label="View {{ project.name }}">
+                <span class="showcase-hover-btn">
+                  <span>Explore Case Study</span>
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="showcase-metric-ribbon metric-emerald mb-2">
+              <i class="bi bi-buildings-fill me-1"></i>
+              <span>$14M+ Luxury Listings &bull; Real-time Filter</span>
+            </div>
+
+            <h2 class="showcase-title h5 mb-2">
+              <a href="{% url 'portfolio:detail' project.slug %}">{{ project.name }}</a>
+            </h2>
+
+            <p class="showcase-desc mb-3 flex-grow-1">
+              {{ project.short_description|truncatewords:14 }}
+            </p>
+
+            <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
+              <span class="tech-chip chip-emerald"><i class="bi bi-browser-chrome"></i> React</span>
+              <span class="tech-chip chip-emerald"><i class="bi bi-wind"></i> Tailwind</span>
+              <span class="tech-chip chip-emerald"><i class="bi bi-geo-alt-fill"></i> Map Filter</span>
+              <span class="tech-chip chip-emerald"><i class="bi bi-shield-check"></i> Verified</span>
+            </div>
+
+            <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-showcase-explore btn-explore-emerald">
+                <span>Read Case Study</span>
+                <i class="bi bi-arrow-right arrow-icon"></i>
+              </a>
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live" title="Visit Live Platform">
+                <span>Live</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% else %}
+        <!-- Demo Concept Projects (Moved below the 3 real ones) -->
+        <div class="showcase-card theme-indigo h-100 d-flex flex-column" style="opacity: 0.92;">
+          <div class="showcase-accent-bar"></div>
+          <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
+            <div class="showcase-media-stage position-relative mb-3">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% else %}
+              <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-secondary" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
+                <i class="bi bi-window-fullscreen fs-1 text-primary mb-1"></i>
+                <span class="small font-monospace text-muted">{{ project.category.name }}</span>
+              </div>
+              {% endif %}
+
+              <div class="showcase-badge-glass">
+                <span class="badge-dot dot-indigo"></span>
+                <span>{{ project.category.name }}</span>
+              </div>
+
+              {% if project.is_demo %}
+              <div class="showcase-live-badge" style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border-color: rgba(148, 163, 184, 0.3);">
+                <i class="bi bi-clock-history me-1" style="font-size: 0.68rem;"></i>
+                <span>Demo Concept</span>
+              </div>
+              {% elif project.project_url %}
+              <div class="showcase-live-badge">
+                <span class="live-pulse-dot dot-indigo"></span>
+                <span>Live</span>
+              </div>
+              {% endif %}
+
+              <a href="{% url 'portfolio:detail' project.slug %}" class="showcase-hover-link" aria-label="View {{ project.name }}">
+                <span class="showcase-hover-btn">
+                  <span>Explore Project</span>
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="showcase-metric-ribbon metric-indigo mb-2">
+              <i class="bi bi-stars me-1"></i>
+              <span>Concept Architecture &bull; In Pipeline</span>
+            </div>
+
+            <h2 class="showcase-title h5 mb-2">
+              <a href="{% url 'portfolio:detail' project.slug %}">{{ project.name }}</a>
+            </h2>
+
+            <p class="showcase-desc mb-3 flex-grow-1">
+              {{ project.short_description|truncatewords:14 }}
+            </p>
+
+            <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
+              {% for tech in project.technologies|slice:":3" %}
+              <span class="tech-chip"><i class="bi bi-code-slash"></i> {{ tech }}</span>
+              {% empty %}
+              <span class="tech-chip"><i class="bi bi-code-slash"></i> Prototype</span>
+              {% endfor %}
+            </div>
+
+            <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-showcase-explore" style="background: var(--brand-gradient);">
+                <span>Read Case Study</span>
+                <i class="bi bi-arrow-right arrow-icon"></i>
+              </a>
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live" title="Visit Live Platform">
+                <span>Live</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
       </div>
       {% empty %}
       <div class="col-12 text-center py-5">

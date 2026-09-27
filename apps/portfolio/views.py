@@ -3,9 +3,26 @@ from django.shortcuts import render, get_object_or_404
 from .models import PortfolioProject, PortfolioCategory
 
 
+from django.db.models import Case, When, Value, IntegerField
+
+
 def portfolio_list(request):
     category_slug = request.GET.get('category')
-    projects = PortfolioProject.objects.filter(published=True).select_related('category')
+    
+    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), other real projects (4), demo projects (5)
+    order_priority = Case(
+        When(slug__icontains='teachmantra', then=Value(1)),
+        When(slug__icontains='nexplay', then=Value(2)),
+        When(slug__icontains='houzez', then=Value(3)),
+        When(is_demo=False, then=Value(4)),
+        default=Value(5),
+        output_field=IntegerField()
+    )
+
+    projects = PortfolioProject.objects.filter(published=True).select_related('category').annotate(
+        priority=order_priority
+    ).order_by('priority', 'created_at')
+
     categories = PortfolioCategory.objects.all()
     active_category = None
 

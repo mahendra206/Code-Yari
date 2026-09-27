@@ -205,6 +205,8 @@ class Command(BaseCommand):
             cat = PortfolioCategory.objects.create(name=name, slug=slug)
             cats[slug] = cat
 
+        import datetime
+
         projects = [
             {
                 'name': 'TeachMANTRA — Student Academy & Test Portal',
@@ -213,6 +215,7 @@ class Command(BaseCommand):
                 'full_description': '<p><strong>TeachMANTRA</strong> is a premier student academy web platform engineered to empower learners with structured exam preparation, course catalogs, and interactive assessment tools.</p><h4>Project Highlights:</h4><ul><li><strong>Digital Course & Syllabus Repository:</strong> Direct access to syllabus PDFs, curriculum modules, and revision notes.</li><li><strong>Live Online Mock Test Portal:</strong> Timed practice tests with real-time score calculation, answer keys, and All-India performance benchmarking.</li><li><strong>Certificate Verification Engine:</strong> Fast, verifiable credential lookup system for student academy certificates.</li><li><strong>Adaptive Theme & UI:</strong> Dark and light mode toggle with smooth transition and mobile-first responsiveness.</li></ul>',
                 'technologies': ['Python', 'Django', 'JavaScript', 'HTML5', 'CSS3', 'FontAwesome', 'Bootstrap'],
                 'project_url': 'https://www.theteachmantra.com/',
+                'completion_date': datetime.date(2026, 3, 10),
                 'featured': True, 'is_demo': False, 'published': True,
             },
             {
@@ -222,6 +225,7 @@ class Command(BaseCommand):
                 'full_description': '<p><strong>NEXPLAY</strong> is a high-performance web platform and gaming ecosystem engineered for gamers, streamers, and esports enthusiasts to design, configure, and customize their dream battle stations.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Setup Builder:</strong> Modular hardware selector for custom PC rigs, high-refresh displays, and ergonomic gaming furniture.</li><li><strong>Personalized Playstyle Engine:</strong> Dynamic gear recommendations based on game genres (FPS, MOBA, RPG, Simulator) and competitive requirements.</li><li><strong>Esports Peripheral Catalog:</strong> Filterable catalog of pro-grade mechanical keyboards, mice, audio gear, and streaming equipment.</li><li><strong>Cyberpunk Modern UI:</strong> Sleek dark-mode aesthetic with reactive animations, neon accents, and smooth scroll navigation.</li></ul>',
                 'technologies': ['React', 'Vite', 'TailwindCSS', 'JavaScript', 'Netlify', 'HTML5', 'CSS3'],
                 'project_url': 'https://nexplay-hub.netlify.app/',
+                'completion_date': datetime.date(2026, 3, 5),
                 'featured': True, 'is_demo': False, 'published': True,
             },
             {
@@ -231,6 +235,7 @@ class Command(BaseCommand):
                 'full_description': '<p><strong>Houzez</strong> is a premium real estate and property marketplace application designed for luxury homebuyers, investors, and licensed realtors to browse, list, and connect effortlessly.</p><h4>Project Highlights:</h4><ul><li><strong>Advanced Property Search & Filter:</strong> Filter luxury homes, villas, apartments by status (For Sale / For Rent), price range, bedrooms, and location.</li><li><strong>Detailed Property Showcase:</strong> High-resolution media galleries, floor plans, amenity checklists, and neighborhood mapping.</li><li><strong>Realtor & Agent Directory:</strong> Verified broker profiles, direct contact channels, and portfolio showcase.</li><li><strong>Inquiry & Lead Capture:</strong> Streamlined scheduling for property walkthroughs and automated seller inquiry forms.</li></ul>',
                 'technologies': ['React', 'JavaScript', 'TailwindCSS', 'HTML5', 'CSS3', 'Netlify'],
                 'project_url': 'https://houzez-1.netlify.app/',
+                'completion_date': datetime.date(2026, 3, 1),
                 'featured': True, 'is_demo': False, 'published': True,
             },
             {
@@ -239,6 +244,7 @@ class Command(BaseCommand):
                 'short_description': 'Modern restaurant website with online menu, reservation system, and Google Maps integration.',
                 'full_description': '<p><strong>⚠️ Demo project.</strong></p><p>Beautiful restaurant website with animated menu, table booking form, gallery, and social media integration.</p>',
                 'technologies': ['HTML5', 'CSS3', 'JavaScript', 'Google Maps API'],
+                'completion_date': datetime.date(2025, 1, 1),
                 'featured': False, 'is_demo': True, 'published': True,
             },
             {
@@ -247,6 +253,7 @@ class Command(BaseCommand):
                 'short_description': 'SEO strategy and implementation for a local service business.',
                 'full_description': '<p><strong>⚠️ Demo project showing our SEO process.</strong></p><p>Comprehensive SEO audit, on-page optimization, local citations, and content strategy implementation.</p>',
                 'technologies': ['Google Search Console', 'Ahrefs', 'SEMrush'],
+                'completion_date': datetime.date(2025, 1, 2),
                 'featured': False, 'is_demo': True, 'published': True,
             },
             {
@@ -255,6 +262,7 @@ class Command(BaseCommand):
                 'short_description': 'Clean, data-rich dashboard UI for a SaaS analytics platform.',
                 'full_description': '<p><strong>⚠️ Demo project.</strong></p><p>Figma-based dashboard design with data visualization components, dark mode, and component library.</p>',
                 'technologies': ['Figma', 'Adobe Illustrator'],
+                'completion_date': datetime.date(2025, 1, 3),
                 'featured': False, 'is_demo': True, 'published': True,
             },
         ]
