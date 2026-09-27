@@ -142,19 +142,150 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-custom {% if request.resolver_match.app_name == 'portfolio' and request.resolver_match.url_name == 'list' %}active{% endif %}" href="{% url 'portfolio:list' %}">
+        <!-- Portfolio Dropdown Menu -->
+        <li class="nav-item dropdown portfolio-nav-dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle {% if request.resolver_match.app_name == 'portfolio' %}active{% endif %}" href="{% url 'portfolio:list' %}" id="portfolioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="nav-item-icon"><i class="bi bi-briefcase-fill"></i></span>
             <span>Portfolio</span>
-            <i class="bi bi-chevron-right ms-auto small opacity-50 d-lg-none"></i>
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'portfolio:case_studies' %}">
-            <span class="nav-item-icon"><i class="bi bi-folder-check"></i></span>
-            <span>Case Studies</span>
-            <i class="bi bi-chevron-right ms-auto small opacity-50 d-lg-none"></i>
-          </a>
+          <div class="dropdown-menu dropdown-menu-portfolio border-0 shadow-lg" aria-labelledby="portfolioDropdown">
+            <div class="portfolio-mega-grid">
+              
+              <!-- Left Column: Navigation Items (Recent Projects & Case Studies) -->
+              <div class="portfolio-mega-links d-flex flex-column justify-content-between">
+                <div>
+                  <div class="portfolio-mega-header mb-2 px-2">
+                    <span class="portfolio-mega-label">WORK &amp; CASE STUDIES</span>
+                  </div>
+
+                  <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                    <!-- Option 1: Recent Projects -->
+                    <li class="service-menu-item">
+                      <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.url_name == 'list' and request.resolver_match.app_name == 'portfolio' %}active{% endif %}" href="{% url 'portfolio:list' %}">
+                        <div class="d-flex align-items-center gap-3">
+                          <span class="service-icon-pill pill-blue">
+                            <i class="bi bi-collection-fill"></i>
+                          </span>
+                          <div class="service-text-group">
+                            <span class="service-item-title">Recent Projects</span>
+                            <span class="service-item-tag">Live Builds, Web &amp; App Demos</span>
+                          </div>
+                        </div>
+                        <i class="bi bi-chevron-right service-item-arrow"></i>
+                      </a>
+                    </li>
+
+                    <!-- Option 2: Case Studies -->
+                    <li class="service-menu-item">
+                      <a class="dropdown-item service-dropdown-link d-flex align-items-center justify-content-between {% if request.resolver_match.url_name == 'case_studies' %}active{% endif %}" href="{% url 'portfolio:case_studies' %}">
+                        <div class="d-flex align-items-center gap-3">
+                          <span class="service-icon-pill pill-purple">
+                            <i class="bi bi-journal-check"></i>
+                          </span>
+                          <div class="service-text-group">
+                            <span class="service-item-title">Case Studies</span>
+                            <span class="service-item-tag">Proven Client Success &amp; High ROI</span>
+                          </div>
+                        </div>
+                        <i class="bi bi-chevron-right service-item-arrow"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bottom Quick Banner/Action -->
+                <div class="portfolio-mega-footer mt-3 pt-2.5 border-top border-subtle px-2">
+                  <a href="{% url 'leads:get_quote' %}" class="portfolio-start-link d-flex align-items-center justify-content-between text-decoration-none">
+                    <span class="small fw-semibold text-primary">
+                      <i class="bi bi-lightning-charge-fill me-1 text-warning"></i>Have a project in mind?
+                    </span>
+                    <i class="bi bi-arrow-right small text-primary"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: "usi ke bagal me" -> Illuminated Proven Lifecycle Card -->
+              <div class="portfolio-mega-preview">
+                <div class="case-pipeline-card text-start m-0">
+                  <!-- Ambient Multi-Color Backlight Mesh -->
+                  <div class="case-pipeline-glow" aria-hidden="true"></div>
+
+                  <!-- Card Header -->
+                  <div class="case-pipeline-header d-flex align-items-center justify-content-between mb-2 pb-1">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="pipeline-pulse-dot"></span>
+                      <span class="pipeline-status-text">OUR PROVEN LIFECYCLE</span>
+                    </div>
+                    <span class="pipeline-badge-live">
+                      <i class="bi bi-lightning-charge-fill text-warning me-1"></i>High Velocity
+                    </span>
+                  </div>
+
+                  <!-- 3-Step Illuminated Flow with Colorful Cards -->
+                  <div class="case-pipeline-steps position-relative">
+                    <div class="pipeline-laser-track" aria-hidden="true">
+                      <div class="pipeline-laser-comet"></div>
+                    </div>
+
+                    <!-- Step 1: Ideas & Architecture (Warm Amber Glow) -->
+                    <div class="pipeline-step-item step-item-ideas d-flex align-items-center gap-3 mb-2">
+                      <div class="pipeline-icon-circle icon-ideas">
+                        <i class="bi bi-lightbulb-fill"></i>
+                      </div>
+                      <div class="pipeline-step-content flex-grow-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="pipeline-step-title mb-0">1. Ideas &amp; Architecture</h4>
+                          <span class="step-micro-tag tag-ideas">Sprint 0</span>
+                        </div>
+                        <p class="pipeline-step-sub mb-0">UX Wireframes, Tech Discovery &amp; Flow</p>
+                      </div>
+                    </div>
+
+                    <!-- Step 2: Clean Scalable Code (Electric Blue Glow) -->
+                    <div class="pipeline-step-item step-item-code d-flex align-items-center gap-3 mb-2">
+                      <div class="pipeline-icon-circle icon-code">
+                        <i class="bi bi-code-slash"></i>
+                      </div>
+                      <div class="pipeline-step-content flex-grow-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="pipeline-step-title mb-0">2. Clean Scalable Code</h4>
+                          <span class="step-micro-tag tag-code">Active Build</span>
+                        </div>
+                        <p class="pipeline-step-sub mb-0">Full-Stack Modern Stack &amp; Rigorous Testing</p>
+                      </div>
+                    </div>
+
+                    <!-- Step 3: Real Business Impact (Neon Purple/Violet Glow) -->
+                    <div class="pipeline-step-item step-item-impact d-flex align-items-center gap-3">
+                      <div class="pipeline-icon-circle icon-impact">
+                        <i class="bi bi-rocket-takeoff-fill"></i>
+                      </div>
+                      <div class="pipeline-step-content flex-grow-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <h4 class="pipeline-step-title mb-0">3. Real Business Impact</h4>
+                          <span class="step-micro-tag tag-impact">Shipped</span>
+                        </div>
+                        <p class="pipeline-step-sub mb-0">Lightning Speed, SEO Growth &amp; High ROI</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Footer Stats Ribbon with Vivid Color Badges -->
+                  <div class="case-pipeline-footer d-flex align-items-center justify-content-between mt-2 pt-2">
+                    <span class="pipeline-footer-stat stat-delivery">
+                      <i class="bi bi-check-circle-fill me-1 text-success"></i>
+                      <strong>99.8%</strong> On-Time Delivery
+                    </span>
+                    <span class="pipeline-footer-stat stat-rating">
+                      <i class="bi bi-star-fill text-warning me-1"></i>
+                      <strong>100%</strong> Verified Work
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'core:about' %}">

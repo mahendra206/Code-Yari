@@ -455,109 +455,23 @@
   <div class="showcase-orb orb-emerald" aria-hidden="true"></div>
 
   <div class="container position-relative" style="z-index: 2;">
-    <!-- Section Top Row: Left Heading & Right Illuminated Proven Lifecycle Card -->
-    <div class="row align-items-center mb-5 pb-2">
-      <!-- Left Column: Pill, Heading, Description & Action Buttons -->
-      <div class="col-lg-6 col-xl-7 mb-4 mb-lg-0">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 pb-2 gap-3">
+      <div>
         <span class="showcase-section-pill mb-2 d-inline-flex">
           <i class="bi bi-stars text-warning me-1"></i> OUR PROVEN WORK
         </span>
-        <h2 class="section-heading mb-2">Recent Projects & Case Studies</h2>
-        <p class="text-muted mb-4" style="max-width: 540px; font-size: 0.95rem; line-height: 1.6;">
-          Explore our flagship digital products, custom platforms, and high-impact web architectures. Sirf code nahi, scalable business results delivery.
-        </p>
-
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <a href="{% url 'portfolio:list' %}" class="btn-brand py-2.5 px-4 shadow-sm">
-            <span>Explore All Projects</span>
-            <i class="bi bi-arrow-right ms-1"></i>
-          </a>
-          <a href="{% url 'portfolio:case_studies' %}" class="btn-pill-outline py-2.5 px-3.5">
-            <i class="bi bi-journal-text me-1 text-primary"></i>
-            <span>View Case Studies</span>
-          </a>
-        </div>
+        <h2 class="section-heading mb-1">Recent Projects & Case Studies</h2>
+        <p class="text-muted small mb-0">Explore our flagship digital products, custom platforms, and high-impact web architectures.</p>
       </div>
-
-      <!-- Right Column: Illuminated Proven Lifecycle Card (from Proven Lifecycle) -->
-      <div class="col-lg-6 col-xl-5">
-        <div class="case-pipeline-card text-start m-0">
-          <!-- Ambient Multi-Color Backlight Mesh -->
-          <div class="case-pipeline-glow" aria-hidden="true"></div>
-
-          <!-- Card Header -->
-          <div class="case-pipeline-header d-flex align-items-center justify-content-between mb-3">
-            <div class="d-flex align-items-center gap-2">
-              <span class="pipeline-pulse-dot"></span>
-              <span class="pipeline-status-text">OUR PROVEN LIFECYCLE</span>
-            </div>
-            <span class="pipeline-badge-live">
-              <i class="bi bi-lightning-charge-fill text-warning me-1"></i>High Velocity
-            </span>
-          </div>
-
-          <!-- 3-Step Illuminated Flow with Colorful Cards -->
-          <div class="case-pipeline-steps position-relative">
-            <!-- Animated Glowing Connector Laser Line -->
-            <div class="pipeline-laser-track" aria-hidden="true">
-              <div class="pipeline-laser-comet"></div>
-            </div>
-
-            <!-- Step 1: Ideas & Architecture (Warm Amber Glow) -->
-            <div class="pipeline-step-item step-item-ideas d-flex align-items-center gap-3 mb-2.5">
-              <div class="pipeline-icon-circle icon-ideas">
-                <i class="bi bi-lightbulb-fill"></i>
-              </div>
-              <div class="pipeline-step-content flex-grow-1">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h4 class="pipeline-step-title mb-0">1. Ideas & Architecture</h4>
-                  <span class="step-micro-tag tag-ideas">Sprint 0</span>
-                </div>
-                <p class="pipeline-step-sub mb-0">UX Wireframes, Tech Discovery & Flow</p>
-              </div>
-            </div>
-
-            <!-- Step 2: Clean Scalable Code (Electric Blue Glow) -->
-            <div class="pipeline-step-item step-item-code d-flex align-items-center gap-3 mb-2.5">
-              <div class="pipeline-icon-circle icon-code">
-                <i class="bi bi-code-slash"></i>
-              </div>
-              <div class="pipeline-step-content flex-grow-1">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h4 class="pipeline-step-title mb-0">2. Clean Scalable Code</h4>
-                  <span class="step-micro-tag tag-code">Active Build</span>
-                </div>
-                <p class="pipeline-step-sub mb-0">Full-Stack Modern Stack & Rigorous Testing</p>
-              </div>
-            </div>
-
-            <!-- Step 3: Real Business Impact (Neon Purple/Violet Glow) -->
-            <div class="pipeline-step-item step-item-impact d-flex align-items-center gap-3">
-              <div class="pipeline-icon-circle icon-impact">
-                <i class="bi bi-rocket-takeoff-fill"></i>
-              </div>
-              <div class="pipeline-step-content flex-grow-1">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h4 class="pipeline-step-title mb-0">3. Real Business Impact</h4>
-                  <span class="step-micro-tag tag-impact">Shipped</span>
-                </div>
-                <p class="pipeline-step-sub mb-0">Lightning Speed, SEO Growth & High ROI</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer Stats Ribbon with Vivid Color Badges -->
-          <div class="case-pipeline-footer d-flex align-items-center justify-content-between mt-3 pt-2.5">
-            <span class="pipeline-footer-stat stat-delivery">
-              <i class="bi bi-check-circle-fill me-1 text-success"></i>
-              <strong>99.8%</strong> On-Time Delivery
-            </span>
-            <span class="pipeline-footer-stat stat-rating">
-              <i class="bi bi-star-fill text-warning me-1"></i>
-              <strong>100%</strong> Verified Work
-            </span>
-          </div>
-        </div>
+      <div class="d-flex flex-wrap align-items-center gap-2">
+        <a href="{% url 'portfolio:list' %}" class="btn-brand py-2 px-3.5 small">
+          <span>Explore All Projects</span>
+          <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+        <a href="{% url 'portfolio:case_studies' %}" class="btn-pill-outline py-2 px-3 small">
+          <i class="bi bi-journal-text me-1 text-primary"></i>
+          <span>View Case Studies</span>
+        </a>
       </div>
     </div>
 
