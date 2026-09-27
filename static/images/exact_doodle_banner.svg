@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Soft atmospheric glow in top right -->
+    <radialGradient id="cornerGlow" cx="85%" cy="15%" r="60%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Paper airplane body gradient -->
+    <linearGradient id="planeBodyLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="planeShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .doodle-text {
+      font-family: 'Caveat', 'Segoe Print', cursive, sans-serif;
+      font-weight: 700;
+      fill: #3b82f6;
+      transform-origin: 120px 80px;
+    }
+    .doodle-path {
+      stroke: #3b82f6;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .doodle-trail {
+      stroke: #3b82f6;
+      stroke-width: 2.2;
+      stroke-dasharray: 6 5;
+      stroke-linecap: round;
+      fill: none;
+    }
+    .plane-wing-main {
+      fill: url(#planeBodyLight);
+      stroke: #2563eb;
+      stroke-width: 2.4;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .plane-wing-under {
+      fill: url(#planeShade);
+      stroke: #2563eb;
+      stroke-width: 2.4;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .plane-crease {
+      stroke: #2563eb;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+    
+    /* Dark Mode overrides when inlined or via CSS variable */
+    [data-theme="dark"] .doodle-text {
+      fill: #60a5fa;
+      filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.45));
+    }
+    [data-theme="dark"] .doodle-path,
+    [data-theme="dark"] .doodle-trail {
+      stroke: #60a5fa;
+    }
+    [data-theme="dark"] .plane-wing-main {
+      fill: #1e293b;
+      stroke: #60a5fa;
+    }
+    [data-theme="dark"] .plane-wing-under {
+      fill: #0f172a;
+      stroke: #60a5fa;
+    }
+    [data-theme="dark"] .plane-crease {
+      stroke: #93c5fd;
+    }
+  </style>
+
+  <!-- Ambient top-right corner glow -->
+  <circle cx="280" cy="35" r="90" fill="url(#cornerGlow)" />
+
+  <!-- Handwritten Words: Build Grow Together -->
+  <g transform="rotate(-6 110 80)">
+    <text x="75" y="62" class="doodle-text" font-size="36" letter-spacing="0.5">Build</text>
+    <text x="88" y="100" class="doodle-text" font-size="36" letter-spacing="0.5">Grow</text>
+    <text x="72" y="138" class="doodle-text" font-size="36" letter-spacing="0.5">Together</text>
+  </g>
+
+  <!-- Trail: Drop curve below 'Together' transitioning into loop-de-loop and flight trail -->
+  <!-- Lead-in drop from under 'Together' -->
+  <path d="M 132 142 Q 138 160 148 174" class="doodle-path" fill="none" stroke-width="2" />
+
+  <!-- Loop-de-loop (dashed spiral/loop) -->
+  <path d="M 148 174 C 158 190, 178 198, 192 184 C 204 172, 198 152, 180 152 C 164 152, 156 168, 166 182 C 176 196, 198 198, 222 180" 
+        class="doodle-trail" />
+
+  <!-- Approach line to paper airplane -->
+  <path d="M 222 180 C 232 172, 240 165, 246 158" class="doodle-trail" />
+
+  <!-- Origami Paper Airplane -->
+  <g transform="translate(246, 115) rotate(12)">
+    <!-- Bottom / folded body keel -->
+    <polygon points="42,22 16,34 26,20" class="plane-wing-under" />
+    
+    <!-- Left upper wing -->
+    <polygon points="42,22 0,26 26,20" class="plane-wing-main" />
+    
+    <!-- Right / main top wing -->
+    <polygon points="42,22 14,0 26,20" class="plane-wing-main" />
+    
+    <!-- Center fold crease -->
+    <line x1="42" y1="22" x2="26" y2="20" class="plane-crease" />
+  </g>
+</svg>

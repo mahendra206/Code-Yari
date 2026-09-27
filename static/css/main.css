@@ -2937,18 +2937,73 @@ img {
   }
 }
 
-.doodle-airplane-img {
+.doodle-airplane-svg {
   width: 100%;
   height: auto;
-  max-width: 240px;
+  max-width: 250px;
   display: block;
-  mix-blend-mode: multiply;
-  transform: translateZ(0);
+  overflow: visible;
 }
 
-[data-theme="dark"] .doodle-airplane-img {
-  mix-blend-mode: normal;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45)) brightness(0.96);
+.doodle-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  fill: #2563eb;
+  transition: fill var(--transition-normal);
+}
+
+.doodle-lead {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0.85;
+  transition: stroke var(--transition-normal);
+}
+
+.doodle-loop-dashed {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 5;
+  transition: stroke var(--transition-normal);
+}
+
+.plane-line {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke var(--transition-normal);
+}
+
+.doodle-aura {
+  fill: #3b82f6;
+  fill-opacity: 0.12;
+  transition: fill var(--transition-normal), fill-opacity var(--transition-normal);
+}
+
+/* Dark Mode Theme Adaptation */
+[data-theme="dark"] .doodle-airplane-svg {
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.45));
+}
+
+[data-theme="dark"] .doodle-text {
+  fill: #60a5fa;
+}
+
+[data-theme="dark"] .doodle-lead,
+[data-theme="dark"] .doodle-loop-dashed,
+[data-theme="dark"] .plane-line {
+  stroke: #60a5fa;
+}
+
+[data-theme="dark"] .doodle-aura {
+  fill: #60a5fa;
+  fill-opacity: 0.18;
 }
 
 @media (max-width: 991.98px) {
