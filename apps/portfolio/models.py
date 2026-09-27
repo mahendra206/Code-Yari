@@ -107,6 +107,8 @@ class PortfolioProject(models.Model):
             return '/static/images/portfolio/nexplay_cover.jpg'
         if 'houzez' in slug:
             return '/static/images/portfolio/houzez_cover.jpg'
+        if 'resume' in slug:
+            return '/static/images/portfolio/resume_ai_cover.jpg'
         return None
 
 

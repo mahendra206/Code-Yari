@@ -6029,6 +6029,10 @@ img {
   background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
 }
 
+.theme-cyan .showcase-accent-bar {
+  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+}
+
 .theme-indigo .showcase-accent-bar {
   background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
 }
@@ -6051,6 +6055,11 @@ img {
 .theme-emerald:hover {
   border-color: rgba(16, 185, 129, 0.55);
   box-shadow: 0 20px 38px -10px rgba(16, 185, 129, 0.28), 0 0 22px rgba(6, 182, 212, 0.16);
+}
+
+.theme-cyan:hover {
+  border-color: rgba(6, 182, 212, 0.65);
+  box-shadow: 0 20px 38px -10px rgba(6, 182, 212, 0.32), 0 0 22px rgba(59, 130, 246, 0.2);
 }
 
 .theme-indigo:hover {
@@ -6108,6 +6117,7 @@ img {
 .dot-amber { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
 .dot-purple { background: #c084fc; box-shadow: 0 0 8px #c084fc; }
 .dot-emerald { background: #34d399; box-shadow: 0 0 8px #34d399; }
+.dot-cyan { background: #06b6d4; box-shadow: 0 0 8px #06b6d4; }
 .dot-indigo { background: #60a5fa; box-shadow: 0 0 8px #60a5fa; }
 
 /* Live Status Badge */
@@ -6228,6 +6238,17 @@ img {
   border-color: rgba(16, 185, 129, 0.4);
 }
 
+.metric-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: #0891b2;
+  border: 1px solid rgba(6, 182, 212, 0.28);
+}
+[data-theme="dark"] .metric-cyan {
+  background: rgba(6, 182, 212, 0.18);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
 .metric-indigo {
   background: rgba(37, 99, 235, 0.12);
   color: #2563eb;
@@ -6255,6 +6276,7 @@ img {
 .theme-amber .showcase-title a:hover { color: #f59e0b; }
 .theme-purple .showcase-title a:hover { color: #8b5cf6; }
 .theme-emerald .showcase-title a:hover { color: #10b981; }
+.theme-cyan .showcase-title a:hover { color: #06b6d4; }
 .theme-indigo .showcase-title a:hover { color: #2563eb; }
 
 .showcase-desc {
@@ -6290,6 +6312,9 @@ img {
 
 .chip-emerald { border-color: rgba(16, 185, 129, 0.3); color: #059669; }
 [data-theme="dark"] .chip-emerald { background: rgba(16, 185, 129, 0.12); color: #6ee7b7; }
+
+.chip-cyan { border-color: rgba(6, 182, 212, 0.3); color: #0891b2; }
+[data-theme="dark"] .chip-cyan { background: rgba(6, 182, 212, 0.12); color: #67e8f9; }
 
 /* Card Footer Actions */
 .showcase-footer {
@@ -6342,6 +6367,15 @@ img {
 }
 .btn-explore-emerald:hover {
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-explore-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+}
+.btn-explore-cyan:hover {
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.55);
   transform: translateY(-1px);
 }
 

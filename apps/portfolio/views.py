@@ -9,13 +9,14 @@ from django.db.models import Case, When, Value, IntegerField
 def portfolio_list(request):
     category_slug = request.GET.get('category')
     
-    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), other real projects (4), demo projects (5)
+    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), ResumeAI (4), other real projects (5), demo projects (6)
     order_priority = Case(
         When(slug__icontains='teachmantra', then=Value(1)),
         When(slug__icontains='nexplay', then=Value(2)),
         When(slug__icontains='houzez', then=Value(3)),
-        When(is_demo=False, then=Value(4)),
-        default=Value(5),
+        When(slug__icontains='resume', then=Value(4)),
+        When(is_demo=False, then=Value(5)),
+        default=Value(6),
         output_field=IntegerField()
     )
 

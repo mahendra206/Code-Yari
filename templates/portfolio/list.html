@@ -246,8 +246,77 @@
           </div>
         </div>
 
+        {% elif 'resume' in project.slug or 'ai-resume' in project.slug %}
+        <!-- Card 4: ResumeAI (AI Career Tech / Electric Cyan Theme) -->
+        <div class="showcase-card theme-cyan h-100 d-flex flex-column">
+          <div class="showcase-accent-bar"></div>
+          <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
+            <div class="showcase-media-stage position-relative mb-3">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% else %}
+              <img src="{% static 'images/portfolio/resume_ai_cover.jpg' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              {% endif %}
+
+              <div class="showcase-badge-glass">
+                <span class="badge-dot dot-cyan"></span>
+                <span>AI & Career Tech</span>
+              </div>
+
+              {% if project.project_url %}
+              <div class="showcase-live-badge">
+                <span class="live-pulse-dot dot-cyan"></span>
+                <span>Live Studio</span>
+              </div>
+              {% endif %}
+
+              <a href="{% url 'portfolio:detail' project.slug %}" class="showcase-hover-link" aria-label="View {{ project.name }}">
+                <span class="showcase-hover-btn">
+                  <span>Explore Case Study</span>
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="showcase-metric-ribbon metric-cyan mb-2">
+              <i class="bi bi-stars me-1"></i>
+              <span>98% ATS Score &bull; Instant A4 Preview</span>
+            </div>
+
+            <h2 class="showcase-title h5 mb-2">
+              <a href="{% url 'portfolio:detail' project.slug %}">{{ project.name }}</a>
+            </h2>
+
+            <p class="showcase-desc mb-3 flex-grow-1">
+              {{ project.short_description|truncatewords:14 }}
+            </p>
+
+            <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
+              <span class="tech-chip chip-cyan"><i class="bi bi-robot"></i> AI Engine</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-file-earmark-pdf-fill"></i> PDF Export</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-lightning-charge-fill"></i> Realtime ATS</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-palette-fill"></i> Multi-Theme</span>
+            </div>
+
+            <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">
+              <a href="{% url 'portfolio:detail' project.slug %}" class="btn-showcase-explore btn-explore-cyan">
+                <span>Read Case Study</span>
+                <i class="bi bi-arrow-right arrow-icon"></i>
+              </a>
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live" title="Visit Live Platform">
+                <span>Live</span>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
         {% else %}
-        <!-- Demo Concept Projects (Moved below the 3 real ones) -->
+        <!-- Demo Concept Projects (Moved below real ones) -->
         <div class="showcase-card theme-indigo h-100 d-flex flex-column" style="opacity: 0.92;">
           <div class="showcase-accent-bar"></div>
           <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">

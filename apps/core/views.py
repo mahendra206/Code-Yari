@@ -31,6 +31,7 @@ def home(request):
         When(slug__icontains='teachmantra', then=Value(1)),
         When(slug__icontains='nexplay', then=Value(2)),
         When(slug__icontains='houzez', then=Value(3)),
+        When(slug__icontains='resume', then=Value(4)),
         default=Value(99),
         output_field=IntegerField()
     )
