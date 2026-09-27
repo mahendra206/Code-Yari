@@ -5,18 +5,124 @@
 
 {% block content %}
 <!-- Page Header -->
-<section class="page-header-section">
-  <div class="container text-center py-4">
-    <div class="d-inline-flex align-items-center gap-2 mb-3">
-      <span class="badge-pill-custom">
-        <i class="bi bi-briefcase-fill"></i> Proven Track Record
-      </span>
-      <span class="demo-banner">Demo Showcase</span>
+<section class="page-header-section position-relative overflow-hidden py-5">
+  <div class="container py-2">
+    <div class="row align-items-center g-4 g-lg-5">
+      
+      <!-- Left Column: Title, Badges & Description -->
+      <div class="col-lg-6 col-xl-7 text-start">
+        <div class="d-inline-flex align-items-center gap-2 mb-3">
+          <span class="badge-pill-custom">
+            <i class="bi bi-briefcase-fill"></i> Proven Track Record
+          </span>
+          <span class="demo-banner">Demo Showcase</span>
+        </div>
+        <h1 class="display-4 fw-bold mb-3">
+          Recent Work &amp; <span class="gradient-text">Case Studies</span>
+        </h1>
+        <p class="text-secondary mb-4" style="max-width: 620px; font-size: 1.15rem; line-height: 1.65;">
+          Take a closer look at the digital products, web platforms, and mobile apps we've designed, architected, and shipped.
+        </p>
+
+        <!-- Highlights Row -->
+        <div class="d-flex flex-wrap align-items-center gap-2 pt-1">
+          <div class="d-flex align-items-center gap-2 px-3 py-1.5 rounded-pill" style="background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.15);">
+            <i class="bi bi-shield-check text-primary"></i>
+            <span class="small fw-semibold text-primary">Production-Grade Code</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 px-3 py-1.5 rounded-pill" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.15);">
+            <i class="bi bi-speedometer2 text-success"></i>
+            <span class="small fw-semibold text-success">100/100 PageSpeed</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 px-3 py-1.5 rounded-pill" style="background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(124, 58, 237, 0.15);">
+            <i class="bi bi-graph-up-arrow" style="color: #7C3AED;"></i>
+            <span class="small fw-semibold" style="color: #7C3AED;">High ROI &amp; Growth</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: "usi ke bagal me" -> Illuminated OUR PROVEN LIFECYCLE Card -->
+      <div class="col-lg-6 col-xl-5">
+        <div class="case-pipeline-card text-start m-0">
+          <!-- Ambient Multi-Color Backlight Mesh -->
+          <div class="case-pipeline-glow" aria-hidden="true"></div>
+
+          <!-- Card Header -->
+          <div class="case-pipeline-header d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="pipeline-pulse-dot"></span>
+              <span class="pipeline-status-text">OUR PROVEN LIFECYCLE</span>
+            </div>
+            <span class="pipeline-badge-live">
+              <i class="bi bi-lightning-charge-fill text-warning me-1"></i>High Velocity
+            </span>
+          </div>
+
+          <!-- 3-Step Illuminated Flow with Colorful Cards -->
+          <div class="case-pipeline-steps position-relative">
+            <!-- Animated Glowing Connector Laser Line -->
+            <div class="pipeline-laser-track" aria-hidden="true">
+              <div class="pipeline-laser-comet"></div>
+            </div>
+
+            <!-- Step 1: Ideas & Architecture (Warm Amber Glow) -->
+            <div class="pipeline-step-item step-item-ideas d-flex align-items-center gap-3 mb-2.5">
+              <div class="pipeline-icon-circle icon-ideas">
+                <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <div class="pipeline-step-content flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="pipeline-step-title mb-0">1. Ideas &amp; Architecture</h4>
+                  <span class="step-micro-tag tag-ideas">Sprint 0</span>
+                </div>
+                <p class="pipeline-step-sub mb-0">UX Wireframes, Tech Discovery &amp; Flow</p>
+              </div>
+            </div>
+
+            <!-- Step 2: Clean Scalable Code (Electric Blue Glow) -->
+            <div class="pipeline-step-item step-item-code d-flex align-items-center gap-3 mb-2.5">
+              <div class="pipeline-icon-circle icon-code">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="pipeline-step-content flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="pipeline-step-title mb-0">2. Clean Scalable Code</h4>
+                  <span class="step-micro-tag tag-code">Active Build</span>
+                </div>
+                <p class="pipeline-step-sub mb-0">Full-Stack Modern Stack &amp; Rigorous Testing</p>
+              </div>
+            </div>
+
+            <!-- Step 3: Real Business Impact (Neon Purple/Violet Glow) -->
+            <div class="pipeline-step-item step-item-impact d-flex align-items-center gap-3">
+              <div class="pipeline-icon-circle icon-impact">
+                <i class="bi bi-rocket-takeoff-fill"></i>
+              </div>
+              <div class="pipeline-step-content flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="pipeline-step-title mb-0">3. Real Business Impact</h4>
+                  <span class="step-micro-tag tag-impact">Shipped</span>
+                </div>
+                <p class="pipeline-step-sub mb-0">Lightning Speed, SEO Growth &amp; High ROI</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Stats Ribbon with Vivid Color Badges -->
+          <div class="case-pipeline-footer d-flex align-items-center justify-content-between mt-3 pt-2.5">
+            <span class="pipeline-footer-stat stat-delivery">
+              <i class="bi bi-check-circle-fill me-1 text-success"></i>
+              <strong>99.8%</strong> On-Time Delivery
+            </span>
+            <span class="pipeline-footer-stat stat-rating">
+              <i class="bi bi-star-fill text-warning me-1"></i>
+              <strong>100%</strong> Verified Work
+            </span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <h1 class="display-4 fw-bold mb-3">Recent Work & <span class="gradient-text">Case Studies</span></h1>
-    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
-      Take a closer look at the digital products, web platforms, and mobile apps we've designed, architected, and shipped.
-    </p>
   </div>
 </section>
 

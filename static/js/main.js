@@ -81,9 +81,6 @@ function initMobileNavbar() {
   const servicesDropdownToggle = document.getElementById('servicesDropdown');
   const servicesDropdownParent = servicesDropdownToggle ? servicesDropdownToggle.closest('.services-nav-dropdown') : null;
 
-  const portfolioDropdownToggle = document.getElementById('portfolioDropdown');
-  const portfolioDropdownParent = portfolioDropdownToggle ? portfolioDropdownToggle.closest('.portfolio-nav-dropdown') : null;
-
   // Toggle Services dropdown on mobile without Bootstrap collision
   if (servicesDropdownToggle && servicesDropdownParent) {
     servicesDropdownToggle.addEventListener('click', (e) => {
@@ -93,19 +90,6 @@ function initMobileNavbar() {
         servicesDropdownParent.classList.toggle('mobile-open');
         const isOpen = servicesDropdownParent.classList.contains('mobile-open');
         servicesDropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      }
-    });
-  }
-
-  // Toggle Portfolio dropdown on mobile without Bootstrap collision
-  if (portfolioDropdownToggle && portfolioDropdownParent) {
-    portfolioDropdownToggle.addEventListener('click', (e) => {
-      if (window.innerWidth < 992) {
-        e.preventDefault();
-        e.stopPropagation();
-        portfolioDropdownParent.classList.toggle('mobile-open');
-        const isOpen = portfolioDropdownParent.classList.contains('mobile-open');
-        portfolioDropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       }
     });
   }
@@ -121,29 +105,19 @@ function initMobileNavbar() {
     });
   });
 
-  // When mobile drawer closes, collapse dropdowns
+  // When mobile drawer closes, collapse dropdown
   navbarCollapse.addEventListener('hidden.bs.collapse', () => {
     if (servicesDropdownParent) {
       servicesDropdownParent.classList.remove('mobile-open');
       servicesDropdownToggle.setAttribute('aria-expanded', 'false');
     }
-    if (portfolioDropdownParent) {
-      portfolioDropdownParent.classList.remove('mobile-open');
-      portfolioDropdownToggle.setAttribute('aria-expanded', 'false');
-    }
   });
 
   // Clean up mobile state when resizing to desktop
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 992) {
-      if (servicesDropdownParent) {
-        servicesDropdownParent.classList.remove('mobile-open');
-        servicesDropdownToggle.setAttribute('aria-expanded', 'false');
-      }
-      if (portfolioDropdownParent) {
-        portfolioDropdownParent.classList.remove('mobile-open');
-        portfolioDropdownToggle.setAttribute('aria-expanded', 'false');
-      }
+    if (window.innerWidth >= 992 && servicesDropdownParent) {
+      servicesDropdownParent.classList.remove('mobile-open');
+      servicesDropdownToggle.setAttribute('aria-expanded', 'false');
     }
   });
 }
