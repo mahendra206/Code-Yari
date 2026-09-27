@@ -5726,6 +5726,26 @@ img {
   box-shadow: var(--case-card-hover-shadow);
 }
 
+.case-card.theme-amber:hover {
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 20px 38px -10px rgba(245, 158, 11, 0.28), 0 0 22px rgba(239, 68, 68, 0.16);
+}
+
+.case-card.theme-purple:hover {
+  border-color: rgba(139, 92, 246, 0.65);
+  box-shadow: 0 20px 38px -10px rgba(139, 92, 246, 0.3), 0 0 22px rgba(236, 72, 153, 0.18);
+}
+
+.case-card.theme-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.65);
+  box-shadow: 0 20px 38px -10px rgba(16, 185, 129, 0.28), 0 0 22px rgba(6, 182, 212, 0.16);
+}
+
+.case-card.theme-cyan:hover {
+  border-color: rgba(6, 182, 212, 0.7);
+  box-shadow: 0 20px 38px -10px rgba(6, 182, 212, 0.32), 0 0 22px rgba(59, 130, 246, 0.2);
+}
+
 /* Browser Mockup Window */
 .case-mockup-frame {
   background-color: var(--case-browser-bar-bg);
@@ -5808,6 +5828,39 @@ img {
   background-color: var(--case-pill-purple-bg);
   color: var(--case-pill-purple-text);
   border: 1px solid var(--case-pill-purple-border);
+}
+
+.case-category-pill.badge-amber {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+[data-theme="dark"] .case-category-pill.badge-amber {
+  background-color: rgba(245, 158, 11, 0.22);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.case-category-pill.badge-emerald {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+[data-theme="dark"] .case-category-pill.badge-emerald {
+  background-color: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.case-category-pill.badge-cyan {
+  background-color: rgba(6, 182, 212, 0.15);
+  color: #0891b2;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+[data-theme="dark"] .case-category-pill.badge-cyan {
+  background-color: rgba(6, 182, 212, 0.22);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.5);
 }
 
 /* Card Body Content */

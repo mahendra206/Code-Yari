@@ -146,20 +146,38 @@
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4 pt-3" id="caseStudiesGrid">
         {% for project in case_studies %}
         <div class="col case-study-item" data-category="{{ project.category_slug }}">
-          <div class="case-card h-100 d-flex flex-column">
+          <div class="case-card {{ project.theme_class }} h-100 d-flex flex-column">
             
+            <!-- Top Gradient Accent Bar -->
+            <div class="showcase-accent-bar"></div>
+
             <!-- Browser Mockup Window -->
             <div class="case-mockup-frame position-relative">
-              <!-- Browser Header Bar with 3 Dots -->
-              <div class="case-browser-dots d-flex align-items-center gap-1">
-                <span class="browser-dot red"></span>
-                <span class="browser-dot yellow"></span>
-                <span class="browser-dot green"></span>
+              <!-- Browser Header Bar with Dots & Live Status -->
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <div class="case-browser-dots d-flex align-items-center gap-1">
+                  <span class="browser-dot red"></span>
+                  <span class="browser-dot yellow"></span>
+                  <span class="browser-dot green"></span>
+                </div>
+                {% if project.project_url %}
+                <div class="showcase-live-badge position-static py-0 px-2" style="font-size: 0.68rem;">
+                  <span class="live-pulse-dot {{ project.badge_dot_class }}"></span>
+                  <span>{{ project.live_label }}</span>
+                </div>
+                {% endif %}
               </div>
               
               <!-- Screen Preview Image -->
-              <div class="case-mockup-screen">
+              <div class="case-mockup-screen position-relative">
                 <img src="{% static project.image %}" alt="{{ project.title }}" class="img-fluid w-100" loading="lazy">
+                
+                <a href="{{ project.detail_url }}" class="showcase-hover-link" aria-label="View {{ project.title }}">
+                  <span class="showcase-hover-btn">
+                    <span>Explore Case Study</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </span>
+                </a>
               </div>
 
               <!-- Category Badge Pill Overlap -->
@@ -172,9 +190,17 @@
 
             <!-- Card Body Content -->
             <div class="case-card-body d-flex flex-column flex-grow-1 p-3 pt-3">
+              <!-- Metric Ribbon -->
+              <div class="showcase-metric-ribbon {{ project.metric_class }} mb-2 mt-1">
+                <i class="bi {{ project.metric_icon }} me-1"></i>
+                <span>{{ project.metric }}</span>
+              </div>
+
               <!-- Title -->
               <h3 class="case-card-title mb-2">
-                {{ project.title }}
+                <a href="{{ project.detail_url }}" class="text-reset text-decoration-none">
+                  {{ project.title }}
+                </a>
               </h3>
 
               <!-- Short Description -->
@@ -185,19 +211,25 @@
               <!-- Tech Stack Badges -->
               <div class="case-tech-stack d-flex flex-wrap gap-1.5 mt-auto mb-3">
                 {% for tech in project.tech_tags %}
-                <span class="case-tech-pill" title="{{ tech.name }}">
-                  <i class="bi {{ tech.icon }} tech-icon" style="color: {{ tech.color }};"></i>
+                <span class="tech-chip {{ tech.chip_class }}" title="{{ tech.name }}">
+                  <i class="bi {{ tech.icon }}"></i>
                   <span class="tech-name">{{ tech.name }}</span>
                 </span>
                 {% endfor %}
               </div>
 
-              <!-- View Case Study Link -->
-              <div class="case-card-footer pt-2">
-                <a href="{% url 'leads:get_quote' %}?project={{ project.slug }}" class="case-study-link d-inline-flex align-items-center gap-2">
+              <!-- Footer Actions: View Case Study & Live Site -->
+              <div class="case-card-footer d-flex align-items-center justify-content-between pt-2 border-top border-subtle">
+                <a href="{{ project.detail_url }}" class="btn-showcase-explore {{ project.explore_btn_class }} btn-sm py-1 px-3">
                   <span>View Case Study</span>
-                  <i class="bi bi-arrow-right case-link-arrow"></i>
+                  <i class="bi bi-arrow-right arrow-icon"></i>
                 </a>
+                {% if project.project_url %}
+                <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn-showcase-live py-1 px-2.5" title="Visit Live Platform">
+                  <span>Live</span>
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                {% endif %}
               </div>
 
             </div>
