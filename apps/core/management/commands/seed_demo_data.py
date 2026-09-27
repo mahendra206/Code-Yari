@@ -220,7 +220,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'NEXPLAY — Gaming Ecosystem & Setup Builder',
-                'category': cats['web'],
+                'category': cats['ecommerce'],
                 'short_description': 'An interactive gaming ecosystem and custom PC setup builder featuring personalized playstyle recommendations, hardware configurations, and esports peripherals.',
                 'full_description': '<p><strong>NEXPLAY</strong> is a high-performance web platform and gaming ecosystem engineered for gamers, streamers, and esports enthusiasts to design, configure, and customize their dream battle stations.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Setup Builder:</strong> Modular hardware selector for custom PC rigs, high-refresh displays, and ergonomic gaming furniture.</li><li><strong>Personalized Playstyle Engine:</strong> Dynamic gear recommendations based on game genres (FPS, MOBA, RPG, Simulator) and competitive requirements.</li><li><strong>Esports Peripheral Catalog:</strong> Filterable catalog of pro-grade mechanical keyboards, mice, audio gear, and streaming equipment.</li><li><strong>Cyberpunk Modern UI:</strong> Sleek dark-mode aesthetic with reactive animations, neon accents, and smooth scroll navigation.</li></ul>',
                 'technologies': ['React', 'Vite', 'TailwindCSS', 'JavaScript', 'Netlify', 'HTML5', 'CSS3'],
@@ -230,7 +230,7 @@ class Command(BaseCommand):
             },
             {
                 'name': 'Houzez — Luxury Real Estate & Property Marketplace',
-                'category': cats['web'],
+                'category': cats['ecommerce'],
                 'short_description': 'A modern real estate marketplace platform featuring luxury property listings for sale & rent, interactive filter search, realtor directories, and listing inquiries.',
                 'full_description': '<p><strong>Houzez</strong> is a premium real estate and property marketplace application designed for luxury homebuyers, investors, and licensed realtors to browse, list, and connect effortlessly.</p><h4>Project Highlights:</h4><ul><li><strong>Advanced Property Search & Filter:</strong> Filter luxury homes, villas, apartments by status (For Sale / For Rent), price range, bedrooms, and location.</li><li><strong>Detailed Property Showcase:</strong> High-resolution media galleries, floor plans, amenity checklists, and neighborhood mapping.</li><li><strong>Realtor & Agent Directory:</strong> Verified broker profiles, direct contact channels, and portfolio showcase.</li><li><strong>Inquiry & Lead Capture:</strong> Streamlined scheduling for property walkthroughs and automated seller inquiry forms.</li></ul>',
                 'technologies': ['React', 'JavaScript', 'TailwindCSS', 'HTML5', 'CSS3', 'Netlify'],
