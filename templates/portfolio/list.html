@@ -63,7 +63,13 @@
             <span class="badge-pill-custom py-1 px-2 small" style="font-size: 0.75rem;">
               {{ project.category.name }}
             </span>
+            {% if project.is_demo %}
             <span class="demo-banner">Demo</span>
+            {% elif project.project_url %}
+            <span class="showcase-live-badge position-static py-0.5 px-2" style="font-size: 0.68rem; background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25);">
+              <span class="live-pulse-dot dot-emerald"></span> Live
+            </span>
+            {% endif %}
           </div>
 
           <h2 class="h5 fw-bold mb-2">
