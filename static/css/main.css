@@ -2874,44 +2874,7 @@ img {
   color: var(--text-main);
 }
 
-/* Radar Pulse Indicator Dot */
-.tagline-radar-dot {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin: 0 auto;
-}
 
-.tagline-radar-dot .radar-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #2563EB;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.85);
-  z-index: 1;
-}
-
-.tagline-radar-dot .radar-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1.6px solid rgba(37, 99, 235, 0.5);
-  animation: radarRingPulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
-}
-
-@keyframes radarRingPulse {
-  0% {
-    transform: scale(0.35);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
-  }
-}
 
 /* Right Illustration: Exact Mockup Doodle "Build Grow Together" & Airplane */
 .tagline-illustration-right {
