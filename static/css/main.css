@@ -3914,27 +3914,95 @@ img {
   border: 1px solid rgba(37, 99, 235, 0.15);
 }
 
-.whatsapp-float {
+.whatsapp-float,
+.whatsapp-float-btn {
   position: fixed;
-  bottom: 28px;
+  bottom: 92px;
   right: 28px;
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   background-color: #25D366;
   color: #FFFFFF !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   z-index: 999;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
-.whatsapp-float:hover {
+.whatsapp-float:hover,
+.whatsapp-float-btn:hover {
   transform: scale(1.1);
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55);
   color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Scroll To Top Floating Action Button (Positioned Directly Below WhatsApp)
+   ========================================================================== */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background-color: #FFFFFF;
+  color: var(--brand-primary, #2563EB);
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 6px 22px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--brand-primary, #2563EB);
+  color: #FFFFFF !important;
+  border-color: var(--brand-primary, #2563EB);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+  transform: translateY(-3px) scale(1.08);
+}
+
+.scroll-top-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+@media (max-width: 576px) {
+  .whatsapp-float,
+  .whatsapp-float-btn {
+    bottom: 80px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.5rem;
+  }
+
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
 }
 
 /* ==========================================================================
@@ -4252,9 +4320,19 @@ img {
 
 /* --- Scroll-to-top button --- */
 [data-theme="dark"] .scroll-top-btn {
-  background-color: var(--bg-card) !important;
-  border-color: var(--border-card) !important;
-  color: var(--text-muted) !important;
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(99, 102, 241, 0.35) !important;
+  color: #818CF8 !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55), 0 0 14px rgba(99, 102, 241, 0.25);
+}
+
+[data-theme="dark"] .scroll-top-btn:hover {
+  background-color: #2563EB !important;
+  border-color: #3B82F6 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.65);
 }
 
 /* --- Portfolio section inline style bg override --- */

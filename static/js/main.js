@@ -221,13 +221,16 @@ function initScrollToTop() {
   const scrollBtn = document.getElementById('scroll-top-btn');
   if (!scrollBtn) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
+  const toggleScrollBtn = () => {
+    if (window.scrollY > 80 || document.documentElement.scrollTop > 80) {
       scrollBtn.classList.add('visible');
     } else {
       scrollBtn.classList.remove('visible');
     }
-  }, { passive: true });
+  };
+
+  window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+  toggleScrollBtn();
 
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({
