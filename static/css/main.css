@@ -6528,3 +6528,434 @@ img {
   color: #ffffff !important;
   transform: translateY(-1px);
 }
+
+/* ==========================================================================
+   Code Yari — Next-Gen Animated Brand Logo (Continuous Infinite Loop)
+   Letter-by-Letter Reveal, Kinetic Brackets, Radiant Aura & Responsive Scaling
+   Works across Mobile, Tablet & Laptop seamlessly without ever stopping.
+   ========================================================================== */
+
+.brand-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  position: relative;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Ambient Backlight Glow */
+.logo-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(37, 99, 235, 0.2) 50%, transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+  animation: logoAuraLoop 6s ease-in-out infinite;
+}
+
+@keyframes logoAuraLoop {
+  0% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+  10% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+  20%, 50% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+  75%, 90% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  98%, 100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+}
+
+.brand-logo-wrap:hover .logo-ambient-glow,
+.brand-logo-wrap.is-waving .logo-ambient-glow {
+  opacity: 0.95;
+  width: 140px;
+  transform: translate(-20%, -50%) scale(1.2);
+}
+
+/* --- Code Icon Mark: < / > --- */
+.logo-icon-mark {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.logo-svg-mark {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3));
+  transition: filter 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-logo-wrap:hover .logo-svg-mark,
+.brand-logo-wrap.is-waving .logo-svg-mark {
+  filter: drop-shadow(0 4px 16px rgba(99, 102, 241, 0.75));
+}
+
+/* Brackets Animation */
+.mark-bracket,
+.mark-slash {
+  transform-box: fill-box;
+}
+
+.mark-bracket-left {
+  transform-origin: center right;
+  animation: bracketLoopLeft 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.mark-slash {
+  transform-origin: center center;
+  animation: slashLoop 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.mark-bracket-right {
+  transform-origin: center left;
+  animation: bracketLoopRight 6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+@keyframes bracketLoopLeft {
+  0% {
+    opacity: 0.4;
+    transform: translateX(-14px) scale(0.7);
+  }
+  8% {
+    opacity: 1;
+    transform: translateX(-3px) scale(1.15);
+  }
+  16%, 52% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  58% {
+    transform: translateX(-4px) scale(1.1);
+  }
+  66%, 90% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  97%, 100% {
+    opacity: 0.35;
+    transform: translateX(-10px) scale(0.75);
+  }
+}
+
+@keyframes slashLoop {
+  0% {
+    opacity: 0.3;
+    transform: translateY(-14px) rotate(-24deg) scaleY(0.6);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0) rotate(-10deg) scaleY(1.12);
+  }
+  18%, 52% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scaleY(1);
+  }
+  60% {
+    transform: rotate(-14deg) scale(1.12);
+  }
+  68%, 90% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  97%, 100% {
+    opacity: 0.3;
+    transform: translateY(-10px) rotate(-20deg) scaleY(0.65);
+  }
+}
+
+@keyframes bracketLoopRight {
+  0% {
+    opacity: 0.4;
+    transform: translateX(14px) scale(0.7);
+  }
+  8% {
+    opacity: 1;
+    transform: translateX(3px) scale(1.15);
+  }
+  16%, 52% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  58% {
+    transform: translateX(4px) scale(1.1);
+  }
+  66%, 90% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  97%, 100% {
+    opacity: 0.35;
+    transform: translateX(10px) scale(0.75);
+  }
+}
+
+/* Hover & Tap Overrides */
+.brand-logo-wrap:hover .mark-bracket-left,
+.brand-logo-wrap.is-waving .mark-bracket-left {
+  transform: translateX(-5px) scale(1.12) !important;
+}
+.brand-logo-wrap:hover .mark-slash,
+.brand-logo-wrap.is-waving .mark-slash {
+  transform: rotate(-14deg) scale(1.16) !important;
+}
+.brand-logo-wrap:hover .mark-bracket-right,
+.brand-logo-wrap.is-waving .mark-bracket-right {
+  transform: translateX(5px) scale(1.12) !important;
+}
+
+/* --- Brand Text Stream --- */
+.logo-text-stream {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  perspective: 600px;
+}
+
+.logo-word {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-word-yari {
+  margin-left: 0.28em;
+}
+
+/* "Code" Typography */
+.logo-word-code {
+  color: #0F172A;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .logo-word-code {
+  color: #FFFFFF;
+}
+
+/* "Yari" Typography: Radiant Gradient */
+.logo-word-yari {
+  font-weight: 800;
+  background: linear-gradient(135deg, #2563EB 0%, #6366F1 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-flex;
+}
+
+[data-theme="dark"] .logo-word-yari {
+  background: linear-gradient(135deg, #60A5FA 0%, #818CF8 50%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Individual Animated Character (Letter-by-Letter Reveal & Endless Wave) */
+.logo-char {
+  display: inline-block;
+  transform-origin: 50% 85%;
+  will-change: transform, opacity, filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  animation: logoCharContinuous 6s cubic-bezier(0.2, 0.9, 0.35, 1.25) infinite;
+  animation-delay: calc((var(--i) - 1) * 0.09s);
+}
+
+@keyframes logoCharContinuous {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) rotateX(-55deg) scale(0.5);
+    filter: blur(4px);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(-4px) rotateX(8deg) scale(1.14);
+    filter: blur(0px);
+    text-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+  }
+  9% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+    filter: none;
+    text-shadow: none;
+  }
+  /* Held visible and readable for 2.6s */
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    text-shadow: none;
+  }
+  /* Staggered energetic wave */
+  56% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.12);
+    text-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+  }
+  64% {
+    opacity: 1;
+    transform: translateY(1px) scale(0.97);
+    text-shadow: none;
+  }
+  /* Settled visible until reset */
+  70%, 88% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+  /* Smooth graceful fade & reset */
+  93% {
+    opacity: 0.15;
+    transform: translateY(6px) scale(0.92);
+    filter: blur(2px);
+  }
+  97%, 100% {
+    opacity: 0;
+    transform: translateY(16px) rotateX(-55deg) scale(0.5);
+    filter: blur(4px);
+  }
+}
+
+/* Typing Cursor: Blinks and loops */
+.logo-type-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 1.15em;
+  background: linear-gradient(180deg, #3B82F6, #8B5CF6);
+  border-radius: 2px;
+  margin-left: 3px;
+  vertical-align: middle;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.9);
+  animation: cursorBlink 0.55s step-end infinite, cursorLoop 6s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursorLoop {
+  0% { opacity: 0; }
+  10%, 88% { opacity: 1; }
+  94%, 100% { opacity: 0; }
+}
+
+/* Interactive Wave Bounce on Hover or Mobile Tap */
+.brand-logo-wrap:hover .logo-char,
+.brand-logo-wrap.is-waving .logo-char {
+  animation: logoInteractiveWave 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both !important;
+  animation-delay: calc((var(--i) - 1) * 0.045s) !important;
+}
+
+@keyframes logoInteractiveWave {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  38% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.16);
+    text-shadow: 0 4px 16px rgba(37, 99, 235, 0.55);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(2px) scale(0.95);
+  }
+}
+
+/* Size Variants & Responsive Adjustments across Devices */
+.brand-logo-wrap.logo-footer .logo-text-stream {
+  font-size: 1.35rem;
+}
+.brand-logo-wrap.logo-footer .logo-icon-mark {
+  width: 32px;
+  height: 28px;
+}
+
+.brand-logo-wrap.logo-center {
+  justify-content: center;
+}
+
+/* Tablet View */
+@media (max-width: 991.98px) {
+  .brand-logo-wrap {
+    gap: 0.52rem;
+  }
+  .logo-text-stream {
+    font-size: 1.35rem;
+  }
+  .logo-icon-mark {
+    width: 32px;
+    height: 28px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 576px) {
+  .brand-logo-wrap {
+    gap: 0.42rem;
+  }
+  .logo-text-stream {
+    font-size: 1.22rem;
+  }
+  .logo-icon-mark {
+    width: 28px;
+    height: 25px;
+  }
+  .logo-ambient-glow {
+    filter: blur(8px);
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Accessibility: Safe fallback if user requested reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-char,
+  .mark-bracket-left,
+  .mark-slash,
+  .mark-bracket-right,
+  .logo-type-cursor,
+  .logo-ambient-glow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
