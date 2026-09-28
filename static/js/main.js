@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoDismissAlerts();
   initScrollToTop();
   initCustomCursor();
-  initLogoAnimation();
 });
 
 /* --------------------------------------------------------------------------
@@ -391,29 +390,6 @@ function initPagePreloader() {
       }, 320);
     }
   }, 500);
-}
-
-/* --------------------------------------------------------------------------
-   9. Animated Brand Logo Interactive Controller (Touch & Click Reactive Waves)
-   -------------------------------------------------------------------------- */
-function initLogoAnimation() {
-  const allLogos = document.querySelectorAll('.brand-logo-wrap');
-  if (!allLogos.length) return;
-
-  allLogos.forEach(logo => {
-    let waveTimer = null;
-    const triggerInteractiveWave = () => {
-      logo.classList.add('is-waving');
-      clearTimeout(waveTimer);
-      waveTimer = setTimeout(() => {
-        logo.classList.remove('is-waving');
-      }, 650);
-    };
-
-    // Mobile tap, tablet touch & desktop click extra reactivity
-    logo.addEventListener('click', triggerInteractiveWave);
-    logo.addEventListener('touchstart', triggerInteractiveWave, { passive: true });
-  });
 }
 
 

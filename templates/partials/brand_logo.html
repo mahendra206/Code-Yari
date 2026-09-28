@@ -1,9 +1,6 @@
 {% load static %}
 {% with uid=logo_id|default:'brandLogo' %}
 <div class="brand-logo-wrap {{ logo_class|default:'' }}" id="{{ uid }}">
-  <!-- Ambient Backlight Glow -->
-  <div class="logo-ambient-glow" aria-hidden="true"></div>
-
   <!-- Animated Code Icon Mark: < / > -->
   <div class="logo-icon-mark" aria-hidden="true">
     <svg class="logo-svg-mark" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,20 +31,10 @@
     </svg>
   </div>
 
-  <!-- Animated Letters: Code Yari -->
+  <!-- Brand Text: Code Yari -->
   <span class="logo-text-stream" aria-label="Code Yari">
-    <!-- Word: Code -->
-    <span class="logo-word logo-word-code">
-      <span class="logo-char" style="--i:1;">C</span><span class="logo-char" style="--i:2;">o</span><span
-        class="logo-char" style="--i:3;">d</span><span class="logo-char" style="--i:4;">e</span>
-    </span>
-    <!-- Word: Yari -->
-    <span class="logo-word logo-word-yari">
-      <span class="logo-char" style="--i:5;">Y</span><span class="logo-char" style="--i:6;">a</span><span
-        class="logo-char" style="--i:7;">r</span><span class="logo-char" style="--i:8;">i</span>
-    </span>
-    <!-- Sleek Tech Typing Cursor -->
-    <span class="logo-type-cursor" aria-hidden="true"></span>
+    <span class="logo-word logo-word-code">Code</span>
+    <span class="logo-word logo-word-yari">Yari</span>
   </span>
 </div>
 {% endwith %}
