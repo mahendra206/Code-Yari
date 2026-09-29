@@ -16,28 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. Dark / Light Mode Theme Toggle
+   1. Theme Initialization
    -------------------------------------------------------------------------- */
 function initTheme() {
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  const themeIcon = document.getElementById('theme-icon');
-  
   const urlParam = new URLSearchParams(window.location.search).get('theme');
-  const savedTheme = urlParam || localStorage.getItem('codeyari_theme');
-  const currentTheme = savedTheme || 'light'; // Default to clean light agency aesthetic matching brand guide
-
+  const currentTheme = urlParam || 'light';
   document.documentElement.setAttribute('data-theme', currentTheme);
-  updateThemeIcon(themeIcon, currentTheme);
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const active = document.documentElement.getAttribute('data-theme');
-      const nextTheme = active === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('codeyari_theme', nextTheme);
-      updateThemeIcon(themeIcon, nextTheme);
-    });
-  }
 }
 
 function updateThemeIcon(icon, theme) {

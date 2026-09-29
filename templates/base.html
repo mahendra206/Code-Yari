@@ -56,8 +56,9 @@
     (function () {
       var urlParams = new URLSearchParams(window.location.search);
       var urlTheme = urlParams.get('theme');
-      var savedTheme = urlTheme || localStorage.getItem('codeyari_theme') || 'light';
+      var savedTheme = urlTheme || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
+      try { localStorage.removeItem('codeyari_theme'); } catch(e) {}
       if (urlParams.get('nopreload')) {
         var style = document.createElement('style');
         style.innerHTML = '#page-preloader { display: none !important; }';
