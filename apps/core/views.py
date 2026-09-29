@@ -66,12 +66,22 @@ def home(request):
 
 
 def about(request):
-    """About page — company story, philosophy, mission, vision."""
+    """About page — company story, philosophy, mission, vision, team, and stats."""
+    team_members = TeamMember.objects.filter(is_active=True).order_by('order')[:4]
+    stats = StatItem.objects.filter(is_active=True).order_by('order')
+    testimonials = Testimonial.objects.filter(published=True, featured=True).order_by('order')[:3]
+    featured_services = Service.objects.filter(is_active=True, is_featured=True).order_by('order')[:6]
+
     context = {
         'page_title': 'About Us — Code Yari | Digital Agency & Technology Partner',
-        'meta_description': 'Learn about Code Yari — our philosophy, core pillars, and how we help businesses grow online.',
+        'meta_description': 'Learn about Code Yari — our story, philosophy, core team, and why ambitious businesses trust us as their long-term digital growth ally.',
+        'team_members': team_members,
+        'stats': stats,
+        'testimonials': testimonials,
+        'featured_services': featured_services,
     }
     return render(request, 'core/about.html', context)
+
 
 
 def team(request):

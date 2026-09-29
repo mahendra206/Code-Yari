@@ -2,92 +2,658 @@
 {% load static %}
 
 {% block title %}About Us — Code Yari | Digital Agency & Technology Partner{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="page-header-section">
-  <div class="container text-center py-4">
-    <span class="badge-pill-custom mb-3">
-      <i class="bi bi-rocket-takeoff-fill"></i> Who We Are
-    </span>
-    <h1 class="display-4 fw-bold mb-3">Building With Heart, Code and <span class="gradient-text">Yari</span></h1>
-    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
-      We are a passionate collective of engineers, designers, and growth specialists committed to turning bold ideas into scalable digital platforms.
-    </p>
-  </div>
-</section>
+<div class="about-page-wrapper">
 
-<!-- Company Story & Philosophy -->
-<section class="section-wrapper py-5">
-  <div class="container">
-    <div class="row align-items-center g-5 mb-5">
-      <div class="col-lg-6">
-        <span class="badge-pill-custom mb-3">
-          <i class="bi bi-compass"></i> Our Philosophy
-        </span>
-        <h2 class="display-6 fw-bold mb-4">"Sirf code nahi, Yari ke saath solution."</h2>
-        <p class="text-secondary" style="line-height: 1.8;">
-          At Code Yari, we believe that software isn't just about syntax, frameworks, or database queries. It's about empathy, partnership, and helping founders and businesses scale without friction.
-        </p>
-        <p class="text-secondary" style="line-height: 1.8;">
-          Too many agencies treat projects as one-off transactions. We treat our clients as long-term allies ("Yari"). When you work with us, you get a dedicated engineering team that cares as much about your bottom line and user experience as you do.
-        </p>
-        <div class="row g-3 pt-2">
-          <div class="col-sm-6">
-            <div class="p-3 card-custom">
-              <i class="bi bi-lightning-charge-fill text-warning fs-3 mb-2"></i>
-              <h4 class="h6 fw-bold mb-1">Agile & Rapid</h4>
-              <p class="small text-secondary mb-0">Quick turnarounds without sacrificing code quality.</p>
-            </div>
+  <!-- ========================================================
+       HERO SECTION WITH AMBIENT GLOW & TEAM COLLABORATION VISUAL
+       ======================================================== -->
+  <section class="about-hero-section">
+    <div class="about-ambient-orb about-orb-1"></div>
+    <div class="about-ambient-orb about-orb-2"></div>
+    <div class="about-ambient-orb about-orb-3"></div>
+
+    <div class="container position-relative py-5">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb mb-0 align-items-center">
+          <li class="breadcrumb-item">
+            <a href="{% url 'core:home' %}" class="about-breadcrumb-link">
+              <i class="bi bi-house-door-fill me-1"></i> Home
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">About Code Yari</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-5">
+        <!-- Left Hero Text -->
+        <div class="col-lg-7">
+          <div class="about-pill-badge mb-3">
+            <span class="about-pill-dot"></span>
+            <span>✦ Born To Innovate • Built On Code & Yari</span>
           </div>
-          <div class="col-sm-6">
-            <div class="p-3 card-custom">
-              <i class="bi bi-shield-check text-success fs-3 mb-2"></i>
-              <h4 class="h6 fw-bold mb-1">Transparent</h4>
-              <p class="small text-secondary mb-0">Clear communication, no hidden fees, honest guidance.</p>
+
+          <h1 class="about-hero-title mb-3">
+            We Don't Just Write Code — We Build With
+            <span class="about-gradient-text">Heart, Passion & Yari</span>
+          </h1>
+
+          <p class="about-hero-lead mb-4">
+            Code Yari is a modern digital technology & product studio. We partner with ambitious founders, startups, and enterprises to craft high-converting websites, fluid mobile apps, and intelligent AI automations that fuel sustainable business growth.
+          </p>
+
+          <!-- Highlight Badges Group -->
+          <div class="about-chips-group mb-4">
+            <span class="about-chip">
+              <i class="bi bi-check2-circle me-1"></i> 100% In-House Senior Team
+            </span>
+            <span class="about-chip">
+              <i class="bi bi-lightning-charge-fill me-1"></i> Agile 2-4 Week Sprints
+            </span>
+            <span class="about-chip">
+              <i class="bi bi-shield-check me-1"></i> Transparent Milestone Pricing
+            </span>
+            <span class="about-chip">
+              <i class="bi bi-code-slash me-1"></i> Full Code & IP Ownership
+            </span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex align-items-center gap-3 flex-wrap pt-2">
+            <a href="{% url 'leads:get_quote' %}" class="about-btn-primary">
+              <span>Start Your Project</span>
+              <i class="bi bi-arrow-right fs-5"></i>
+            </a>
+
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text=Hi%20Code%20Yari,%20I%20would%20love%20to%20learn%20more%20about%20your%20services%20and%20team!" target="_blank" rel="noopener noreferrer" class="about-btn-whatsapp">
+              <i class="bi bi-whatsapp fs-5"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+            {% else %}
+            <a href="{% url 'core:contact' %}" class="about-btn-secondary">
+              <i class="bi bi-chat-dots-fill"></i>
+              <span>Talk to Founders</span>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'core:team' %}" class="about-btn-secondary">
+              <i class="bi bi-people-fill"></i>
+              <span>Meet The Team</span>
+            </a>
+          </div>
+
+          <!-- Trust Sub-Bar -->
+          <div class="d-flex align-items-center gap-4 mt-4 pt-3 border-top border-subtle flex-wrap text-muted small">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Guaranteed Delivery Standards</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-star-fill text-warning"></i>
+              <span>Rated 4.9/5 by Growing Startups</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-headset text-primary"></i>
+              <span>Direct Developer Access</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-lg-6">
-        <div class="card-custom p-4 p-md-5" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);">
-          <h3 class="h4 fw-bold mb-4 text-primary">Our Core Pillars</h3>
-          <div class="d-flex gap-3 mb-4">
-            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
-              01
+        <!-- Right Hero Visual -->
+        <div class="col-lg-5">
+          <div class="about-visual-wrapper position-relative">
+            <div class="about-visual-card shadow-lg">
+              <img src="{% static 'images/team_collab.jpg' %}" alt="Code Yari Team Collaboration" class="img-fluid rounded-4 about-hero-img" loading="eager">
+              <div class="about-visual-overlay"></div>
             </div>
-            <div>
-              <h4 class="h6 fw-bold mb-1">Performance-First Architecture</h4>
-              <p class="small text-secondary mb-0">Every millisecond counts. We optimize database queries, caching, and assets for blazing speed.</p>
+
+            <!-- Floating Badge Top Left -->
+            <div class="about-floating-badge badge-top-left shadow">
+              <div class="about-badge-icon bg-warning text-white">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div>
+                <div class="about-badge-val">4.9 / 5.0 Rating</div>
+                <div class="about-badge-sub">Trusted By Founders</div>
+              </div>
             </div>
-          </div>
-          <div class="d-flex gap-3 mb-4">
-            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
-              02
-            </div>
-            <div>
-              <h4 class="h6 fw-bold mb-1">Modern Aesthetic UI/UX</h4>
-              <p class="small text-secondary mb-0">Clean visual hierarchy, intuitive flows, responsive design across mobile and desktop.</p>
-            </div>
-          </div>
-          <div class="d-flex gap-3 mb-4">
-            <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px; font-size: 1rem;">
-              03
-            </div>
-            <div>
-              <h4 class="h6 fw-bold mb-1">Data & SEO Driven</h4>
-              <p class="small text-secondary mb-0">We build websites that Google loves. Clean semantic markup, structured schemas, fast core web vitals.</p>
+
+            <!-- Floating Badge Bottom Right -->
+            <div class="about-floating-badge badge-bottom-right shadow">
+              <div class="about-badge-icon bg-primary text-white">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+              <div>
+                <div class="about-badge-val">100% In-House</div>
+                <div class="about-badge-sub">Zero Freelance Risk</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ========================================================
+       LIVE IMPACT STATS COUNTER RIBBON
+       ======================================================== -->
+  <section class="about-stats-section">
+    <div class="container">
+      <div class="row g-3">
+        {% if stats %}
+          {% for stat in stats %}
+          <div class="col-6 col-lg-3">
+            <div class="about-stat-card text-center">
+              <div class="about-stat-icon">
+                <i class="bi {{ stat.icon|default:'bi-trophy-fill' }}"></i>
+              </div>
+              <div class="about-stat-val">{{ stat.value }}</div>
+              <div class="about-stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-6 col-lg-3">
+            <div class="about-stat-card text-center">
+              <div class="about-stat-icon">
+                <i class="bi bi-check-circle-fill"></i>
+              </div>
+              <div class="about-stat-val">25+</div>
+              <div class="about-stat-label">Projects Delivered</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="about-stat-card text-center">
+              <div class="about-stat-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="about-stat-val">20+</div>
+              <div class="about-stat-label">Happy Clients</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="about-stat-card text-center">
+              <div class="about-stat-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="about-stat-val">10+</div>
+              <div class="about-stat-label">Technologies Mastered</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="about-stat-card text-center">
+              <div class="about-stat-icon">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="about-stat-val">99.8%</div>
+              <div class="about-stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
 
-<!-- CTA Banner -->
-{% include 'partials/cta_banner.html' %}
+  <!-- ========================================================
+       OUR STORY & THE MEANING OF "YARI"
+       ======================================================== -->
+  <section class="about-story-section py-5">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="about-pill-badge mb-3">
+            <span class="about-pill-dot"></span>
+            <span>✦ The Philosophy of Yari</span>
+          </div>
+          <h2 class="display-6 fw-bold mb-4">
+            "Sirf code nahi, <span class="about-gradient-text">Yari ke saath solution.</span>"
+          </h2>
+          <p class="text-secondary" style="font-size: 1.05rem; line-height: 1.85;">
+            In today's fast-moving digital world, too many agencies treat client relationships as short-term transactions. They overpromise, assign junior outsourced developers, bill hidden extras, and vanish the moment the final invoice is paid.
+          </p>
+          <p class="text-secondary" style="font-size: 1.05rem; line-height: 1.85;">
+            We created <strong>Code Yari</strong> to do things radically differently. In Hindi, <em>Yari</em> stands for authentic friendship, steadfast loyalty, and standing shoulder-to-shoulder with someone you care about.
+          </p>
+          <div class="about-quote-box p-4 mb-4">
+            <i class="bi bi-quote fs-1 about-quote-icon"></i>
+            <p class="fw-semibold text-dark mb-0 fs-5">
+              "We don't view ourselves as an external vendor. We view ourselves as your dedicated in-house engineering team that is as emotionally invested in your growth and revenue as you are."
+            </p>
+            <div class="small text-primary fw-bold mt-2">— The Code Yari Founding Belief</div>
+          </div>
+        </div>
 
+        <div class="col-lg-6">
+          <div class="about-story-visual position-relative">
+            <div class="card-custom p-3 shadow-lg border-2" style="border-radius: 26px; border-color: var(--border-color);">
+              <img src="{% static 'images/hero_desk.jpg' %}" alt="Better Code Bigger Dreams - Code Yari" class="img-fluid rounded-4" style="object-fit: cover; max-height: 440px; width: 100%;">
+            </div>
+            <!-- Interactive Floating Note -->
+            <div class="about-floating-note shadow">
+              <i class="bi bi-lightbulb-fill text-warning fs-4"></i>
+              <div>
+                <div class="fw-bold small text-dark">Better Code, Bigger Dreams</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Engineered for ambitious companies worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MISSION & VISION SPLIT CARDS (COLORFUL GRADIENTS)
+       ======================================================== -->
+  <section class="about-mission-section py-5">
+    <div class="container py-2">
+      <div class="text-center mb-5">
+        <span class="about-pill-badge mb-3">
+          <span class="about-pill-dot"></span>
+          <span>✦ Purpose & Future</span>
+        </span>
+        <h2 class="display-6 fw-bold">Our Driving Mission & Vision</h2>
+        <p class="text-secondary mx-auto" style="max-width: 620px;">
+          The compass that directs every architecture decision, line of code, and client interaction.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Mission Card -->
+        <div class="col-md-6">
+          <div class="about-mv-card mission-card h-100 p-4 p-md-5">
+            <div class="about-mv-icon bg-primary text-white mb-4">
+              <i class="bi bi-bullseye"></i>
+            </div>
+            <span class="about-mv-badge text-primary mb-2 d-inline-block">Core Mission</span>
+            <h3 class="h3 fw-bold mb-3">Democratizing Enterprise-Grade Technology</h3>
+            <p class="text-secondary mb-4" style="line-height: 1.8;">
+              To empower ambitious startups, MSMEs, and visionary business owners with modern, high-speed, secure, and beautiful digital products at fair, transparent milestone pricing — without corporate bureaucracy.
+            </p>
+            <ul class="about-mv-list list-unstyled mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Zero bloatware or unnecessary technical debt</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Clean, maintainable code architectures</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Direct access to senior makers & engineers</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="col-md-6">
+          <div class="about-mv-card vision-card h-100 p-4 p-md-5">
+            <div class="about-mv-icon bg-purple text-white mb-4">
+              <i class="bi bi-eye-fill"></i>
+            </div>
+            <span class="about-mv-badge text-purple mb-2 d-inline-block">Long-Term Vision</span>
+            <h3 class="h3 fw-bold mb-3">India's Most Trusted Digital Ally</h3>
+            <p class="text-secondary mb-4" style="line-height: 1.8;">
+              To empower over 1,000+ businesses globally to dominate their industries by providing transformative engineering, cutting-edge AI integrations, and unparalleled client loyalty.
+            </p>
+            <ul class="about-mv-list list-unstyled mb-0">
+              <li><i class="bi bi-check-circle-fill text-purple me-2"></i> Global engineering standards rooted in Indian empathy</li>
+              <li><i class="bi bi-check-circle-fill text-purple me-2"></i> AI-powered operational velocity for every client</li>
+              <li><i class="bi bi-check-circle-fill text-purple me-2"></i> Continuous long-term evolution & partnership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       OUR 6 CORE VALUES — "THE CODE YARI DNA"
+       ======================================================== -->
+  <section class="about-values-section py-5">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="about-pill-badge mb-3">
+          <span class="about-pill-dot"></span>
+          <span>✦ The Code Yari DNA</span>
+        </span>
+        <h2 class="display-6 fw-bold">Principles We Live & Code By</h2>
+        <p class="text-secondary mx-auto" style="max-width: 620px;">
+          These 6 non-negotiable principles guide every single sprint, design review, and deployment.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Value 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-blue h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Agility & Rapid Velocity</h4>
+            <p class="text-secondary small mb-0">
+              We ship usable milestones in 2-4 week sprints. Fast turnaround times without ever sacrificing architectural integrity or test coverage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-green h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Bank-Grade Code Quality</h4>
+            <p class="text-secondary small mb-0">
+              Production-grade code written following strict OWASP standards, automated linting, modular patterns, and 90+ Google Core Web Vitals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-orange h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-palette-fill"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Aesthetic & UX Obsession</h4>
+            <p class="text-secondary small mb-0">
+              We believe design is not just how it looks, but how it works. Every interface is tailored to captivate users and guide conversion.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-purple h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-robot"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Next-Gen AI & Automation</h4>
+            <p class="text-secondary small mb-0">
+              We leverage modern AI tools, smart WhatsApp automations, and LLM integrations to give your business an unfair operational advantage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-pink h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">Radical Transparency</h4>
+            <p class="text-secondary small mb-0">
+              Direct access to developers on Slack and WhatsApp. No hidden charges, no sudden scope shocks, and regular live preview builds.
+            </p>
+          </div>
+        </div>
+
+        <!-- Value 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="about-val-card val-cyan h-100 p-4">
+            <div class="about-val-icon mb-3">
+              <i class="bi bi-key-fill"></i>
+            </div>
+            <h4 class="h5 fw-bold mb-2">100% Client IP Ownership</h4>
+            <p class="text-secondary small mb-0">
+              You own all source code, Git repositories, Figma files, databases, and deployment keys upon completion. Zero vendor lock-in.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       COMPARISON: TRADITIONAL AGENCIES VS CODE YARI
+       ======================================================== -->
+  <section class="about-comparison-section py-5">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="about-pill-badge mb-3">
+          <span class="about-pill-dot"></span>
+          <span>✦ The Code Yari Difference</span>
+        </span>
+        <h2 class="display-6 fw-bold">Why Clients Choose Code Yari</h2>
+        <p class="text-secondary mx-auto" style="max-width: 620px;">
+          See how our client-first engineering philosophy compares to conventional agencies.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Traditional Agency Card -->
+        <div class="col-lg-6">
+          <div class="about-compare-card compare-traditional h-100 p-4 p-md-5">
+            <div class="d-flex align-items-center gap-2 mb-4 text-danger">
+              <i class="bi bi-x-circle-fill fs-3"></i>
+              <h3 class="h4 fw-bold mb-0">Traditional Web Agencies</h3>
+            </div>
+            <ul class="about-compare-list list-unstyled mb-0">
+              <li>
+                <i class="bi bi-x text-danger fs-4"></i>
+                <div>
+                  <strong>Junior Dev Hand-off:</strong> Senior partners pitch, but inexperienced juniors actually build your product.
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-x text-danger fs-4"></i>
+                <div>
+                  <strong>Months of Delays:</strong> Slow bureaucratic processes, endless meeting chains, and missed deadlines.
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-x text-danger fs-4"></i>
+                <div>
+                  <strong>Bloated Retainers:</strong> High overheads and hidden hourly invoices with zero cost predictability.
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-x text-danger fs-4"></i>
+                <div>
+                  <strong>Ghosting Post-Launch:</strong> Once the final payment clears, support becomes virtually non-existent.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Code Yari Card -->
+        <div class="col-lg-6">
+          <div class="about-compare-card compare-codeyari h-100 p-4 p-md-5 position-relative overflow-hidden">
+            <div class="about-compare-glow"></div>
+            <div class="position-relative z-1">
+              <div class="d-flex align-items-center gap-2 mb-4 text-success">
+                <i class="bi bi-check-circle-fill fs-3"></i>
+                <h3 class="h4 fw-bold mb-0">The Code Yari Experience</h3>
+              </div>
+              <ul class="about-compare-list list-unstyled mb-0">
+                <li>
+                  <i class="bi bi-check-lg text-success fs-4"></i>
+                  <div>
+                    <strong>Dedicated Senior Engineers:</strong> Real makers work directly on your code with zero outsourcing.
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg text-success fs-4"></i>
+                  <div>
+                    <strong>Agile 2 to 4 Week Releases:</strong> Transparent sprints with live demo links and immediate progress.
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg text-success fs-4"></i>
+                  <div>
+                    <strong>Milestone-Based Fixed Pricing:</strong> Clear contracts, fixed deliverables, and zero surprise bills.
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-check-lg text-success fs-4"></i>
+                  <div>
+                    <strong>Lifetime Partnership & Support:</strong> 30 days free post-launch support and ongoing growth guidance.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MEET OUR TEAM LEADERSHIP
+       ======================================================== -->
+  {% if team_members %}
+  <section class="about-team-section py-5">
+    <div class="container py-3">
+      <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-5">
+        <div>
+          <span class="about-pill-badge mb-2">
+            <span class="about-pill-dot"></span>
+            <span>✦ The Minds Behind Code Yari</span>
+          </span>
+          <h2 class="display-6 fw-bold mb-0">Meet Our Core Team</h2>
+        </div>
+        <a href="{% url 'core:team' %}" class="btn-brand-outline">
+          <span>View All Team Members</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-4">
+        {% for member in team_members %}
+        <div class="col-md-6 col-lg-3">
+          <div class="about-member-card text-center p-4 h-100">
+            <div class="about-member-avatar-wrap mb-3 mx-auto position-relative">
+              {% if member.get_photo_url %}
+              <img src="{{ member.get_photo_url }}" alt="{{ member.name }}" class="about-member-avatar img-fluid rounded-circle">
+              {% elif member.photo %}
+              <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="about-member-avatar img-fluid rounded-circle">
+              {% else %}
+              <div class="about-member-avatar-fallback rounded-circle">
+                {{ member.name|slice:":1" }}
+              </div>
+              {% endif %}
+              <span class="about-member-status-dot" title="Active Core Engineer"></span>
+            </div>
+
+            <h4 class="h5 fw-bold mb-1">{{ member.name }}</h4>
+            <div class="about-member-role mb-2">{{ member.role }}</div>
+            <p class="text-secondary small mb-3 flex-grow-1">
+              {{ member.bio|truncatewords:16 }}
+            </p>
+
+            <div class="d-flex justify-content-center gap-2">
+              {% if member.linkedin %}
+              <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              {% endif %}
+              {% if member.github %}
+              <a href="{{ member.github }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+              {% endif %}
+              {% if member.twitter %}
+              <a href="{{ member.twitter }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ========================================================
+       CLIENT LOVE & TESTIMONIALS
+       ======================================================== -->
+  {% if testimonials %}
+  <section class="about-testimonials-section py-5">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="about-pill-badge mb-3">
+          <span class="about-pill-dot"></span>
+          <span>✦ Real Stories, Real Growth</span>
+        </span>
+        <h2 class="display-6 fw-bold">Loved By Founders & Businesses</h2>
+        <p class="text-secondary mx-auto" style="max-width: 620px;">
+          Here is what happens when you partner with an engineering team that builds with heart and Yari.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        {% for t in testimonials %}
+        <div class="col-md-4">
+          <div class="about-testimonial-card p-4 h-100 d-flex flex-column">
+            <!-- Stars -->
+            <div class="text-warning mb-3">
+              {% for i in "12345" %}
+                {% if forloop.counter <= t.rating %}
+                  <i class="bi bi-star-fill"></i>
+                {% else %}
+                  <i class="bi bi-star"></i>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <p class="text-secondary flex-grow-1 small mb-4" style="line-height: 1.8;">
+              "{{ t.quote }}"
+            </p>
+
+            <div class="d-flex align-items-center gap-3 pt-3 border-top border-subtle">
+              <div class="about-client-avatar">
+                {{ t.client_name|slice:":1" }}
+              </div>
+              <div>
+                <div class="fw-bold small text-dark">{{ t.client_name }}</div>
+                <div class="text-muted" style="font-size: 0.78rem;">{{ t.client_role|default:"Founder" }} • {{ t.client_company }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ========================================================
+       PRE-FOOTER GRAND CTA BANNER
+       ======================================================== -->
+  <section class="about-cta-section py-5">
+    <div class="container">
+      <div class="about-cta-banner p-4 p-md-5 text-center position-relative overflow-hidden shadow-lg">
+        <div class="about-cta-glow"></div>
+        <div class="position-relative z-1">
+          <span class="about-pill-badge mb-3 d-inline-flex bg-white text-dark border-0">
+            <span class="about-pill-dot bg-success"></span>
+            <span>Let's Build Something Exceptional</span>
+          </span>
+          <h2 class="display-5 fw-bold mb-3 text-white">Have a Project in Mind? Let's Talk!</h2>
+          <p class="text-white-50 mx-auto mb-4" style="max-width: 660px; font-size: 1.15rem;">
+            Whether you are launching an MVP, scaling an existing product, or need high-performance web architecture, we are here as your tech allies.
+          </p>
+          <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'leads:get_quote' %}" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow">
+              <span>Get Free Proposal</span>
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text=Hi%20Code%20Yari,%20I%20would%20like%20to%20discuss%20a%20project%20with%20your%20team!" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+              <i class="bi bi-whatsapp me-2"></i>
+              <span>WhatsApp Us Directly</span>
+            </a>
+            {% endif %}
+            <a href="{% url 'core:contact' %}" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+              <i class="bi bi-envelope-fill me-2"></i>
+              <span>Contact Page</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
 {% endblock %}
