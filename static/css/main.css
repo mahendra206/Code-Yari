@@ -9223,16 +9223,14 @@ img {
 
 /* --- Metrics Section --- */
 .pf-metrics-section {
-  padding: 2.2rem 0;
+  padding: 2.4rem 0;
   background: var(--pf-card-tint);
   border-bottom: 1.5px solid var(--pf-border);
 }
 
 .pf-metric-card {
-  background: #ffffff;
-  border: 1.5px solid var(--pf-border);
   border-radius: 18px;
-  padding: 1.35rem 1.15rem;
+  padding: 1.4rem 1.15rem;
   text-align: center;
   box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
   transition: all 0.25s ease;
@@ -9244,38 +9242,120 @@ img {
 }
 
 .pf-metric-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--pf-card-hover-border);
-  box-shadow: 0 8px 20px -3px var(--pf-glow);
+  transform: translateY(-4px);
 }
 
-[data-theme="dark"] .pf-metric-card {
-  background: #0f172a;
+/* 4 Individual Colorful Metric Cards */
+.pf-metric-card-1 {
+  background: linear-gradient(145deg, #f0f7ff 0%, #e0effe 100%);
+  border: 1.5px solid #bfdbfe;
 }
+.pf-metric-card-1 .pf-metric-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.pf-metric-card-1 .pf-metric-val {
+  color: #1e3a8a;
+}
+.pf-metric-card-1:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 8px 22px -4px rgba(37, 99, 235, 0.22);
+}
+
+.pf-metric-card-2 {
+  background: linear-gradient(145deg, #faf5ff 0%, #f3e8ff 100%);
+  border: 1.5px solid #ddd6fe;
+}
+.pf-metric-card-2 .pf-metric-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.pf-metric-card-2 .pf-metric-val {
+  color: #581c87;
+}
+.pf-metric-card-2:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 8px 22px -4px rgba(124, 58, 237, 0.22);
+}
+
+.pf-metric-card-3 {
+  background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1.5px solid #bbf7d0;
+}
+.pf-metric-card-3 .pf-metric-icon {
+  background: #dcfce7;
+  color: #059669;
+}
+.pf-metric-card-3 .pf-metric-val {
+  color: #064e3b;
+}
+.pf-metric-card-3:hover {
+  border-color: #4ade80;
+  box-shadow: 0 8px 22px -4px rgba(5, 150, 105, 0.22);
+}
+
+.pf-metric-card-4 {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1.5px solid #fed7aa;
+}
+.pf-metric-card-4 .pf-metric-icon {
+  background: #ffedd5;
+  color: #ea580c;
+}
+.pf-metric-card-4 .pf-metric-val {
+  color: #7c2d12;
+}
+.pf-metric-card-4:hover {
+  border-color: #fb923c;
+  box-shadow: 0 8px 22px -4px rgba(234, 88, 12, 0.22);
+}
+
+/* Metric Cards Dark Mode */
+[data-theme="dark"] .pf-metric-card-1 {
+  background: rgba(30, 58, 138, 0.25);
+  border-color: #1e3a8a;
+}
+[data-theme="dark"] .pf-metric-card-1 .pf-metric-val { color: #93c5fd; }
+[data-theme="dark"] .pf-metric-card-1 .pf-metric-icon { background: rgba(30, 58, 138, 0.5); color: #93c5fd; }
+
+[data-theme="dark"] .pf-metric-card-2 {
+  background: rgba(76, 29, 149, 0.25);
+  border-color: #3b1d7d;
+}
+[data-theme="dark"] .pf-metric-card-2 .pf-metric-val { color: #c4b5fd; }
+[data-theme="dark"] .pf-metric-card-2 .pf-metric-icon { background: rgba(76, 29, 149, 0.5); color: #c4b5fd; }
+
+[data-theme="dark"] .pf-metric-card-3 {
+  background: rgba(6, 78, 59, 0.25);
+  border-color: #064e3b;
+}
+[data-theme="dark"] .pf-metric-card-3 .pf-metric-val { color: #6ee7b7; }
+[data-theme="dark"] .pf-metric-card-3 .pf-metric-icon { background: rgba(6, 78, 59, 0.5); color: #6ee7b7; }
+
+[data-theme="dark"] .pf-metric-card-4 {
+  background: rgba(124, 45, 18, 0.25);
+  border-color: #7c2d12;
+}
+[data-theme="dark"] .pf-metric-card-4 .pf-metric-val { color: #fdba74; }
+[data-theme="dark"] .pf-metric-card-4 .pf-metric-icon { background: rgba(124, 45, 18, 0.5); color: #fdba74; }
 
 .pf-metric-icon {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
-  background: var(--pf-pill-bg);
-  color: var(--pf-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .pf-metric-val {
-  font-size: 1.65rem;
+  font-size: 1.68rem;
   font-weight: 800;
-  color: #0f172a;
   line-height: 1.2;
   margin-bottom: 0.25rem;
-}
-
-[data-theme="dark"] .pf-metric-val {
-  color: #f8fafc;
 }
 
 .pf-metric-label {
@@ -9290,7 +9370,7 @@ img {
 
 /* --- Content Cards & Blocks --- */
 .pf-content-card {
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, var(--pf-card-tint) 100%);
   border: 1.5px solid var(--pf-border);
   border-radius: 20px;
   overflow: hidden;
@@ -9298,13 +9378,17 @@ img {
 }
 
 [data-theme="dark"] .pf-content-card {
-  background: #0f172a;
+  background: linear-gradient(180deg, #0f172a 0%, #131d35 100%);
 }
 
 .pf-card-header {
   padding: 1.35rem 1.65rem;
-  background: var(--pf-card-tint);
+  background: linear-gradient(90deg, var(--pf-pill-bg) 0%, rgba(255, 255, 255, 0.8) 100%);
   border-bottom: 1.5px solid var(--pf-border);
+}
+
+[data-theme="dark"] .pf-card-header {
+  background: linear-gradient(90deg, rgba(30, 58, 138, 0.3) 0%, #0f172a 100%);
 }
 
 .pf-card-body {
@@ -9321,14 +9405,12 @@ img {
   color: #cbd5e1;
 }
 
-/* Feature Boxes */
+/* --- 4 Individual Colorful Feature Boxes --- */
 .pf-feat-box {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1.2rem;
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  padding: 1.25rem;
   border-radius: 16px;
   box-shadow: 0 4px 14px -3px rgba(15, 23, 42, 0.04);
   transition: all 0.25s ease;
@@ -9336,49 +9418,173 @@ img {
 }
 
 .pf-feat-box:hover {
-  transform: translateY(-2px);
-  border-color: var(--pf-card-hover-border);
-  box-shadow: 0 8px 18px -4px var(--pf-glow);
+  transform: translateY(-3px);
 }
 
-[data-theme="dark"] .pf-feat-box {
-  background: #1e293b;
-  border-color: #334155;
+/* 1. Azure Feat Box */
+.pf-feat-box-1 {
+  background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #bae6fd;
 }
+.pf-feat-box-1 .pf-feat-icon {
+  background: #dbeafe;
+  color: #0284c7;
+}
+.pf-feat-box-1 h4 {
+  color: #0369a1;
+}
+.pf-feat-box-1:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.2);
+}
+
+/* 2. Purple Feat Box */
+.pf-feat-box-2 {
+  background: linear-gradient(145deg, #faf5ff 0%, #f3e8ff 100%);
+  border: 1.5px solid #ddd6fe;
+}
+.pf-feat-box-2 .pf-feat-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.pf-feat-box-2 h4 {
+  color: #6b21a8;
+}
+.pf-feat-box-2:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.2);
+}
+
+/* 3. Emerald Feat Box */
+.pf-feat-box-3 {
+  background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1.5px solid #bbf7d0;
+}
+.pf-feat-box-3 .pf-feat-icon {
+  background: #dcfce7;
+  color: #059669;
+}
+.pf-feat-box-3 h4 {
+  color: #064e3b;
+}
+.pf-feat-box-3:hover {
+  border-color: #4ade80;
+  box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.2);
+}
+
+/* 4. Rose/Pink Feat Box */
+.pf-feat-box-4 {
+  background: linear-gradient(145deg, #fdf2f8 0%, #fce7f3 100%);
+  border: 1.5px solid #fbcfe8;
+}
+.pf-feat-box-4 .pf-feat-icon {
+  background: #fce7f3;
+  color: #db2777;
+}
+.pf-feat-box-4 h4 {
+  color: #9d174d;
+}
+.pf-feat-box-4:hover {
+  border-color: #f472b6;
+  box-shadow: 0 8px 20px -4px rgba(219, 39, 119, 0.2);
+}
+
+/* Dark Mode Feat Boxes */
+[data-theme="dark"] .pf-feat-box-1 {
+  background: rgba(2, 132, 199, 0.15);
+  border-color: #0369a1;
+}
+[data-theme="dark"] .pf-feat-box-1 h4 { color: #7dd3fc; }
+[data-theme="dark"] .pf-feat-box-1 .pf-feat-icon { background: rgba(2, 132, 199, 0.3); color: #7dd3fc; }
+
+[data-theme="dark"] .pf-feat-box-2 {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: #6d28d9;
+}
+[data-theme="dark"] .pf-feat-box-2 h4 { color: #c4b5fd; }
+[data-theme="dark"] .pf-feat-box-2 .pf-feat-icon { background: rgba(124, 58, 237, 0.3); color: #c4b5fd; }
+
+[data-theme="dark"] .pf-feat-box-3 {
+  background: rgba(5, 150, 105, 0.15);
+  border-color: #047857;
+}
+[data-theme="dark"] .pf-feat-box-3 h4 { color: #6ee7b7; }
+[data-theme="dark"] .pf-feat-box-3 .pf-feat-icon { background: rgba(5, 150, 105, 0.3); color: #6ee7b7; }
+
+[data-theme="dark"] .pf-feat-box-4 {
+  background: rgba(219, 39, 119, 0.15);
+  border-color: #be185d;
+}
+[data-theme="dark"] .pf-feat-box-4 h4 { color: #f9a8d4; }
+[data-theme="dark"] .pf-feat-box-4 .pf-feat-icon { background: rgba(219, 39, 119, 0.3); color: #f9a8d4; }
 
 .pf-feat-icon {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
-  background: var(--pf-pill-bg);
-  color: var(--pf-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Tech Badges */
+/* Colorful Tech Badges */
 .pf-tech-badge {
   display: inline-flex;
   align-items: center;
   padding: 0.48rem 0.95rem;
   border-radius: 10px;
-  background: var(--pf-card-tint);
-  border: 1.5px solid var(--pf-border);
-  color: var(--pf-primary);
   font-size: 0.88rem;
   font-weight: 700;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.pf-tech-badge:nth-child(6n+1) {
+  background: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  color: #1d4ed8;
+}
+.pf-tech-badge:nth-child(6n+2) {
+  background: #faf5ff;
+  border: 1.5px solid #ddd6fe;
+  color: #7c3aed;
+}
+.pf-tech-badge:nth-child(6n+3) {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  color: #059669;
+}
+.pf-tech-badge:nth-child(6n+4) {
+  background: #fff7ed;
+  border: 1.5px solid #fed7aa;
+  color: #ea580c;
+}
+.pf-tech-badge:nth-child(6n+5) {
+  background: #fdf2f8;
+  border: 1.5px solid #fbcfe8;
+  color: #db2777;
+}
+.pf-tech-badge:nth-child(6n+6) {
+  background: #f0fdfa;
+  border: 1.5px solid #99f6e4;
+  color: #0d9488;
 }
 
 .pf-tech-badge:hover {
-  background: var(--pf-primary);
-  color: #ffffff;
-  border-color: var(--pf-primary);
   transform: translateY(-2px);
+  filter: brightness(0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
+
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+1) { background: rgba(30, 58, 138, 0.4); border-color: #1e3a8a; color: #93c5fd; }
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+2) { background: rgba(76, 29, 149, 0.4); border-color: #3b1d7d; color: #c4b5fd; }
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+3) { background: rgba(6, 78, 59, 0.4); border-color: #064e3b; color: #6ee7b7; }
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+4) { background: rgba(124, 45, 18, 0.4); border-color: #7c2d12; color: #fdba74; }
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+5) { background: rgba(131, 24, 67, 0.4); border-color: #831843; color: #f9a8d4; }
+[data-theme="dark"] .pf-tech-badge:nth-child(6n+6) { background: rgba(19, 78, 74, 0.4); border-color: #115e59; color: #5eead4; }
 
 /* --- Sticky Sidebar & Specs --- */
 .pf-sticky-sidebar {
@@ -9387,7 +9593,7 @@ img {
 }
 
 .pf-sidebar-card {
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, var(--pf-card-tint) 100%);
   border: 1.5px solid var(--pf-border);
   border-radius: 20px;
   padding: 1.5rem;
@@ -9395,7 +9601,7 @@ img {
 }
 
 [data-theme="dark"] .pf-sidebar-card {
-  background: #0f172a;
+  background: linear-gradient(180deg, #0f172a 0%, #131d35 100%);
 }
 
 .pf-spec-row {
@@ -9403,7 +9609,7 @@ img {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.75rem;
-  border-bottom: 1px dashed #e2e8f0;
+  border-bottom: 1px dashed var(--pf-border);
   font-size: 0.92rem;
 }
 
@@ -9417,6 +9623,38 @@ img {
   display: flex;
   align-items: center;
 }
+
+.pf-spec-label i {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.pf-spec-row:nth-child(1) .pf-spec-label i {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.pf-spec-row:nth-child(2) .pf-spec-label i {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.pf-spec-row:nth-child(3) .pf-spec-label i {
+  background: #ffedd5;
+  color: #ea580c;
+}
+.pf-spec-row:nth-child(4) .pf-spec-label i {
+  background: #dcfce7;
+  color: #059669;
+}
+
+[data-theme="dark"] .pf-spec-row:nth-child(1) .pf-spec-label i { background: rgba(37, 99, 235, 0.25); color: #93c5fd; }
+[data-theme="dark"] .pf-spec-row:nth-child(2) .pf-spec-label i { background: rgba(124, 58, 237, 0.25); color: #c4b5fd; }
+[data-theme="dark"] .pf-spec-row:nth-child(3) .pf-spec-label i { background: rgba(234, 88, 12, 0.25); color: #fdba74; }
+[data-theme="dark"] .pf-spec-row:nth-child(4) .pf-spec-label i { background: rgba(5, 150, 105, 0.25); color: #6ee7b7; }
 
 [data-theme="dark"] .pf-spec-label {
   color: #94a3b8;
@@ -9465,33 +9703,63 @@ img {
   font-size: 1.5rem;
 }
 
-/* Related Cards */
+/* --- Colorful Related Cards --- */
 .pf-related-card {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.65rem 0.75rem;
+  padding: 0.75rem;
   border-radius: 14px;
-  border: 1px solid #e2e8f0;
   text-decoration: none;
-  transition: all 0.2s ease;
-  background: #ffffff;
+  transition: all 0.25s ease;
 }
 
-.pf-related-card:hover {
-  background: var(--pf-card-tint);
-  border-color: var(--pf-card-hover-border);
-  transform: translateX(3px);
+.pf-related-card-1 {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+  border: 1.5px solid #bfdbfe;
+}
+.pf-related-card-1:hover {
+  border-color: #60a5fa;
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
 }
 
-[data-theme="dark"] .pf-related-card {
-  background: #1e293b;
-  border-color: #334155;
+.pf-related-card-2 {
+  background: linear-gradient(145deg, #ffffff 0%, #faf5ff 100%);
+  border: 1.5px solid #ddd6fe;
+}
+.pf-related-card-2:hover {
+  border-color: #a78bfa;
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.15);
+}
+
+.pf-related-card-3 {
+  background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1.5px solid #bbf7d0;
+}
+.pf-related-card-3:hover {
+  border-color: #4ade80;
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15);
+}
+
+[data-theme="dark"] .pf-related-card-1 {
+  background: rgba(30, 58, 138, 0.2);
+  border-color: #1e3a8a;
+}
+[data-theme="dark"] .pf-related-card-2 {
+  background: rgba(76, 29, 149, 0.2);
+  border-color: #3b1d7d;
+}
+[data-theme="dark"] .pf-related-card-3 {
+  background: rgba(6, 78, 59, 0.2);
+  border-color: #064e3b;
 }
 
 .pf-related-thumb {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;

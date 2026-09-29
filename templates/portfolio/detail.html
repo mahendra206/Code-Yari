@@ -178,7 +178,7 @@
       <div class="row g-3">
         {% for metric in extras.metrics %}
         <div class="col-6 col-md-3">
-          <div class="pf-metric-card">
+          <div class="pf-metric-card pf-metric-card-{{ forloop.counter }}">
             <div class="pf-metric-icon">
               <i class="bi {{ metric.icon }}"></i>
             </div>
@@ -232,7 +232,7 @@
               <div class="row g-4">
                 {% for feat in extras.highlights %}
                 <div class="col-md-6">
-                  <div class="pf-feat-box">
+                  <div class="pf-feat-box pf-feat-box-{{ forloop.counter }}">
                     <div class="pf-feat-icon">
                       <i class="bi {{ feat.icon }}"></i>
                     </div>
@@ -388,7 +388,7 @@
               </h4>
               <div class="d-flex flex-column gap-3">
                 {% for rel in related_projects %}
-                <a href="{% url 'portfolio:detail' rel.slug %}" class="pf-related-card">
+                <a href="{% url 'portfolio:detail' rel.slug %}" class="pf-related-card pf-related-card-{{ forloop.counter }}">
                   <div class="pf-related-thumb">
                     {% if rel.get_image_url %}
                     <img src="{{ rel.get_image_url }}" alt="{{ rel.name }}">
