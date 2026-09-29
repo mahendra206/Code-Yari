@@ -5,151 +5,457 @@
 {% block meta_description %}{{ project.get_seo_description }}{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="page-header-section">
-  <div class="container py-4">
-    <div class="d-flex align-items-center gap-2 mb-3">
-      <a href="{% url 'portfolio:list' %}" class="text-secondary small d-inline-flex align-items-center gap-1">
-        <i class="bi bi-chevron-left"></i> All Case Studies
-      </a>
-      <span class="text-muted">/</span>
-      <span class="badge-pill-custom py-1 px-2" style="font-size: 0.75rem;">{{ project.category.name }}</span>
-      <span class="demo-banner">Demo Project</span>
-    </div>
-    <h1 class="display-4 fw-bold mb-3">{{ project.title }}</h1>
-    <p class="text-secondary mb-0" style="max-width: 720px; font-size: 1.2rem;">
-      {{ project.short_description }}
-    </p>
-  </div>
-</section>
+<div class="portfolio-detail-page {{ project.get_theme }}">
 
-<!-- Detail Content -->
-<section class="section-wrapper py-5">
-  <div class="container">
-    <div class="row g-5">
-      <!-- Main Content -->
-      <div class="col-lg-8">
-        <!-- Main Media Frame -->
-        <div class="card-custom p-2 mb-4 overflow-hidden">
-          {% if project.get_image_url %}
-          <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="rounded w-100" style="max-height: 480px; object-fit: cover;">
-          {% elif project.featured_image %}
-          <img src="{{ project.featured_image.url }}" alt="{{ project.title }}" class="rounded w-100" style="max-height: 480px; object-fit: cover;">
-          {% else %}
-          <div class="w-100 d-flex flex-column align-items-center justify-content-center py-5 rounded" style="background: linear-gradient(135deg, #1e293b, #0f172a); min-height: 320px;">
-            <i class="bi bi-display fs-1 text-primary mb-2"></i>
-            <span class="small text-muted font-monospace">{{ project.title }} — Demo Visual</span>
+  <!-- ========================================================
+       HERO SECTION WITH AMBIENT GLOW & PROJECT STATUS
+       ======================================================== -->
+  <section class="pf-hero">
+    <div class="pf-ambient-orb pf-orb-1"></div>
+    <div class="pf-ambient-orb pf-orb-2"></div>
+    
+    <div class="container position-relative py-5">
+      <!-- Breadcrumb Navigation -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb mb-0 align-items-center">
+          <li class="breadcrumb-item">
+            <a href="{% url 'core:home' %}" class="pf-breadcrumb-link">
+              <i class="bi bi-house-door-fill me-1"></i> Home
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'portfolio:list' %}" class="pf-breadcrumb-link">Case Studies & Projects</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{ project.name }}</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-5">
+        <!-- Hero Details Column -->
+        <div class="col-lg-7">
+          <div class="d-flex align-items-center gap-2 flex-wrap mb-3">
+            <span class="pf-pill-badge">
+              <span class="pf-pill-dot"></span>
+              <span>{{ extras.badge_text }}</span>
+            </span>
+            
+            {% if project.category %}
+            <span class="pf-cat-badge">
+              <i class="bi bi-folder2-open me-1"></i> {{ project.category.name }}
+            </span>
+            {% endif %}
+
+            {% if project.is_demo %}
+            <span class="pf-demo-badge">
+              <i class="bi bi-laptop me-1"></i> Interactive Demo
+            </span>
+            {% else %}
+            <span class="pf-client-badge">
+              <i class="bi bi-patch-check-fill me-1"></i> Client Verified
+            </span>
+            {% endif %}
+          </div>
+
+          <h1 class="pf-hero-title mb-3">
+            {{ project.name }}
+          </h1>
+
+          <p class="pf-hero-lead mb-4">
+            {{ extras.tagline }}
+          </p>
+
+          <!-- Highlight Chips -->
+          {% if extras.highlight_chips %}
+          <div class="pf-chip-group mb-4">
+            {% for chip in extras.highlight_chips %}
+            <span class="pf-chip">
+              <i class="bi bi-check-circle-fill me-1"></i> {{ chip }}
+            </span>
+            {% endfor %}
           </div>
           {% endif %}
-        </div>
 
-        <!-- Gallery Images if any -->
-        {% if gallery %}
-        <div class="row g-3 mb-4">
-          {% for img in gallery %}
-          <div class="col-6 col-md-4">
-            <div class="card-custom p-1">
-              <img src="{{ img.image.url }}" alt="{{ img.caption|default:project.title }}" class="rounded w-100" style="height: 140px; object-fit: cover;">
+          <!-- Action Buttons -->
+          <div class="d-flex align-items-center gap-3 flex-wrap pt-2">
+            {% if project.project_url %}
+            <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="pf-btn-live">
+              <span class="pf-live-dot"></span>
+              <span>Launch Live Project</span>
+              <i class="bi bi-box-arrow-up-right ms-1"></i>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'leads:get_quote' %}?service={{ project.category.name|default:'Web Development'|urlencode }}" class="pf-btn-primary">
+              <span>Get Similar Project</span>
+              <i class="bi bi-arrow-right-short fs-4"></i>
+            </a>
+
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="pf-btn-whatsapp">
+              <i class="bi bi-whatsapp fs-5"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+            {% endif %}
+          </div>
+
+          <!-- Trust Bar -->
+          <div class="d-flex align-items-center gap-4 mt-4 pt-3 border-top border-subtle flex-wrap text-muted small">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>Production Tested Code</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-lightning-charge-fill text-warning"></i>
+              <span>High Performance Architecture</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-phone-fill text-primary"></i>
+              <span>100% Mobile Responsive</span>
             </div>
           </div>
-          {% endfor %}
         </div>
-        {% endif %}
 
-        <!-- Project Narrative -->
-        <div class="card-custom p-4 p-md-5 mb-4">
-          <h2 class="h4 fw-bold mb-3">Project Overview</h2>
-          <div class="text-secondary mb-4" style="line-height: 1.8;">
-            {{ project.description|safe }}
+        <!-- Hero Browser Mockup Frame Column -->
+        <div class="col-lg-5">
+          <div class="pf-browser-mockup">
+            <!-- macOS Window Bar -->
+            <div class="pf-browser-header">
+              <div class="pf-browser-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="pf-browser-address-bar">
+                <i class="bi bi-lock-fill text-success me-1"></i>
+                <span class="pf-address-text">
+                  {% if project.project_url %}
+                    {{ project.project_url }}
+                  {% else %}
+                    https://codeyari.com/projects/{{ project.slug }}
+                  {% endif %}
+                </span>
+              </div>
+              <div class="pf-browser-actions">
+                <i class="bi bi-arrow-clockwise"></i>
+              </div>
+            </div>
+
+            <!-- Browser Visual Content -->
+            <div class="pf-browser-body">
+              {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.name }}" class="pf-browser-img">
+              {% elif project.featured_image %}
+              <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="pf-browser-img">
+              {% else %}
+              <div class="pf-browser-fallback">
+                <i class="bi bi-laptop fs-1 mb-2 text-primary"></i>
+                <div class="fw-bold">{{ project.name }}</div>
+                <div class="small text-muted">Interactive Digital Experience</div>
+              </div>
+              {% endif %}
+
+              <!-- Floating Live Indicator Badge -->
+              {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="pf-floating-visit-badge">
+                <span class="pf-live-dot"></span>
+                <span>Visit Live Site</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+              {% endif %}
+            </div>
           </div>
-
-          {% if project.challenge %}
-          <h3 class="h5 fw-bold mb-2 text-primary">The Challenge</h3>
-          <p class="text-secondary mb-4" style="line-height: 1.7;">
-            {{ project.challenge }}
-          </p>
-          {% endif %}
-
-          {% if project.solution %}
-          <h3 class="h5 fw-bold mb-2 text-primary">Our Solution</h3>
-          <p class="text-secondary mb-4" style="line-height: 1.7;">
-            {{ project.solution }}
-          </p>
-          {% endif %}
-
-          {% if project.results %}
-          <h3 class="h5 fw-bold mb-2 text-primary">Results & Business Impact</h3>
-          <p class="text-secondary mb-0" style="line-height: 1.7;">
-            {{ project.results }}
-          </p>
-          {% endif %}
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Metadata Sidebar -->
-      <div class="col-lg-4">
-        <div class="card-custom p-4 mb-4">
-          <h3 class="h5 fw-bold mb-4 border-bottom border-subtle pb-3">Project Metadata</h3>
-
-          <div class="d-flex flex-column gap-3">
-            <div>
-              <div class="text-muted small">Client</div>
-              <div class="fw-semibold">{{ project.client_name|default:"Confidential Client (Demo)" }}</div>
+  <!-- ========================================================
+       KEY PERFORMANCE & IMPACT METRICS STRIP
+       ======================================================== -->
+  {% if extras.metrics %}
+  <section class="pf-metrics-section">
+    <div class="container">
+      <div class="row g-3">
+        {% for metric in extras.metrics %}
+        <div class="col-6 col-md-3">
+          <div class="pf-metric-card">
+            <div class="pf-metric-icon">
+              <i class="bi {{ metric.icon }}"></i>
             </div>
+            <div class="pf-metric-val">{{ metric.val }}</div>
+            <div class="pf-metric-label">{{ metric.label }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
 
-            <div>
-              <div class="text-muted small">Category</div>
-              <div class="fw-semibold">{{ project.category.name }}</div>
+  <!-- ========================================================
+       MAIN CONTENT: NARRATIVE, FEATS & STICKY SIDEBAR
+       ======================================================== -->
+  <section class="pf-content-section py-5">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Left Column: Narrative & Engineering Highlights -->
+        <div class="col-lg-8">
+          
+          <!-- Project Story / Overview -->
+          <div class="pf-content-card mb-4">
+            <div class="pf-card-header d-flex align-items-center justify-content-between">
+              <h2 class="h4 fw-bold mb-0 d-flex align-items-center gap-2">
+                <i class="bi bi-journal-text text-primary"></i>
+                <span>Project Narrative & Architecture</span>
+              </h2>
+              <span class="badge bg-light text-dark border px-3 py-1 rounded-pill small">Overview</span>
             </div>
-
-            {% if project.completion_date %}
-            <div>
-              <div class="text-muted small">Delivered</div>
-              <div class="fw-semibold">{{ project.completion_date|date:"F Y" }}</div>
+            <div class="pf-card-body">
+              <div class="pf-description-text">
+                {{ project.full_description|safe|linebreaks }}
+              </div>
             </div>
-            {% endif %}
+          </div>
 
-            {% if project.project_url %}
-            <div>
-              <div class="text-muted small">Live Link</div>
-              <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="fw-semibold text-primary d-inline-flex align-items-center gap-1">
-                <span>Visit Project</span>
-                <i class="bi bi-box-arrow-up-right"></i>
-              </a>
+          <!-- Core Deliverables & Engineering Feats -->
+          {% if extras.highlights %}
+          <div class="pf-content-card mb-4">
+            <div class="pf-card-header">
+              <h3 class="h5 fw-bold mb-1 d-flex align-items-center gap-2">
+                <i class="bi bi-cpu-fill text-primary"></i>
+                <span>Key Deliverables & Engineered Features</span>
+              </h3>
+              <p class="text-muted small mb-0">High-impact solutions delivered as part of this deployment.</p>
             </div>
-            {% endif %}
-
-            <!-- Tech Stack -->
-            {% if technologies %}
-            <div class="pt-2">
-              <div class="text-muted small mb-2">Technologies Used</div>
-              <div class="d-flex flex-wrap gap-1">
-                {% for tech in technologies %}
-                <span class="badge-tech">{{ tech }}</span>
+            <div class="pf-card-body">
+              <div class="row g-4">
+                {% for feat in extras.highlights %}
+                <div class="col-md-6">
+                  <div class="pf-feat-box">
+                    <div class="pf-feat-icon">
+                      <i class="bi {{ feat.icon }}"></i>
+                    </div>
+                    <div>
+                      <h4 class="h6 fw-bold mb-1">{{ feat.title }}</h4>
+                      <p class="text-secondary small mb-0" style="line-height: 1.6;">
+                        {{ feat.desc }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 {% endfor %}
               </div>
             </div>
+          </div>
+          {% endif %}
+
+          <!-- Gallery Screenshots (if any) -->
+          {% if gallery %}
+          <div class="pf-content-card mb-4">
+            <div class="pf-card-header">
+              <h3 class="h5 fw-bold mb-1 d-flex align-items-center gap-2">
+                <i class="bi bi-images text-primary"></i>
+                <span>Interface & Visual Showcase</span>
+              </h3>
+              <p class="text-muted small mb-0">High-resolution previews and user workflow mockups.</p>
+            </div>
+            <div class="pf-card-body">
+              <div class="row g-3">
+                {% for img in gallery %}
+                <div class="col-md-6">
+                  <div class="pf-gallery-item">
+                    <img src="{{ img.image.url }}" alt="{{ img.caption|default:project.name }}" class="w-100 rounded">
+                    {% if img.caption %}
+                    <div class="pf-gallery-caption small text-muted mt-2">
+                      <i class="bi bi-camera me-1"></i> {{ img.caption }}
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- Technologies & Tools Grid -->
+          {% if technologies %}
+          <div class="pf-content-card mb-4">
+            <div class="pf-card-header">
+              <h3 class="h5 fw-bold mb-1 d-flex align-items-center gap-2">
+                <i class="bi bi-stack text-primary"></i>
+                <span>Technology Stack & Frameworks</span>
+              </h3>
+              <p class="text-muted small mb-0">Modern development tools used to architect this platform.</p>
+            </div>
+            <div class="pf-card-body">
+              <div class="d-flex flex-wrap gap-2">
+                {% for tech in technologies %}
+                <div class="pf-tech-badge">
+                  <i class="bi bi-code-slash me-1"></i>
+                  <span>{{ tech }}</span>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+        <!-- Right Column: Sticky Project Specifications & Conversion Sidebar -->
+        <div class="col-lg-4">
+          <div class="pf-sticky-sidebar">
+            
+            <!-- Project Specifications Card -->
+            <div class="pf-sidebar-card mb-4">
+              <h3 class="h6 fw-bold text-uppercase letter-spacing-1 text-muted mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-info-circle-fill text-primary"></i>
+                Project Specifications
+              </h3>
+
+              <div class="d-flex flex-column gap-3">
+                <div class="pf-spec-row">
+                  <div class="pf-spec-label"><i class="bi bi-person-badge me-2 text-primary"></i>Client / Organization</div>
+                  <div class="pf-spec-value fw-semibold text-end">{{ project.client_name|default:"Verified Client" }}</div>
+                </div>
+
+                <div class="pf-spec-row">
+                  <div class="pf-spec-label"><i class="bi bi-grid-3x3-gap me-2 text-primary"></i>Category</div>
+                  <div class="pf-spec-value fw-semibold text-end">{{ project.category.name|default:"Digital Product" }}</div>
+                </div>
+
+                {% if project.completion_date %}
+                <div class="pf-spec-row">
+                  <div class="pf-spec-label"><i class="bi bi-calendar-event me-2 text-primary"></i>Completion Date</div>
+                  <div class="pf-spec-value fw-semibold text-end">{{ project.completion_date|date:"F Y" }}</div>
+                </div>
+                {% endif %}
+
+                <div class="pf-spec-row">
+                  <div class="pf-spec-label"><i class="bi bi-shield-check me-2 text-success"></i>Status</div>
+                  <div class="pf-spec-value fw-semibold text-end text-success">
+                    {% if project.is_demo %}Interactive Demo{% else %}Live in Production{% endif %}
+                  </div>
+                </div>
+
+                {% if project.project_url %}
+                <div class="pt-3 border-top border-subtle">
+                  <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2 py-2">
+                    <span>Visit Live Application</span>
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- High-Converting "Want a Similar Solution?" Card -->
+            <div class="pf-cta-box p-4 mb-4">
+              <div class="pf-cta-glow"></div>
+              <div class="position-relative z-1 text-center">
+                <div class="pf-cta-icon-box mb-3 mx-auto">
+                  <i class="bi bi-rocket-takeoff-fill"></i>
+                </div>
+                <h4 class="h5 fw-bold text-white mb-2">Want a Similar Solution?</h4>
+                <p class="text-white-50 small mb-4">
+                  We can architect and deliver a high-performance custom product designed specifically for your brand within 2-4 weeks.
+                </p>
+
+                <div class="d-flex flex-column gap-2">
+                  <a href="{% url 'leads:get_quote' %}?service={{ project.category.name|default:'Web Development'|urlencode }}" class="btn btn-light rounded-pill fw-bold py-2 w-100">
+                    <span>Request Free Proposal</span>
+                    <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+
+                  {% if site_settings.whatsapp %}
+                  <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="btn btn-success rounded-pill fw-semibold py-2 w-100 d-flex align-items-center justify-content-center gap-2">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- Related Showcase Projects -->
+            {% if related_projects %}
+            <div class="pf-sidebar-card">
+              <h4 class="h6 fw-bold text-uppercase letter-spacing-1 text-muted mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-collection-fill text-primary"></i>
+                Explore More Work
+              </h4>
+              <div class="d-flex flex-column gap-3">
+                {% for rel in related_projects %}
+                <a href="{% url 'portfolio:detail' rel.slug %}" class="pf-related-card">
+                  <div class="pf-related-thumb">
+                    {% if rel.get_image_url %}
+                    <img src="{{ rel.get_image_url }}" alt="{{ rel.name }}">
+                    {% elif rel.featured_image %}
+                    <img src="{{ rel.featured_image.url }}" alt="{{ rel.name }}">
+                    {% else %}
+                    <div class="pf-related-thumb-placeholder">
+                      <i class="bi bi-laptop"></i>
+                    </div>
+                    {% endif %}
+                  </div>
+                  <div class="flex-grow-1 min-w-0">
+                    <div class="pf-related-cat">{{ rel.category.name|default:"Case Study" }}</div>
+                    <div class="pf-related-title">{{ rel.name }}</div>
+                  </div>
+                  <i class="bi bi-chevron-right pf-related-arrow"></i>
+                </a>
+                {% endfor %}
+              </div>
+              <div class="mt-3 pt-3 border-top border-subtle text-center">
+                <a href="{% url 'portfolio:list' %}" class="small fw-bold text-primary text-decoration-none d-inline-flex align-items-center gap-1">
+                  <span>View All Case Studies</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
             {% endif %}
+
           </div>
         </div>
 
-        <!-- Need Similar Solution Card -->
-        <div class="card-custom p-4 text-center" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(17, 24, 39, 0.85) 100%);">
-          <h4 class="h5 fw-bold mb-2">Want a Similar Project?</h4>
-          <p class="text-secondary small mb-3">
-            We can architect and deliver a comparable solution designed specifically for your brand.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       GRAND BOTTOM PRE-FOOTER CALL TO ACTION BANNER
+       ======================================================== -->
+  <section class="pf-bottom-cta py-5">
+    <div class="container">
+      <div class="pf-cta-banner p-4 p-md-5 text-center position-relative overflow-hidden">
+        <div class="pf-cta-glow-bg"></div>
+        <div class="position-relative z-1">
+          <span class="pf-pill-badge mb-3 d-inline-flex">
+            <span class="pf-pill-dot"></span>
+            <span>Let's Build Something Exceptional</span>
+          </span>
+          <h2 class="display-6 fw-bold mb-3 text-white">Have a Project or App in Mind? Let's Talk!</h2>
+          <p class="text-white-50 mx-auto mb-4" style="max-width: 640px; font-size: 1.1rem;">
+            Whether you need a full-scale web application, mobile app, SEO ranking overhaul, or custom SaaS development, Code Yari engineers are ready to build it.
           </p>
-          <a href="{% url 'leads:get_quote' %}" class="btn-brand btn-sm-custom w-100">
-            <span>Request a Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'leads:get_quote' %}?service={{ project.category.name|default:'Web Development'|urlencode }}" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow">
+              <span>Start Your Project</span>
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+              <i class="bi bi-whatsapp me-2"></i>
+              <span>WhatsApp Us</span>
+            </a>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Call to Action Banner -->
-{% include 'partials/cta_banner.html' %}
-
+</div>
 {% endblock %}

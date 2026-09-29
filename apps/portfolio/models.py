@@ -111,6 +111,23 @@ class PortfolioProject(models.Model):
             return '/static/images/portfolio/resume_ai_cover.jpg'
         return None
 
+    def get_theme(self):
+        slug = (self.slug or slugify(self.name)).lower()
+        if 'teachmantra' in slug:
+            return 'theme-blue'
+        elif 'nexplay' in slug:
+            return 'theme-purple'
+        elif 'houzez' in slug:
+            return 'theme-green'
+        elif 'resume' in slug:
+            return 'theme-pink'
+        elif 'seo' in slug:
+            return 'theme-orange'
+        elif 'saas' in slug:
+            return 'theme-cyan'
+        return 'theme-blue'
+
+
 
 class PortfolioImage(models.Model):
     """Gallery images for a portfolio project."""
