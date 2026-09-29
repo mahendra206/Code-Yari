@@ -8088,62 +8088,131 @@ img {
 }
 
 .about-stat-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 1.6rem 1rem;
-  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08);
-  transition: all 0.3s ease;
+  border-radius: 22px;
+  padding: 1.6rem 1.1rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-stat-card:hover {
-  transform: translateY(-4px);
-  border-color: #93c5fd;
-  box-shadow: 0 20px 35px -8px rgba(37, 99, 235, 0.18);
+  transform: translateY(-5px);
+}
+
+/* Stat 1: Blue */
+.about-stat-card.stat-blue {
+  background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 45%, #e0effe 100%);
+  border: 2px solid #bfdbfe;
+  box-shadow: 0 14px 30px -8px rgba(37, 99, 235, 0.18);
+}
+.about-stat-card.stat-blue:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 20px 38px -6px rgba(37, 99, 235, 0.28);
+}
+.about-stat-card.stat-blue .about-stat-icon {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #38bdf8 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px #2563eb;
+}
+.about-stat-card.stat-blue .about-stat-val {
+  color: #1d4ed8;
+}
+
+/* Stat 2: Green */
+.about-stat-card.stat-green {
+  background: linear-gradient(145deg, #f0fdf4 0%, #ffffff 45%, #dcfce7 100%);
+  border: 2px solid #bbf7d0;
+  box-shadow: 0 14px 30px -8px rgba(5, 178, 107, 0.18);
+}
+.about-stat-card.stat-green:hover {
+  border-color: #4ade80;
+  box-shadow: 0 20px 38px -6px rgba(5, 178, 107, 0.28);
+}
+.about-stat-card.stat-green .about-stat-icon {
+  background: linear-gradient(135deg, #047857 0%, #05b26b 55%, #34d399 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px #05b26b;
+}
+.about-stat-card.stat-green .about-stat-val {
+  color: #047857;
+}
+
+/* Stat 3: Orange */
+.about-stat-card.stat-orange {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffffff 45%, #ffedd5 100%);
+  border: 2px solid #fed7aa;
+  box-shadow: 0 14px 30px -8px rgba(234, 88, 12, 0.18);
+}
+.about-stat-card.stat-orange:hover {
+  border-color: #fb923c;
+  box-shadow: 0 20px 38px -6px rgba(234, 88, 12, 0.28);
+}
+.about-stat-card.stat-orange .about-stat-icon {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 55%, #fb923c 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px #ea580c;
+}
+.about-stat-card.stat-orange .about-stat-val {
+  color: #c2410c;
+}
+
+/* Stat 4: Purple */
+.about-stat-card.stat-purple {
+  background: linear-gradient(145deg, #faf5ff 0%, #ffffff 45%, #ede9fe 100%);
+  border: 2px solid #ddd6fe;
+  box-shadow: 0 14px 30px -8px rgba(124, 58, 237, 0.18);
+}
+.about-stat-card.stat-purple:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 20px 38px -6px rgba(124, 58, 237, 0.28);
+}
+.about-stat-card.stat-purple .about-stat-icon {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 55%, #a855f7 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px #7c3aed;
+}
+.about-stat-card.stat-purple .about-stat-val {
+  color: #6d28d9;
 }
 
 .about-stat-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  color: #2563eb;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  margin: 0 auto 0.75rem auto;
+  font-size: 1.45rem;
+  margin: 0 auto 0.85rem auto;
 }
 
 .about-stat-val {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 800;
-  color: #0f172a;
   line-height: 1.1;
   margin-bottom: 0.25rem;
 }
 
 .about-stat-label {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: #64748b;
 }
 
 /* --- Quote Box & Story Section --- */
 .about-quote-box {
-  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
-  border-left: 4px solid #2563eb;
-  border-radius: 0 18px 18px 0;
+  background: linear-gradient(135deg, #f5f3ff 0%, #eff6ff 55%, #fdf2f8 100%);
+  border: 2px solid #c4b5fd;
+  border-left: 6px solid #7c3aed;
+  border-radius: 0 22px 22px 0;
   position: relative;
-  border-top: 1px solid #e2e8f0;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 14px 32px -8px rgba(124, 58, 237, 0.16);
 }
 
 .about-quote-icon {
-  color: #3b82f6;
-  opacity: 0.7;
+  color: #7c3aed;
+  opacity: 0.75;
 }
 
 .about-floating-note {
@@ -8153,61 +8222,80 @@ img {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: #ffffff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+  padding: 0.85rem 1.3rem;
+  border-radius: 18px;
+  border: 1.5px solid #fde68a;
+  box-shadow: 0 14px 28px -6px rgba(245, 158, 11, 0.25);
   z-index: 2;
 }
 
 /* --- Mission & Vision Cards --- */
 .about-mv-card {
-  border-radius: 26px;
-  border: 2px solid transparent;
-  background: #ffffff;
-  box-shadow: 0 12px 32px -6px rgba(15, 23, 42, 0.08);
-  transition: all 0.35s ease;
+  border-radius: 28px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .about-mv-card.mission-card {
-  border-color: #bfdbfe;
-  background: linear-gradient(135deg, #ffffff 60%, #eff6ff 100%);
+  background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 45%, #dbeafe 100%);
+  border: 2.5px solid #93c5fd;
+  box-shadow: 0 18px 40px -8px rgba(37, 99, 235, 0.22);
 }
-
 .about-mv-card.mission-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #3b82f6;
-  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 24px 48px -10px rgba(37, 99, 235, 0.32);
+}
+.about-mv-card.mission-card h3 {
+  color: #1d4ed8;
+}
+.about-mv-card.mission-card .about-mv-icon {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #0284c7 100%) !important;
+  box-shadow: 0 10px 22px -5px #2563eb;
+}
+.about-mv-card.mission-card .about-mv-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.32rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #bfdbfe;
 }
 
 .about-mv-card.vision-card {
-  border-color: #ddd6fe;
-  background: linear-gradient(135deg, #ffffff 60%, #faf5ff 100%);
+  background: linear-gradient(145deg, #faf5ff 0%, #ffffff 45%, #ede9fe 100%);
+  border: 2.5px solid #c4b5fd;
+  box-shadow: 0 18px 40px -8px rgba(124, 58, 237, 0.22);
 }
-
 .about-mv-card.vision-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #8b5cf6;
-  box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 24px 48px -10px rgba(124, 58, 237, 0.32);
+}
+.about-mv-card.vision-card h3 {
+  color: #5b21b6;
+}
+.about-mv-card.vision-card .about-mv-icon {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 55%, #a855f7 100%) !important;
+  box-shadow: 0 10px 22px -5px #7c3aed;
+}
+.about-mv-card.vision-card .about-mv-badge {
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 0.32rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #ddd6fe;
 }
 
 .about-mv-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-}
-
-.bg-purple {
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important;
-}
-
-.text-purple {
-  color: #7c3aed !important;
+  font-size: 1.65rem;
 }
 
 .about-mv-badge {
@@ -8221,123 +8309,174 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
-  color: #475569;
+  color: #334155;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 550;
 }
 
-/* --- 6 Core Values Cards --- */
+/* --- 6 Core Values Cards (ALL UNIQUELY & VIBRANTLY COLORED) --- */
 .about-val-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 22px;
-  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
-  transition: all 0.3s ease;
+  border-radius: 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-val-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .about-val-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
 }
 
+/* 1. Value Blue: Agility */
 .about-val-card.val-blue {
-  border-color: #bfdbfe;
+  background: linear-gradient(145deg, #eff6ff 0%, #ffffff 42%, #dbeafe 100%);
+  border: 2px solid #bfdbfe;
+  box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.16);
+}
+.about-val-card.val-blue h4 {
+  color: #1d4ed8;
 }
 .about-val-card.val-blue .about-val-icon {
-  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #38bdf8 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #2563eb;
 }
 .about-val-card.val-blue:hover {
   border-color: #3b82f6;
-  box-shadow: 0 16px 32px -8px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(37, 99, 235, 0.28);
 }
 
+/* 2. Value Green: Quality */
 .about-val-card.val-green {
-  border-color: #bbf7d0;
+  background: linear-gradient(145deg, #f0fdf4 0%, #ffffff 42%, #dcfce7 100%);
+  border: 2px solid #bbf7d0;
+  box-shadow: 0 12px 28px -6px rgba(5, 178, 107, 0.16);
+}
+.about-val-card.val-green h4 {
+  color: #047857;
 }
 .about-val-card.val-green .about-val-icon {
-  background: linear-gradient(135deg, #05b26b, #34d399);
+  background: linear-gradient(135deg, #047857 0%, #05b26b 55%, #34d399 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #05b26b;
 }
 .about-val-card.val-green:hover {
   border-color: #10b981;
-  box-shadow: 0 16px 32px -8px rgba(5, 178, 107, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(5, 178, 107, 0.28);
 }
 
+/* 3. Value Orange: Aesthetics */
 .about-val-card.val-orange {
-  border-color: #fed7aa;
+  background: linear-gradient(145deg, #fff7ed 0%, #ffffff 42%, #ffedd5 100%);
+  border: 2px solid #fed7aa;
+  box-shadow: 0 12px 28px -6px rgba(234, 88, 12, 0.16);
+}
+.about-val-card.val-orange h4 {
+  color: #c2410c;
 }
 .about-val-card.val-orange .about-val-icon {
-  background: linear-gradient(135deg, #ea580c, #fb923c);
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 55%, #fb923c 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #ea580c;
 }
 .about-val-card.val-orange:hover {
   border-color: #f97316;
-  box-shadow: 0 16px 32px -8px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(234, 88, 12, 0.28);
 }
 
+/* 4. Value Purple: AI & Automation */
 .about-val-card.val-purple {
-  border-color: #ddd6fe;
+  background: linear-gradient(145deg, #faf5ff 0%, #ffffff 42%, #ede9fe 100%);
+  border: 2px solid #ddd6fe;
+  box-shadow: 0 12px 28px -6px rgba(93, 33, 249, 0.16);
+}
+.about-val-card.val-purple h4 {
+  color: #5d21f9;
 }
 .about-val-card.val-purple .about-val-icon {
-  background: linear-gradient(135deg, #5d21f9, #a78bfa);
+  background: linear-gradient(135deg, #4c1d95 0%, #5d21f9 55%, #a78bfa 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #5d21f9;
 }
 .about-val-card.val-purple:hover {
   border-color: #8b5cf6;
-  box-shadow: 0 16px 32px -8px rgba(93, 33, 249, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(93, 33, 249, 0.28);
 }
 
+/* 5. Value Pink: Radical Transparency */
 .about-val-card.val-pink {
-  border-color: #fbcfe8;
+  background: linear-gradient(145deg, #fdf2f8 0%, #ffffff 42%, #fce7f3 100%);
+  border: 2px solid #fbcfe8;
+  box-shadow: 0 12px 28px -6px rgba(236, 36, 138, 0.16);
+}
+.about-val-card.val-pink h4 {
+  color: #be185d;
 }
 .about-val-card.val-pink .about-val-icon {
-  background: linear-gradient(135deg, #ec248a, #fb7185);
+  background: linear-gradient(135deg, #9d174d 0%, #ec248a 55%, #fb7185 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #ec248a;
 }
 .about-val-card.val-pink:hover {
   border-color: #f43f5e;
-  box-shadow: 0 16px 32px -8px rgba(236, 36, 138, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(236, 36, 138, 0.28);
 }
 
+/* 6. Value Cyan: 100% IP Ownership */
 .about-val-card.val-cyan {
-  border-color: #bae6fd;
+  background: linear-gradient(145deg, #f0f9ff 0%, #ffffff 42%, #e0f2fe 100%);
+  border: 2px solid #bae6fd;
+  box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.16);
+}
+.about-val-card.val-cyan h4 {
+  color: #0369a1;
 }
 .about-val-card.val-cyan .about-val-icon {
-  background: linear-gradient(135deg, #0284c7, #22d3ee);
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 55%, #22d3ee 100%);
   color: #fff;
+  box-shadow: 0 8px 18px -4px #0284c7;
 }
 .about-val-card.val-cyan:hover {
   border-color: #06b6d4;
-  box-shadow: 0 16px 32px -8px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 20px 40px -8px rgba(2, 132, 199, 0.28);
 }
 
 /* --- Comparison Section --- */
 .about-compare-card {
-  border-radius: 24px;
-  border: 2px solid transparent;
+  border-radius: 28px;
+  transition: all 0.35s ease;
 }
 
 .compare-traditional {
-  background: #ffffff;
-  border-color: #fecaca;
-  box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.08);
+  background: linear-gradient(145deg, #fef2f2 0%, #ffffff 45%, #fee2e2 100%);
+  border: 2px solid #fca5a5;
+  box-shadow: 0 14px 32px -8px rgba(239, 68, 68, 0.15);
+}
+.compare-traditional:hover {
+  transform: translateY(-4px);
+  border-color: #f87171;
+  box-shadow: 0 20px 40px -8px rgba(239, 68, 68, 0.22);
 }
 
 .compare-codeyari {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 60%, #ecfdf5 100%);
-  border-color: #86efac;
-  box-shadow: 0 16px 36px -6px rgba(16, 185, 129, 0.2);
+  background: linear-gradient(145deg, #f0fdf4 0%, #ffffff 45%, #d1fae5 100%);
+  border: 2.5px solid #86efac;
+  box-shadow: 0 18px 42px -8px rgba(16, 185, 129, 0.26);
+}
+.compare-codeyari:hover {
+  transform: translateY(-4px);
+  border-color: #34d399;
+  box-shadow: 0 24px 48px -8px rgba(16, 185, 129, 0.34);
 }
 
 .about-compare-glow {
@@ -8347,7 +8486,7 @@ img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: rgba(5, 178, 107, 0.15);
+  background: rgba(5, 178, 107, 0.18);
   filter: blur(50px);
   pointer-events: none;
 }
