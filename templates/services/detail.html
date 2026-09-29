@@ -5,52 +5,237 @@
 {% block meta_description %}{{ service.get_seo_description }}{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="page-header-section">
-  <div class="container py-4">
-    <div class="d-flex align-items-center gap-2 mb-3">
-      <a href="{% url 'services:list' %}" class="text-secondary small d-inline-flex align-items-center gap-1">
-        <i class="bi bi-chevron-left"></i> All Services
-      </a>
-      <span class="text-muted">/</span>
-      <span class="badge-pill-custom py-1 px-2" style="font-size: 0.75rem;">Service Overview</span>
-    </div>
-    <div class="d-flex align-items-center gap-4 flex-wrap">
-      <div class="service-icon-box mb-0" style="width: 72px; height: 72px; font-size: 2.2rem;">
-        <i class="bi {{ service.icon|default:'bi-code-slash' }}"></i>
-      </div>
-      <div>
-        <h1 class="display-5 fw-bold mb-2">{{ service.name }}</h1>
-        <p class="text-secondary mb-0" style="max-width: 680px; font-size: 1.15rem;">
-          {{ service.short_description }}
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="service-detail-page {{ service.get_theme }}">
 
-<!-- Detail Section -->
-<section class="section-wrapper py-5">
-  <div class="container">
-    <div class="row g-5">
-      <!-- Main Content Col -->
-      <div class="col-lg-8">
-        <div class="card-custom p-4 p-md-5 mb-5">
-          <h2 class="h4 fw-bold mb-4">What We Deliver</h2>
-          <div class="service-body text-secondary" style="line-height: 1.8;">
-            {{ service.full_description|safe }}
+  <!-- ========================================================
+       HERO SECTION WITH AMBIENT GLOW & FLOATING 3D ILLUSTRATION
+       ======================================================== -->
+  <section class="svc-hero">
+    <div class="svc-ambient-orb svc-orb-1"></div>
+    <div class="svc-ambient-orb svc-orb-2"></div>
+    <div class="container position-relative py-5">
+      
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb mb-0 align-items-center">
+          <li class="breadcrumb-item">
+            <a href="{% url 'core:home' %}" class="svc-breadcrumb-link">
+              <i class="bi bi-house-door-fill me-1"></i> Home
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'services:list' %}" class="svc-breadcrumb-link">Services</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{ service.name }}</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-5">
+        <!-- Left Hero Content -->
+        <div class="col-lg-7">
+          <div class="svc-pill-badge mb-3">
+            <span class="svc-pill-dot"></span>
+            <span>{{ extras.badge_text }}</span>
           </div>
 
-          <!-- Feature Checklist -->
-          {% if features %}
-          <div class="mt-5 pt-4 border-top border-subtle">
-            <h3 class="h5 fw-bold mb-3 text-primary">Core Capabilities & Inclusions</h3>
-            <div class="row g-3">
-              {% for feature in features %}
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center gap-2">
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                  <span class="text-secondary">{{ feature }}</span>
+          <h1 class="svc-hero-title mb-3">
+            {{ service.name }}
+          </h1>
+
+          <p class="svc-hero-lead mb-4">
+            {{ extras.tagline }}
+          </p>
+
+          <!-- Highlight Chips -->
+          {% if extras.highlight_chips %}
+          <div class="svc-chip-group mb-4">
+            {% for chip in extras.highlight_chips %}
+            <span class="svc-chip">
+              <i class="bi bi-check2-circle me-1"></i> {{ chip }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- Action Buttons -->
+          <div class="d-flex align-items-center gap-3 flex-wrap pt-2">
+            <a href="{% url 'leads:get_quote' %}?service={{ service.name|urlencode }}" class="svc-btn-primary">
+              <span>Get Free Proposal</span>
+              <i class="bi bi-arrow-right-short fs-4"></i>
+            </a>
+
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="svc-btn-whatsapp">
+              <i class="bi bi-whatsapp fs-5"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+            {% else %}
+            <a href="{% url 'core:contact' %}" class="svc-btn-secondary">
+              <i class="bi bi-chat-dots-fill"></i>
+              <span>Talk to an Expert</span>
+            </a>
+            {% endif %}
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="d-flex align-items-center gap-4 mt-4 pt-3 border-top border-subtle flex-wrap text-muted small">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-shield-fill-check text-success"></i>
+              <span>100% Satisfaction Guarantee</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-lightning-charge-fill text-warning"></i>
+              <span>24-Hour Quote Turnaround</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-code-slash text-primary"></i>
+              <span>Full Source Code Ownership</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Illustration & Floating Cards -->
+        <div class="col-lg-5">
+          <div class="svc-hero-visual-wrapper position-relative">
+            <div class="svc-visual-card">
+              <img src="{% static service.get_illustration %}" alt="{{ service.name }} - Code Yari" class="img-fluid svc-hero-img" loading="eager">
+            </div>
+
+            <!-- Floating Badge 1 (Top Left) -->
+            <div class="svc-floating-badge badge-top-left shadow-sm">
+              <div class="svc-badge-icon bg-warning text-white">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div>
+                <div class="svc-badge-val">4.9 / 5.0</div>
+                <div class="svc-badge-sub">Client Rating</div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2 (Bottom Right) -->
+            <div class="svc-floating-badge badge-bottom-right shadow-sm">
+              <div class="svc-badge-icon bg-success text-white">
+                <i class="bi bi-patch-check-fill"></i>
+              </div>
+              <div>
+                <div class="svc-badge-val">Verified Quality</div>
+                <div class="svc-badge-sub">Agile Delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       KEY IMPACT METRICS RIBBON
+       ======================================================== -->
+  {% if extras.metrics %}
+  <section class="svc-metrics-section">
+    <div class="container">
+      <div class="row g-3">
+        {% for m in extras.metrics %}
+        <div class="col-6 col-md-3">
+          <div class="svc-metric-card text-center">
+            <div class="svc-metric-icon">
+              <i class="bi {{ m.icon }}"></i>
+            </div>
+            <div class="svc-metric-number">{{ m.val }}</div>
+            <div class="svc-metric-label">{{ m.label }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ========================================================
+       MAIN BODY & SIDEBAR CONTENT
+       ======================================================== -->
+  <section class="svc-body-section py-5">
+    <div class="container py-3">
+      <div class="row g-5">
+
+        <!-- Left Column: Rich Service Narrative & Capabilities -->
+        <div class="col-lg-8">
+
+          <!-- What We Deliver / Overview Card -->
+          <div class="svc-content-box p-4 p-md-5 mb-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="svc-section-icon">
+                <i class="bi bi-layers-fill"></i>
+              </div>
+              <div>
+                <span class="svc-section-subtitle">Deliverables & Scope</span>
+                <h2 class="h3 fw-bold mb-0">What We Deliver</h2>
+              </div>
+            </div>
+
+            <div class="svc-narrative-text">
+              {{ service.full_description|safe }}
+            </div>
+
+            <!-- Core Capabilities Checklist -->
+            {% if features %}
+            <div class="mt-5 pt-4 border-top border-subtle">
+              <h3 class="h5 fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-check-all text-primary fs-4"></i>
+                Core Capabilities & Key Features
+              </h3>
+              <div class="row g-3">
+                {% for feature in features %}
+                <div class="col-sm-6">
+                  <div class="svc-capability-item">
+                    <span class="svc-capability-check">
+                      <i class="bi bi-check2"></i>
+                    </span>
+                    <span class="svc-capability-label">{{ feature }}</span>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+
+            <!-- Tech Stack & Tools -->
+            {% if technologies %}
+            <div class="mt-4 pt-4 border-top border-subtle">
+              <h3 class="h5 fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-tools text-primary fs-5"></i>
+                Technologies & Tools We Utilize
+              </h3>
+              <div class="d-flex flex-wrap gap-2">
+                {% for tech in technologies %}
+                <span class="svc-tech-badge">
+                  <i class="bi bi-cpu me-1 opacity-75"></i>
+                  {{ tech }}
+                </span>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Why Choose Code Yari Cards -->
+          {% if extras.why_choose %}
+          <div class="mb-5">
+            <div class="text-center mb-4">
+              <span class="svc-section-subtitle">Why Partner With Us</span>
+              <h2 class="h3 fw-bold">The Code Yari Advantage</h2>
+              <p class="text-secondary small">Engineered for businesses seeking premium execution without the inflated agency price tag.</p>
+            </div>
+
+            <div class="row g-4">
+              {% for card in extras.why_choose %}
+              <div class="col-md-6">
+                <div class="svc-why-card">
+                  <div class="svc-why-icon-box">
+                    <i class="bi {{ card.icon }}"></i>
+                  </div>
+                  <h4 class="h5 fw-bold mb-2">{{ card.title }}</h4>
+                  <p class="text-secondary small mb-0">{{ card.desc }}</p>
                 </div>
               </div>
               {% endfor %}
@@ -58,62 +243,186 @@
           </div>
           {% endif %}
 
-          <!-- Tech Stack -->
-          {% if technologies %}
-          <div class="mt-4 pt-4 border-top border-subtle">
-            <h3 class="h5 fw-bold mb-3 text-primary">Technologies & Tools</h3>
-            <div class="d-flex flex-wrap gap-2">
-              {% for tech in technologies %}
-              <span class="badge-tech px-3 py-2" style="font-size: 0.85rem;">{{ tech }}</span>
+          <!-- 4-Step Delivery Process Timeline -->
+          {% if extras.process %}
+          <div class="svc-content-box p-4 p-md-5 mb-5">
+            <div class="text-center mb-5">
+              <span class="svc-section-subtitle">How We Work</span>
+              <h2 class="h3 fw-bold">Our 4-Stage Delivery Roadmap</h2>
+              <p class="text-secondary small">From initial brainstorming to production launch, enjoy 100% transparency at every step.</p>
+            </div>
+
+            <div class="svc-process-grid">
+              {% for step in extras.process %}
+              <div class="svc-process-card">
+                <div class="svc-process-num">{{ step.num }}</div>
+                <h4 class="h6 fw-bold mb-2">{{ step.title }}</h4>
+                <p class="text-secondary small mb-0">{{ step.desc }}</p>
+              </div>
               {% endfor %}
             </div>
           </div>
           {% endif %}
-        </div>
-      </div>
 
-      <!-- Sidebar -->
-      <div class="col-lg-4">
-        <!-- Quote Box -->
-        <div class="card-custom p-4 mb-4" style="border-color: var(--border-focus); background: linear-gradient(135deg, rgba(30, 27, 75, 0.5) 0%, rgba(17, 24, 39, 0.8) 100%);">
-          <h3 class="h5 fw-bold mb-2">Ready to Start?</h3>
-          <p class="text-secondary small mb-4">
-            Get a transparent, fixed or milestone-based proposal for your {{ service.name }} requirements.
-          </p>
-          <a href="{% url 'leads:get_quote' %}?service={{ service.name|urlencode }}" class="btn-brand w-100 mb-3">
-            <span>Request a Quote</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="{% url 'core:contact' %}" class="btn-brand-outline w-100 text-center">
-            <span>Ask a Question</span>
-          </a>
+          <!-- Service FAQs -->
+          {% if extras.faqs %}
+          <div class="svc-content-box p-4 p-md-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="svc-section-icon">
+                <i class="bi bi-question-circle-fill"></i>
+              </div>
+              <div>
+                <span class="svc-section-subtitle">Got Questions?</span>
+                <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+              </div>
+            </div>
+
+            <div class="accordion svc-accordion" id="serviceFaqAccordion">
+              {% for faq in extras.faqs %}
+              <div class="accordion-item svc-accordion-item">
+                <h3 class="accordion-header" id="faqHeading{{ forloop.counter }}">
+                  <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faqCollapse{{ forloop.counter }}">
+                    {{ faq.q }}
+                  </button>
+                </h3>
+                <div id="faqCollapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="faqHeading{{ forloop.counter }}" data-bs-parent="#serviceFaqAccordion">
+                  <div class="accordion-body text-secondary small">
+                    {{ faq.a }}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
         </div>
 
-        <!-- Related Services -->
-        {% if related_services %}
-        <div class="card-custom p-4">
-          <h3 class="h6 fw-bold text-uppercase letter-spacing-1 text-muted mb-3">Other Services</h3>
-          <div class="d-flex flex-column gap-3">
-            {% for rel in related_services %}
-            <a href="{% url 'services:detail' rel.slug %}" class="d-flex align-items-center gap-3 text-reset p-2 rounded" style="transition: background var(--transition-fast);">
-              <div class="service-icon-box mb-0" style="width: 36px; height: 36px; font-size: 1rem;">
-                <i class="bi {{ rel.icon|default:'bi-code-slash' }}"></i>
+        <!-- Right Column: Sticky High-Converting Sidebar -->
+        <div class="col-lg-4">
+          <div class="svc-sticky-sidebar">
+
+            <!-- High-Impact Lead Box -->
+            <div class="svc-sidebar-card p-4 mb-4">
+              <div class="svc-sidebar-glow"></div>
+              <div class="position-relative">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge bg-warning text-dark fw-bold px-2 py-1">Limited Free Consultation</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Ready to Start Your Project?</h3>
+                <p class="text-secondary small mb-3">
+                  Get a comprehensive, fixed or milestone-based proposal for your <strong>{{ service.name }}</strong> needs.
+                </p>
+
+                <div class="svc-sidebar-perks mb-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-check-circle-fill text-success small"></i>
+                    <span class="small text-secondary">Free 30-Min Technical Strategy Call</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-check-circle-fill text-success small"></i>
+                    <span class="small text-secondary">Transparent Cost & Timeline Estimate</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-check-circle-fill text-success small"></i>
+                    <span class="small text-secondary">Strict NDA & 100% Code Ownership</span>
+                  </div>
+                </div>
+
+                <a href="{% url 'leads:get_quote' %}?service={{ service.name|urlencode }}" class="svc-btn-primary w-100 mb-2 text-center justify-content-center">
+                  <span>Request an Instant Quote</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+
+                {% if site_settings.whatsapp %}
+                <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="svc-btn-whatsapp w-100 justify-content-center mb-3">
+                  <i class="bi bi-whatsapp"></i>
+                  <span>Direct WhatsApp Chat</span>
+                </a>
+                {% endif %}
+
+                {% if site_settings.phone %}
+                <div class="text-center pt-2 border-top border-subtle">
+                  <span class="small text-muted d-block mb-1">Prefer an immediate call?</span>
+                  <a href="tel:{{ site_settings.phone }}" class="fw-bold text-decoration-none text-reset small d-inline-flex align-items-center gap-1">
+                    <i class="bi bi-telephone-fill text-primary"></i>
+                    <span>{{ site_settings.phone }}</span>
+                  </a>
+                </div>
+                {% endif %}
               </div>
-              <div class="flex-grow-1">
-                <div class="fw-semibold small">{{ rel.name }}</div>
+            </div>
+
+            <!-- Other Digital Services -->
+            {% if related_services %}
+            <div class="svc-content-box p-4">
+              <h4 class="h6 fw-bold text-uppercase letter-spacing-1 text-muted mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-grid-fill text-primary"></i>
+                Explore Other Services
+              </h4>
+              <div class="d-flex flex-column gap-2">
+                {% for rel in related_services %}
+                <a href="{% url 'services:detail' rel.slug %}" class="svc-related-item">
+                  <div class="svc-related-icon">
+                    <i class="bi {{ rel.icon|default:'bi-code-slash' }}"></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold small svc-related-title">{{ rel.name }}</div>
+                    <div class="text-muted text-truncate" style="font-size: 0.75rem; max-width: 170px;">{{ rel.short_description }}</div>
+                  </div>
+                  <i class="bi bi-chevron-right svc-related-arrow"></i>
+                </a>
+                {% endfor %}
               </div>
-              <i class="bi bi-chevron-right text-muted small"></i>
-            </a>
-            {% endfor %}
+
+              <div class="mt-3 pt-3 border-top border-subtle text-center">
+                <a href="{% url 'services:list' %}" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1">
+                  <span>View All Services Catalog</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            {% endif %}
+
           </div>
         </div>
-        {% endif %}
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Call to Action Banner -->
-{% include 'partials/cta_banner.html' %}
+  <!-- ========================================================
+       PRE-FOOTER CALL TO ACTION BANNER
+       ======================================================== -->
+  <section class="svc-bottom-cta py-5">
+    <div class="container">
+      <div class="svc-cta-banner p-4 p-md-5 text-center position-relative overflow-hidden">
+        <div class="svc-cta-glow"></div>
+        <div class="position-relative z-1">
+          <span class="svc-pill-badge mb-3 d-inline-flex">
+            <span class="svc-pill-dot"></span>
+            <span>Let's Build Something Exceptional</span>
+          </span>
+          <h2 class="display-6 fw-bold mb-3 text-white">Have a Project in Mind? Let's Talk!</h2>
+          <p class="text-white-50 mx-auto mb-4" style="max-width: 640px; font-size: 1.1rem;">
+            Whether you need a full-scale development sprint, performance audit, or custom automation, our engineers are ready to make it a reality.
+          </p>
+          <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'leads:get_quote' %}?service={{ service.name|urlencode }}" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow">
+              <span>Start Your Project</span>
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            {% if site_settings.whatsapp %}
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text={{ whatsapp_encoded }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+              <i class="bi bi-whatsapp me-2"></i>
+              <span>WhatsApp Us</span>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+</div>
 {% endblock %}
