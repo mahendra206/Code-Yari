@@ -69,20 +69,15 @@
             </a>
 
             {% if site_settings.whatsapp %}
-            <a href="https://wa.me/{{ site_settings.whatsapp }}?text=Hi%20Code%20Yari,%20I%20would%20love%20to%20learn%20more%20about%20your%20services%20and%20team!" target="_blank" rel="noopener noreferrer" class="about-btn-whatsapp">
+            <a href="https://wa.me/{{ site_settings.whatsapp }}?text=Hi%20Code%20Yari,%20I%20would%20love%20to%20learn%20more%20about%20your%20services!" target="_blank" rel="noopener noreferrer" class="about-btn-whatsapp">
               <i class="bi bi-whatsapp fs-5"></i>
               <span>Chat on WhatsApp</span>
             </a>
-            {% else %}
-            <a href="{% url 'core:contact' %}" class="about-btn-secondary">
-              <i class="bi bi-chat-dots-fill"></i>
-              <span>Talk to Founders</span>
-            </a>
             {% endif %}
 
-            <a href="{% url 'core:team' %}" class="about-btn-secondary">
-              <i class="bi bi-people-fill"></i>
-              <span>Meet The Team</span>
+            <a href="{% url 'core:contact' %}" class="about-btn-secondary">
+              <i class="bi bi-chat-dots-fill"></i>
+              <span>Get In Touch</span>
             </a>
           </div>
 
@@ -497,126 +492,7 @@
     </div>
   </section>
 
-  <!-- ========================================================
-       MEET OUR TEAM LEADERSHIP
-       ======================================================== -->
-  {% if team_members %}
-  <section class="about-team-section py-5">
-    <div class="container py-3">
-      <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-5">
-        <div>
-          <span class="about-pill-badge mb-2">
-            <span class="about-pill-dot"></span>
-            <span>✦ The Minds Behind Code Yari</span>
-          </span>
-          <h2 class="display-6 fw-bold mb-0">Meet Our Core Team</h2>
-        </div>
-        <a href="{% url 'core:team' %}" class="btn-brand-outline">
-          <span>View All Team Members</span>
-          <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
 
-      <div class="row g-4">
-        {% for member in team_members %}
-        <div class="col-md-6 col-lg-3">
-          <div class="about-member-card text-center p-4 h-100">
-            <div class="about-member-avatar-wrap mb-3 mx-auto position-relative">
-              {% if member.get_photo_url %}
-              <img src="{{ member.get_photo_url }}" alt="{{ member.name }}" class="about-member-avatar img-fluid rounded-circle">
-              {% elif member.photo %}
-              <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="about-member-avatar img-fluid rounded-circle">
-              {% else %}
-              <div class="about-member-avatar-fallback rounded-circle">
-                {{ member.name|slice:":1" }}
-              </div>
-              {% endif %}
-              <span class="about-member-status-dot" title="Active Core Engineer"></span>
-            </div>
-
-            <h4 class="h5 fw-bold mb-1">{{ member.name }}</h4>
-            <div class="about-member-role mb-2">{{ member.role }}</div>
-            <p class="text-secondary small mb-3 flex-grow-1">
-              {{ member.bio|truncatewords:16 }}
-            </p>
-
-            <div class="d-flex justify-content-center gap-2">
-              {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="LinkedIn">
-                <i class="bi bi-linkedin"></i>
-              </a>
-              {% endif %}
-              {% if member.github %}
-              <a href="{{ member.github }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="GitHub">
-                <i class="bi bi-github"></i>
-              </a>
-              {% endif %}
-              {% if member.twitter %}
-              <a href="{{ member.twitter }}" target="_blank" rel="noopener noreferrer" class="about-social-icon" aria-label="Twitter">
-                <i class="bi bi-twitter-x"></i>
-              </a>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-  <!-- ========================================================
-       CLIENT LOVE & TESTIMONIALS
-       ======================================================== -->
-  {% if testimonials %}
-  <section class="about-testimonials-section py-5">
-    <div class="container py-3">
-      <div class="text-center mb-5">
-        <span class="about-pill-badge mb-3">
-          <span class="about-pill-dot"></span>
-          <span>✦ Real Stories, Real Growth</span>
-        </span>
-        <h2 class="display-6 fw-bold">Loved By Founders & Businesses</h2>
-        <p class="text-secondary mx-auto" style="max-width: 620px;">
-          Here is what happens when you partner with an engineering team that builds with heart and Yari.
-        </p>
-      </div>
-
-      <div class="row g-4">
-        {% for t in testimonials %}
-        <div class="col-md-4">
-          <div class="about-testimonial-card p-4 h-100 d-flex flex-column">
-            <!-- Stars -->
-            <div class="text-warning mb-3">
-              {% for i in "12345" %}
-                {% if forloop.counter <= t.rating %}
-                  <i class="bi bi-star-fill"></i>
-                {% else %}
-                  <i class="bi bi-star"></i>
-                {% endif %}
-              {% endfor %}
-            </div>
-
-            <p class="text-secondary flex-grow-1 small mb-4" style="line-height: 1.8;">
-              "{{ t.quote }}"
-            </p>
-
-            <div class="d-flex align-items-center gap-3 pt-3 border-top border-subtle">
-              <div class="about-client-avatar">
-                {{ t.client_name|slice:":1" }}
-              </div>
-              <div>
-                <div class="fw-bold small text-dark">{{ t.client_name }}</div>
-                <div class="text-muted" style="font-size: 0.78rem;">{{ t.client_role|default:"Founder" }} • {{ t.client_company }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  {% endif %}
 
   <!-- ========================================================
        PRE-FOOTER GRAND CTA BANNER
