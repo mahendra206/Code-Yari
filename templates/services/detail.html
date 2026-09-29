@@ -137,7 +137,7 @@
       <div class="row g-3">
         {% for m in extras.metrics %}
         <div class="col-6 col-md-3">
-          <div class="svc-metric-card text-center">
+          <div class="svc-metric-card svc-metric-card-{{ forloop.counter }} text-center">
             <div class="svc-metric-icon">
               <i class="bi {{ m.icon }}"></i>
             </div>
@@ -230,7 +230,7 @@
             <div class="row g-4">
               {% for card in extras.why_choose %}
               <div class="col-md-6">
-                <div class="svc-why-card">
+                <div class="svc-why-card svc-why-card-{{ forloop.counter }}">
                   <div class="svc-why-icon-box">
                     <i class="bi {{ card.icon }}"></i>
                   </div>
@@ -254,7 +254,7 @@
 
             <div class="svc-process-grid">
               {% for step in extras.process %}
-              <div class="svc-process-card">
+              <div class="svc-process-card svc-process-card-{{ forloop.counter }}">
                 <div class="svc-process-num">{{ step.num }}</div>
                 <h4 class="h6 fw-bold mb-2">{{ step.title }}</h4>
                 <p class="text-secondary small mb-0">{{ step.desc }}</p>
@@ -362,7 +362,7 @@
               </h4>
               <div class="d-flex flex-column gap-2">
                 {% for rel in related_services %}
-                <a href="{% url 'services:detail' rel.slug %}" class="svc-related-item">
+                <a href="{% url 'services:detail' rel.slug %}" class="svc-related-item svc-related-item-{{ forloop.counter }}">
                   <div class="svc-related-icon">
                     <i class="bi {{ rel.icon|default:'bi-code-slash' }}"></i>
                   </div>
