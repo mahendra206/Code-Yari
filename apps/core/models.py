@@ -115,7 +115,7 @@ class TeamMember(models.Model):
         elif 'neha' in name_lower:
             return '/static/images/team/neha.jpg'
         elif 'mahendra' in name_lower:
-            return '/static/images/mahendra.png'
+            return '/static/images/team/mahendraa.png'
         return None
 
 
