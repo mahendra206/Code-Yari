@@ -95,11 +95,19 @@
       </div>
     </div>
 
-    <!-- Bottom Bar: Copyright & Legal -->
+    <!-- Bottom Bar: Copyright, Developer Credit & Legal -->
     <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <p class="footer-copyright-text mb-0">
-        &copy; {% now "Y" %} Code Yari. All rights reserved. Sirf code nahi, Yari ke saath solution.
-      </p>
+      <div class="footer-copyright-text mb-0 text-center text-md-start">
+        <p class="mb-1">
+          &copy; {% now "Y" %} Code Yari. All rights reserved. Sirf code nahi, Yari ke saath solution.
+        </p>
+        <p class="mb-0 small text-secondary">
+          Crafted &amp; Developed with <span style="color: #ef4444;">&hearts;</span> by 
+          <a href="{% url 'core:team' %}" style="color: #38bdf8; font-weight: 700; text-decoration: none;">
+            Mahendra Pratap Singh
+          </a>
+        </p>
+      </div>
       <div class="d-flex align-items-center gap-2 footer-legal-links">
         <a href="{% url 'core:privacy_policy' %}">Privacy Policy</a>
         <span class="legal-dot">&bull;</span>
