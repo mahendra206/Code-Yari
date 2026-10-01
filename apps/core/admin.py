@@ -40,13 +40,34 @@ class StatItemAdmin(admin.ModelAdmin):
     ordering = ('order',)
 
 
+from django.utils.html import format_html
+
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ('name', 'role', 'order', 'is_active')
+    list_display = ('photo_preview', 'name', 'role', 'order', 'is_active')
     list_editable = ('order', 'is_active')
     list_filter = ('is_active',)
     ordering = ('order', 'name')
-    search_fields = ('name', 'role')
+    search_fields = ('name', 'role', 'bio')
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('name', 'role', 'bio', 'photo')
+        }),
+        ('Social Links', {
+            'fields': ('linkedin', 'twitter', 'github'),
+            'description': 'Paste full profile links (e.g., https://linkedin.com/in/username)'
+        }),
+        ('Display Settings', {
+            'fields': ('order', 'is_active')
+        }),
+    )
+
+    def photo_preview(self, obj):
+        url = obj.get_photo_url
+        if url:
+            return format_html('<img src="{}" style="width: 36px; height: 36px; object-fit: cover; border-radius: 50%;" />', url)
+        return format_html('<span style="color: #999;">No photo</span>')
+    photo_preview.short_description = 'Photo'
 
 
 @admin.register(ContactMessage)

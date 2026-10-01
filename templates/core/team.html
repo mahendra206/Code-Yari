@@ -41,17 +41,29 @@
             {{ member.bio }}
           </p>
           <div class="d-flex gap-2">
-            {% if member.linkedin_url %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            {% elif member.linkedin_url %}
             <a href="{{ member.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
               <i class="bi bi-linkedin"></i>
             </a>
             {% endif %}
-            {% if member.github_url %}
+            {% if member.github %}
+            <a href="{{ member.github }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            {% elif member.github_url %}
             <a href="{{ member.github_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
               <i class="bi bi-github"></i>
             </a>
             {% endif %}
-            {% if member.twitter_url %}
+            {% if member.twitter %}
+            <a href="{{ member.twitter }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            {% elif member.twitter_url %}
             <a href="{{ member.twitter_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Twitter">
               <i class="bi bi-twitter-x"></i>
             </a>
