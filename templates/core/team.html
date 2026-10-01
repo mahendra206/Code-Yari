@@ -3,6 +3,118 @@
 
 {% block title %}Our Team — Code Yari | Meet The Minds{% endblock %}
 
+{% block extra_css %}
+<style>
+  /* Reference Style Team Member Cards */
+  .team-ref-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .team-ref-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Photo Container with fixed aspect ratio matching screenshot */
+  .team-ref-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    background: #111827;
+  }
+
+  .team-ref-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .team-ref-card:hover .team-ref-img {
+    transform: scale(1.03);
+  }
+
+  /* Fallback initials visual */
+  .team-ref-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+  /* Card Body (white bottom bar) */
+  .team-ref-body {
+    padding: 16px 14px 20px;
+    text-align: center;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pill Role Badge */
+  .team-ref-role-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0284c7;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  /* Member Name */
+  .team-ref-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 0;
+    line-height: 1.3;
+  }
+
+  /* Social links on hover / footer */
+  .team-ref-socials {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .team-ref-socials a {
+    color: #64748b;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .team-ref-socials a:hover {
+    color: #0284c7;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <!-- Page Header -->
 <section class="page-header-section">
@@ -22,51 +134,58 @@
   <div class="container">
     <div class="row g-4 justify-content-center">
       {% for member in team_members %}
-      <div class="col-md-6 col-lg-3">
-        <div class="card-custom h-100 p-4 text-center d-flex flex-column align-items-center">
-          <div class="position-relative mb-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="team-ref-card">
+          <!-- Photo Banner (Square 1:1 Aspect Ratio like reference) -->
+          <div class="team-ref-img-wrapper">
             {% if member.get_photo_url %}
-            <img src="{{ member.get_photo_url }}" alt="{{ member.name }}" class="rounded-circle" style="width: 110px; height: 110px; object-fit: cover; border: 3px solid var(--brand-primary); box-shadow: var(--shadow-sm);">
+            <img src="{{ member.get_photo_url }}" alt="{{ member.name }}" class="team-ref-img">
             {% elif member.photo %}
-            <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="rounded-circle" style="width: 110px; height: 110px; object-fit: cover; border: 3px solid var(--brand-primary); box-shadow: var(--shadow-sm);">
+            <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="team-ref-img">
             {% else %}
-            <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 100px; height: 100px; background: var(--brand-gradient); color: #fff; font-size: 2.2rem; font-weight: 700; box-shadow: var(--shadow-sm);">
+            <div class="team-ref-placeholder">
               {{ member.name|slice:":1" }}
             </div>
             {% endif %}
           </div>
-          <h3 class="h5 fw-bold mb-1">{{ member.name }}</h3>
-          <div class="text-primary small fw-semibold mb-2">{{ member.role }}</div>
-          <p class="text-secondary small flex-grow-1 mb-3">
-            {{ member.bio }}
-          </p>
-          <div class="d-flex gap-2">
-            {% if member.linkedin %}
-            <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-            {% elif member.linkedin_url %}
-            <a href="{{ member.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i>
-            </a>
-            {% endif %}
-            {% if member.github %}
-            <a href="{{ member.github }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
-              <i class="bi bi-github"></i>
-            </a>
-            {% elif member.github_url %}
-            <a href="{{ member.github_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
-              <i class="bi bi-github"></i>
-            </a>
-            {% endif %}
-            {% if member.twitter %}
-            <a href="{{ member.twitter }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Twitter">
-              <i class="bi bi-twitter-x"></i>
-            </a>
-            {% elif member.twitter_url %}
-            <a href="{{ member.twitter_url }}" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Twitter">
-              <i class="bi bi-twitter-x"></i>
-            </a>
+
+          <!-- Bottom Info Bar -->
+          <div class="team-ref-body">
+            <span class="team-ref-role-badge">{{ member.role }}</span>
+            <h3 class="team-ref-name">{{ member.name }}</h3>
+
+            {% if member.linkedin or member.linkedin_url or member.github or member.github_url or member.twitter or member.twitter_url %}
+            <div class="team-ref-socials">
+              {% if member.linkedin %}
+              <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              {% elif member.linkedin_url %}
+              <a href="{{ member.linkedin_url }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              {% endif %}
+
+              {% if member.github %}
+              <a href="{{ member.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+              {% elif member.github_url %}
+              <a href="{{ member.github_url }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+              {% endif %}
+
+              {% if member.twitter %}
+              <a href="{{ member.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              {% elif member.twitter_url %}
+              <a href="{{ member.twitter_url }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              {% endif %}
+            </div>
             {% endif %}
           </div>
         </div>
