@@ -68,8 +68,7 @@ class Command(BaseCommand):
         # 6. Ensure SiteSettings with WhatsApp
         from apps.core.models import SiteSettings
         settings = SiteSettings.get_settings()
-        if not settings.whatsapp:
-            settings.whatsapp = '919876543210'
-            settings.save()
-            self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp number configured.'))
+        settings.whatsapp = '919305287312'
+        settings.save()
+        self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp number configured to 919305287312.'))
 
