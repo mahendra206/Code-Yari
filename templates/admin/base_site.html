@@ -1,0 +1,206 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | Code Yari Command Center{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.25rem;">
+    <span style="background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 8px rgba(139,92,246,0.5));">
+      &lt;/&gt; CODE YARI
+    </span>
+    <span style="font-size: 0.72rem; background: rgba(255,255,255,0.15); color: #fff; padding: 3px 8px; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+      Admin Suite
+    </span>
+  </a>
+</div>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+  /* =========================================================
+     MODERN COLORFUL GRADIENT ADMIN THEME - CODE YARI
+     ========================================================= */
+  :root {
+    --primary: #6366f1;
+    --primary-fg: #ffffff;
+    --accent: #ec4899;
+    --header-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    --breadcrumbs-bg: #1e293b;
+    --body-bg: #f8fafc;
+    --body-fg: #1e293b;
+  }
+
+  /* Header with Vibrant Dark Gradient */
+  #header {
+    background: linear-gradient(135deg, #090d16 0%, #1e1b4b 45%, #2e0854 100%) !important;
+    border-bottom: 2px solid #8b5cf6 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    padding: 14px 24px !important;
+  }
+
+  #header a:link, #header a:visited {
+    color: #f1f5f9 !important;
+    font-weight: 600;
+  }
+
+  #user-tools {
+    font-size: 0.85rem;
+    color: #cbd5e1 !important;
+  }
+
+  #user-tools a {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 6px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  #user-tools a:hover {
+    background: #ec4899 !important;
+    color: #ffffff !important;
+    border-color: #ec4899;
+    text-decoration: none;
+  }
+
+  /* Breadcrumbs */
+  div.breadcrumbs {
+    background: linear-gradient(90deg, #1e293b, #334155) !important;
+    color: #94a3b8 !important;
+    padding: 10px 24px !important;
+    border-bottom: 1px solid #475569;
+    font-size: 0.85rem;
+  }
+  div.breadcrumbs a {
+    color: #38bdf8 !important;
+    font-weight: 600;
+  }
+
+  /* App Section Banners (Dashboard Modules) */
+  .module caption, .module h2 {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    padding: 10px 16px !important;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .module {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+    margin-bottom: 24px !important;
+    background: #ffffff !important;
+  }
+
+  /* Table styling */
+  #changelist table thead th {
+    background: linear-gradient(90deg, #1e293b, #334155) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 10px 12px;
+  }
+
+  #changelist table thead th a {
+    color: #f8fafc !important;
+  }
+
+  /* Buttons */
+  .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 18px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35) !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .button:hover, input[type=submit]:hover, .submit-row input:hover {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5) !important;
+  }
+
+  /* Add / Change Badges in Dashboard */
+  .addlink, .changelink {
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 0.78rem !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .addlink {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid #a7f3d0 !important;
+  }
+  .addlink:hover {
+    background: #059669 !important;
+    color: #ffffff !important;
+  }
+
+  .changelink {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    border: 1px solid #bfdbfe !important;
+  }
+  .changelink:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+  }
+
+  /* PROMINENT DIRECT DELETE BUTTONS */
+  .deletelink, a.deletelink, .submit-row .deletelink-box a {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: #ffffff !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3) !important;
+    border: 1px solid #b91c1c !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .deletelink:hover, a.deletelink:hover, .submit-row .deletelink-box a:hover {
+    background: linear-gradient(135deg, #dc2626, #991b1b) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(220, 38, 38, 0.5) !important;
+  }
+
+  /* Row Quick Delete Button */
+  .row-delete-btn {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fca5a5 !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .row-delete-btn:hover {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+  }
+</style>
+{% endblock %}

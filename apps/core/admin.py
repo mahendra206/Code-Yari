@@ -42,9 +42,11 @@ class StatItemAdmin(admin.ModelAdmin):
 
 from django.utils.html import format_html
 
+from django.urls import reverse
+
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ('photo_preview', 'name', 'role', 'order', 'is_active')
+    list_display = ('photo_preview', 'name', 'role', 'order', 'is_active', 'delete_action')
     list_editable = ('order', 'is_active')
     list_filter = ('is_active',)
     ordering = ('order', 'name')
@@ -65,9 +67,20 @@ class TeamMemberAdmin(admin.ModelAdmin):
     def photo_preview(self, obj):
         url = obj.get_photo_url
         if url:
-            return format_html('<img src="{}" style="width: 36px; height: 36px; object-fit: cover; border-radius: 50%;" />', url)
-        return format_html('<span style="color: #999;">No photo</span>')
+            return format_html('<img src="{}" style="width: 38px; height: 38px; object-fit: cover; border-radius: 8px; border: 2px solid #e2e8f0;" />', url)
+        return format_html('<span style="color: #94a3b8; font-size: 0.8rem;">No photo</span>')
     photo_preview.short_description = 'Photo'
+
+    def delete_action(self, obj):
+        delete_url = reverse('admin:core_teammember_delete', args=[obj.pk])
+        return format_html(
+            '<a href="{}" class="row-delete-btn" title="Delete {}">'
+            '🗑️ Delete'
+            '</a>',
+            delete_url,
+            obj.name
+        )
+    delete_action.short_description = 'Delete'
 
 
 @admin.register(ContactMessage)
