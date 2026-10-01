@@ -4,169 +4,407 @@
 {% block title %}Contact Us — Code Yari | Let's Talk About Your Project{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="page-header-section">
-  <div class="container text-center py-4">
-    <span class="badge-pill-custom mb-3">
-      <i class="bi bi-chat-dots-fill"></i> We're Here to Help
-    </span>
-    <h1 class="display-4 fw-bold mb-3">Let's Start a <span class="gradient-text">Conversation</span></h1>
-    <p class="text-secondary mx-auto" style="max-width: 640px; font-size: 1.15rem;">
-      Whether you need a full-fledged web application, a mobile app, or guidance on ranking #1 on Google, our team is ready.
-    </p>
-  </div>
-</section>
+{% block extra_css %}
+<style>
+  /* ========================================================
+     VIBRANT & COLORFUL CONTACT PAGE STYLING
+     ======================================================== */
+  .contact-hero-wrapper {
+    position: relative;
+    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+    overflow: hidden;
+  }
 
-<!-- Contact Section -->
-<section class="section-wrapper py-5">
-  <div class="container">
-    <div class="row g-5">
-      <!-- Left Column: Direct Info -->
-      <div class="col-lg-5">
-        <div class="card-custom p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
-          <div>
-            <h2 class="h3 fw-bold mb-4">Get in Touch</h2>
-            <p class="text-secondary mb-4" style="line-height: 1.7;">
-              Have a question, feedback, or an upcoming project? Fill out the form or reach out through our direct communication channels.
-            </p>
+  /* Vibrant Ambient Orbs */
+  .contact-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .contact-orb-1 {
+    width: 320px;
+    height: 320px;
+    top: -50px;
+    left: -50px;
+    background: rgba(99, 102, 241, 0.15);
+  }
+  .contact-orb-2 {
+    width: 280px;
+    height: 280px;
+    bottom: 50px;
+    right: -40px;
+    background: rgba(236, 72, 153, 0.12);
+  }
 
-            <div class="d-flex flex-column gap-4 mb-4">
-              {% if site_settings.email %}
-              <div class="d-flex align-items-start gap-3">
-                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
-                  <i class="bi bi-envelope-fill"></i>
+  /* Direct Info Card with Subtle Glass Glow */
+  .contact-info-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    box-shadow: 0 14px 35px rgba(99, 102, 241, 0.07);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .contact-info-top-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  }
+
+  /* Distinct Colorful Channels */
+  .contact-channel-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .contact-channel-item:hover {
+    transform: translateX(6px);
+  }
+
+  /* Email Channel (Sky/Indigo) */
+  .channel-email {
+    background: #f0f7ff;
+    border-color: #dbeafe;
+  }
+  .channel-email .channel-icon {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #fff;
+  }
+
+  /* Phone Channel (Emerald/Green) */
+  .channel-phone {
+    background: #f0fdf4;
+    border-color: #dcfce7;
+  }
+  .channel-phone .channel-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+  }
+
+  /* Working Hours Channel (Purple/Violet) */
+  .channel-hours {
+    background: #faf5ff;
+    border-color: #f3e8ff;
+  }
+  .channel-hours .channel-icon {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #fff;
+  }
+
+  /* Location Channel (Rose/Amber) */
+  .channel-location {
+    background: #fff7ed;
+    border-color: #ffedd5;
+  }
+  .channel-location .channel-icon {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: #fff;
+  }
+
+  .channel-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* WhatsApp Direct Highlight Box */
+  .whatsapp-banner-box {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    border-radius: 16px;
+    color: #ffffff;
+    padding: 18px 20px;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.28);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whatsapp-banner-box::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+  }
+
+  /* Right Form Card */
+  .contact-form-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    box-shadow: 0 14px 35px rgba(99, 102, 241, 0.07);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-control, textarea.form-control {
+    border-radius: 12px !important;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+  }
+
+  .form-control:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12) !important;
+    background: #fafafa;
+  }
+
+  .form-label {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+  }
+
+  /* Send Button Vibrant Gradient */
+  .btn-vibrant-send {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-vibrant-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.45) !important;
+    color: #ffffff !important;
+  }
+
+  .gradient-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(236, 72, 153, 0.12));
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-hero-wrapper py-4 position-relative">
+  <div class="contact-orb contact-orb-1"></div>
+  <div class="contact-orb contact-orb-2"></div>
+
+  <!-- Page Header -->
+  <section class="page-header-section position-relative z-1">
+    <div class="container text-center py-4">
+      <span class="gradient-badge-pill mb-3">
+        <i class="bi bi-chat-heart-fill text-danger"></i> We're Ready to Build With You
+      </span>
+      <h1 class="display-4 fw-bold mb-3">
+        Let's Start a <span class="about-gradient-text" style="background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Conversation</span>
+      </h1>
+      <p class="text-secondary mx-auto" style="max-width: 660px; font-size: 1.15rem;">
+        Whether you are planning a modern web application, scaling an MVP, or automating operations, our senior team is just a message away.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Grid Section -->
+  <section class="section-wrapper py-4 position-relative z-1">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <!-- Left Column: Direct Info -->
+        <div class="col-lg-5">
+          <div class="contact-info-card p-4 p-md-5">
+            <div class="contact-info-top-glow"></div>
+            <div>
+              <span class="badge bg-light text-primary px-3 py-2 rounded-pill fw-bold mb-3">✦ DIRECT ACCESS</span>
+              <h2 class="h3 fw-bold mb-3" style="color: #0f172a;">Reach Us Directly</h2>
+              <p class="text-secondary mb-4 small" style="line-height: 1.7;">
+                Connect straight with engineers and product architects. No gatekeepers, no bureaucratic delays.
+              </p>
+
+              <div class="d-flex flex-column gap-3 mb-4">
+                <!-- Email -->
+                <div class="contact-channel-item channel-email">
+                  <div class="channel-icon">
+                    <i class="bi bi-envelope-at-fill"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted small fw-semibold">Email Us</div>
+                    <a href="mailto:{{ site_settings.email|default:'hello@codeyari.com' }}" class="fw-bold text-dark text-decoration-none">
+                      {{ site_settings.email|default:'hello@codeyari.com' }}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-muted small">Email Address</div>
-                  <a href="mailto:{{ site_settings.email }}" class="fw-semibold text-primary">{{ site_settings.email }}</a>
+
+                <!-- Phone -->
+                <div class="contact-channel-item channel-phone">
+                  <div class="channel-icon">
+                    <i class="bi bi-telephone-inbound-fill"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted small fw-semibold">Direct Call</div>
+                    <a href="tel:{{ site_settings.whatsapp|default:'919305287312' }}" class="fw-bold text-dark text-decoration-none">
+                      +91 93052 87312
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="contact-channel-item channel-hours">
+                  <div class="channel-icon">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted small fw-semibold">Working Hours</div>
+                    <div class="fw-bold text-dark">{{ site_settings.business_hours|default:'Mon–Sat, 10AM–7PM IST' }}</div>
+                  </div>
+                </div>
+
+                <!-- Location -->
+                <div class="contact-channel-item channel-location">
+                  <div class="channel-icon">
+                    <i class="bi bi-geo-alt-fill"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted small fw-semibold">HQ Location</div>
+                    <div class="fw-bold text-dark">{{ site_settings.city|default:'India' }} • Remote Across World</div>
+                  </div>
                 </div>
               </div>
-              {% endif %}
+            </div>
 
-              {% if site_settings.phone %}
-              <div class="d-flex align-items-start gap-3">
-                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
-                  <i class="bi bi-telephone-fill"></i>
+            <!-- WhatsApp Direct Card -->
+            <div class="whatsapp-banner-box mt-3">
+              <div class="d-flex align-items-center justify-content-between position-relative z-1">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-whatsapp fs-1 text-white"></i>
+                  <div>
+                    <div class="fw-bold fs-6">Instant WhatsApp Desk</div>
+                    <div class="small text-white-50">Direct developer reply</div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-muted small">Phone / Calling</div>
-                  <a href="tel:{{ site_settings.phone }}" class="fw-semibold text-primary">{{ site_settings.phone }}</a>
-                </div>
+                <a href="https://wa.me/{{ site_settings.whatsapp|default:'919305287312' }}?text=Hi%20Code%20Yari,%20I'm%20interested%20in%20discussing%20a%20project!" 
+                   target="_blank" rel="noopener noreferrer" class="btn btn-light btn-sm rounded-pill px-4 fw-bold shadow-sm">
+                  Chat Now
+                </a>
               </div>
-              {% endif %}
-
-              {% if site_settings.business_hours %}
-              <div class="d-flex align-items-start gap-3">
-                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
-                  <i class="bi bi-clock-fill"></i>
-                </div>
-                <div>
-                  <div class="text-muted small">Working Hours</div>
-                  <div class="fw-semibold">{{ site_settings.business_hours }}</div>
-                </div>
-              </div>
-              {% endif %}
-
-              {% if site_settings.address %}
-              <div class="d-flex align-items-start gap-3">
-                <div class="brand-icon-wrapper flex-shrink-0" style="width: 44px; height: 44px;">
-                  <i class="bi bi-geo-alt-fill"></i>
-                </div>
-                <div>
-                  <div class="text-muted small">Location</div>
-                  <div class="fw-semibold">{{ site_settings.address }}</div>
-                </div>
-              </div>
-              {% endif %}
             </div>
           </div>
-
-          <!-- WhatsApp Direct Card -->
-          {% if site_settings.whatsapp %}
-          <div class="p-3 card-custom mt-3" style="background: rgba(37, 211, 102, 0.08); border-color: rgba(37, 211, 102, 0.25);">
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center gap-3">
-                <i class="bi bi-whatsapp fs-2 text-success"></i>
-                <div>
-                  <div class="fw-bold">Fast WhatsApp Response</div>
-                  <div class="small text-secondary">Chat directly with an engineer</div>
-                </div>
-              </div>
-              <a href="https://wa.me/{{ site_settings.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill px-3">
-                Chat
-              </a>
-            </div>
-          </div>
-          {% endif %}
         </div>
-      </div>
 
-      <!-- Right Column: Contact Form -->
-      <div class="col-lg-7">
-        <div class="card-custom p-4 p-md-5">
-          <h2 class="h3 fw-bold mb-2">Send a Message</h2>
-          <p class="text-secondary small mb-4">We usually respond within 24 business hours.</p>
-
-          <form method="post" action="{% url 'core:contact' %}" novalidate>
-            {% csrf_token %}
-
-            <!-- Honeypot anti-spam field (hidden) -->
-            <div style="display:none !important;" aria-hidden="true">
-              <input type="text" name="website" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label for="{{ form.name.id_for_label }}" class="form-label">Your Name <span class="text-danger">*</span></label>
-                {{ form.name }}
-                {% if form.name.errors %}
-                <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
-                {% endif %}
+        <!-- Right Column: Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-form-card p-4 p-md-5 h-100">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div>
+                <span class="badge bg-light text-primary px-3 py-2 rounded-pill fw-bold mb-2">✦ QUICK PROPOSAL</span>
+                <h2 class="h3 fw-bold mb-1" style="color: #0f172a;">Send Us a Message</h2>
+                <p class="text-secondary small mb-0">We typically reply with an estimate in under 24 hours.</p>
               </div>
-
-              <div class="col-md-6">
-                <label for="{{ form.email.id_for_label }}" class="form-label">Email Address <span class="text-danger">*</span></label>
-                {{ form.email }}
-                {% if form.email.errors %}
-                <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
-                {% endif %}
-              </div>
-
-              <div class="col-md-6">
-                <label for="{{ form.phone.id_for_label }}" class="form-label">Phone Number (Optional)</label>
-                {{ form.phone }}
-                {% if form.phone.errors %}
-                <div class="text-danger small mt-1">{{ form.phone.errors.0 }}</div>
-                {% endif %}
-              </div>
-
-              <div class="col-md-6">
-                <label for="{{ form.subject.id_for_label }}" class="form-label">Subject <span class="text-danger">*</span></label>
-                {{ form.subject }}
-                {% if form.subject.errors %}
-                <div class="text-danger small mt-1">{{ form.subject.errors.0 }}</div>
-                {% endif %}
-              </div>
-
-              <div class="col-12">
-                <label for="{{ form.message.id_for_label }}" class="form-label">Message <span class="text-danger">*</span></label>
-                {{ form.message }}
-                {% if form.message.errors %}
-                <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
-                {% endif %}
-              </div>
-
-              <div class="col-12 mt-4">
-                <button type="submit" class="btn-brand w-100 py-3">
-                  <span>Send Message</span>
-                  <i class="bi bi-send-fill ms-2"></i>
-                </button>
+              <div class="d-none d-sm-block text-end">
+                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-lightning-charge-fill me-1"></i> Fast Turnaround
+                </span>
               </div>
             </div>
-          </form>
+
+            <form method="post" action="{% url 'core:contact' %}" novalidate>
+              {% csrf_token %}
+
+              <!-- Honeypot anti-spam field (hidden) -->
+              <div style="display:none !important;" aria-hidden="true">
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="{{ form.name.id_for_label }}" class="form-label">
+                    Your Name <span class="text-danger">*</span>
+                  </label>
+                  {{ form.name }}
+                  {% if form.name.errors %}
+                  <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.email.id_for_label }}" class="form-label">
+                    Email Address <span class="text-danger">*</span>
+                  </label>
+                  {{ form.email }}
+                  {% if form.email.errors %}
+                  <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.phone.id_for_label }}" class="form-label">
+                    Phone / WhatsApp Number
+                  </label>
+                  {{ form.phone }}
+                  {% if form.phone.errors %}
+                  <div class="text-danger small mt-1">{{ form.phone.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.subject.id_for_label }}" class="form-label">
+                    Subject / Project Scope <span class="text-danger">*</span>
+                  </label>
+                  {{ form.subject }}
+                  {% if form.subject.errors %}
+                  <div class="text-danger small mt-1">{{ form.subject.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-12">
+                  <label for="{{ form.message.id_for_label }}" class="form-label">
+                    Project Details & Goals <span class="text-danger">*</span>
+                  </label>
+                  {{ form.message }}
+                  {% if form.message.errors %}
+                  <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-vibrant-send w-100 py-3 fs-6">
+                    <span>Send Message &amp; Get Consultation</span>
+                    <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 {% endblock %}
