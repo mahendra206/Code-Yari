@@ -65,12 +65,14 @@ class Command(BaseCommand):
             seed_cmd._seed_stats()
             self.stdout.write(self.style.SUCCESS('[OK] Stats populated.'))
 
-        # 6. Ensure SiteSettings with WhatsApp
+        # 6. Ensure SiteSettings with WhatsApp & Phone
         from apps.core.models import SiteSettings
         settings = SiteSettings.get_settings()
         settings.whatsapp = '919305287312'
+        settings.phone = '+919305287312'
+        settings.phone_display = '+91 93052-87312'
         settings.save()
-        self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp number configured to 919305287312.'))
+        self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp & Phone configured to +91 93052 87312.'))
 
         # 7. Ensure Blog Posts if empty
         from apps.blog.models import BlogPost

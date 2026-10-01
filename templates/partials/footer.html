@@ -76,7 +76,11 @@
           </li>
           <li class="footer-contact-item">
             <i class="bi bi-telephone-fill"></i>
-            <a href="tel:{{ site_settings.phone|default:'+919876543210' }}">{{ site_settings.phone|default:'+91 98765 43210' }}</a>
+            <a href="tel:{{ site_settings.phone|default:'+919305287312' }}">{{ site_settings.phone_display|default:'+91 93052-87312' }}</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="bi bi-whatsapp text-success"></i>
+            <a href="https://wa.me/{{ site_settings.whatsapp|default:'919305287312' }}?text=Hi%20Code%20Yari!" target="_blank" rel="noopener noreferrer">+91 93052 87312 (WhatsApp)</a>
           </li>
           <li class="footer-contact-item">
             <i class="bi bi-geo-alt-fill"></i>
