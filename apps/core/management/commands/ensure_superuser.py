@@ -72,3 +72,33 @@ class Command(BaseCommand):
         settings.save()
         self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp number configured to 919305287312.'))
 
+        # 7. Ensure Blog Posts if empty
+        from apps.blog.models import BlogPost
+        if not BlogPost.objects.exists():
+            from apps.core.management.commands.seed_demo_data import Command as SeedCommand
+            seed_cmd = SeedCommand()
+            seed_cmd._seed_blog()
+            self.stdout.write(self.style.SUCCESS('[OK] Blog posts populated.'))
+        else:
+            self.stdout.write('[OK] Blog posts already exist.')
+
+        # 8. Ensure Testimonials if empty
+        from apps.testimonials.models import Testimonial
+        if not Testimonial.objects.exists():
+            from apps.core.management.commands.seed_demo_data import Command as SeedCommand
+            seed_cmd = SeedCommand()
+            seed_cmd._seed_testimonials()
+            self.stdout.write(self.style.SUCCESS('[OK] Testimonials populated.'))
+        else:
+            self.stdout.write('[OK] Testimonials already exist.')
+
+        # 9. Ensure FAQs if empty
+        from apps.faq.models import FAQ
+        if not FAQ.objects.exists():
+            from apps.core.management.commands.seed_demo_data import Command as SeedCommand
+            seed_cmd = SeedCommand()
+            seed_cmd._seed_faq()
+            self.stdout.write(self.style.SUCCESS('[OK] FAQs populated.'))
+        else:
+            self.stdout.write('[OK] FAQs already exist.')
+
