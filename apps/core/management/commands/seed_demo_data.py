@@ -71,14 +71,18 @@ class Command(BaseCommand):
     def _seed_team(self):
         TeamMember.objects.all().delete()
         members = [
-            ('Alex Kumar', 'Full Stack Developer', 'Django & React specialist with a passion for clean code.', 1),
-            ('Priya Sharma', 'UI/UX Designer', 'Creates beautiful, user-centered digital experiences.', 2),
-            ('Rahul Singh', 'SEO & Digital Marketing', 'Helps businesses grow their online presence organically.', 3),
-            ('Neha Patel', 'Mobile App Developer', 'Flutter and React Native developer building cross-platform apps.', 4),
+            ('Mahendra Pratap Singh', 'Python Full Stack Developer', 'Founder & Full Stack Developer at Code Yari.', 1),
+            ('Ayaz Khan', 'Full Stack Developer', 'Full Stack Developer specializing in robust backend systems.', 2),
+            ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences.', 3),
+            ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js.', 4),
+            ('Atul Sharma', 'Full Stack Developer', 'Full Stack Developer focusing on scalable code and design.', 5),
+            ('Anurag bajpai', 'Seo Expert', 'SEO and Google ranking strategist driving high organic growth.', 6),
+            ('Abhay shukla', 'Marketing & AI Specialist', 'AI automation and growth marketing expert.', 7),
+            ('Iqra', 'Frontend Developer', 'Frontend designer & developer building responsive interfaces.', 8),
         ]
         for name, role, bio, order in members:
-            TeamMember.objects.create(name=name, role=role, bio=bio, order=order)
-        self.stdout.write('  [OK] Team members (demo)')
+            TeamMember.objects.create(name=name, role=role, bio=bio, order=order, is_active=True)
+        self.stdout.write('  [OK] Team members (8 members)')
 
     def _seed_services(self):
         Service.objects.all().delete()

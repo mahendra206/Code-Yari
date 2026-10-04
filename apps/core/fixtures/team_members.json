@@ -1,0 +1,122 @@
+[
+{
+  "model": "core.teammember",
+  "pk": 17,
+  "fields": {
+    "name": "Mahendra Pratap Singh",
+    "role": "Python Full Stack Developer",
+    "bio": "Founder & Full Stack Developer at Code Yari. Passionate about building high performance web architectures, modern apps, and innovative tech solutions.",
+    "photo": "team/mahendraaa.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 18,
+  "fields": {
+    "name": "Ayaz Khan",
+    "role": "Full Stack Developer",
+    "bio": "Full Stack Developer specializing in robust backend systems, REST APIs, and scalable architectures.",
+    "photo": "team/ayaz.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 19,
+  "fields": {
+    "name": "Lakshman Sharma",
+    "role": "Full Stack Developer",
+    "bio": "Full Stack Engineer crafting seamless digital experiences and clean code solutions.",
+    "photo": "team/laki.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 20,
+  "fields": {
+    "name": "Aditya Sharma",
+    "role": "Full Stack Mern Developer",
+    "bio": "Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.",
+    "photo": "team/adityaa.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 21,
+  "fields": {
+    "name": "Atul Sharma",
+    "role": "Full Stack Developer",
+    "bio": "Full Stack Developer focusing on scalable code, performance, and clean design.",
+    "photo": "team/atul.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 5,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 22,
+  "fields": {
+    "name": "Anurag bajpai",
+    "role": "Seo Expert",
+    "bio": "SEO and Google ranking strategist driving high organic growth and top search visibility.",
+    "photo": "team/anurag.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 6,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 23,
+  "fields": {
+    "name": "Abhay shukla",
+    "role": "Marketing & AI Specialist",
+    "bio": "AI automation and growth marketing expert helping brands scale rapidly.",
+    "photo": "team/abhayy.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 7,
+    "is_active": true
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 24,
+  "fields": {
+    "name": "Iqra",
+    "role": "Frontend Developer",
+    "bio": "Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.",
+    "photo": "team/iqraa.png",
+    "linkedin": "",
+    "twitter": "",
+    "github": "",
+    "order": 8,
+    "is_active": true
+  }
+}
+]
