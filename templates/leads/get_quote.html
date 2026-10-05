@@ -1,138 +1,1116 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Get a Free Project Quote — Code Yari | Transparent Pricing{% endblock %}
+{% block title %}Start Your Project — Code Yari | Free Project Scope & Quote{% endblock %}
+{% block meta_description %}Ready to build something amazing? Request a free, transparent project quote and technical architecture plan from Code Yari within 24 hours.{% endblock %}
+
+{% block extra_css %}
+<style>
+  /* ========================================================
+     VIBRANT & COLORFUL "START YOUR PROJECT" PAGE STYLING
+     ======================================================== */
+  .quote-page-wrapper {
+    position: relative;
+    background: radial-gradient(circle at 10% 15%, rgba(99, 102, 241, 0.10) 0%, transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.10) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+    overflow: hidden;
+  }
+
+  /* Vibrant Ambient Glowing Orbs */
+  .quote-ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    animation: orbFloat 14s ease-in-out infinite alternate;
+  }
+  .quote-orb-1 {
+    width: 360px;
+    height: 360px;
+    top: -60px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.28), rgba(139, 92, 246, 0.12));
+    animation-duration: 12s;
+  }
+  .quote-orb-2 {
+    width: 340px;
+    height: 340px;
+    top: 25%;
+    right: -100px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.25), rgba(244, 63, 94, 0.10));
+    animation-duration: 16s;
+  }
+  .quote-orb-3 {
+    width: 320px;
+    height: 320px;
+    bottom: 10%;
+    left: 5%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.20), rgba(6, 182, 212, 0.10));
+    animation-duration: 18s;
+  }
+
+  @keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(25px, 20px) scale(1.06); }
+    100% { transform: translate(-20px, 30px) scale(0.95); }
+  }
+
+  /* Breadcrumb & Badges */
+  .quote-breadcrumb-link {
+    color: #6366f1;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  .quote-breadcrumb-link:hover {
+    color: #4f46e5;
+    text-decoration: underline;
+  }
+
+  .quote-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(236, 72, 153, 0.14));
+    color: #4f46e5;
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    padding: 7px 18px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.12);
+  }
+
+  .quote-pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ec4899;
+    box-shadow: 0 0 10px #ec4899;
+    animation: dotPulse 1.8s infinite;
+  }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.75); }
+  }
+
+  .quote-gradient-title {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 35%, #ec4899 70%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  /* Trust Highlights Bar */
+  .quote-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+  }
+  .quote-trust-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s ease;
+  }
+  [data-theme="dark"] .quote-trust-chip {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+  }
+  .quote-trust-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.35);
+  }
+
+  /* Left Sidebar Cards */
+  .quote-info-card {
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  [data-theme="dark"] .quote-info-card {
+    background: #1e293b;
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .quote-rainbow-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #f59e0b, #10b981);
+  }
+
+  /* Feature items */
+  .quote-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    transition: all 0.25s ease;
+  }
+  [data-theme="dark"] .quote-feature-item {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+  .quote-feature-item:hover {
+    transform: translateX(5px);
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.09);
+    border-color: rgba(99, 102, 241, 0.25);
+  }
+  [data-theme="dark"] .quote-feature-item:hover {
+    background: #1e293b;
+  }
+
+  .quote-feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    color: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Distinct Icon Gradients */
+  .icon-grad-indigo { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+  .icon-grad-pink   { background: linear-gradient(135deg, #ec4899, #db2777); }
+  .icon-grad-emerald{ background: linear-gradient(135deg, #10b981, #059669); }
+  .icon-grad-amber  { background: linear-gradient(135deg, #f59e0b, #d97706); }
+  .icon-grad-cyan   { background: linear-gradient(135deg, #06b6d4, #0284c7); }
+  .icon-grad-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+  /* 4-Step Process Timeline */
+  .quote-step-item {
+    position: relative;
+    padding-left: 42px;
+    padding-bottom: 22px;
+  }
+  .quote-step-item:last-child {
+    padding-bottom: 0;
+  }
+  .quote-step-item::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 32px;
+    bottom: -6px;
+    width: 2px;
+    background: linear-gradient(180deg, #6366f1 0%, rgba(99, 102, 241, 0.15) 100%);
+  }
+  .quote-step-item:last-child::before {
+    display: none;
+  }
+  .quote-step-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.35);
+  }
+
+  /* WhatsApp Banner */
+  .quote-whatsapp-box {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    border-radius: 18px;
+    color: #ffffff;
+    padding: 20px 22px;
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.28);
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-whatsapp-box::after {
+    content: '';
+    position: absolute;
+    right: -25px;
+    bottom: -25px;
+    width: 110px;
+    height: 110px;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+  }
+
+  /* Testimonial Quote Box */
+  .quote-testi-box {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+    border: 1px dashed rgba(99, 102, 241, 0.25);
+    border-radius: 16px;
+    padding: 18px;
+    position: relative;
+  }
+
+  /* Right Column: Main Form Card */
+  .quote-form-card {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid rgba(99, 102, 241, 0.16);
+    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.09);
+    position: relative;
+    overflow: hidden;
+  }
+  [data-theme="dark"] .quote-form-card {
+    background: #1e293b;
+    border-color: rgba(99, 102, 241, 0.28);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Section Step Titles inside Form */
+  .quote-form-step-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+  }
+  [data-theme="dark"] .quote-form-step-title {
+    color: #f8fafc;
+  }
+
+  .step-badge-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+  }
+
+  /* Input fields styling */
+  .quote-form-card .form-control,
+  .quote-form-card .form-select {
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    padding: 11px 16px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: all 0.25s ease;
+  }
+  [data-theme="dark"] .quote-form-card .form-control,
+  [data-theme="dark"] .quote-form-card .form-select {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f1f5f9;
+  }
+
+  .quote-form-card .form-control:focus,
+  .quote-form-card .form-select:focus {
+    border-color: #6366f1 !important;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15) !important;
+  }
+  [data-theme="dark"] .quote-form-card .form-control:focus,
+  [data-theme="dark"] .quote-form-card .form-select:focus {
+    background-color: #0f172a;
+  }
+
+  .quote-form-card .form-label {
+    font-weight: 700;
+    color: #334155;
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+  }
+  [data-theme="dark"] .quote-form-card .form-label {
+    color: #cbd5e1;
+  }
+
+  /* Interactive Service Chips */
+  .service-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+  }
+  [data-theme="dark"] .service-chip {
+    background: rgba(15, 23, 42, 0.6);
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .service-chip:hover {
+    background: #e0e7ff;
+    color: #4f46e5;
+    border-color: #c7d2fe;
+    transform: translateY(-2px);
+  }
+  .service-chip.active {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    border-color: #4f46e5;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Interactive Budget Chips */
+  .budget-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  [data-theme="dark"] .budget-chip {
+    background: rgba(15, 23, 42, 0.6);
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .budget-chip:hover {
+    background: #fdf2f8;
+    color: #db2777;
+    border-color: #fbcfe8;
+    transform: translateY(-2px);
+  }
+  .budget-chip.active {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: #ffffff;
+    border-color: #db2777;
+    box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+  }
+
+  /* High Converting Gradient Submit Button */
+  .btn-vibrant-submit {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.5px;
+    padding: 16px 28px !important;
+    box-shadow: 0 10px 28px rgba(124, 58, 237, 0.38) !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .btn-vibrant-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.75s ease;
+  }
+  .btn-vibrant-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(124, 58, 237, 0.5) !important;
+  }
+  .btn-vibrant-submit:hover::before {
+    left: 100%;
+  }
+
+  /* FAQ Accordion Styling */
+  .quote-faq-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.05);
+    overflow: hidden;
+    transition: all 0.25s ease;
+  }
+  [data-theme="dark"] .quote-faq-card {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .quote-faq-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    transform: translateY(-2px);
+  }
+  .quote-faq-header {
+    background: transparent;
+    border: none;
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1e293b;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  [data-theme="dark"] .quote-faq-header {
+    color: #f1f5f9;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="page-header-section">
-  <div class="container text-center py-4">
-    <span class="badge-pill-custom mb-3">
-      <i class="bi bi-calculator"></i> Transparent Estimation
-    </span>
-    <h1 class="display-4 fw-bold mb-3">Request a Free <span class="gradient-text">Project Quote</span></h1>
-    <p class="text-secondary mx-auto" style="max-width: 680px; font-size: 1.15rem;">
-      Tell us about your product idea or business requirements. We'll evaluate the scope and provide a realistic estimate and roadmap within 24 hours.
-    </p>
-  </div>
-</section>
+<div class="quote-page-wrapper py-4 position-relative">
+  <!-- Ambient Colorful Floating Orbs -->
+  <div class="quote-ambient-orb quote-orb-1"></div>
+  <div class="quote-ambient-orb quote-orb-2"></div>
+  <div class="quote-ambient-orb quote-orb-3"></div>
 
-<!-- Quote Form Section -->
-<section class="section-wrapper py-5">
-  <div class="container" style="max-width: 860px;">
-    <div class="card-custom p-4 p-md-5">
-      <form method="post" action="{% url 'leads:get_quote' %}" novalidate>
-        {% csrf_token %}
+  <div class="container position-relative z-1 py-4">
 
-        <!-- Anti-spam Honeypot -->
-        <div style="display:none !important;" aria-hidden="true">
-          <input type="text" name="website" tabindex="-1" autocomplete="off">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb mb-0 align-items-center">
+        <li class="breadcrumb-item">
+          <a href="{% url 'core:home' %}" class="quote-breadcrumb-link">
+            <i class="bi bi-house-door-fill me-1"></i> Home
+          </a>
+        </li>
+        <li class="breadcrumb-item active fw-semibold" aria-current="page">Start Your Project</li>
+      </ol>
+    </nav>
+
+    <!-- Page Hero Header -->
+    <section class="text-center mb-5">
+      <div class="quote-pill-badge mb-3">
+        <span class="quote-pill-dot"></span>
+        <span>✦ FAST SCOPING & ARCHITECTURE • 24H ESTIMATION</span>
+      </div>
+
+      <h1 class="display-4 fw-black mb-3" style="font-weight: 900; letter-spacing: -0.5px;">
+        Let's Build Your <span class="quote-gradient-title">Dream Project</span> Together
+      </h1>
+
+      <p class="text-secondary mx-auto fs-5" style="max-width: 720px; line-height: 1.7;">
+        Tell us about your product idea, business goals, or digital requirements. Our senior engineering team will analyze the scope and deliver a realistic roadmap, tech stack proposal, and fixed milestone pricing within 24 hours.
+      </p>
+
+      <!-- Trust Metrics Strip -->
+      <div class="quote-trust-strip">
+        <div class="quote-trust-chip">
+          <i class="bi bi-star-fill text-warning"></i>
+          <span><strong>4.9 / 5</strong> Rating (100+ Clients)</span>
         </div>
-
-        <h2 class="h5 fw-bold mb-4 text-primary d-flex align-items-center gap-2">
-          <i class="bi bi-person-circle"></i> 1. Contact Information
-        </h2>
-
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <label for="{{ form.name.id_for_label }}" class="form-label">Full Name <span class="text-danger">*</span></label>
-            {{ form.name }}
-            {% if form.name.errors %}
-            <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.email.id_for_label }}" class="form-label">Email Address <span class="text-danger">*</span></label>
-            {{ form.email }}
-            {% if form.email.errors %}
-            <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.phone.id_for_label }}" class="form-label">Phone / WhatsApp Number</label>
-            {{ form.phone }}
-            {% if form.phone.errors %}
-            <div class="text-danger small mt-1">{{ form.phone.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.company.id_for_label }}" class="form-label">Company / Brand (Optional)</label>
-            {{ form.company }}
-            {% if form.company.errors %}
-            <div class="text-danger small mt-1">{{ form.company.errors.0 }}</div>
-            {% endif %}
-          </div>
+        <div class="quote-trust-chip">
+          <i class="bi bi-lightning-charge-fill text-primary"></i>
+          <span><strong>24 Hours</strong> Fast Response</span>
         </div>
-
-        <h2 class="h5 fw-bold mb-4 text-primary d-flex align-items-center gap-2 pt-3 border-top border-subtle">
-          <i class="bi bi-sliders"></i> 2. Project Specifications
-        </h2>
-
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <label for="{{ form.service.id_for_label }}" class="form-label">Service Needed</label>
-            {{ form.service }}
-            {% if form.service.errors %}
-            <div class="text-danger small mt-1">{{ form.service.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.project_type.id_for_label }}" class="form-label">Project Type</label>
-            {{ form.project_type }}
-            {% if form.project_type.errors %}
-            <div class="text-danger small mt-1">{{ form.project_type.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.budget.id_for_label }}" class="form-label">Budget Range</label>
-            {{ form.budget }}
-            {% if form.budget.errors %}
-            <div class="text-danger small mt-1">{{ form.budget.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.deadline.id_for_label }}" class="form-label">Target Launch / Deadline</label>
-            {{ form.deadline }}
-            {% if form.deadline.errors %}
-            <div class="text-danger small mt-1">{{ form.deadline.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-12">
-            <label for="{{ form.project_description.id_for_label }}" class="form-label">Project Details & Objectives <span class="text-danger">*</span></label>
-            {{ form.project_description }}
-            <div class="form-text text-muted">Tell us about your audience, core features, or reference websites you admire.</div>
-            {% if form.project_description.errors %}
-            <div class="text-danger small mt-1">{{ form.project_description.errors.0 }}</div>
-            {% endif %}
-          </div>
-
-          <div class="col-md-6">
-            <label for="{{ form.preferred_contact.id_for_label }}" class="form-label">Preferred Contact Method</label>
-            {{ form.preferred_contact }}
-            {% if form.preferred_contact.errors %}
-            <div class="text-danger small mt-1">{{ form.preferred_contact.errors.0 }}</div>
-            {% endif %}
-          </div>
+        <div class="quote-trust-chip">
+          <i class="bi bi-shield-lock-fill text-success"></i>
+          <span><strong>100% NDA</strong> & IP Protected</span>
         </div>
-
-        <div class="pt-4 border-top border-subtle">
-          <button type="submit" class="btn-brand w-100 py-3 fs-6">
-            <span>Submit Quote Request</span>
-            <i class="bi bi-send-check ms-2"></i>
-          </button>
-          <p class="text-center text-secondary small mt-3 mb-0">
-            <i class="bi bi-shield-lock me-1"></i> Your details are strictly confidential and will never be shared with third parties.
-          </p>
+        <div class="quote-trust-chip">
+          <i class="bi bi-cash-coin text-danger"></i>
+          <span><strong>Zero Surprise</strong> Milestone Pricing</span>
         </div>
-      </form>
+      </div>
+    </section>
+
+    <!-- Main Grid: Sidebar + Interactive Quote Form -->
+    <div class="row g-4 align-items-start">
+
+      <!-- LEFT COLUMN: What You Get & Process Showcase -->
+      <div class="col-lg-5">
+        <div class="d-flex flex-column gap-4">
+
+          <!-- Card 1: What You Receive -->
+          <div class="quote-info-card p-4 p-md-5">
+            <div class="quote-rainbow-line"></div>
+            
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-3 d-inline-block">
+              ✦ WHAT'S INCLUDED
+            </span>
+            <h2 class="h4 fw-bold mb-3" style="color: #0f172a;">What You Get in 24 Hours</h2>
+            <p class="text-secondary small mb-4">
+              We don't send generic rate cards. You receive an engineer-crafted project plan tailored specifically to your objectives.
+            </p>
+
+            <div class="d-flex flex-column gap-3">
+              <!-- Feature 1 -->
+              <div class="quote-feature-item">
+                <div class="quote-feature-icon icon-grad-indigo">
+                  <i class="bi bi-diagram-3-fill"></i>
+                </div>
+                <div>
+                  <div class="fw-bold fs-6 text-dark">Technical Architecture Plan</div>
+                  <div class="text-secondary small">Framework recommendations, database schema outline, and third-party API integrations.</div>
+                </div>
+              </div>
+
+              <!-- Feature 2 -->
+              <div class="quote-feature-item">
+                <div class="quote-feature-icon icon-grad-pink">
+                  <i class="bi bi-tags-fill"></i>
+                </div>
+                <div>
+                  <div class="fw-bold fs-6 text-dark">Fixed Milestone Pricing</div>
+                  <div class="text-secondary small">Crystal-clear deliverable breakdown. Pay only as each approved sprint milestone is verified.</div>
+                </div>
+              </div>
+
+              <!-- Feature 3 -->
+              <div class="quote-feature-item">
+                <div class="quote-feature-icon icon-grad-emerald">
+                  <i class="bi bi-stopwatch-fill"></i>
+                </div>
+                <div>
+                  <div class="fw-bold fs-6 text-dark">2–4 Week Agile MVP Sprints</div>
+                  <div class="text-secondary small">From wireframe to deployed production app faster than legacy software houses.</div>
+                </div>
+              </div>
+
+              <!-- Feature 4 -->
+              <div class="quote-feature-item">
+                <div class="quote-feature-icon icon-grad-amber">
+                  <i class="bi bi-file-earmark-check-fill"></i>
+                </div>
+                <div>
+                  <div class="fw-bold fs-6 text-dark">100% Code & IP Ownership</div>
+                  <div class="text-secondary small">Complete Git repository transfer, deployment documentation, and zero vendor lock-in.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: 4-Step Project Journey -->
+          <div class="quote-info-card p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h3 class="h5 fw-bold mb-0" style="color: #0f172a;">How We Bring Your Idea to Life</h3>
+              <span class="badge bg-light text-secondary rounded-pill px-3 py-1 fw-semibold small">4 Agile Steps</span>
+            </div>
+
+            <div class="ps-2">
+              <div class="quote-step-item">
+                <div class="quote-step-num">1</div>
+                <div class="fw-bold text-dark">Requirement Submission</div>
+                <div class="text-secondary small">Share your goals, preferred features, and timeline through this form.</div>
+              </div>
+
+              <div class="quote-step-item">
+                <div class="quote-step-num">2</div>
+                <div class="fw-bold text-dark">1-on-1 Discovery Call</div>
+                <div class="text-secondary small">We discuss user flows, tech feasibility, and cost-effective alternatives.</div>
+              </div>
+
+              <div class="quote-step-item">
+                <div class="quote-step-num">3</div>
+                <div class="fw-bold text-dark">Roadmap & Proposal</div>
+                <div class="text-secondary small">Receive your comprehensive timeline, sprint scope, and transparent quote.</div>
+              </div>
+
+              <div class="quote-step-item">
+                <div class="quote-step-num">4</div>
+                <div class="fw-bold text-dark">Development & Launch</div>
+                <div class="text-secondary small">Regular staging demos, QA testing, production deployment, and post-launch support.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: WhatsApp Quick-Desk Banner -->
+          <div class="quote-whatsapp-box">
+            <div class="d-flex align-items-center justify-content-between position-relative z-1 flex-wrap gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-whatsapp fs-1 text-white"></i>
+                <div>
+                  <div class="fw-bold fs-6">Prefer Instant WhatsApp Chat?</div>
+                  <div class="small text-white-50">Skip the form & talk directly with our lead developers!</div>
+                </div>
+              </div>
+              <a href="https://wa.me/{{ site_settings.whatsapp|default:'919305287312' }}?text=Hi%20Code%20Yari,%20I'm%20ready%20to%20start%20a%20project!"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-light rounded-pill px-4 fw-bold shadow-sm">
+                Chat on WhatsApp <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Mini Testimonial Quote -->
+          <div class="quote-testi-box">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="text-warning">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </span>
+              <span class="badge bg-success-subtle text-success fw-bold small">Verified Client Review</span>
+            </div>
+            <p class="fst-italic text-dark small mb-3" style="line-height: 1.6;">
+              "Code Yari transformed our vague concept into a scalable web application within 4 weeks. Their communication is flawless and the pricing was completely transparent."
+            </p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; font-size: 0.9rem;">
+                AV
+              </div>
+              <div>
+                <div class="fw-bold text-dark small">Aman Verma</div>
+                <div class="text-secondary small" style="font-size: 0.78rem;">Founder, FinTech Ventures</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: The Vibrant Interactive Quote Form -->
+      <div class="col-lg-7">
+        <div class="quote-form-card p-4 p-md-5">
+          <div class="quote-rainbow-line"></div>
+
+          <!-- Header & Badge -->
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4 pb-3 border-bottom border-subtle">
+            <div>
+              <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">
+                <i class="bi bi-pencil-square me-1"></i> PROJECT SCOPE FORM
+              </span>
+              <h2 class="h3 fw-bold mb-1" style="color: #0f172a;">Tell Us About Your Project</h2>
+              <p class="text-secondary small mb-0">Fill in the details below — takes only 2 minutes.</p>
+            </div>
+            <div class="text-end">
+              <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-semibold small">
+                <i class="bi bi-shield-check me-1"></i> SSL Encrypted
+              </span>
+            </div>
+          </div>
+
+          <form method="post" action="{% url 'leads:get_quote' %}" novalidate id="projectQuoteForm">
+            {% csrf_token %}
+
+            <!-- Anti-spam Honeypot -->
+            <div style="display:none !important;" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- SECTION 1: Contact Information -->
+            <div class="mb-5">
+              <div class="quote-form-step-title">
+                <div class="step-badge-circle icon-grad-indigo">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <span>1. Contact & Brand Information</span>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="{{ form.name.id_for_label }}" class="form-label">
+                    Full Name <span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-person"></i>
+                    </span>
+                    {{ form.name }}
+                  </div>
+                  {% if form.name.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.name.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.email.id_for_label }}" class="form-label">
+                    Email Address <span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-envelope"></i>
+                    </span>
+                    {{ form.email }}
+                  </div>
+                  {% if form.email.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.email.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.phone.id_for_label }}" class="form-label">
+                    Phone / WhatsApp Number
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-telephone"></i>
+                    </span>
+                    {{ form.phone }}
+                  </div>
+                  {% if form.phone.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.phone.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.company.id_for_label }}" class="form-label">
+                    Company / Organization (Optional)
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-building"></i>
+                    </span>
+                    {{ form.company }}
+                  </div>
+                  {% if form.company.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.company.errors.0 }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2: Project Specifications & Interactive Service Select -->
+            <div class="mb-5 pt-3 border-top border-subtle">
+              <div class="quote-form-step-title">
+                <div class="step-badge-circle icon-grad-purple">
+                  <i class="bi bi-sliders"></i>
+                </div>
+                <span>2. Project Scope & Category</span>
+              </div>
+
+              <!-- Interactive Quick-Select Service Badges -->
+              <div class="mb-3">
+                <label class="form-label d-block text-secondary small fw-bold text-uppercase">
+                  <i class="bi bi-magic me-1 text-primary"></i> Popular Services (Click to auto-fill)
+                </label>
+                <div class="d-flex flex-wrap gap-2" id="serviceChipsContainer">
+                  <span class="service-chip" data-service="Web Application Development">
+                    <i class="bi bi-globe"></i> Web Apps
+                  </span>
+                  <span class="service-chip" data-service="Mobile App Development">
+                    <i class="bi bi-phone"></i> Mobile Apps
+                  </span>
+                  <span class="service-chip" data-service="UI/UX & Product Design">
+                    <i class="bi bi-palette"></i> UI/UX Design
+                  </span>
+                  <span class="service-chip" data-service="SaaS MVP Development">
+                    <i class="bi bi-lightning-charge"></i> SaaS MVP
+                  </span>
+                  <span class="service-chip" data-service="E-Commerce & Shopify">
+                    <i class="bi bi-cart"></i> E-Commerce
+                  </span>
+                  <span class="service-chip" data-service="AI & Workflow Automation">
+                    <i class="bi bi-cpu"></i> AI & Automation
+                  </span>
+                  <span class="service-chip" data-service="SEO & Growth Marketing">
+                    <i class="bi bi-graph-up-arrow"></i> SEO Growth
+                  </span>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="{{ form.service.id_for_label }}" class="form-label">
+                    Selected Service
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-grid-fill"></i>
+                    </span>
+                    {{ form.service }}
+                  </div>
+                  {% if form.service.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.service.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.project_type.id_for_label }}" class="form-label">
+                    Project Stage / Type
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-compass"></i>
+                    </span>
+                    {{ form.project_type }}
+                  </div>
+                  {% if form.project_type.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.project_type.errors.0 }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 3: Budget Range & Timeline -->
+            <div class="mb-5 pt-3 border-top border-subtle">
+              <div class="quote-form-step-title">
+                <div class="step-badge-circle icon-grad-pink">
+                  <i class="bi bi-cash-stack"></i>
+                </div>
+                <span>3. Budget & Launch Timeline</span>
+              </div>
+
+              <!-- Interactive Budget Chips -->
+              <div class="mb-3">
+                <label class="form-label d-block text-secondary small fw-bold text-uppercase">
+                  <i class="bi bi-wallet2 me-1 text-danger"></i> Quick Budget Range
+                </label>
+                <div class="d-flex flex-wrap gap-2" id="budgetChipsContainer">
+                  <span class="budget-chip" data-budget="under_10k">Under ₹10k</span>
+                  <span class="budget-chip" data-budget="10k_25k">₹10k – ₹25k</span>
+                  <span class="budget-chip" data-budget="25k_50k">₹25k – ₹50k</span>
+                  <span class="budget-chip" data-budget="50k_1l">₹50k – ₹1 Lakh</span>
+                  <span class="budget-chip" data-budget="1l_3l">₹1L – ₹3 Lakh</span>
+                  <span class="budget-chip" data-budget="above_3l">₹3 Lakh+</span>
+                  <span class="budget-chip" data-budget="discuss">Let's Discuss</span>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="{{ form.budget.id_for_label }}" class="form-label">
+                    Estimated Budget
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-currency-rupee"></i>
+                    </span>
+                    {{ form.budget }}
+                  </div>
+                  {% if form.budget.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.budget.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.deadline.id_for_label }}" class="form-label">
+                    Target Launch Date / Deadline
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-calendar-event"></i>
+                    </span>
+                    {{ form.deadline }}
+                  </div>
+                  {% if form.deadline.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.deadline.errors.0 }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 4: Project Description & Contact Preference -->
+            <div class="mb-4 pt-3 border-top border-subtle">
+              <div class="quote-form-step-title">
+                <div class="step-badge-circle icon-grad-emerald">
+                  <i class="bi bi-chat-left-text-fill"></i>
+                </div>
+                <span>4. Details & Communication</span>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="{{ form.project_description.id_for_label }}" class="form-label">
+                    Project Details & Objectives <span class="text-danger">*</span>
+                  </label>
+                  {{ form.project_description }}
+                  <div class="form-text text-muted small mt-1">
+                    <i class="bi bi-lightbulb text-warning me-1"></i> Mention key features, target users, or reference websites/apps you like.
+                  </div>
+                  {% if form.project_description.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.project_description.errors.0 }}</div>
+                  {% endif %}
+                </div>
+
+                <div class="col-md-6">
+                  <label for="{{ form.preferred_contact.id_for_label }}" class="form-label">
+                    Preferred Communication Channel
+                  </label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 text-muted" style="border-radius: 12px 0 0 12px;">
+                      <i class="bi bi-chat-square-dots"></i>
+                    </span>
+                    {{ form.preferred_contact }}
+                  </div>
+                  {% if form.preferred_contact.errors %}
+                  <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ form.preferred_contact.errors.0 }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="pt-4 border-top border-subtle">
+              <button type="submit" class="btn btn-vibrant-submit w-100 py-3 d-flex align-items-center justify-content-center gap-2">
+                <span>Request Free Proposal & Quote</span>
+                <i class="bi bi-arrow-right fs-5"></i>
+              </button>
+
+              <div class="d-flex align-items-center justify-content-center flex-wrap gap-4 mt-3 text-secondary small">
+                <span><i class="bi bi-lock-fill text-success me-1"></i> 100% Confidential</span>
+                <span><i class="bi bi-check-circle-fill text-primary me-1"></i> No Obligation</span>
+                <span><i class="bi bi-stopwatch-fill text-warning me-1"></i> Under 24h Turnaround</span>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
     </div>
+
+    <!-- FAQ SECTION: Addressing Common Questions -->
+    <section class="mt-5 pt-4">
+      <div class="text-center mb-4">
+        <span class="quote-pill-badge mb-2">✦ FAQ & ASSURANCE</span>
+        <h2 class="h3 fw-bold" style="color: #0f172a;">Frequently Asked Questions</h2>
+        <p class="text-secondary small">Everything you need to know about initiating a project with Code Yari</p>
+      </div>
+
+      <div class="row g-3" style="max-width: 900px; margin: 0 auto;">
+        <div class="col-md-6">
+          <div class="quote-faq-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2 text-primary fw-bold">
+              <i class="bi bi-question-circle-fill"></i>
+              <span>How soon will I get a response?</span>
+            </div>
+            <p class="text-secondary small mb-0">
+              Our lead technical team reviews your submission and replies with an initial estimate, architecture proposal, and discovery call link within <strong>24 hours</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="quote-faq-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2 text-danger fw-bold">
+              <i class="bi bi-shield-check"></i>
+              <span>Do you sign a Non-Disclosure Agreement (NDA)?</span>
+            </div>
+            <p class="text-secondary small mb-0">
+              Absolutely. We treat your intellectual property with strict confidentiality and are happy to execute an NDA before discussing proprietary concepts.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="quote-faq-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2 text-success fw-bold">
+              <i class="bi bi-credit-card-2-front-fill"></i>
+              <span>How do milestone payments work?</span>
+            </div>
+            <p class="text-secondary small mb-0">
+              We divide projects into modular sprints. You only release funds upon approving working deliverables on our live staging server. Zero surprise fees.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="quote-faq-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2 text-warning fw-bold">
+              <i class="bi bi-lightbulb-fill"></i>
+              <span>What if I only have a rough idea?</span>
+            </div>
+            <p class="text-secondary small mb-0">
+              That's completely fine! Our engineers and product designers will help refine user stories, recommend the best tech stack, and craft your MVP blueprint.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
+
+<!-- Interactive JS to link chips to form inputs -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const serviceInput = document.getElementById('quote-service');
+    const budgetSelect = document.getElementById('quote-budget');
+    const serviceChips = document.querySelectorAll('.service-chip');
+    const budgetChips = document.querySelectorAll('.budget-chip');
+
+    // Service chips interactivity
+    serviceChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        const selectedService = this.getAttribute('data-service');
+        if (serviceInput) {
+          serviceInput.value = selectedService;
+          serviceChips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          // Add a gentle flash effect to the input
+          serviceInput.focus();
+        }
+      });
+    });
+
+    // Check if initial service matches any chip
+    if (serviceInput && serviceInput.value) {
+      serviceChips.forEach(chip => {
+        if (chip.getAttribute('data-service').toLowerCase().includes(serviceInput.value.toLowerCase()) ||
+            serviceInput.value.toLowerCase().includes(chip.getAttribute('data-service').toLowerCase())) {
+          chip.classList.add('active');
+        }
+      });
+    }
+
+    // Budget chips interactivity
+    budgetChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        const val = this.getAttribute('data-budget');
+        if (budgetSelect) {
+          budgetSelect.value = val;
+          budgetChips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+
+    // Sync budget chips if select changes manually
+    if (budgetSelect) {
+      budgetSelect.addEventListener('change', function () {
+        budgetChips.forEach(chip => {
+          if (chip.getAttribute('data-budget') === budgetSelect.value) {
+            chip.classList.add('active');
+          } else {
+            chip.classList.remove('active');
+          }
+        });
+      });
+    }
+  });
+</script>
 {% endblock %}
