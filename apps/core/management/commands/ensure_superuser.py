@@ -95,12 +95,11 @@ class Command(BaseCommand):
                 }
             )
             if not created:
-                m.role = item["role"]
-                m.order = item["order"]
-                m.is_active = True
+                # Preserve any changes made by the user in Admin panel (role, bio, order, is_active).
+                # Only set photo if photo was missing.
                 if item.get("photo") and not m.photo:
                     m.photo = item["photo"]
-                m.save()
+                    m.save()
         self.stdout.write(self.style.SUCCESS(f'[OK] Ensured {len(team_data)} team members.'))
 
         # 3. Ensure Services if empty
