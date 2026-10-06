@@ -71,11 +71,11 @@ class Command(BaseCommand):
     def _seed_team(self):
         TeamMember.objects.all().delete()
         members = [
-            ('Mahendra Pratap Singh', 'Python Full Stack Developer', 'Founder & Full Stack Developer at Code Yari.', 1),
-            ('Ayaz Khan', 'Full Stack Developer', 'Full Stack Developer specializing in robust backend systems.', 2),
-            ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences.', 3),
+            ('Mahendra Pratap Singh', 'Lead Architect & Python Full Stack Developer', 'Founder & Full Stack Developer at Code Yari.', 1),
+            ('Atul Sharma', 'Python Full Stack Developer', 'Full Stack Developer focusing on scalable code and design.', 2),
+            ('Ayaz Khan', 'Full Stack Developer', 'Full Stack Developer specializing in robust backend systems.', 3),
             ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js.', 4),
-            ('Atul Sharma', 'Full Stack Developer', 'Full Stack Developer focusing on scalable code and design.', 5),
+            ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences.', 5),
             ('Anurag bajpai', 'Seo Expert', 'SEO and Google ranking strategist driving high organic growth.', 6),
             ('Abhay shukla', 'Marketing & AI Specialist', 'AI automation and growth marketing expert.', 7),
             ('Iqra', 'Frontend Developer', 'Frontend designer & developer building responsive interfaces.', 8),

@@ -19,80 +19,87 @@ class Command(BaseCommand):
         user.save()
         self.stdout.write(self.style.SUCCESS(f'[OK] Superuser "{username}" ensured.'))
 
-        # 2. Ensure Core Team Members if empty
+        # 2. Ensure Core Team Members
         from apps.core.models import TeamMember
-        if not TeamMember.objects.exists():
-            team_data = [
-                {
-                    "name": "Mahendra Pratap Singh",
-                    "role": "Python Full Stack Developer",
-                    "bio": "Founder & Full Stack Developer at Code Yari. Passionate about building high performance web architectures, modern apps, and innovative tech solutions.",
-                    "photo": "team/mahendraaa.png",
-                    "order": 1,
-                },
-                {
-                    "name": "Ayaz Khan",
-                    "role": "Full Stack Developer",
-                    "bio": "Full Stack Developer specializing in robust backend systems, REST APIs, and scalable architectures.",
-                    "photo": "team/ayaz.png",
-                    "order": 2,
-                },
-                {
-                    "name": "Lakshman Sharma",
-                    "role": "Full Stack Developer",
-                    "bio": "Full Stack Engineer crafting seamless digital experiences and clean code solutions.",
-                    "photo": "team/laki.png",
-                    "order": 3,
-                },
-                {
-                    "name": "Aditya Sharma",
-                    "role": "Full Stack Mern Developer",
-                    "bio": "Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.",
-                    "photo": "team/adityaa.png",
-                    "order": 4,
-                },
-                {
-                    "name": "Atul Sharma",
-                    "role": "Full Stack Developer",
-                    "bio": "Full Stack Developer focusing on scalable code, performance, and clean design.",
-                    "photo": "team/atul.png",
-                    "order": 5,
-                },
-                {
-                    "name": "Anurag bajpai",
-                    "role": "Seo Expert",
-                    "bio": "SEO and Google ranking strategist driving high organic growth and top search visibility.",
-                    "photo": "team/anurag.png",
-                    "order": 6,
-                },
-                {
-                    "name": "Abhay shukla",
-                    "role": "Marketing & AI Specialist",
-                    "bio": "AI automation and growth marketing expert helping brands scale rapidly.",
-                    "photo": "team/abhayy.png",
-                    "order": 7,
-                },
-                {
-                    "name": "Iqra",
-                    "role": "Frontend Developer",
-                    "bio": "Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.",
-                    "photo": "team/iqraa.png",
-                    "order": 8,
-                },
-            ]
 
-            for item in team_data:
-                TeamMember.objects.create(
-                    name=item["name"],
-                    role=item["role"],
-                    bio=item["bio"],
-                    photo=item.get("photo", ""),
-                    order=item["order"],
-                    is_active=True,
-                )
-            self.stdout.write(self.style.SUCCESS(f'[OK] Ensured initial {len(team_data)} team members.'))
-        else:
-            self.stdout.write('[OK] Team members already exist (all admin changes strictly preserved).')
+        team_data = [
+            {
+                "name": "Mahendra Pratap Singh",
+                "role": "Lead Architect & Python Full Stack Developer",
+                "bio": "Founder & Full Stack Developer at Code Yari. Passionate about building high performance web architectures, modern apps, and innovative tech solutions.",
+                "photo": "team/mahendraaa.png",
+                "order": 1,
+            },
+            {
+                "name": "Atul Sharma",
+                "role": "Python Full Stack Developer",
+                "bio": "Full Stack Developer focusing on scalable code, performance, and clean design.",
+                "photo": "team/atul.png",
+                "order": 2,
+            },
+            {
+                "name": "Ayaz Khan",
+                "role": "Full Stack Developer",
+                "bio": "Full Stack Developer specializing in robust backend systems, REST APIs, and scalable architectures.",
+                "photo": "team/ayaz.png",
+                "order": 3,
+            },
+            {
+                "name": "Aditya Sharma",
+                "role": "Full Stack Mern Developer",
+                "bio": "Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.",
+                "photo": "team/adityaa.png",
+                "order": 4,
+            },
+            {
+                "name": "Lakshman Sharma",
+                "role": "Full Stack Developer",
+                "bio": "Full Stack Engineer crafting seamless digital experiences and clean code solutions.",
+                "photo": "team/laki.png",
+                "order": 5,
+            },
+            {
+                "name": "Anurag bajpai",
+                "role": "Seo Expert",
+                "bio": "SEO and Google ranking strategist driving high organic growth and top search visibility.",
+                "photo": "team/anurag.png",
+                "order": 6,
+            },
+            {
+                "name": "Abhay shukla",
+                "role": "Marketing & AI Specialist",
+                "bio": "AI automation and growth marketing expert helping brands scale rapidly.",
+                "photo": "team/abhayy.png",
+                "order": 7,
+            },
+            {
+                "name": "Iqra",
+                "role": "Frontend Developer",
+                "bio": "Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.",
+                "photo": "team/iqraa.png",
+                "order": 8,
+            },
+        ]
+
+        for item in team_data:
+            m, created = TeamMember.objects.get_or_create(
+                name=item["name"],
+                defaults={
+                    "role": item["role"],
+                    "bio": item["bio"],
+                    "photo": item.get("photo", ""),
+                    "order": item["order"],
+                    "is_active": True,
+                }
+            )
+            m.role = item["role"]
+            m.order = item["order"]
+            m.bio = item["bio"]
+            if item.get("photo") and not m.photo:
+                m.photo = item["photo"]
+            m.is_active = True
+            m.save()
+        self.stdout.write(self.style.SUCCESS(f'[OK] Ensured and locked {len(team_data)} team members.'))
 
         # 3. Ensure Services if empty
         from apps.services.models import Service
