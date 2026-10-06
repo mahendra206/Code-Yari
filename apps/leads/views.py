@@ -105,7 +105,7 @@ def _send_lead_confirmation(lead):
     try:
         send_mail(
             subject="Quote Request Received — Code Yari",
-            message=f"Hi {lead.name},\n\nThank you for reaching out to Code Yari!\n\nWe've received your quote request and our team will review it and get back to you within 24 hours.\n\nProject: {lead.service or 'Digital Solution'}\nBudget Range: {lead.get_budget_display()}\n\nBest regards,\nCode Yari Team\nhello@codeyari.com",
+            message=f"Hi {lead.name},\n\nThank you for reaching out to Code Yari!\n\nWe've received your quote request and our team will review it and get back to you within 24 hours.\n\nProject: {lead.service or 'Digital Solution'}\nBudget Range: {lead.get_budget_display()}\n\nBest regards,\nCode Yari Team\ncodeyari7307@gmail.com",
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[lead.email],
             fail_silently=True,

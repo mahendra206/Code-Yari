@@ -47,9 +47,9 @@ class Command(BaseCommand):
         settings.site_name = 'Code Yari'
         settings.tagline = 'Code. Create. Grow.'
         settings.alt_tagline = 'Sirf code nahi, Yari ke saath solution.'
-        settings.email = 'hello@codeyari.com'
-        settings.phone = '+91 98765 43210'
-        settings.whatsapp = '919876543210'
+        settings.email = 'codeyari7307@gmail.com'
+        settings.phone = '+91 93052 87312'
+        settings.whatsapp = '919305287312'
         settings.address = 'India'
         settings.business_hours = 'Mon–Sat, 10AM–7PM IST'
         settings.meta_description = 'Code Yari — A young digital technology team providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.'
@@ -358,7 +358,7 @@ class Command(BaseCommand):
 
         faqs = [
             ('General', 'What services does Code Yari offer?', 'Code Yari offers a wide range of digital services including web development, mobile app development, SEO, digital marketing, UI/UX design, AI & automation, e-commerce development, website maintenance, hosting & deployment, custom software, website speed optimization, and content writing.', 1),
-            ('General', 'How do I get started with Code Yari?', 'Simply fill out our "Get a Quote" form or send us an email at hello@codeyari.com. Tell us about your project and we\'ll get back to you within 24 hours to discuss your requirements.', 2),
+            ('General', 'How do I get started with Code Yari?', 'Simply fill out our "Get a Quote" form or send us an email at codeyari7307@gmail.com. Tell us about your project and we\'ll get back to you within 24 hours to discuss your requirements.', 2),
             ('General', 'Do you work with clients outside India?', 'Yes! We work with clients globally. Our team communicates effectively in English and can schedule meetings across different time zones.', 3),
             ('Pricing', 'How much does a website cost?', 'Website costs vary based on complexity, features, and requirements. A simple landing page might start from ₹10,000, while a complex web application could be ₹1,00,000+. Contact us for a free quote tailored to your specific needs.', 1),
             ('Pricing', 'Do you offer payment plans?', 'Yes, we typically work with a payment structure of 50% upfront and 50% on delivery. For larger projects, we can discuss milestone-based payment plans.', 2),

@@ -3900,6 +3900,31 @@ img {
   border: 1px solid rgba(37, 99, 235, 0.15);
 }
 
+.email-float {
+  position: fixed;
+  bottom: 156px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #FFFFFF !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  z-index: 999;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.email-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.55);
+  color: #FFFFFF !important;
+}
+
 .whatsapp-float,
 .whatsapp-float-btn {
   position: fixed;
@@ -3973,6 +3998,14 @@ img {
 }
 
 @media (max-width: 576px) {
+  .email-float {
+    bottom: 136px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+  }
+
   .whatsapp-float,
   .whatsapp-float-btn {
     bottom: 80px;

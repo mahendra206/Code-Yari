@@ -192,7 +192,7 @@ def _send_contact_confirmation(data):
     try:
         send_mail(
             subject="We received your message — Code Yari",
-            message=f"Hi {data['name']},\n\nThank you for reaching out to Code Yari!\n\nWe've received your message and will get back to you within 24 hours.\n\nBest regards,\nCode Yari Team\nhello@codeyari.com",
+            message=f"Hi {data['name']},\n\nThank you for reaching out to Code Yari!\n\nWe've received your message and will get back to you within 24 hours.\n\nBest regards,\nCode Yari Team\ncodeyari7307@gmail.com",
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[data['email']],
             fail_silently=True,

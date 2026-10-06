@@ -15,7 +15,7 @@ class SiteSettings(models.Model):
         blank=True
     )
     logo_text = models.CharField(max_length=50, default='</> Code Yari')
-    email = models.EmailField(default='hello@codeyari.com')
+    email = models.EmailField(default='codeyari7307@gmail.com')
     phone = models.CharField(max_length=20, default='+91 98765 43210')
     phone_display = models.CharField(max_length=30, default='+91 98765-43210', blank=True)
     whatsapp = models.CharField(max_length=20, blank=True, help_text='WhatsApp number with country code')
