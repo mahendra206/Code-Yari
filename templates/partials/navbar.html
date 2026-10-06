@@ -213,11 +213,6 @@
               </li>
             </ul>
           </div>
-        {% else %}
-          <!-- Login Button -->
-          <a href="{% url 'accounts:login' %}" class="btn-navbar-login">
-            <i class="bi bi-person-circle me-1"></i>Login
-          </a>
         {% endif %}
 
         <a href="{% url 'leads:get_quote' %}" class="btn-navbar-quote">
