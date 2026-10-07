@@ -124,15 +124,10 @@ class TeamMember(models.Model):
 
     @property
     def get_photo_url(self):
-        if self.photo:
-            try:
-                return self.photo.url
-            except Exception:
-                pass
+        # 1. First check if static bundled image exists by name
         name_lower = self.name.lower()
         static_map = {
             'mahendra': '/static/images/team/mahendraaa.png',
-            'ayaz': '/static/images/team/ayaz.png',
             'lakshman': '/static/images/team/laki.png',
             'laki': '/static/images/team/laki.png',
             'aditya': '/static/images/team/adityaa.png',
@@ -140,14 +135,18 @@ class TeamMember(models.Model):
             'anurag': '/static/images/team/anurag.png',
             'abhay': '/static/images/team/abhayy.png',
             'iqra': '/static/images/team/iqraa.png',
-            'alex': '/static/images/team/alex.jpg',
-            'priya': '/static/images/team/priya.jpg',
-            'rahul': '/static/images/team/rahul.jpg',
-            'neha': '/static/images/team/neha.jpg',
         }
         for key, static_path in static_map.items():
             if key in name_lower:
                 return static_path
+
+        # 2. If uploaded photo exists
+        if self.photo:
+            try:
+                return self.photo.url
+            except Exception:
+                pass
+
         return None
 
 
