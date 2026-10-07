@@ -59,6 +59,30 @@ class SiteSettings(models.Model):
         obj, _ = cls.objects.get_or_create(pk=1)
         return obj
 
+    @property
+    def instagram_url(self):
+        return self.instagram or 'https://www.instagram.com/codeyari7307/?hl=en'
+
+    @property
+    def linkedin_url(self):
+        return self.linkedin or 'https://linkedin.com'
+
+    @property
+    def youtube_url(self):
+        return self.youtube or 'https://youtube.com'
+
+    @property
+    def github_url(self):
+        return self.github or 'https://github.com'
+
+    @property
+    def twitter_url(self):
+        return self.twitter or 'https://twitter.com'
+
+    @property
+    def facebook_url(self):
+        return self.facebook or 'https://facebook.com'
+
 
 class StatItem(models.Model):
     """Homepage trust statistics — manageable from admin."""

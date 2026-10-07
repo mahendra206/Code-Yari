@@ -11,16 +11,16 @@
           A young digital technology team, providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.
         </p>
         <div class="d-flex gap-2 mt-4">
-          <a href="{{ site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn">
+          <a href="{{ site_settings.linkedin|default:site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="{{ site_settings.instagram_url|default:'https://instagram.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Instagram">
+          <a href="{{ site_settings.instagram|default:site_settings.instagram_url|default:'https://www.instagram.com/codeyari7307/?hl=en' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          <a href="{{ site_settings.youtube_url|default:'https://youtube.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="YouTube">
+          <a href="{{ site_settings.youtube|default:site_settings.youtube_url|default:'https://youtube.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="YouTube">
             <i class="bi bi-youtube"></i>
           </a>
-          <a href="{{ site_settings.github_url|default:'https://github.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="GitHub">
+          <a href="{{ site_settings.github|default:site_settings.github_url|default:'https://github.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="GitHub">
             <i class="bi bi-github"></i>
           </a>
         </div>

@@ -53,6 +53,7 @@ class Command(BaseCommand):
         settings.address = 'India'
         settings.business_hours = 'Mon–Sat, 10AM–7PM IST'
         settings.meta_description = 'Code Yari — A young digital technology team providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.'
+        settings.instagram = 'https://www.instagram.com/codeyari7307/?hl=en'
         settings.save()
         self.stdout.write('  [OK] Site settings')
 
