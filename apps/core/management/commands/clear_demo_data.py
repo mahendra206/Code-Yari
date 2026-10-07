@@ -33,7 +33,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.NOTICE('Clearing demo data...'))
 
         StatItem.objects.all().delete()
-        TeamMember.objects.all().delete()
+        # TeamMember is permanent company data, never wiped as demo data
         Service.objects.all().delete()
         PortfolioProject.objects.all().delete()
         PortfolioCategory.objects.all().delete()

@@ -92,14 +92,15 @@ class Command(BaseCommand):
                     "is_active": True,
                 }
             )
-            m.role = item["role"]
-            m.order = item["order"]
-            m.bio = item["bio"]
-            if item.get("photo") and not m.photo:
-                m.photo = item["photo"]
-            m.is_active = True
-            m.save()
-        self.stdout.write(self.style.SUCCESS(f'[OK] Ensured and locked {len(team_data)} team members.'))
+            if created:
+                self.stdout.write(f'  [CREATED] Initial team member: {m.name}')
+            else:
+                # Strictly preserve admin customizations (role, bio, order, is_active, photo)
+                # Only fill in photo if member has none at all
+                if not m.photo and item.get("photo"):
+                    m.photo = item["photo"]
+                    m.save(update_fields=['photo'])
+        self.stdout.write(self.style.SUCCESS(f'[OK] Team members verified & all admin edits safely preserved.'))
 
         # 3. Ensure Services if empty
         from apps.services.models import Service

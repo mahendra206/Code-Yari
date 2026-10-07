@@ -100,6 +100,11 @@ class TeamMember(models.Model):
 
     @property
     def get_photo_url(self):
+        if self.photo:
+            try:
+                return self.photo.url
+            except Exception:
+                pass
         name_lower = self.name.lower()
         static_map = {
             'mahendra': '/static/images/team/mahendraaa.png',
@@ -119,11 +124,6 @@ class TeamMember(models.Model):
         for key, static_path in static_map.items():
             if key in name_lower:
                 return static_path
-        if self.photo:
-            try:
-                return self.photo.url
-            except Exception:
-                pass
         return None
 
 
