@@ -25,7 +25,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 4,
+      "order": 5,
       "is_active": true
     }
   },
@@ -40,7 +40,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 3,
+      "order": 6,
       "is_active": true
     }
   },
@@ -70,7 +70,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 5,
+      "order": 3,
       "is_active": true
     }
   },
@@ -85,7 +85,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 6,
+      "order": 4,
       "is_active": true
     }
   },
