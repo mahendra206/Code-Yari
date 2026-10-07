@@ -76,16 +76,15 @@ class Command(BaseCommand):
         members = [
             ('Mahendra Pratap Singh', 'Lead Architect & Python Full Stack Developer', 'Founder & Full Stack Developer at Code Yari. Passionate about building high performance web architectures, modern apps, and innovative tech solutions.', 'team/mahendraaa.png', 1),
             ('Atul Sharma', 'Python Full Stack Developer', 'Full Stack Developer focusing on scalable code, performance, and clean design.', 'team/atul.png', 2),
-            ('Ayaz Khan', 'Full Stack Developer', 'Full Stack Developer specializing in robust backend systems, REST APIs, and scalable architectures.', 'team/ayaz.png', 3),
-            ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.', 'team/adityaa.png', 4),
-            ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences and clean code solutions.', 'team/laki.png', 5),
-            ('Anurag bajpai', 'Seo Expert', 'SEO and Google ranking strategist driving high organic growth and top search visibility.', 'team/anurag.png', 6),
-            ('Abhay shukla', 'Marketing & AI Specialist', 'AI automation and growth marketing expert helping brands scale rapidly.', 'team/abhayy.png', 7),
-            ('Iqra', 'Frontend Developer', 'Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.', 'team/iqraa.png', 8),
+            ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.', 'team/adityaa.png', 3),
+            ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences and clean code solutions.', 'team/laki.png', 4),
+            ('Anurag bajpai', 'Seo Expert', 'SEO and Google ranking strategist driving high organic growth and top search visibility.', 'team/anurag.png', 5),
+            ('Abhay shukla', 'Marketing & AI Specialist', 'AI automation and growth marketing expert helping brands scale rapidly.', 'team/abhayy.png', 6),
+            ('Iqra', 'Frontend Developer', 'Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.', 'team/iqraa.png', 7),
         ]
         for name, role, bio, photo, order in members:
             TeamMember.objects.create(name=name, role=role, bio=bio, photo=photo, order=order, is_active=True)
-        self.stdout.write('  [OK] Initial team members seeded (8 members)')
+        self.stdout.write('  [OK] Initial team members seeded (7 members)')
 
     def _seed_services(self):
         Service.objects.all().delete()

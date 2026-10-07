@@ -16,21 +16,6 @@
   },
   {
     "model": "core.teammember",
-    "pk": 18,
-    "fields": {
-      "name": "Ayaz Khan",
-      "role": "Full Stack Developer",
-      "bio": "Full Stack Developer specializing in robust backend systems, REST APIs, and scalable architectures.",
-      "photo": "team/ayaz.png",
-      "linkedin": "",
-      "twitter": "",
-      "github": "",
-      "order": 3,
-      "is_active": true
-    }
-  },
-  {
-    "model": "core.teammember",
     "pk": 19,
     "fields": {
       "name": "Lakshman Sharma",
@@ -40,7 +25,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 5,
+      "order": 4,
       "is_active": true
     }
   },
@@ -55,7 +40,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 4,
+      "order": 3,
       "is_active": true
     }
   },
@@ -85,7 +70,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 6,
+      "order": 5,
       "is_active": true
     }
   },
@@ -100,7 +85,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 7,
+      "order": 6,
       "is_active": true
     }
   },
@@ -115,7 +100,7 @@
       "linkedin": "",
       "twitter": "",
       "github": "",
-      "order": 8,
+      "order": 7,
       "is_active": true
     }
   }
