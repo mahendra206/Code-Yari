@@ -82,10 +82,11 @@ class Command(BaseCommand):
             ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences and clean code solutions.', 'team/laki.png', 5),
             ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.', 'team/adityaa.png', 6),
             ('Iqra', 'Frontend Developer', 'Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.', 'team/iqraa.png', 7),
+            ('Indrakshi Gupta', 'Data Analyst & Business Development Executive', 'Data analyst and business development strategist leveraging insights and analytics for market expansion and digital growth.', 'team/indrakshi.jpeg', 8),
         ]
         for name, role, bio, photo, order in members:
             TeamMember.objects.create(name=name, role=role, bio=bio, photo=photo, order=order, is_active=True)
-        self.stdout.write('  [OK] Initial team members seeded (7 members)')
+        self.stdout.write('  [OK] Initial team members seeded (8 members)')
 
     def _seed_services(self):
         Service.objects.all().delete()

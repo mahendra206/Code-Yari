@@ -135,6 +135,7 @@ class TeamMember(models.Model):
             'anurag': '/static/images/team/anurag.png',
             'abhay': '/static/images/team/abhayy.png',
             'iqra': '/static/images/team/iqraa.png',
+            'indrakshi': '/static/images/team/indrakshi.jpeg',
         }
         for key, static_path in static_map.items():
             if key in name_lower:

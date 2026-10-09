@@ -179,6 +179,21 @@
     }
 },
 {
+    "model": "core.teammember",
+    "pk": 25,
+    "fields": {
+        "name": "Indrakshi Gupta",
+        "role": "Data Analyst & Business Development Executive",
+        "bio": "Data analyst and business development strategist leveraging insights and analytics for market expansion and digital growth.",
+        "photo": "team/indrakshi.jpeg",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 8,
+        "is_active": true
+    }
+},
+{
     "model": "core.contactmessage",
     "pk": 1,
     "fields": {

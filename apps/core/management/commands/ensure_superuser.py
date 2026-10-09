@@ -72,6 +72,13 @@ class Command(BaseCommand):
                 "photo": "team/iqraa.png",
                 "order": 7,
             },
+            {
+                "name": "Indrakshi Gupta",
+                "role": "Data Analyst & Business Development Executive",
+                "bio": "Data analyst and business development strategist leveraging insights and analytics for market expansion and digital growth.",
+                "photo": "team/indrakshi.jpeg",
+                "order": 8,
+            },
         ]
 
         for item in team_data:
