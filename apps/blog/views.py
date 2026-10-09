@@ -8,6 +8,11 @@ from .models import BlogPost, BlogCategory
 def blog_list(request):
     category_slug = request.GET.get('category')
     posts = BlogPost.objects.filter(published=True).select_related('category', 'author')
+    if not posts.exists():
+        from apps.core.auto_seed import ensure_initial_data
+        ensure_initial_data()
+        posts = BlogPost.objects.filter(published=True).select_related('category', 'author')
+
     categories = BlogCategory.objects.all()
     active_category = None
 

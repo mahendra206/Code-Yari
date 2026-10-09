@@ -223,6 +223,11 @@ def _get_fallback_extras(service):
 
 def services_list(request):
     services = Service.objects.filter(is_active=True).order_by('order')
+    if not services.exists():
+        from apps.core.auto_seed import ensure_initial_data
+        ensure_initial_data()
+        services = Service.objects.filter(is_active=True).order_by('order')
+
     featured = services.filter(is_featured=True)
     context = {
         'page_title': 'Our Services — Code Yari',

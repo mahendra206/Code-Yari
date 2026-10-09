@@ -24,6 +24,13 @@ def portfolio_list(request):
         priority=order_priority
     ).order_by('priority', 'created_at')
 
+    if not projects.exists():
+        from apps.core.auto_seed import ensure_initial_data
+        ensure_initial_data()
+        projects = PortfolioProject.objects.filter(published=True).select_related('category').annotate(
+            priority=order_priority
+        ).order_by('priority', 'created_at')
+
     categories = PortfolioCategory.objects.all()
     active_category = None
 

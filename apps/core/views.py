@@ -81,6 +81,11 @@ def about(request):
 def team(request):
     """Dedicated Our Team page — team members and culture."""
     team_members = TeamMember.objects.filter(is_active=True).order_by('order')
+    if not team_members.exists():
+        from .auto_seed import ensure_initial_data
+        ensure_initial_data()
+        team_members = TeamMember.objects.filter(is_active=True).order_by('order')
+
     context = {
         'page_title': 'Our Team — Code Yari | Meet The Minds',
         'meta_description': 'Meet the talented team of developers, designers, and growth specialists behind Code Yari.',
