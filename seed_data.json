@@ -1,0 +1,1200 @@
+[
+{
+    "model": "core.sitesettings",
+    "pk": 1,
+    "fields": {
+        "site_name": "Code Yari",
+        "tagline": "Code. Create. Grow.",
+        "alt_tagline": "Sirf code nahi, Yari ke saath solution.",
+        "logo_text": "</> Code Yari",
+        "email": "codeyari7307@gmail.com",
+        "phone": "+919305287312",
+        "phone_display": "+91 93052-87312",
+        "whatsapp": "919305287312",
+        "address": "India",
+        "city": "India",
+        "linkedin": "",
+        "twitter": "",
+        "instagram": "https://www.instagram.com/codeyari7307/?hl=en",
+        "github": "",
+        "youtube": "",
+        "facebook": "",
+        "meta_description": "Code Yari — A young digital technology team providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.",
+        "og_image": "",
+        "business_hours": "Mon–Sat, 10AM–7PM IST",
+        "updated_at": "2026-10-09T03:40:02.537Z"
+    }
+},
+{
+    "model": "core.statitem",
+    "pk": 17,
+    "fields": {
+        "label": "Projects Delivered",
+        "value": "20+",
+        "icon": "bi-check-circle",
+        "note": "(Demo Data)",
+        "order": 1,
+        "is_active": true
+    }
+},
+{
+    "model": "core.statitem",
+    "pk": 18,
+    "fields": {
+        "label": "Happy Clients",
+        "value": "15+",
+        "icon": "bi-people",
+        "note": "(Demo Data)",
+        "order": 2,
+        "is_active": true
+    }
+},
+{
+    "model": "core.statitem",
+    "pk": 19,
+    "fields": {
+        "label": "Technologies",
+        "value": "10+",
+        "icon": "bi-code-slash",
+        "note": "",
+        "order": 3,
+        "is_active": true
+    }
+},
+{
+    "model": "core.statitem",
+    "pk": 20,
+    "fields": {
+        "label": "Years Building",
+        "value": "2+",
+        "icon": "bi-calendar",
+        "note": "(Demo Data)",
+        "order": 4,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 17,
+    "fields": {
+        "name": "Mahendra Pratap Singh",
+        "role": "Lead Architect & Python Full Stack Developer",
+        "bio": "Founder & Full Stack Developer at Code Yari. Passionate about building high performance web architectures, modern apps, and innovative tech solutions.",
+        "photo": "team/mahendraaa.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 1,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 19,
+    "fields": {
+        "name": "Lakshman Sharma",
+        "role": "Full Stack Developer",
+        "bio": "Full Stack Engineer crafting seamless digital experiences and clean code solutions.",
+        "photo": "team/laki.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 5,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 20,
+    "fields": {
+        "name": "Aditya Sharma",
+        "role": "Full Stack Mern Developer",
+        "bio": "Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.",
+        "photo": "team/adityaa.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 6,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 21,
+    "fields": {
+        "name": "Atul Sharma",
+        "role": "Python Full Stack Developer",
+        "bio": "Full Stack Developer focusing on scalable code, performance, and clean design.",
+        "photo": "team/atul.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 2,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 22,
+    "fields": {
+        "name": "Anurag bajpai",
+        "role": "Seo Expert",
+        "bio": "SEO and Google ranking strategist driving high organic growth and top search visibility.",
+        "photo": "team/anurag.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 3,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 23,
+    "fields": {
+        "name": "Abhay shukla",
+        "role": "Marketing & AI Specialist",
+        "bio": "AI automation and growth marketing expert helping brands scale rapidly.",
+        "photo": "team/abhayy.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 4,
+        "is_active": true
+    }
+},
+{
+    "model": "core.teammember",
+    "pk": 24,
+    "fields": {
+        "name": "Iqra",
+        "role": "Frontend Developer",
+        "bio": "Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.",
+        "photo": "team/iqraa.png",
+        "linkedin": "",
+        "twitter": "",
+        "github": "",
+        "order": 7,
+        "is_active": true
+    }
+},
+{
+    "model": "core.contactmessage",
+    "pk": 1,
+    "fields": {
+        "name": "Pooja Verma",
+        "email": "pooja@company.com",
+        "phone": "+91 91234 56789",
+        "subject": "Enterprise Portal",
+        "message": "We need a high traffic portal designed and implemented.",
+        "status": "new",
+        "notes": "",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-09-12T13:01:51.123Z",
+        "updated_at": "2026-09-12T13:01:51.123Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 49,
+    "fields": {
+        "name": "Web Development",
+        "slug": "web-development",
+        "short_description": "Custom, responsive websites built with modern technologies for performance and user experience.",
+        "full_description": "<p>We build fully custom websites tailored to your business needs. From landing pages to complex web applications, we use the latest technologies to deliver fast, secure, and scalable solutions.</p><p>Our web development process starts with understanding your goals, then designing and building a solution that drives results.</p>",
+        "icon": "bi-code-slash",
+        "featured_image": "",
+        "features": [
+            "Responsive Design",
+            "SEO-Optimized",
+            "Fast Loading",
+            "Secure & Scalable",
+            "CMS Integration",
+            "Custom Admin Panel"
+        ],
+        "technologies": [
+            "Django",
+            "Python",
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Bootstrap",
+            "PostgreSQL"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 1,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.061Z",
+        "updated_at": "2026-10-07T11:59:49.061Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 50,
+    "fields": {
+        "name": "App Development",
+        "slug": "app-development",
+        "short_description": "Cross-platform mobile apps for iOS and Android using Flutter and React Native.",
+        "full_description": "<p>We develop high-quality mobile applications that work beautifully on both iOS and Android. Our apps are built with performance and user experience as top priorities.</p>",
+        "icon": "bi-phone",
+        "featured_image": "",
+        "features": [
+            "iOS & Android",
+            "Offline Support",
+            "Push Notifications",
+            "API Integration",
+            "App Store Deployment"
+        ],
+        "technologies": [
+            "Flutter",
+            "React Native",
+            "Firebase",
+            "REST API"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 2,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.069Z",
+        "updated_at": "2026-10-07T11:59:49.069Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 51,
+    "fields": {
+        "name": "SEO & Google Ranking",
+        "slug": "seo-google-ranking",
+        "short_description": "Data-driven SEO strategies to improve your Google rankings and drive organic traffic.",
+        "full_description": "<p>We help businesses rank higher on Google through comprehensive SEO audits, on-page optimization, content strategy, link building, and technical SEO improvements.</p>",
+        "icon": "bi-search",
+        "featured_image": "",
+        "features": [
+            "Technical SEO Audit",
+            "On-Page Optimization",
+            "Keyword Research",
+            "Content Strategy",
+            "Link Building",
+            "Monthly Reports"
+        ],
+        "technologies": [
+            "Google Search Console",
+            "Google Analytics",
+            "SEMrush",
+            "Ahrefs"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 3,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.077Z",
+        "updated_at": "2026-10-07T11:59:49.077Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 52,
+    "fields": {
+        "name": "Digital Marketing",
+        "slug": "digital-marketing",
+        "short_description": "Result-driven digital marketing campaigns across Google Ads, social media, and email.",
+        "full_description": "<p>We create and manage digital marketing campaigns that deliver measurable results. From Google Ads to social media marketing, we help you reach your target audience and convert them into customers.</p>",
+        "icon": "bi-megaphone",
+        "featured_image": "",
+        "features": [
+            "Google Ads Management",
+            "Social Media Marketing",
+            "Email Campaigns",
+            "Analytics & Reporting",
+            "Conversion Optimization"
+        ],
+        "technologies": [
+            "Google Ads",
+            "Meta Ads",
+            "Mailchimp",
+            "Google Analytics"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 4,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.085Z",
+        "updated_at": "2026-10-07T11:59:49.085Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 53,
+    "fields": {
+        "name": "UI/UX Design",
+        "slug": "uiux-design",
+        "short_description": "Beautiful, intuitive designs that delight users and drive business results.",
+        "full_description": "<p>We design user interfaces that are not just visually appealing but also highly functional and intuitive. Our UX research and design process ensures your users love using your product.</p>",
+        "icon": "bi-palette",
+        "featured_image": "",
+        "features": [
+            "User Research",
+            "Wireframing",
+            "Prototyping",
+            "UI Design",
+            "Design Systems",
+            "Figma Handoff"
+        ],
+        "technologies": [
+            "Figma",
+            "Adobe XD",
+            "Illustrator",
+            "Photoshop"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 5,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.092Z",
+        "updated_at": "2026-10-07T11:59:49.092Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 54,
+    "fields": {
+        "name": "AI & Automation",
+        "slug": "ai-automation",
+        "short_description": "AI-powered tools and automation solutions to save time and scale your business.",
+        "full_description": "<p>We integrate AI capabilities and automation workflows into your business processes. From chatbots to data analysis to workflow automation, we help you work smarter.</p>",
+        "icon": "bi-robot",
+        "featured_image": "",
+        "features": [
+            "AI Chatbots",
+            "Process Automation",
+            "Data Analysis",
+            "API Integrations",
+            "Custom AI Solutions"
+        ],
+        "technologies": [
+            "Python",
+            "OpenAI API",
+            "LangChain",
+            "n8n",
+            "Zapier"
+        ],
+        "is_featured": true,
+        "is_active": true,
+        "order": 6,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.100Z",
+        "updated_at": "2026-10-07T11:59:49.100Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 55,
+    "fields": {
+        "name": "E-Commerce Development",
+        "slug": "e-commerce-development",
+        "short_description": "Feature-rich online stores with payment integration, inventory management, and more.",
+        "full_description": "<p>We build powerful e-commerce platforms that help you sell online effectively. From product management to payment gateways, we handle everything you need to run a successful online store.</p>",
+        "icon": "bi-bag",
+        "featured_image": "",
+        "features": [
+            "Product Management",
+            "Payment Gateways",
+            "Inventory System",
+            "Order Management",
+            "Mobile Shopping"
+        ],
+        "technologies": [
+            "Django",
+            "Razorpay",
+            "Stripe",
+            "WooCommerce"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 7,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.106Z",
+        "updated_at": "2026-10-07T11:59:49.107Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 56,
+    "fields": {
+        "name": "Website Maintenance",
+        "slug": "website-maintenance",
+        "short_description": "Ongoing support, updates, security patches, and performance monitoring for your website.",
+        "full_description": "<p>Keep your website running smoothly with our maintenance services. We handle updates, security monitoring, backups, performance optimization, and content updates.</p>",
+        "icon": "bi-tools",
+        "featured_image": "",
+        "features": [
+            "Regular Backups",
+            "Security Monitoring",
+            "Performance Checks",
+            "Content Updates",
+            "Bug Fixes",
+            "Monthly Reports"
+        ],
+        "technologies": [
+            "Linux",
+            "Nginx",
+            "Python",
+            "Django"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 8,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.113Z",
+        "updated_at": "2026-10-07T11:59:49.113Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 57,
+    "fields": {
+        "name": "Hosting & Deployment",
+        "slug": "hosting-deployment",
+        "short_description": "Reliable hosting setup and deployment on cloud platforms for maximum uptime.",
+        "full_description": "<p>We set up and configure hosting environments optimized for your application. From shared hosting to dedicated cloud servers, we ensure your website is fast, secure, and always online.</p>",
+        "icon": "bi-cloud-upload",
+        "featured_image": "",
+        "features": [
+            "Cloud Setup",
+            "SSL Certificate",
+            "Domain Configuration",
+            "CI/CD Pipeline",
+            "99.9% Uptime"
+        ],
+        "technologies": [
+            "AWS",
+            "Google Cloud",
+            "DigitalOcean",
+            "Nginx",
+            "Docker"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 9,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.125Z",
+        "updated_at": "2026-10-07T11:59:49.125Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 58,
+    "fields": {
+        "name": "Custom Software Development",
+        "slug": "custom-software-development",
+        "short_description": "Bespoke software solutions tailored to your unique business requirements.",
+        "full_description": "<p>When off-the-shelf software doesn't cut it, we build custom solutions designed specifically for your business. We analyze your requirements and build exactly what you need.</p>",
+        "icon": "bi-gear",
+        "featured_image": "",
+        "features": [
+            "Custom Development",
+            "API Development",
+            "Database Design",
+            "Third-party Integrations",
+            "Documentation"
+        ],
+        "technologies": [
+            "Python",
+            "Django",
+            "REST API",
+            "PostgreSQL",
+            "Redis"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 10,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.132Z",
+        "updated_at": "2026-10-07T11:59:49.132Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 59,
+    "fields": {
+        "name": "Website Speed Optimization",
+        "slug": "website-speed-optimization",
+        "short_description": "Boost your website performance, Core Web Vitals, and PageSpeed scores significantly.",
+        "full_description": "<p>A slow website loses visitors and rankings. We audit and optimize your website to load fast on all devices, improving user experience and search engine rankings.</p>",
+        "icon": "bi-lightning",
+        "featured_image": "",
+        "features": [
+            "Performance Audit",
+            "Image Optimization",
+            "Caching Setup",
+            "Code Minification",
+            "CDN Integration",
+            "Core Web Vitals"
+        ],
+        "technologies": [
+            "Google PageSpeed",
+            "GTmetrix",
+            "Cloudflare",
+            "WebP"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 11,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.140Z",
+        "updated_at": "2026-10-07T11:59:49.140Z"
+    }
+},
+{
+    "model": "services.service",
+    "pk": 60,
+    "fields": {
+        "name": "Content & SEO Writing",
+        "slug": "content-seo-writing",
+        "short_description": "SEO-optimized content that engages your audience and ranks on search engines.",
+        "full_description": "<p>Quality content is the foundation of good SEO. We create engaging, well-researched, SEO-optimized content that connects with your audience and drives organic traffic.</p>",
+        "icon": "bi-pencil",
+        "featured_image": "",
+        "features": [
+            "Keyword Research",
+            "Blog Articles",
+            "Website Copy",
+            "Meta Descriptions",
+            "Content Calendar"
+        ],
+        "technologies": [
+            "Surfer SEO",
+            "SEMrush",
+            "Google Search Console"
+        ],
+        "is_featured": false,
+        "is_active": true,
+        "order": 12,
+        "seo_title": "",
+        "seo_description": "",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.147Z",
+        "updated_at": "2026-10-07T11:59:49.147Z"
+    }
+},
+{
+    "model": "portfolio.portfoliocategory",
+    "pk": 21,
+    "fields": {
+        "name": "Web Development",
+        "slug": "web",
+        "order": 0
+    }
+},
+{
+    "model": "portfolio.portfoliocategory",
+    "pk": 22,
+    "fields": {
+        "name": "Mobile App",
+        "slug": "app",
+        "order": 0
+    }
+},
+{
+    "model": "portfolio.portfoliocategory",
+    "pk": 23,
+    "fields": {
+        "name": "SEO",
+        "slug": "seo",
+        "order": 0
+    }
+},
+{
+    "model": "portfolio.portfoliocategory",
+    "pk": 24,
+    "fields": {
+        "name": "UI/UX Design",
+        "slug": "design",
+        "order": 0
+    }
+},
+{
+    "model": "portfolio.portfoliocategory",
+    "pk": 25,
+    "fields": {
+        "name": "E-Commerce",
+        "slug": "ecommerce",
+        "order": 0
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 25,
+    "fields": {
+        "name": "TeachMANTRA — Student Academy & Test Portal",
+        "slug": "teachmantra-student-academy-test-portal",
+        "category": 21,
+        "client_name": "",
+        "short_description": "A comprehensive online learning academy portal featuring course syllabus downloads, live mock tests, student registration, and certificate verification.",
+        "full_description": "<p><strong>TeachMANTRA</strong> is a premier student academy web platform engineered to empower learners with structured exam preparation, course catalogs, and interactive assessment tools.</p><h4>Project Highlights:</h4><ul><li><strong>Digital Course & Syllabus Repository:</strong> Direct access to syllabus PDFs, curriculum modules, and revision notes.</li><li><strong>Live Online Mock Test Portal:</strong> Timed practice tests with real-time score calculation, answer keys, and All-India performance benchmarking.</li><li><strong>Certificate Verification Engine:</strong> Fast, verifiable credential lookup system for student academy certificates.</li><li><strong>Adaptive Theme & UI:</strong> Dark and light mode toggle with smooth transition and mobile-first responsiveness.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "Python",
+            "Django",
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "FontAwesome",
+            "Bootstrap"
+        ],
+        "project_url": "https://www.theteachmantra.com/",
+        "github_url": "",
+        "completion_date": "2026-03-10",
+        "featured": true,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": false,
+        "created_at": "2026-10-07T11:59:49.218Z",
+        "updated_at": "2026-10-07T11:59:49.218Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 26,
+    "fields": {
+        "name": "NEXPLAY — Gaming Ecosystem & Setup Builder",
+        "slug": "nexplay-gaming-ecosystem-setup-builder",
+        "category": 25,
+        "client_name": "",
+        "short_description": "An interactive gaming ecosystem and custom PC setup builder featuring personalized playstyle recommendations, hardware configurations, and esports peripherals.",
+        "full_description": "<p><strong>NEXPLAY</strong> is a high-performance web platform and gaming ecosystem engineered for gamers, streamers, and esports enthusiasts to design, configure, and customize their dream battle stations.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Setup Builder:</strong> Modular hardware selector for custom PC rigs, high-refresh displays, and ergonomic gaming furniture.</li><li><strong>Personalized Playstyle Engine:</strong> Dynamic gear recommendations based on game genres (FPS, MOBA, RPG, Simulator) and competitive requirements.</li><li><strong>Esports Peripheral Catalog:</strong> Filterable catalog of pro-grade mechanical keyboards, mice, audio gear, and streaming equipment.</li><li><strong>Cyberpunk Modern UI:</strong> Sleek dark-mode aesthetic with reactive animations, neon accents, and smooth scroll navigation.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "React",
+            "Vite",
+            "TailwindCSS",
+            "JavaScript",
+            "Netlify",
+            "HTML5",
+            "CSS3"
+        ],
+        "project_url": "https://nexplay-hub.netlify.app/",
+        "github_url": "",
+        "completion_date": "2026-03-05",
+        "featured": true,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": false,
+        "created_at": "2026-10-07T11:59:49.226Z",
+        "updated_at": "2026-10-07T11:59:49.226Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 27,
+    "fields": {
+        "name": "Houzez — Luxury Real Estate & Property Marketplace",
+        "slug": "houzez-luxury-real-estate-property-marketplace",
+        "category": 25,
+        "client_name": "",
+        "short_description": "A modern real estate marketplace platform featuring luxury property listings for sale & rent, interactive filter search, realtor directories, and listing inquiries.",
+        "full_description": "<p><strong>Houzez</strong> is a premium real estate and property marketplace application designed for luxury homebuyers, investors, and licensed realtors to browse, list, and connect effortlessly.</p><h4>Project Highlights:</h4><ul><li><strong>Advanced Property Search & Filter:</strong> Filter luxury homes, villas, apartments by status (For Sale / For Rent), price range, bedrooms, and location.</li><li><strong>Detailed Property Showcase:</strong> High-resolution media galleries, floor plans, amenity checklists, and neighborhood mapping.</li><li><strong>Realtor & Agent Directory:</strong> Verified broker profiles, direct contact channels, and portfolio showcase.</li><li><strong>Inquiry & Lead Capture:</strong> Streamlined scheduling for property walkthroughs and automated seller inquiry forms.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "React",
+            "JavaScript",
+            "TailwindCSS",
+            "HTML5",
+            "CSS3",
+            "Netlify"
+        ],
+        "project_url": "https://houzez-1.netlify.app/",
+        "github_url": "",
+        "completion_date": "2026-03-01",
+        "featured": true,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": false,
+        "created_at": "2026-10-07T11:59:49.234Z",
+        "updated_at": "2026-10-07T11:59:49.234Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 28,
+    "fields": {
+        "name": "ResumeAI — AI Resume Builder & ATS Studio",
+        "slug": "resumeai-ai-resume-builder-ats-studio",
+        "category": 21,
+        "client_name": "",
+        "short_description": "An intelligent AI-powered resume builder featuring real-time ATS optimization, instant A4 preview, dynamic color themes, and one-click PDF export.",
+        "full_description": "<p><strong>ResumeAI</strong> is a high-impact, AI-driven career technology platform engineered to help job seekers create professional, ATS-friendly resumes in minutes.</p><h4>Project Highlights:</h4><ul><li><strong>Instant A4 Live Preview:</strong> Interactive dual-pane editor updating the full A4 resume canvas in real time.</li><li><strong>AI Content Assistant:</strong> High-impact, ATS-optimized bullet point generation and keyword recommendations.</li><li><strong>Multi-Template & Accent Engine:</strong> Modern Blue, Minimal Clean, and Executive Serif templates with customizable color palettes.</li><li><strong>Client-Side High-Res PDF Export:</strong> Pixel-perfect PDF generation ready for direct job applications and recruiters.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "html2pdf.js",
+            "AI Assistant",
+            "Netlify"
+        ],
+        "project_url": "https://resumebulider-ai.netlify.app/",
+        "github_url": "",
+        "completion_date": "2026-02-20",
+        "featured": true,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": false,
+        "created_at": "2026-10-07T11:59:49.241Z",
+        "updated_at": "2026-10-07T11:59:49.241Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 29,
+    "fields": {
+        "name": "Local Business SEO Campaign (Demo)",
+        "slug": "local-business-seo-campaign-demo",
+        "category": 23,
+        "client_name": "",
+        "short_description": "SEO strategy and implementation for a local service business.",
+        "full_description": "<p><strong>⚠️ Demo project showing our SEO process.</strong></p><p>Comprehensive SEO audit, on-page optimization, local citations, and content strategy implementation.</p>",
+        "featured_image": "",
+        "technologies": [
+            "Google Search Console",
+            "Ahrefs",
+            "SEMrush"
+        ],
+        "project_url": "",
+        "github_url": "",
+        "completion_date": "2025-01-02",
+        "featured": false,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": true,
+        "created_at": "2026-10-07T11:59:49.249Z",
+        "updated_at": "2026-10-07T11:59:49.249Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 30,
+    "fields": {
+        "name": "SaaS Dashboard Design (Demo)",
+        "slug": "saas-dashboard-design-demo",
+        "category": 24,
+        "client_name": "",
+        "short_description": "Clean, data-rich dashboard UI for a SaaS analytics platform.",
+        "full_description": "<p><strong>⚠️ Demo project.</strong></p><p>Figma-based dashboard design with data visualization components, dark mode, and component library.</p>",
+        "featured_image": "",
+        "technologies": [
+            "Figma",
+            "Adobe Illustrator"
+        ],
+        "project_url": "",
+        "github_url": "",
+        "completion_date": "2025-01-03",
+        "featured": false,
+        "published": true,
+        "seo_title": "",
+        "seo_description": "",
+        "is_demo": true,
+        "created_at": "2026-10-07T11:59:49.257Z",
+        "updated_at": "2026-10-07T11:59:49.257Z"
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 13,
+    "fields": {
+        "name": "Web Development",
+        "slug": "web-development",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 14,
+    "fields": {
+        "name": "SEO & Marketing",
+        "slug": "seo-marketing",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 15,
+    "fields": {
+        "name": "Tech Tips",
+        "slug": "tech-tips",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 13,
+    "fields": {
+        "title": "10 Reasons Why Your Business Needs a Professional Website in 2025",
+        "slug": "10-reasons-business-needs-professional-website-2025",
+        "excerpt": "In today's digital-first world, a professional website isn't optional — it's essential. Here's why your business can't afford to go without one.",
+        "content": "<p>In today's competitive digital landscape, having a professional website is no longer a luxury — it's a business necessity.</p><h2>1. First Impressions Matter</h2><p>Your website is often the first point of contact between your business and potential customers. A professionally designed website builds instant trust and credibility.</p><h2>2. Available 24/7</h2><p>Unlike a physical store, your website works for you around the clock, allowing customers to learn about your products and services at any time.</p><h2>3. Reach a Wider Audience</h2><p>A website removes geographical barriers, allowing you to reach customers beyond your local area.</p><h2>4. Build Credibility</h2><p>Studies show that 75% of people judge a company's credibility based on their website design.</p><h2>5. Cost-Effective Marketing</h2><p>Compared to traditional advertising, a website is one of the most cost-effective marketing tools available.</p><p>Ready to get your professional website? <a href=\"/get-a-quote/\">Get a free quote from Code Yari today!</a></p>",
+        "featured_image": "",
+        "category": 13,
+        "author": 1,
+        "tags": "Web Development, Business, Digital Presence",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.350Z",
+        "seo_title": "10 Reasons Your Business Needs a Website — Code Yari Blog",
+        "seo_description": "Discover the top 10 reasons why every business needs a professional website in 2025. Build credibility, reach more customers, and grow online.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.351Z",
+        "updated_at": "2026-10-07T11:59:49.351Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 14,
+    "fields": {
+        "title": "Beginner's Guide to SEO: How to Rank Higher on Google",
+        "slug": "beginners-guide-seo-rank-higher-google",
+        "excerpt": "A step-by-step guide to understanding SEO fundamentals and improving your website's Google rankings organically.",
+        "content": "<p>Search Engine Optimization (SEO) is the practice of improving your website to increase visibility in search engine results. Here's everything you need to know to get started.</p><h2>What is SEO?</h2><p>SEO is the process of optimizing your website and content so that search engines like Google can find it, understand it, and rank it for relevant search queries.</p><h2>On-Page SEO</h2><p>On-page SEO involves optimizing individual web pages, including title tags, meta descriptions, headings, content, and image alt text.</p><h2>Technical SEO</h2><p>Technical SEO ensures your website meets the technical requirements of search engines — fast loading, mobile-friendly, secure (HTTPS), and properly structured.</p><h2>Off-Page SEO</h2><p>Off-page SEO refers to actions taken outside your own website to impact your rankings, primarily through building backlinks from other reputable sites.</p><h2>Getting Started</h2><p>Start with keyword research to understand what your audience is searching for, then create high-quality content that answers their questions.</p>",
+        "featured_image": "",
+        "category": 14,
+        "author": 1,
+        "tags": "SEO, Google, Digital Marketing, Organic Traffic",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.359Z",
+        "seo_title": "Beginner's Guide to SEO — Rank Higher on Google | Code Yari",
+        "seo_description": "Learn the fundamentals of SEO with this beginner-friendly guide. Understand on-page, technical, and off-page SEO to improve your Google rankings.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.359Z",
+        "updated_at": "2026-10-07T11:59:49.359Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 15,
+    "fields": {
+        "title": "Why Django is the Best Framework for Building Your Business Website",
+        "slug": "why-django-best-framework-business-website",
+        "excerpt": "Django's \"batteries included\" philosophy, security features, and scalability make it an excellent choice for building production-ready business websites.",
+        "content": "<p>Choosing the right web framework for your business website is crucial. Django, a Python-based web framework, has been powering some of the world's largest websites for good reason.</p><h2>What is Django?</h2><p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It follows the \"batteries included\" philosophy.</p><h2>Security</h2><p>Django provides built-in protection against common security vulnerabilities including SQL injection, XSS, CSRF, and clickjacking.</p><h2>Scalability</h2><p>Django has been proven to scale — Instagram, Pinterest, and Disqus all use Django to handle millions of users.</p><h2>Admin Panel</h2><p>Django comes with a powerful, customizable admin panel that allows you to manage your website content without writing code.</p><h2>SEO-Friendly</h2><p>Django's clean URL structure and templating system make it easy to build SEO-optimized websites.</p>",
+        "featured_image": "",
+        "category": 13,
+        "author": 1,
+        "tags": "Django, Python, Web Development, Backend",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.366Z",
+        "seo_title": "Why Django is Best for Business Websites — Code Yari Blog",
+        "seo_description": "Learn why Django is the best Python framework for building secure, scalable, and SEO-friendly business websites.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.367Z",
+        "updated_at": "2026-10-07T11:59:49.367Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 25,
+    "fields": {
+        "client_name": "Amit Verma",
+        "company": "StartupX",
+        "role": "Founder",
+        "testimonial": "Code Yari built our MVP in record time. The team was professional, communicative, and delivered exactly what we needed. Highly recommended!",
+        "profile_image": "",
+        "rating": 5,
+        "featured": true,
+        "published": true,
+        "is_demo": true,
+        "order": 0,
+        "created_at": "2026-10-07T11:59:49.271Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 26,
+    "fields": {
+        "client_name": "Pooja Mehta",
+        "company": "Bloom Boutique",
+        "role": "Owner",
+        "testimonial": "Our e-commerce site looks amazing and sales have improved since launch. The team understood our vision perfectly.",
+        "profile_image": "",
+        "rating": 5,
+        "featured": true,
+        "published": true,
+        "is_demo": true,
+        "order": 1,
+        "created_at": "2026-10-07T11:59:49.277Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 27,
+    "fields": {
+        "client_name": "Ravi Sharma",
+        "company": "TechConsult India",
+        "role": "CEO",
+        "testimonial": "Their SEO work has significantly improved our search rankings. We're getting more qualified leads every month.",
+        "profile_image": "",
+        "rating": 4,
+        "featured": true,
+        "published": true,
+        "is_demo": true,
+        "order": 2,
+        "created_at": "2026-10-07T11:59:49.284Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 28,
+    "fields": {
+        "client_name": "Deepika Nair",
+        "company": "Fresh Foods Co.",
+        "role": "Marketing Head",
+        "testimonial": "The digital marketing campaigns they set up have been a game-changer for our brand awareness and online sales.",
+        "profile_image": "",
+        "rating": 5,
+        "featured": false,
+        "published": true,
+        "is_demo": true,
+        "order": 3,
+        "created_at": "2026-10-07T11:59:49.291Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 29,
+    "fields": {
+        "client_name": "Karan Patel",
+        "company": "EduReach NGO",
+        "role": "Director",
+        "testimonial": "Professional, affordable, and reliable. They're our go-to team for all things digital.",
+        "profile_image": "",
+        "rating": 5,
+        "featured": false,
+        "published": true,
+        "is_demo": true,
+        "order": 4,
+        "created_at": "2026-10-07T11:59:49.297Z"
+    }
+},
+{
+    "model": "testimonials.testimonial",
+    "pk": 30,
+    "fields": {
+        "client_name": "Sunita Joshi",
+        "company": "Wellness Studio",
+        "role": "Founder",
+        "testimonial": "The app they designed is beautiful and my clients love using it to book sessions. 10/10 experience!",
+        "profile_image": "",
+        "rating": 5,
+        "featured": false,
+        "published": true,
+        "is_demo": true,
+        "order": 5,
+        "created_at": "2026-10-07T11:59:49.304Z"
+    }
+},
+{
+    "model": "faq.faqcategory",
+    "pk": 17,
+    "fields": {
+        "name": "General",
+        "order": 0
+    }
+},
+{
+    "model": "faq.faqcategory",
+    "pk": 18,
+    "fields": {
+        "name": "Pricing",
+        "order": 1
+    }
+},
+{
+    "model": "faq.faqcategory",
+    "pk": 19,
+    "fields": {
+        "name": "Process",
+        "order": 2
+    }
+},
+{
+    "model": "faq.faqcategory",
+    "pk": 20,
+    "fields": {
+        "name": "Technical",
+        "order": 3
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 49,
+    "fields": {
+        "question": "What services does Code Yari offer?",
+        "answer": "Code Yari offers a wide range of digital services including web development, mobile app development, SEO, digital marketing, UI/UX design, AI & automation, e-commerce development, website maintenance, hosting & deployment, custom software, website speed optimization, and content writing.",
+        "category": 17,
+        "published": true,
+        "order": 1,
+        "created_at": "2026-10-07T11:59:49.415Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 50,
+    "fields": {
+        "question": "How do I get started with Code Yari?",
+        "answer": "Simply fill out our \"Get a Quote\" form or send us an email at codeyari7307@gmail.com. Tell us about your project and we'll get back to you within 24 hours to discuss your requirements.",
+        "category": 17,
+        "published": true,
+        "order": 2,
+        "created_at": "2026-10-07T11:59:49.422Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 51,
+    "fields": {
+        "question": "Do you work with clients outside India?",
+        "answer": "Yes! We work with clients globally. Our team communicates effectively in English and can schedule meetings across different time zones.",
+        "category": 17,
+        "published": true,
+        "order": 3,
+        "created_at": "2026-10-07T11:59:49.429Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 52,
+    "fields": {
+        "question": "How much does a website cost?",
+        "answer": "Website costs vary based on complexity, features, and requirements. A simple landing page might start from ₹10,000, while a complex web application could be ₹1,00,000+. Contact us for a free quote tailored to your specific needs.",
+        "category": 18,
+        "published": true,
+        "order": 1,
+        "created_at": "2026-10-07T11:59:49.435Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 53,
+    "fields": {
+        "question": "Do you offer payment plans?",
+        "answer": "Yes, we typically work with a payment structure of 50% upfront and 50% on delivery. For larger projects, we can discuss milestone-based payment plans.",
+        "category": 18,
+        "published": true,
+        "order": 2,
+        "created_at": "2026-10-07T11:59:49.442Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 54,
+    "fields": {
+        "question": "What is included in your website maintenance packages?",
+        "answer": "Our maintenance packages typically include regular backups, security updates, performance monitoring, minor content updates, and monthly progress reports. Contact us for specific package details.",
+        "category": 18,
+        "published": true,
+        "order": 3,
+        "created_at": "2026-10-07T11:59:49.447Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 55,
+    "fields": {
+        "question": "How long does it take to build a website?",
+        "answer": "Timeline varies by project complexity. A simple website might take 1–2 weeks, while a complex web application could take 2–3 months. We'll give you a clear timeline during our initial consultation.",
+        "category": 19,
+        "published": true,
+        "order": 1,
+        "created_at": "2026-10-07T11:59:49.454Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 56,
+    "fields": {
+        "question": "Will I be able to update my website myself?",
+        "answer": "Absolutely! We build websites with easy-to-use content management systems (CMS) and provide training so you can manage your content independently.",
+        "category": 19,
+        "published": true,
+        "order": 2,
+        "created_at": "2026-10-07T11:59:49.461Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 57,
+    "fields": {
+        "question": "What information do you need to start a project?",
+        "answer": "We typically need: your business goals, target audience, design preferences (examples you like), content (text, images), and budget. Don't worry if you don't have everything — we can guide you.",
+        "category": 19,
+        "published": true,
+        "order": 3,
+        "created_at": "2026-10-07T11:59:49.468Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 58,
+    "fields": {
+        "question": "What technologies do you use?",
+        "answer": "We use modern, proven technologies: Django (Python) for web backends, Flutter/React Native for mobile apps, Bootstrap + custom CSS for frontend, PostgreSQL/MySQL for databases, and cloud platforms like AWS/GCP for hosting.",
+        "category": 20,
+        "published": true,
+        "order": 1,
+        "created_at": "2026-10-07T11:59:49.475Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 59,
+    "fields": {
+        "question": "Will my website be mobile-friendly?",
+        "answer": "Yes, absolutely. All websites we build are fully responsive and work beautifully on desktop, tablet, and mobile devices.",
+        "category": 20,
+        "published": true,
+        "order": 2,
+        "created_at": "2026-10-07T11:59:49.482Z"
+    }
+},
+{
+    "model": "faq.faq",
+    "pk": 60,
+    "fields": {
+        "question": "Do you provide SEO with every website?",
+        "answer": "We implement basic SEO best practices (proper HTML structure, meta tags, fast loading, etc.) for all websites. Advanced SEO campaigns are offered as a separate service.",
+        "category": 20,
+        "published": true,
+        "order": 3,
+        "created_at": "2026-10-07T11:59:49.488Z"
+    }
+}
+]
