@@ -127,17 +127,17 @@ class TeamMember(models.Model):
         # 1. First check if static bundled image exists by name
         name_lower = self.name.lower()
         static_map = {
-            'mahendra': '/static/images/team/mahendraaa.png',
-            'lakshman': '/static/images/team/laki.png',
-            'laki': '/static/images/team/laki.png',
+            'mahendra': '/static/images/team/mahendraaa.webp',
+            'lakshman': '/static/images/team/laki.webp',
+            'laki': '/static/images/team/laki.webp',
             'aditya': '/static/images/team/adityaa.png',
-            'atul': '/static/images/team/atul.png',
-            'anurag': '/static/images/team/anurag.png',
-            'abhay': '/static/images/team/abhayy.png',
-            'iqra': '/static/images/team/iqraa.png',
+            'atul': '/static/images/team/atul.webp',
+            'anurag': '/static/images/team/anurag.webp',
+            'abhay': '/static/images/team/abhayy.webp',
+            'iqra': '/static/images/team/iqraa.webp',
             'indrakshi': '/static/images/team/indrakshi.jpeg',
-            'manvi': '/static/images/team/manvi.png',
-            'vishal': '/static/images/team/vishal.png',
+            'manvi': '/static/images/team/manvi.webp',
+            'vishal': '/static/images/team/vishal.webp',
         }
         for key, static_path in static_map.items():
             if key in name_lower:
