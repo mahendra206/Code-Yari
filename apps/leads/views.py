@@ -90,9 +90,28 @@ def _get_client_ip(request):
 
 def _send_lead_notification(lead):
     try:
+        subject = f"[Code Yari Lead] Quote Request: {lead.service or 'General'} from {lead.name}"
+        message = (
+            f"Hello Team Code Yari,\n\n"
+            f"A new prospective client has requested a quote on codeyari.com:\n\n"
+            f"--------------------------------------------------\n"
+            f"Client Name      : {lead.name}\n"
+            f"Email Address    : {lead.email}\n"
+            f"Phone            : {lead.phone or 'Not provided'}\n"
+            f"Company          : {lead.company or 'Not provided'}\n"
+            f"Service Needed   : {lead.service or 'Not specified'}\n"
+            f"Project Type     : {lead.get_project_type_display()}\n"
+            f"Budget Range     : {lead.get_budget_display()}\n"
+            f"Timeline/Deadline: {lead.deadline or 'Flexible'}\n"
+            f"Preferred Contact: {lead.get_preferred_contact_display()}\n"
+            f"--------------------------------------------------\n\n"
+            f"Project Scope / Description:\n{lead.project_description}\n\n"
+            f"--------------------------------------------------\n"
+            f"Sent from: Code Yari Get Quote Page\n"
+        )
         send_mail(
-            subject=f"New Quote Request: {lead.service or 'General'} — {lead.name}",
-            message=f"New lead from the website!\n\nName: {lead.name}\nEmail: {lead.email}\nPhone: {lead.phone or 'N/A'}\nCompany: {lead.company or 'N/A'}\nService: {lead.service or 'N/A'}\nBudget: {lead.get_budget_display()}\nProject Type: {lead.get_project_type_display()}\nDeadline: {lead.deadline or 'N/A'}\nPreferred Contact: {lead.get_preferred_contact_display()}\n\nProject Description:\n{lead.project_description}",
+            subject=subject,
+            message=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[settings.ADMIN_EMAIL],
             fail_silently=True,

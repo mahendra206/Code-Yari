@@ -175,17 +175,19 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # Email Configuration
-EMAIL_BACKEND = os.environ.get(
-    'EMAIL_BACKEND',
-    'django.core.mail.backends.console.EmailBackend'
-)
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True').lower() in ('true', '1')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'codeyari7307@gmail.com')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Code Yari <codeyari7307@gmail.com>')
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'codeyari7307@gmail.com')
+
+# Automatically switch to SMTP if EMAIL_HOST_PASSWORD is provided
+if os.environ.get('EMAIL_HOST_PASSWORD'):
+    EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+else:
+    EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 # Site URL (used in emails etc.)
 SITE_URL = os.environ.get('SITE_URL', 'https://codeyari.com' if IS_RENDER else 'http://localhost:8000')

@@ -181,9 +181,23 @@ def _get_client_ip(request):
 def _send_contact_notification(data):
     """Send new contact message notification to admin."""
     try:
+        subject = f"[Code Yari] New Inquiry: {data['subject']} (from {data['name']})"
+        message = (
+            f"Hello Team Code Yari,\n\n"
+            f"A new visitor just submitted the contact form on codeyari.com:\n\n"
+            f"--------------------------------------------------\n"
+            f"Name    : {data['name']}\n"
+            f"Email   : {data['email']}\n"
+            f"Phone   : {data.get('phone') or 'Not provided'}\n"
+            f"Subject : {data['subject']}\n"
+            f"--------------------------------------------------\n\n"
+            f"Message:\n{data['message']}\n\n"
+            f"--------------------------------------------------\n"
+            f"Sent from: Code Yari Contact Page\n"
+        )
         send_mail(
-            subject=f"New Contact: {data['subject']}",
-            message=f"Name: {data['name']}\nEmail: {data['email']}\nPhone: {data.get('phone', 'N/A')}\n\nMessage:\n{data['message']}",
+            subject=subject,
+            message=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[settings.ADMIN_EMAIL],
             fail_silently=True,

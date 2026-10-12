@@ -32,3 +32,17 @@ services:
         fromDatabase:
           name: code-yari-db
           property: connectionString
+      - key: EMAIL_HOST
+        value: "smtp.gmail.com"
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USE_TLS
+        value: "True"
+      - key: EMAIL_HOST_USER
+        value: "codeyari7307@gmail.com"
+      - key: ADMIN_EMAIL
+        value: "codeyari7307@gmail.com"
+      - key: DEFAULT_FROM_EMAIL
+        value: "Code Yari <codeyari7307@gmail.com>"
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
