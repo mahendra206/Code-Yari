@@ -59,10 +59,10 @@ class Command(BaseCommand):
                 "order": 5,
             },
             {
-                "name": "Aditya Sharma",
-                "role": "Full Stack Mern Developer",
-                "bio": "Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.",
-                "photo": "team/adityaa.png",
+                "name": "Vishal Babu",
+                "role": "Full Stack Developer",
+                "bio": "Full Stack Developer specializing in crafting robust web architectures, seamless user experiences, and modern APIs.",
+                "photo": "team/vishal.png",
                 "order": 6,
             },
             {
@@ -73,10 +73,10 @@ class Command(BaseCommand):
                 "order": 7,
             },
             {
-                "name": "Indrakshi Gupta",
-                "role": "Data Analyst & Business Development Executive",
-                "bio": "Data analyst and business development strategist leveraging insights and analytics for market expansion and digital growth.",
-                "photo": "team/indrakshi.jpeg",
+                "name": "Manvi",
+                "role": "Full Stack Mern Developer",
+                "bio": "Full Stack MERN Developer specializing in scalable web apps, modern frontends, and RESTful APIs.",
+                "photo": "team/manvi.png",
                 "order": 8,
             },
         ]

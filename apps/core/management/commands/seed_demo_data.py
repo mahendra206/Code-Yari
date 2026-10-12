@@ -80,9 +80,9 @@ class Command(BaseCommand):
             ('Anurag bajpai', 'Seo Expert', 'SEO and Google ranking strategist driving high organic growth and top search visibility.', 'team/anurag.png', 3),
             ('Abhay shukla', 'Marketing & AI Specialist', 'AI automation and growth marketing expert helping brands scale rapidly.', 'team/abhayy.png', 4),
             ('Lakshman Sharma', 'Full Stack Developer', 'Full Stack Engineer crafting seamless digital experiences and clean code solutions.', 'team/laki.png', 5),
-            ('Aditya Sharma', 'Full Stack Mern Developer', 'Specialist in MongoDB, Express, React, and Node.js creating modern, responsive web apps.', 'team/adityaa.png', 6),
+            ('Vishal Babu', 'Full Stack Developer', 'Full Stack Developer specializing in crafting robust web architectures, seamless user experiences, and modern APIs.', 'team/vishal.png', 6),
             ('Iqra', 'Frontend Developer', 'Frontend designer & developer passionate about pixel-perfect, responsive user interfaces.', 'team/iqraa.png', 7),
-            ('Indrakshi Gupta', 'Data Analyst & Business Development Executive', 'Data analyst and business development strategist leveraging insights and analytics for market expansion and digital growth.', 'team/indrakshi.jpeg', 8),
+            ('Manvi', 'Full Stack Mern Developer', 'Full Stack MERN Developer specializing in scalable web apps, modern frontends, and RESTful APIs.', 'team/manvi.png', 8),
         ]
         for name, role, bio, photo, order in members:
             TeamMember.objects.create(name=name, role=role, bio=bio, photo=photo, order=order, is_active=True)
