@@ -102,13 +102,13 @@ class PortfolioProject(models.Model):
             return self.featured_image.url
         slug = self.slug or slugify(self.name)
         if 'teachmantra' in slug:
-            return '/static/images/portfolio/teachmantra_cover.jpg'
+            return '/static/images/portfolio/teachmantra_cover.webp'
         if 'nexplay' in slug:
-            return '/static/images/portfolio/nexplay_cover.jpg'
+            return '/static/images/portfolio/nexplay_cover.webp'
         if 'houzez' in slug:
-            return '/static/images/portfolio/houzez_cover.jpg'
+            return '/static/images/portfolio/houzez_cover.webp'
         if 'resume' in slug:
-            return '/static/images/portfolio/resume_ai_cover.jpg'
+            return '/static/images/portfolio/resume_ai_cover.webp'
         return None
 
     def get_theme(self):
