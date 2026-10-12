@@ -81,6 +81,11 @@ class Command(BaseCommand):
             },
         ]
 
+        # Clean up obsolete team members who were replaced
+        obsolete_count, _ = TeamMember.objects.filter(name__in=["Indrakshi Gupta", "Aditya Sharma"]).delete()
+        if obsolete_count:
+            self.stdout.write(f'  [CLEANED] Removed {obsolete_count} obsolete team member(s)')
+
         for item in team_data:
             m, created = TeamMember.objects.get_or_create(
                 name=item["name"],
