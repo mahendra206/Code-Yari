@@ -3,6 +3,7 @@ Code Yari — Root URL Configuration
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
@@ -40,6 +41,7 @@ urlpatterns = [
     # SEO
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', include('apps.core.robots_urls')),
+    path('googlee1d5a642744b72ab.html', lambda r: HttpResponse('google-site-verification: googlee1d5a642744b72ab.html', content_type='text/plain')),
 ]
 
 # Serve media files in both development and production (Render persistent/disk fallback)

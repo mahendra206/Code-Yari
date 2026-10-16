@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /leads/
+
+Sitemap: https://codeyari.com/sitemap.xml

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /leads/
 
-Sitemap: {{ site_url }}/sitemap.xml
+Sitemap: https://codeyari.com/sitemap.xml
