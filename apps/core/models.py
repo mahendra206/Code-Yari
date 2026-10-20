@@ -38,7 +38,7 @@ class SiteSettings(models.Model):
     og_image = models.ImageField(upload_to='seo/', blank=True, null=True)
 
     # Business hours
-    business_hours = models.CharField(max_length=200, blank=True, default='Mon–Sat, 10AM–7PM IST')
+    business_hours = models.CharField(max_length=200, blank=True, default='Mon–Sat, 10:00 AM – 5:30 PM IST')
 
     updated_at = models.DateTimeField(auto_now=True)
 
