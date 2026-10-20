@@ -69,7 +69,7 @@ class SiteSettings(models.Model):
 
     @property
     def youtube_url(self):
-        return self.youtube or 'https://youtube.com'
+        return self.youtube or 'https://www.youtube.com/@codeyari'
 
     @property
     def github_url(self):
