@@ -21,6 +21,7 @@ db.sqlite3*
 *.bak
 media/
 staticfiles/
+*.zip
 
 # Environment
 .env
