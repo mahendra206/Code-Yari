@@ -352,8 +352,8 @@
           </div>
         </div>
 
-        {% elif 'resume' in project.slug or 'ai-resume' in project.slug %}
-        <!-- Card 4: ResumeAI (AI Career Tech / Electric Cyan Theme) -->
+        {% elif 'medicare' in project.slug or 'hospital' in project.slug %}
+        <!-- Card 4: MediCare Plus (World-Class Healthcare / Electric Cyan Theme) -->
         <div class="showcase-card theme-cyan h-100 d-flex flex-column">
           <div class="showcase-accent-bar"></div>
           <div class="showcase-card-inner p-3 d-flex flex-column flex-grow-1">
@@ -363,18 +363,18 @@
               {% elif project.featured_image %}
               <img src="{{ project.featured_image.url }}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
               {% else %}
-              <img src="{% static 'images/portfolio/resume_ai_cover.webp' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
+              <img src="{% static 'images/portfolio/medicare_plus_cover.webp' %}" alt="{{ project.name }}" class="showcase-media-img" loading="lazy">
               {% endif %}
 
               <div class="showcase-badge-glass">
                 <span class="badge-dot dot-cyan"></span>
-                <span>AI & Career Tech</span>
+                <span>Healthcare &amp; Hospital</span>
               </div>
 
               {% if project.project_url %}
               <div class="showcase-live-badge">
                 <span class="live-pulse-dot dot-cyan"></span>
-                <span>Live Studio</span>
+                <span>Live Portal</span>
               </div>
               {% endif %}
 
@@ -387,8 +387,8 @@
             </div>
 
             <div class="showcase-metric-ribbon metric-cyan mb-2">
-              <i class="bi bi-stars me-1"></i>
-              <span>98% ATS Score &bull; Instant A4 Preview</span>
+              <i class="bi bi-heart-pulse-fill me-1"></i>
+              <span>NABH Accredited &bull; 24/7 Emergency Care</span>
             </div>
 
             <h2 class="showcase-title h5 mb-2">
@@ -400,10 +400,10 @@
             </p>
 
             <div class="showcase-tech-chips d-flex flex-wrap gap-1 mb-3">
-              <span class="tech-chip chip-cyan"><i class="bi bi-robot"></i> AI Engine</span>
-              <span class="tech-chip chip-cyan"><i class="bi bi-file-earmark-pdf-fill"></i> PDF Export</span>
-              <span class="tech-chip chip-cyan"><i class="bi bi-lightning-charge-fill"></i> Realtime ATS</span>
-              <span class="tech-chip chip-cyan"><i class="bi bi-palette-fill"></i> Multi-Theme</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-filetype-html"></i> HTML5/CSS3</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-filetype-js"></i> JavaScript</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-calendar2-check"></i> Doctor Booking</span>
+              <span class="tech-chip chip-cyan"><i class="bi bi-shield-check"></i> NABH Care</span>
             </div>
 
             <div class="showcase-footer d-flex align-items-center justify-content-between mt-auto pt-3">

@@ -9,12 +9,12 @@ from django.db.models import Case, When, Value, IntegerField
 def portfolio_list(request):
     category_slug = request.GET.get('category')
     
-    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), ResumeAI (4), Royal Grand (5), Royal Bites (6), other real projects (7), demo projects (8)
+    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), MediCare Plus (4), Royal Grand (5), Royal Bites (6), other real projects (7), demo projects (8)
     order_priority = Case(
         When(slug__icontains='teachmantra', then=Value(1)),
         When(slug__icontains='nexplay', then=Value(2)),
         When(slug__icontains='houzez', then=Value(3)),
-        When(slug__icontains='resume', then=Value(4)),
+        When(slug__icontains='medicare', then=Value(4)),
         When(slug__icontains='royal-grand', then=Value(5)),
         When(slug__icontains='royal-bites', then=Value(6)),
         When(is_demo=False, then=Value(7)),
@@ -124,6 +124,24 @@ PROJECT_EXTRAS = {
             {'icon': 'bi-device-ssd', 'title': 'Local Storage Autosave', 'desc': 'Your resume data is automatically preserved in your browser cache so you never lose work between sessions.'},
         ],
         'whatsapp_msg': 'Hi Code Yari! I checked out your ResumeAI project and want to build an AI tool or web app for my business.',
+    },
+    'medicare-plus-healthcare-hospital-portal': {
+        'badge_text': '✦ NABH Accredited Healthcare & Hospital Platform',
+        'tagline': 'A modern, responsive healthcare and hospital digital portal featuring 24/7 emergency response, specialist doctor directories, departmental services, and instant appointment booking.',
+        'highlight_chips': ['24/7 Emergency Care', 'Specialist Doctor Directory', 'One-Click Appointment Booking', 'NABH Quality Standards'],
+        'metrics': [
+            {'val': '50+', 'label': 'Expert Doctors & Specialists', 'icon': 'bi-person-badge-fill'},
+            {'val': '24/7', 'label': 'Emergency Response', 'icon': 'bi-heart-pulse-fill'},
+            {'val': '99.8%', 'label': 'Patient Satisfaction', 'icon': 'bi-patch-check-fill'},
+            {'val': '< 0.9s', 'label': 'Mobile Booking Speed', 'icon': 'bi-lightning-charge-fill'},
+        ],
+        'highlights': [
+            {'icon': 'bi-calendar2-plus-fill', 'title': 'Streamlined Doctor Appointments', 'desc': 'Select consultation specialty, date, and preferred time slot with instant digital confirmation.'},
+            {'icon': 'bi-hospital-fill', 'title': 'Multi-Specialty Clinical Departments', 'desc': 'Comprehensive guides for Cardiology, Pediatrics, Neurology, Orthopedics, and Diagnostics.'},
+            {'icon': 'bi-telephone-inbound-fill', 'title': 'Immediate Emergency Helpline', 'desc': 'Direct one-tap ambulance dispatch and emergency triage desk connect for acute patient care.'},
+            {'icon': 'bi-geo-alt-fill', 'title': 'Kanpur Healthcare Accessibility', 'desc': 'Integrated campus navigation, OPD timings, visiting hours, and cashless insurance panels.'},
+        ],
+        'whatsapp_msg': 'Hi Code Yari! I saw your MediCare Plus Hospital project. I want to build a modern healthcare website/portal for my clinic or hospital.',
     },
     'royal-grand-luxury-hotel-suites': {
         'badge_text': '✦ 5-Star Luxury Hospitality Platform',

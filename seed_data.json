@@ -782,37 +782,6 @@
 },
 {
     "model": "portfolio.portfolioproject",
-    "pk": 28,
-    "fields": {
-        "name": "ResumeAI — AI Resume Builder & ATS Studio",
-        "slug": "resumeai-ai-resume-builder-ats-studio",
-        "category": 21,
-        "client_name": "",
-        "short_description": "An intelligent AI-powered resume builder featuring real-time ATS optimization, instant A4 preview, dynamic color themes, and one-click PDF export.",
-        "full_description": "<p><strong>ResumeAI</strong> is a high-impact, AI-driven career technology platform engineered to help job seekers create professional, ATS-friendly resumes in minutes.</p><h4>Project Highlights:</h4><ul><li><strong>Instant A4 Live Preview:</strong> Interactive dual-pane editor updating the full A4 resume canvas in real time.</li><li><strong>AI Content Assistant:</strong> High-impact, ATS-optimized bullet point generation and keyword recommendations.</li><li><strong>Multi-Template & Accent Engine:</strong> Modern Blue, Minimal Clean, and Executive Serif templates with customizable color palettes.</li><li><strong>Client-Side High-Res PDF Export:</strong> Pixel-perfect PDF generation ready for direct job applications and recruiters.</li></ul>",
-        "featured_image": "",
-        "technologies": [
-            "JavaScript",
-            "HTML5",
-            "CSS3",
-            "html2pdf.js",
-            "AI Assistant",
-            "Netlify"
-        ],
-        "project_url": "https://resumebulider-ai.netlify.app/",
-        "github_url": "",
-        "completion_date": "2026-02-20",
-        "featured": true,
-        "published": true,
-        "seo_title": "",
-        "seo_description": "",
-        "is_demo": false,
-        "created_at": "2026-10-07T11:59:49.241Z",
-        "updated_at": "2026-10-07T11:59:49.241Z"
-    }
-},
-{
-    "model": "portfolio.portfolioproject",
     "pk": 31,
     "fields": {
         "name": "Royal Grand — Luxury 5-Star Hotel & Suites",
@@ -871,6 +840,37 @@
         "is_demo": false,
         "created_at": "2026-10-23T06:39:25.249Z",
         "updated_at": "2026-10-23T06:39:25.249Z"
+    }
+},
+{
+    "model": "portfolio.portfolioproject",
+    "pk": 33,
+    "fields": {
+        "name": "MediCare Plus — World Class Healthcare & Hospital Portal",
+        "slug": "medicare-plus-healthcare-hospital-portal",
+        "category": 21,
+        "client_name": "MediCare Plus Hospital",
+        "short_description": "A modern, responsive healthcare and hospital digital portal featuring 24/7 emergency response, specialist doctor directories, departmental services, and instant appointment booking.",
+        "full_description": "<p><strong>MediCare Plus</strong> is a premier NABH-accredited healthcare digital platform engineered to connect patients with top medical specialists, 24/7 emergency triage, diagnostics, and seamless online doctor appointments.</p><h4>Project Highlights:</h4><ul><li><strong>Specialist Doctor Directory:</strong> Browse profiles, certifications, OPD schedules, and patient consultation fees.</li><li><strong>Frictionless Online Appointments:</strong> Instant slot reservation with doctor selection, date-picker, and digital confirmation.</li><li><strong>24/7 Emergency Care Desk:</strong> One-tap hotline for ambulance dispatch, critical ICU admissions, and trauma care.</li><li><strong>Multi-Specialty Services:</strong> In-depth guidance for Cardiology, Pediatrics, Neurology, Orthopedics, and Pathology.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "FontAwesome",
+            "Appointment Engine",
+            "Netlify"
+        ],
+        "project_url": "https://hospital-kanpur.netlify.app/",
+        "github_url": "",
+        "completion_date": "2026-03-08",
+        "featured": true,
+        "published": true,
+        "seo_title": "MediCare Plus — Healthcare & Hospital Portal Case Study | Code Yari",
+        "seo_description": "Discover how Code Yari engineered the digital patient portal and doctor appointment engine for MediCare Plus Hospital.",
+        "is_demo": false,
+        "created_at": "2026-10-23T06:52:59.861Z",
+        "updated_at": "2026-10-23T06:52:59.861Z"
     }
 },
 {

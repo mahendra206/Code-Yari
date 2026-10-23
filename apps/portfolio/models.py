@@ -109,6 +109,8 @@ class PortfolioProject(models.Model):
             return '/static/images/portfolio/houzez_cover.webp'
         if 'resume' in slug:
             return '/static/images/portfolio/resume_ai_cover.webp'
+        if 'medicare' in slug or 'hospital' in slug:
+            return '/static/images/portfolio/medicare_plus_cover.webp'
         if 'royal-grand' in slug or 'hotel' in slug:
             return '/static/images/portfolio/royal_grand_cover.webp'
         if 'royal-bites' in slug or 'restaurant' in slug:
@@ -123,7 +125,7 @@ class PortfolioProject(models.Model):
             return 'theme-purple'
         elif 'houzez' in slug:
             return 'theme-green'
-        elif 'resume' in slug:
+        elif 'resume' in slug or 'medicare' in slug or 'hospital' in slug:
             return 'theme-cyan'
         elif 'royal-grand' in slug or 'hotel' in slug:
             return 'theme-orange'
