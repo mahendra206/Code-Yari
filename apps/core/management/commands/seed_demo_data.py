@@ -55,6 +55,7 @@ class Command(BaseCommand):
         settings.meta_description = 'Code Yari — A young digital technology team providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.'
         settings.instagram = 'https://www.instagram.com/codeyari7307/?hl=en'
         settings.youtube = 'https://www.youtube.com/@codeyari'
+        settings.facebook = 'https://www.facebook.com/profile.php?id=61594848587428'
         settings.save()
         self.stdout.write('  [OK] Site settings')
 

@@ -81,7 +81,7 @@ class SiteSettings(models.Model):
 
     @property
     def facebook_url(self):
-        return self.facebook or 'https://facebook.com'
+        return self.facebook or 'https://www.facebook.com/profile.php?id=61594848587428'
 
 
 class StatItem(models.Model):
