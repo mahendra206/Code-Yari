@@ -32,6 +32,8 @@ def home(request):
         When(slug__icontains='nexplay', then=Value(2)),
         When(slug__icontains='houzez', then=Value(3)),
         When(slug__icontains='resume', then=Value(4)),
+        When(slug__icontains='royal-grand', then=Value(5)),
+        When(slug__icontains='royal-bites', then=Value(6)),
         default=Value(99),
         output_field=IntegerField()
     )

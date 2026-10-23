@@ -6955,6 +6955,112 @@ img {
   transform: translateY(-1px);
 }
 
+/* Theme: Gold (Royal Grand 5-Star Hotel) */
+.theme-gold .showcase-accent-bar {
+  background: linear-gradient(90deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+}
+.showcase-card.theme-gold,
+.case-card.theme-gold {
+  background: linear-gradient(175deg, rgba(254, 249, 195, 0.55) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(254, 240, 138, 0.3) 100%);
+  border: 1.5px solid rgba(217, 119, 6, 0.32);
+}
+[data-theme="dark"] .showcase-card.theme-gold,
+[data-theme="dark"] .case-card.theme-gold {
+  background: linear-gradient(175deg, rgba(217, 119, 6, 0.15) 0%, rgba(15, 23, 42, 0.96) 50%, rgba(245, 158, 11, 0.08) 100%);
+  border-color: rgba(217, 119, 6, 0.4);
+}
+.showcase-card.theme-gold:hover,
+.case-card.theme-gold:hover {
+  border-color: rgba(217, 119, 6, 0.7);
+  box-shadow: 0 24px 44px -10px rgba(217, 119, 6, 0.35), 0 0 28px rgba(245, 158, 11, 0.2);
+}
+.theme-gold .showcase-title a:hover {
+  color: #d97706;
+}
+.metric-gold {
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(217, 119, 6, 0.28);
+}
+[data-theme="dark"] .metric-gold {
+  background: rgba(217, 119, 6, 0.18);
+  color: #fcd34d;
+  border-color: rgba(217, 119, 6, 0.4);
+}
+.chip-gold {
+  border-color: rgba(217, 119, 6, 0.3);
+  color: #b45309;
+}
+[data-theme="dark"] .chip-gold {
+  background: rgba(217, 119, 6, 0.12);
+  color: #fde68a;
+}
+.btn-explore-gold {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+}
+.btn-explore-gold:hover {
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.55);
+  transform: translateY(-1px);
+}
+.dot-gold {
+  background: #d97706;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+/* Theme: Rose (Royal Bites Gourmet Restaurant) */
+.theme-rose .showcase-accent-bar {
+  background: linear-gradient(90deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%);
+}
+.showcase-card.theme-rose,
+.case-card.theme-rose {
+  background: linear-gradient(175deg, rgba(255, 228, 230, 0.55) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(254, 205, 211, 0.3) 100%);
+  border: 1.5px solid rgba(225, 29, 72, 0.32);
+}
+[data-theme="dark"] .showcase-card.theme-rose,
+[data-theme="dark"] .case-card.theme-rose {
+  background: linear-gradient(175deg, rgba(225, 29, 72, 0.15) 0%, rgba(15, 23, 42, 0.96) 50%, rgba(244, 63, 94, 0.08) 100%);
+  border-color: rgba(225, 29, 72, 0.38);
+}
+.showcase-card.theme-rose:hover,
+.case-card.theme-rose:hover {
+  border-color: rgba(225, 29, 72, 0.7);
+  box-shadow: 0 24px 44px -10px rgba(225, 29, 72, 0.35), 0 0 28px rgba(244, 63, 94, 0.2);
+}
+.theme-rose .showcase-title a:hover {
+  color: #e11d48;
+}
+.metric-rose {
+  background: rgba(225, 29, 72, 0.12);
+  color: #e11d48;
+  border: 1px solid rgba(225, 29, 72, 0.28);
+}
+[data-theme="dark"] .metric-rose {
+  background: rgba(225, 29, 72, 0.18);
+  color: #fb7185;
+  border-color: rgba(225, 29, 72, 0.4);
+}
+.chip-rose {
+  border-color: rgba(225, 29, 72, 0.3);
+  color: #e11d48;
+}
+[data-theme="dark"] .chip-rose {
+  background: rgba(225, 29, 72, 0.12);
+  color: #fda4af;
+}
+.btn-explore-rose {
+  background: linear-gradient(135deg, #e11d48 0%, #f43f5e 100%);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
+}
+.btn-explore-rose:hover {
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
+  transform: translateY(-1px);
+}
+.dot-rose {
+  background: #e11d48;
+  box-shadow: 0 0 8px #f43f5e;
+}
+
 /* ==========================================================================
    Code Yari — Static Brand Logo
    Clean, modern, crisp typography & icon mark (No Animations)

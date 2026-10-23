@@ -109,6 +109,10 @@ class PortfolioProject(models.Model):
             return '/static/images/portfolio/houzez_cover.webp'
         if 'resume' in slug:
             return '/static/images/portfolio/resume_ai_cover.webp'
+        if 'royal-grand' in slug or 'hotel' in slug:
+            return '/static/images/portfolio/royal_grand_cover.webp'
+        if 'royal-bites' in slug or 'restaurant' in slug:
+            return '/static/images/portfolio/royal_bites_cover.webp'
         return None
 
     def get_theme(self):
@@ -120,6 +124,10 @@ class PortfolioProject(models.Model):
         elif 'houzez' in slug:
             return 'theme-green'
         elif 'resume' in slug:
+            return 'theme-cyan'
+        elif 'royal-grand' in slug or 'hotel' in slug:
+            return 'theme-orange'
+        elif 'royal-bites' in slug or 'restaurant' in slug:
             return 'theme-pink'
         elif 'seo' in slug:
             return 'theme-orange'

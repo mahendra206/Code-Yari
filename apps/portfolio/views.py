@@ -9,14 +9,16 @@ from django.db.models import Case, When, Value, IntegerField
 def portfolio_list(request):
     category_slug = request.GET.get('category')
     
-    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), ResumeAI (4), other real projects (5), demo projects (6)
+    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), ResumeAI (4), Royal Grand (5), Royal Bites (6), other real projects (7), demo projects (8)
     order_priority = Case(
         When(slug__icontains='teachmantra', then=Value(1)),
         When(slug__icontains='nexplay', then=Value(2)),
         When(slug__icontains='houzez', then=Value(3)),
         When(slug__icontains='resume', then=Value(4)),
-        When(is_demo=False, then=Value(5)),
-        default=Value(6),
+        When(slug__icontains='royal-grand', then=Value(5)),
+        When(slug__icontains='royal-bites', then=Value(6)),
+        When(is_demo=False, then=Value(7)),
+        default=Value(8),
         output_field=IntegerField()
     )
 
@@ -122,6 +124,42 @@ PROJECT_EXTRAS = {
             {'icon': 'bi-device-ssd', 'title': 'Local Storage Autosave', 'desc': 'Your resume data is automatically preserved in your browser cache so you never lose work between sessions.'},
         ],
         'whatsapp_msg': 'Hi Code Yari! I checked out your ResumeAI project and want to build an AI tool or web app for my business.',
+    },
+    'royal-grand-luxury-hotel-suites': {
+        'badge_text': '✦ 5-Star Luxury Hospitality Platform',
+        'tagline': 'An opulent, high-converting digital portal for Royal Grand Luxury Hotel & Suites featuring virtual room tours, fine dining showcases, and seamless concierge reservations.',
+        'highlight_chips': ['Direct Suite Booking Flow', '360° Luxury Walkthrough', 'Michelin-Grade Dining Menu', 'Bespoke Concierge Chat'],
+        'metrics': [
+            {'val': '5-Star', 'label': 'Luxury Standard', 'icon': 'bi-award-fill'},
+            {'val': '+240%', 'label': 'Direct Bookings Surge', 'icon': 'bi-graph-up-arrow'},
+            {'val': '< 1.0s', 'label': 'Instant Page Load', 'icon': 'bi-lightning-charge-fill'},
+            {'val': '100%', 'label': 'Mobile-First Experience', 'icon': 'bi-phone-fill'},
+        ],
+        'highlights': [
+            {'icon': 'bi-building', 'title': 'Luxury Suites & Amenities Showcase', 'desc': 'Interactive 4K photo galleries, room dimension blueprints, and real-time amenity availability.'},
+            {'icon': 'bi-calendar2-check-fill', 'title': 'Frictionless Reservation Engine', 'desc': 'Instant dates selection, guest management, and direct check-in booking assistance.'},
+            {'icon': 'bi-cup-hot-fill', 'title': 'Dining & Banquet Experiences', 'desc': 'Digital menus for rooftop lounges, poolside bars, and private grand ballroom banquet reservations.'},
+            {'icon': 'bi-whatsapp', 'title': 'VIP Concierge WhatsApp Connect', 'desc': 'One-tap direct access to the hotel front desk and travel concierge for personalized guest itineraries.'},
+        ],
+        'whatsapp_msg': 'Hi Code Yari! I saw your Royal Grand Hotel project. I want to build a luxury website/portal for my hotel or resort.',
+    },
+    'royal-bites-luxury-fine-dining-restaurant': {
+        'badge_text': '✦ Premium Gourmet & Fine Dining Portal',
+        'tagline': 'A mouthwatering, mobile-first culinary website for Royal Bites Restaurant featuring interactive menus, chef specials, table reservations, and instant WhatsApp ordering.',
+        'highlight_chips': ['Interactive Digital Food Menu', 'Instant Table Reservation', 'Chef Signature Specials', 'High Footfall Inbound Flow'],
+        'metrics': [
+            {'val': '4.9★', 'label': 'Customer Rating', 'icon': 'bi-star-fill'},
+            {'val': '3.5x', 'label': 'More Table Bookings', 'icon': 'bi-people-fill'},
+            {'val': '100%', 'label': 'Menu Browsing Speed', 'icon': 'bi-lightning-fill'},
+            {'val': '0-Wait', 'label': 'Instant WhatsApp Connect', 'icon': 'bi-whatsapp'},
+        ],
+        'highlights': [
+            {'icon': 'bi-egg-fried', 'title': 'Interactive Gourmet Digital Menu', 'desc': 'Appetizing visual food catalog with pricing, spicy levels, dietary indicators, and chef recommendations.'},
+            {'icon': 'bi-calendar-event-fill', 'title': 'One-Tap Table Reservations', 'desc': 'Streamlined booking form allowing guests to reserve party tables, family dinners, and corporate banquets.'},
+            {'icon': 'bi-geo-alt-fill', 'title': 'Kanpur Local Dining Integration', 'desc': 'Direct Google Maps directions, parking guidelines, and operating hours for local foodies.'},
+            {'icon': 'bi-chat-left-dots-fill', 'title': 'Direct Order & Catering Inquiries', 'desc': 'Frictionless lead routing to restaurant manager for bulk orders, catering, and birthday celebrations.'},
+        ],
+        'whatsapp_msg': 'Hi Code Yari! I checked out your Royal Bites Restaurant project and want to build a website for my restaurant/cafe.',
     },
     'saas-dashboard-design-demo': {
         'badge_text': '✦ Enterprise SaaS Analytics & CRM Dashboard',

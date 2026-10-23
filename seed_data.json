@@ -1,5 +1,30 @@
 [
 {
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$rJ9VQfKaqPWRBm8dld9gs3$9QidB24FohrNpejRW+Y9CHPJGHZdtnR2CgjUlGT9wy4=",
+        "last_login": "2026-10-05T14:46:38.178Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@codeyari.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-09-12T13:02:30.157Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "l2vx64ri3uoqm9hmxuxhhh9gi4wxg0c2",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAQAP9lz6Zplz45eucbmt12FdRAQuFk_HdDwkGvM5N5Q6Z9G_PeZM1ThR4MXH4ZU3nKfIj6oPm-qLLM2zqxOhJ12qaGpcrrerZ_g5HaCD0gGpNuLD4VcYFdTRF1sMFS0JqlQ4xREyayLOwKdSaRdN5Fbzl5LPD5AssjN0I:1xDjxe:pIqqyXkUtWfXwCzRNYf1guiQLXYWy85-RXXer2qqPOo",
+        "expire_date": "2026-10-19T14:46:38.200Z"
+    }
+},
+{
     "model": "core.sitesettings",
     "pk": 1,
     "fields": {
@@ -22,7 +47,7 @@
         "meta_description": "Code Yari — A young digital technology team providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.",
         "og_image": "",
         "business_hours": "Mon–Sat, 10:00 AM – 5:30 PM IST",
-        "updated_at": "2026-10-09T03:40:02.537Z"
+        "updated_at": "2026-10-23T05:54:50.965Z"
     }
 },
 {
@@ -788,150 +813,106 @@
 },
 {
     "model": "portfolio.portfolioproject",
-    "pk": 29,
+    "pk": 31,
     "fields": {
-        "name": "Local Business SEO Campaign (Demo)",
-        "slug": "local-business-seo-campaign-demo",
-        "category": 23,
-        "client_name": "",
-        "short_description": "SEO strategy and implementation for a local service business.",
-        "full_description": "<p><strong>⚠️ Demo project showing our SEO process.</strong></p><p>Comprehensive SEO audit, on-page optimization, local citations, and content strategy implementation.</p>",
+        "name": "Royal Grand — Luxury 5-Star Hotel & Suites",
+        "slug": "royal-grand-luxury-hotel-suites",
+        "category": 21,
+        "client_name": "Royal Grand Luxury Hotel",
+        "short_description": "An opulent 5-star luxury hotel web portal featuring suite reservations, Michelin-grade dining showcases, 360° virtual room walkthroughs, and VIP concierge assistance.",
+        "full_description": "<p><strong>Royal Grand</strong> is a premier luxury hospitality web platform engineered to deliver an opulent digital guest experience with frictionless suite bookings, banquet inquiries, and VIP concierge services.</p><h4>Project Highlights:</h4><ul><li><strong>Direct Suite Reservation Engine:</strong> Real-time room availability, presidential suite showcases, and instant booking workflows.</li><li><strong>Virtual Room & Amenity Tours:</strong> Interactive 4K visual galleries, infinity pool, luxury spa, and banquet walkthroughs.</li><li><strong>Michelin-Grade Dining Showcase:</strong> Multi-venue digital menus for rooftop lounges, private fine dining, and cellar selections.</li><li><strong>VIP Concierge & Event Inquiries:</strong> Direct one-tap front-desk WhatsApp assistance for corporate galas and wedding bookings.</li></ul>",
         "featured_image": "",
         "technologies": [
-            "Google Search Console",
-            "Ahrefs",
-            "SEMrush"
+            "React",
+            "Vite",
+            "TailwindCSS",
+            "JavaScript",
+            "Netlify",
+            "HTML5"
         ],
-        "project_url": "",
+        "project_url": "https://luxury-hotels-kanpur.netlify.app/",
         "github_url": "",
-        "completion_date": "2025-01-02",
-        "featured": false,
+        "completion_date": "2026-03-12",
+        "featured": true,
         "published": true,
-        "seo_title": "",
-        "seo_description": "",
-        "is_demo": true,
-        "created_at": "2026-10-07T11:59:49.249Z",
-        "updated_at": "2026-10-07T11:59:49.249Z"
+        "seo_title": "Royal Grand — Luxury 5-Star Hotel & Suites Case Study | Code Yari",
+        "seo_description": "Explore how Code Yari engineered the digital presence and luxury booking interface for Royal Grand 5-Star Hotel & Suites.",
+        "is_demo": false,
+        "created_at": "2026-10-23T06:39:25.238Z",
+        "updated_at": "2026-10-23T06:39:25.238Z"
     }
 },
 {
     "model": "portfolio.portfolioproject",
-    "pk": 30,
+    "pk": 32,
     "fields": {
-        "name": "SaaS Dashboard Design (Demo)",
-        "slug": "saas-dashboard-design-demo",
-        "category": 24,
-        "client_name": "",
-        "short_description": "Clean, data-rich dashboard UI for a SaaS analytics platform.",
-        "full_description": "<p><strong>⚠️ Demo project.</strong></p><p>Figma-based dashboard design with data visualization components, dark mode, and component library.</p>",
+        "name": "Royal Bites — Luxury Fine Dining & Gourmet Restaurant",
+        "slug": "royal-bites-luxury-fine-dining-restaurant",
+        "category": 21,
+        "client_name": "Royal Bites Gourmet Restaurant",
+        "short_description": "An immersive fine dining & restaurant portal featuring interactive gourmet menus, online table booking, chef specials, and direct WhatsApp table reservation.",
+        "full_description": "<p><strong>Royal Bites</strong> is a high-converting, mouthwatering culinary digital portal designed to elevate table bookings, online orders, and local food discovery for gourmet food lovers.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Gourmet Digital Menu:</strong> High-resolution food visuals with chef recommendations, price lists, and dietary indicators.</li><li><strong>Instant Table Reservation System:</strong> Seamless booking form for family dinners, private parties, and corporate banquets.</li><li><strong>Direct Order & WhatsApp Connect:</strong> Fast-track inquiry channels for catering orders, takeout, and event hosting.</li><li><strong>Mobile-First Local SEO Optimization:</strong> Geotagged Google Maps integration, driving local foot traffic directly to the restaurant doors.</li></ul>",
         "featured_image": "",
         "technologies": [
-            "Figma",
-            "Adobe Illustrator"
+            "React",
+            "TailwindCSS",
+            "JavaScript",
+            "WhatsApp API",
+            "Netlify",
+            "HTML5"
         ],
-        "project_url": "",
+        "project_url": "https://restaurant-kanpur.netlify.app/",
         "github_url": "",
-        "completion_date": "2025-01-03",
-        "featured": false,
+        "completion_date": "2026-03-15",
+        "featured": true,
         "published": true,
-        "seo_title": "",
-        "seo_description": "",
-        "is_demo": true,
-        "created_at": "2026-10-07T11:59:49.257Z",
-        "updated_at": "2026-10-07T11:59:49.257Z"
+        "seo_title": "Royal Bites — Luxury Restaurant & Fine Dining Case Study | Code Yari",
+        "seo_description": "See how Code Yari built the digital menu and online reservation experience for Royal Bites Gourmet Restaurant.",
+        "is_demo": false,
+        "created_at": "2026-10-23T06:39:25.249Z",
+        "updated_at": "2026-10-23T06:39:25.249Z"
     }
 },
 {
-    "model": "blog.blogcategory",
-    "pk": 13,
+    "model": "leads.lead",
+    "pk": 1,
     "fields": {
-        "name": "Web Development",
-        "slug": "web-development",
-        "description": "",
-        "order": 0
+        "name": "Vikram Malhotra",
+        "email": "vikram@startup.io",
+        "phone": "+91 99887 76655",
+        "company": "Startup Labs",
+        "service": "Web Development",
+        "budget": "50k_1l",
+        "project_type": "new",
+        "project_description": "Building a fintech MVP for small business loans and accounting sync.",
+        "deadline": "3 months",
+        "preferred_contact": "whatsapp",
+        "status": "new",
+        "notes": "",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-09-12T13:02:12.420Z",
+        "updated_at": "2026-09-12T13:02:12.420Z"
     }
 },
 {
-    "model": "blog.blogcategory",
-    "pk": 14,
+    "model": "leads.lead",
+    "pk": 2,
     "fields": {
-        "name": "SEO & Marketing",
-        "slug": "seo-marketing",
-        "description": "",
-        "order": 0
-    }
-},
-{
-    "model": "blog.blogcategory",
-    "pk": 15,
-    "fields": {
-        "name": "Tech Tips",
-        "slug": "tech-tips",
-        "description": "",
-        "order": 0
-    }
-},
-{
-    "model": "blog.blogpost",
-    "pk": 13,
-    "fields": {
-        "title": "10 Reasons Why Your Business Needs a Professional Website in 2025",
-        "slug": "10-reasons-business-needs-professional-website-2025",
-        "excerpt": "In today's digital-first world, a professional website isn't optional — it's essential. Here's why your business can't afford to go without one.",
-        "content": "<p>In today's competitive digital landscape, having a professional website is no longer a luxury — it's a business necessity.</p><h2>1. First Impressions Matter</h2><p>Your website is often the first point of contact between your business and potential customers. A professionally designed website builds instant trust and credibility.</p><h2>2. Available 24/7</h2><p>Unlike a physical store, your website works for you around the clock, allowing customers to learn about your products and services at any time.</p><h2>3. Reach a Wider Audience</h2><p>A website removes geographical barriers, allowing you to reach customers beyond your local area.</p><h2>4. Build Credibility</h2><p>Studies show that 75% of people judge a company's credibility based on their website design.</p><h2>5. Cost-Effective Marketing</h2><p>Compared to traditional advertising, a website is one of the most cost-effective marketing tools available.</p><p>Ready to get your professional website? <a href=\"/get-a-quote/\">Get a free quote from Code Yari today!</a></p>",
-        "featured_image": "",
-        "category": 13,
-        "author": 1,
-        "tags": "Web Development, Business, Digital Presence",
-        "published": true,
-        "published_date": "2026-10-07T11:59:49.350Z",
-        "seo_title": "10 Reasons Your Business Needs a Website — Code Yari Blog",
-        "seo_description": "Discover the top 10 reasons why every business needs a professional website in 2025. Build credibility, reach more customers, and grow online.",
-        "og_image": "",
-        "created_at": "2026-10-07T11:59:49.351Z",
-        "updated_at": "2026-10-07T11:59:49.351Z"
-    }
-},
-{
-    "model": "blog.blogpost",
-    "pk": 14,
-    "fields": {
-        "title": "Beginner's Guide to SEO: How to Rank Higher on Google",
-        "slug": "beginners-guide-seo-rank-higher-google",
-        "excerpt": "A step-by-step guide to understanding SEO fundamentals and improving your website's Google rankings organically.",
-        "content": "<p>Search Engine Optimization (SEO) is the practice of improving your website to increase visibility in search engine results. Here's everything you need to know to get started.</p><h2>What is SEO?</h2><p>SEO is the process of optimizing your website and content so that search engines like Google can find it, understand it, and rank it for relevant search queries.</p><h2>On-Page SEO</h2><p>On-page SEO involves optimizing individual web pages, including title tags, meta descriptions, headings, content, and image alt text.</p><h2>Technical SEO</h2><p>Technical SEO ensures your website meets the technical requirements of search engines — fast loading, mobile-friendly, secure (HTTPS), and properly structured.</p><h2>Off-Page SEO</h2><p>Off-page SEO refers to actions taken outside your own website to impact your rankings, primarily through building backlinks from other reputable sites.</p><h2>Getting Started</h2><p>Start with keyword research to understand what your audience is searching for, then create high-quality content that answers their questions.</p>",
-        "featured_image": "",
-        "category": 14,
-        "author": 1,
-        "tags": "SEO, Google, Digital Marketing, Organic Traffic",
-        "published": true,
-        "published_date": "2026-10-07T11:59:49.359Z",
-        "seo_title": "Beginner's Guide to SEO — Rank Higher on Google | Code Yari",
-        "seo_description": "Learn the fundamentals of SEO with this beginner-friendly guide. Understand on-page, technical, and off-page SEO to improve your Google rankings.",
-        "og_image": "",
-        "created_at": "2026-10-07T11:59:49.359Z",
-        "updated_at": "2026-10-07T11:59:49.359Z"
-    }
-},
-{
-    "model": "blog.blogpost",
-    "pk": 15,
-    "fields": {
-        "title": "Why Django is the Best Framework for Building Your Business Website",
-        "slug": "why-django-best-framework-business-website",
-        "excerpt": "Django's \"batteries included\" philosophy, security features, and scalability make it an excellent choice for building production-ready business websites.",
-        "content": "<p>Choosing the right web framework for your business website is crucial. Django, a Python-based web framework, has been powering some of the world's largest websites for good reason.</p><h2>What is Django?</h2><p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It follows the \"batteries included\" philosophy.</p><h2>Security</h2><p>Django provides built-in protection against common security vulnerabilities including SQL injection, XSS, CSRF, and clickjacking.</p><h2>Scalability</h2><p>Django has been proven to scale — Instagram, Pinterest, and Disqus all use Django to handle millions of users.</p><h2>Admin Panel</h2><p>Django comes with a powerful, customizable admin panel that allows you to manage your website content without writing code.</p><h2>SEO-Friendly</h2><p>Django's clean URL structure and templating system make it easy to build SEO-optimized websites.</p>",
-        "featured_image": "",
-        "category": 13,
-        "author": 1,
-        "tags": "Django, Python, Web Development, Backend",
-        "published": true,
-        "published_date": "2026-10-07T11:59:49.366Z",
-        "seo_title": "Why Django is Best for Business Websites — Code Yari Blog",
-        "seo_description": "Learn why Django is the best Python framework for building secure, scalable, and SEO-friendly business websites.",
-        "og_image": "",
-        "created_at": "2026-10-07T11:59:49.367Z",
-        "updated_at": "2026-10-07T11:59:49.367Z"
+        "name": "Aman Verma",
+        "email": "aman.verma@fintechventures.io",
+        "phone": "+91 98765 43210",
+        "company": "FinTech Ventures Inc.",
+        "service": "Web Application Development",
+        "budget": "25k_50k",
+        "project_type": "",
+        "project_description": "We are looking to develop a custom SaaS web application for financial portfolio management. Key requirements include secure authentication, real-time analytics dashboard, payment gateway integration, and responsive UI.",
+        "deadline": "",
+        "preferred_contact": "email",
+        "status": "new",
+        "notes": "",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-04T18:44:16.749Z",
+        "updated_at": "2026-10-04T18:44:16.751Z"
     }
 },
 {
@@ -1034,6 +1015,105 @@
         "is_demo": true,
         "order": 5,
         "created_at": "2026-10-07T11:59:49.304Z"
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 13,
+    "fields": {
+        "name": "Web Development",
+        "slug": "web-development",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 14,
+    "fields": {
+        "name": "SEO & Marketing",
+        "slug": "seo-marketing",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogcategory",
+    "pk": 15,
+    "fields": {
+        "name": "Tech Tips",
+        "slug": "tech-tips",
+        "description": "",
+        "order": 0
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 13,
+    "fields": {
+        "title": "10 Reasons Why Your Business Needs a Professional Website in 2025",
+        "slug": "10-reasons-business-needs-professional-website-2025",
+        "excerpt": "In today's digital-first world, a professional website isn't optional — it's essential. Here's why your business can't afford to go without one.",
+        "content": "<p>In today's competitive digital landscape, having a professional website is no longer a luxury — it's a business necessity.</p><h2>1. First Impressions Matter</h2><p>Your website is often the first point of contact between your business and potential customers. A professionally designed website builds instant trust and credibility.</p><h2>2. Available 24/7</h2><p>Unlike a physical store, your website works for you around the clock, allowing customers to learn about your products and services at any time.</p><h2>3. Reach a Wider Audience</h2><p>A website removes geographical barriers, allowing you to reach customers beyond your local area.</p><h2>4. Build Credibility</h2><p>Studies show that 75% of people judge a company's credibility based on their website design.</p><h2>5. Cost-Effective Marketing</h2><p>Compared to traditional advertising, a website is one of the most cost-effective marketing tools available.</p><p>Ready to get your professional website? <a href=\"/get-a-quote/\">Get a free quote from Code Yari today!</a></p>",
+        "featured_image": "",
+        "category": 13,
+        "author": [
+            "admin"
+        ],
+        "tags": "Web Development, Business, Digital Presence",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.350Z",
+        "seo_title": "10 Reasons Your Business Needs a Website — Code Yari Blog",
+        "seo_description": "Discover the top 10 reasons why every business needs a professional website in 2025. Build credibility, reach more customers, and grow online.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.351Z",
+        "updated_at": "2026-10-07T11:59:49.351Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 14,
+    "fields": {
+        "title": "Beginner's Guide to SEO: How to Rank Higher on Google",
+        "slug": "beginners-guide-seo-rank-higher-google",
+        "excerpt": "A step-by-step guide to understanding SEO fundamentals and improving your website's Google rankings organically.",
+        "content": "<p>Search Engine Optimization (SEO) is the practice of improving your website to increase visibility in search engine results. Here's everything you need to know to get started.</p><h2>What is SEO?</h2><p>SEO is the process of optimizing your website and content so that search engines like Google can find it, understand it, and rank it for relevant search queries.</p><h2>On-Page SEO</h2><p>On-page SEO involves optimizing individual web pages, including title tags, meta descriptions, headings, content, and image alt text.</p><h2>Technical SEO</h2><p>Technical SEO ensures your website meets the technical requirements of search engines — fast loading, mobile-friendly, secure (HTTPS), and properly structured.</p><h2>Off-Page SEO</h2><p>Off-page SEO refers to actions taken outside your own website to impact your rankings, primarily through building backlinks from other reputable sites.</p><h2>Getting Started</h2><p>Start with keyword research to understand what your audience is searching for, then create high-quality content that answers their questions.</p>",
+        "featured_image": "",
+        "category": 14,
+        "author": [
+            "admin"
+        ],
+        "tags": "SEO, Google, Digital Marketing, Organic Traffic",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.359Z",
+        "seo_title": "Beginner's Guide to SEO — Rank Higher on Google | Code Yari",
+        "seo_description": "Learn the fundamentals of SEO with this beginner-friendly guide. Understand on-page, technical, and off-page SEO to improve your Google rankings.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.359Z",
+        "updated_at": "2026-10-07T11:59:49.359Z"
+    }
+},
+{
+    "model": "blog.blogpost",
+    "pk": 15,
+    "fields": {
+        "title": "Why Django is the Best Framework for Building Your Business Website",
+        "slug": "why-django-best-framework-business-website",
+        "excerpt": "Django's \"batteries included\" philosophy, security features, and scalability make it an excellent choice for building production-ready business websites.",
+        "content": "<p>Choosing the right web framework for your business website is crucial. Django, a Python-based web framework, has been powering some of the world's largest websites for good reason.</p><h2>What is Django?</h2><p>Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It follows the \"batteries included\" philosophy.</p><h2>Security</h2><p>Django provides built-in protection against common security vulnerabilities including SQL injection, XSS, CSRF, and clickjacking.</p><h2>Scalability</h2><p>Django has been proven to scale — Instagram, Pinterest, and Disqus all use Django to handle millions of users.</p><h2>Admin Panel</h2><p>Django comes with a powerful, customizable admin panel that allows you to manage your website content without writing code.</p><h2>SEO-Friendly</h2><p>Django's clean URL structure and templating system make it easy to build SEO-optimized websites.</p>",
+        "featured_image": "",
+        "category": 13,
+        "author": [
+            "admin"
+        ],
+        "tags": "Django, Python, Web Development, Backend",
+        "published": true,
+        "published_date": "2026-10-07T11:59:49.366Z",
+        "seo_title": "Why Django is Best for Business Websites — Code Yari Blog",
+        "seo_description": "Learn why Django is the best Python framework for building secure, scalable, and SEO-friendly business websites.",
+        "og_image": "",
+        "created_at": "2026-10-07T11:59:49.367Z",
+        "updated_at": "2026-10-07T11:59:49.367Z"
     }
 },
 {
