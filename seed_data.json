@@ -874,6 +874,37 @@
     }
 },
 {
+    "model": "portfolio.portfolioproject",
+    "pk": 34,
+    "fields": {
+        "name": "Bright Future Academy — Premier Coaching & Competitive Institute",
+        "slug": "bright-future-academy-coaching-institute",
+        "category": 21,
+        "client_name": "Bright Future Academy",
+        "short_description": "A premium coaching academy portal offering foundation courses, interactive science & coding modules, expert faculty guides, and automated fee & scholarship inquiries.",
+        "full_description": "<p><strong>Bright Future Academy</strong> is a forward-thinking educational coaching institute web portal designed to help students excel in board examinations, foundational science & math, competitive testing, and coding.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Course Catalog:</strong> Structured learning modules for Classes 6th–12th, JEE/NEET foundations, and computer programming.</li><li><strong>Faculty & Mentorship Showcase:</strong> Verified teacher bios, qualification credentials, and student success track records.</li><li><strong>Direct Admission & Scholarship Desk:</strong> Instant online registration form with discount scholarship eligibility checks.</li><li><strong>Modern Engaging UI:</strong> Vibrant educational palette with smooth card animations, fee transparency, and WhatsApp support.</li></ul>",
+        "featured_image": "",
+        "technologies": [
+            "React",
+            "Vite",
+            "TailwindCSS",
+            "JavaScript",
+            "Netlify",
+            "HTML5"
+        ],
+        "project_url": "https://academy-kanpur.netlify.app/",
+        "github_url": "",
+        "completion_date": "2026-03-18",
+        "featured": true,
+        "published": true,
+        "seo_title": "Bright Future Academy — Coaching Institute Case Study | Code Yari",
+        "seo_description": "Learn how Code Yari designed and developed the digital academy portal and admission desk for Bright Future Academy Kanpur.",
+        "is_demo": false,
+        "created_at": "2026-10-23T08:01:14.270Z",
+        "updated_at": "2026-10-23T08:01:14.270Z"
+    }
+},
+{
     "model": "leads.lead",
     "pk": 1,
     "fields": {

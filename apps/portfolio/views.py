@@ -9,7 +9,7 @@ from django.db.models import Case, When, Value, IntegerField
 def portfolio_list(request):
     category_slug = request.GET.get('category')
     
-    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), MediCare Plus (4), Royal Grand (5), Royal Bites (6), other real projects (7), demo projects (8)
+    # Priority ordering: TeachMANTRA (1), NEXPLAY (2), Houzez (3), MediCare Plus (4), Royal Grand (5), Royal Bites (6), Bright Future Academy (7), other real projects (8), demo projects (9)
     order_priority = Case(
         When(slug__icontains='teachmantra', then=Value(1)),
         When(slug__icontains='nexplay', then=Value(2)),
@@ -17,8 +17,9 @@ def portfolio_list(request):
         When(slug__icontains='medicare', then=Value(4)),
         When(slug__icontains='royal-grand', then=Value(5)),
         When(slug__icontains='royal-bites', then=Value(6)),
-        When(is_demo=False, then=Value(7)),
-        default=Value(8),
+        When(slug__icontains='bright-future', then=Value(7)),
+        When(is_demo=False, then=Value(8)),
+        default=Value(9),
         output_field=IntegerField()
     )
 
@@ -178,6 +179,24 @@ PROJECT_EXTRAS = {
             {'icon': 'bi-chat-left-dots-fill', 'title': 'Direct Order & Catering Inquiries', 'desc': 'Frictionless lead routing to restaurant manager for bulk orders, catering, and birthday celebrations.'},
         ],
         'whatsapp_msg': 'Hi Code Yari! I checked out your Royal Bites Restaurant project and want to build a website for my restaurant/cafe.',
+    },
+    'bright-future-academy-coaching-institute': {
+        'badge_text': '✦ Premier Educational Coaching & Foundation Portal',
+        'tagline': 'A modern, student-centric academic coaching portal for Bright Future Academy featuring foundational curriculum pathways, faculty directories, coding & science programs, and online admission desk.',
+        'highlight_chips': ['Interactive Course Curriculum', 'Expert Faculty Mentorship', 'Online Admission & Scholarships', 'Comprehensive Test Prep'],
+        'metrics': [
+            {'val': '1,500+', 'label': 'Students Trained', 'icon': 'bi-mortarboard-fill'},
+            {'val': '98.5%', 'label': 'Exam Pass Rate', 'icon': 'bi-award-fill'},
+            {'val': '15+', 'label': 'Expert Mentors', 'icon': 'bi-people-fill'},
+            {'val': '< 0.8s', 'label': 'Course Catalog Speed', 'icon': 'bi-lightning-charge-fill'},
+        ],
+        'highlights': [
+            {'icon': 'bi-book-half', 'title': 'Foundation & Competitive Syllabi', 'desc': 'Comprehensive modules for Classes 6th–12th, Mathematics, Science, and STEM coding labs.'},
+            {'icon': 'bi-person-check-fill', 'title': 'Faculty Excellence Showcase', 'desc': 'Detailed teacher profiles, subject expertise, and personalized doubt-clearing sessions.'},
+            {'icon': 'bi-ticket-detailed-fill', 'title': 'Automated Admission Desk', 'desc': 'Frictionless student registration, fee structure transparency, and scholarship tests.'},
+            {'icon': 'bi-whatsapp', 'title': 'Parent & Counselor Support', 'desc': 'Direct WhatsApp advisory for parents seeking academic counseling and batch timings.'},
+        ],
+        'whatsapp_msg': 'Hi Code Yari! I saw your Bright Future Academy project. I want to build an educational coaching website for my institute.',
     },
     'saas-dashboard-design-demo': {
         'badge_text': '✦ Enterprise SaaS Analytics & CRM Dashboard',

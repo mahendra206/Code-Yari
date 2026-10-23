@@ -278,6 +278,16 @@ class Command(BaseCommand):
                 'completion_date': datetime.date(2026, 3, 15),
                 'featured': True, 'is_demo': False, 'published': True,
             },
+            {
+                'name': 'Bright Future Academy — Premier Coaching & Competitive Institute',
+                'category': cats['web'],
+                'short_description': 'A premium coaching academy portal offering foundation courses, interactive science & coding modules, expert faculty guides, and automated fee & scholarship inquiries.',
+                'full_description': '<p><strong>Bright Future Academy</strong> is a forward-thinking educational coaching institute web portal designed to help students excel in board examinations, foundational science & math, competitive testing, and coding.</p><h4>Project Highlights:</h4><ul><li><strong>Interactive Course Catalog:</strong> Structured learning modules for Classes 6th–12th, JEE/NEET foundations, and computer programming.</li><li><strong>Faculty & Mentorship Showcase:</strong> Verified teacher bios, qualification credentials, and student success track records.</li><li><strong>Direct Admission & Scholarship Desk:</strong> Instant online registration form with discount scholarship eligibility checks.</li><li><strong>Modern Engaging UI:</strong> Vibrant educational palette with smooth card animations, fee transparency, and WhatsApp support.</li></ul>',
+                'technologies': ['React', 'Vite', 'TailwindCSS', 'JavaScript', 'Netlify', 'HTML5'],
+                'project_url': 'https://academy-kanpur.netlify.app/',
+                'completion_date': datetime.date(2026, 3, 18),
+                'featured': True, 'is_demo': False, 'published': True,
+            },
         ]
         for p in projects:
             PortfolioProject.objects.create(**p)

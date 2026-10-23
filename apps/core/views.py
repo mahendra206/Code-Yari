@@ -34,6 +34,7 @@ def home(request):
         When(slug__icontains='medicare', then=Value(4)),
         When(slug__icontains='royal-grand', then=Value(5)),
         When(slug__icontains='royal-bites', then=Value(6)),
+        When(slug__icontains='bright-future', then=Value(7)),
         default=Value(99),
         output_field=IntegerField()
     )
