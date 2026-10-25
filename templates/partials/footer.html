@@ -10,17 +10,17 @@
         <p class="footer-bio-text pe-xl-3" style="max-width: 480px;">
           A young digital technology team, providing websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions.
         </p>
-        <div class="d-flex gap-2 mt-4">
-          <a href="{{ site_settings.linkedin|default:site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="LinkedIn">
+        <div class="d-flex align-items-center gap-2 mt-4 footer-social-group">
+          <a href="{{ site_settings.linkedin|default:site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link social-linkedin" aria-label="LinkedIn" title="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="{{ site_settings.instagram|default:site_settings.instagram_url|default:'https://www.instagram.com/codeyari7307/?hl=en' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Instagram">
+          <a href="{{ site_settings.instagram|default:site_settings.instagram_url|default:'https://www.instagram.com/codeyari7307/?hl=en' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link social-instagram" aria-label="Instagram" title="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          <a href="{{ site_settings.youtube|default:site_settings.youtube_url|default:'https://www.youtube.com/@codeyari' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="YouTube">
+          <a href="{{ site_settings.youtube|default:site_settings.youtube_url|default:'https://www.youtube.com/@codeyari' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link social-youtube" aria-label="YouTube" title="YouTube">
             <i class="bi bi-youtube"></i>
           </a>
-          <a href="{{ site_settings.facebook|default:site_settings.facebook_url|default:'https://facebook.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link" aria-label="Facebook">
+          <a href="{{ site_settings.facebook|default:site_settings.facebook_url|default:'https://facebook.com' }}" target="_blank" rel="noopener noreferrer" class="social-circle-link social-facebook" aria-label="Facebook" title="Facebook">
             <i class="bi bi-facebook"></i>
           </a>
         </div>
@@ -29,71 +29,75 @@
       <!-- Col 2: Services -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Services</h4>
+        <div class="footer-heading-line"></div>
         <ul class="footer-links">
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'web-development' %}">Web Development</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'app-development' %}">Mobile App Development</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'seo-google-ranking' %}">SEO & Google Ranking</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'uiux-design' %}">UI/UX & Product Design</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'ai-automation' %}">AI & Automation Solutions</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:detail' 'digital-marketing' %}">Digital Marketing & Growth</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'web-development' %}">Web Development</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'app-development' %}">Mobile App Development</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'seo-google-ranking' %}">SEO &amp; Google Ranking</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'uiux-design' %}">UI/UX &amp; Product Design</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'ai-automation' %}">AI &amp; Automation Solutions</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'digital-marketing' %}">Digital Marketing &amp; Growth</a></li>
         </ul>
       </div>
 
       <!-- Col 3: Company -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Company</h4>
+        <div class="footer-heading-line"></div>
         <ul class="footer-links">
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:about' %}">About Us</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:team' %}">Our Team</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'portfolio:list' %}">Portfolio</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Blog & Articles</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'testimonials:list' %}">Client Reviews</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'faq:list' %}">FAQs</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:contact' %}">Contact</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:about' %}">About Us</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:team' %}">Our Team</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'portfolio:list' %}">Portfolio</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'blog:list' %}">Blog &amp; Articles</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'testimonials:list' %}">Client Reviews</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'faq:list' %}">FAQs</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:contact' %}">Contact</a></li>
         </ul>
       </div>
 
       <!-- Col 4: Resources -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Resources</h4>
+        <div class="footer-heading-line"></div>
         <ul class="footer-links">
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Blog</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'portfolio:list' %}">Case Studies</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'services:list' %}">Tools & Resources</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'blog:list' %}">Guides</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'core:about' %}#career">Career</a></li>
-          <li><span class="footer-bullet">&bull;</span><a href="{% url 'faq:list' %}">Support</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'blog:list' %}">Blog</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'portfolio:list' %}">Case Studies</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:list' %}">Tools &amp; Resources</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'blog:list' %}">Guides</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:about' %}#career">Career</a></li>
+          <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'faq:list' %}">Support</a></li>
         </ul>
       </div>
 
       <!-- Col 5: Get in Touch -->
       <div class="col-lg-3 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Get in Touch</h4>
+        <div class="footer-heading-line"></div>
         <ul class="footer-contact-list">
           <li class="footer-contact-item">
-            <i class="bi bi-envelope-fill"></i>
+            <i class="bi bi-envelope-fill contact-icon contact-icon-email"></i>
             <a href="mailto:{{ site_settings.email|default:'codeyari7307@gmail.com' }}">{{ site_settings.email|default:'codeyari7307@gmail.com' }}</a>
           </li>
           <li class="footer-contact-item">
-            <i class="bi bi-telephone-fill"></i>
+            <i class="bi bi-telephone-fill contact-icon contact-icon-phone"></i>
             <a href="tel:{{ site_settings.phone|default:'+919305287312' }}">{{ site_settings.phone_display|default:'+91 93052-87312' }}</a>
           </li>
           <li class="footer-contact-item">
-            <i class="bi bi-whatsapp text-success"></i>
+            <i class="bi bi-whatsapp contact-icon contact-icon-whatsapp"></i>
             <a href="https://wa.me/{{ site_settings.whatsapp|default:'919305287312' }}?text=Hi%20Code%20Yari!" target="_blank" rel="noopener noreferrer">+91 93052 87312 (WhatsApp)</a>
           </li>
           <li class="footer-contact-item">
-            <i class="bi bi-geo-alt-fill"></i>
+            <i class="bi bi-geo-alt-fill contact-icon contact-icon-location"></i>
             <span>{{ site_settings.address|default:'India' }}</span>
           </li>
           <li class="footer-contact-item">
-            <i class="bi bi-clock-fill"></i>
+            <i class="bi bi-clock-fill contact-icon contact-icon-clock"></i>
             <span>{{ site_settings.business_hours|default:'Mon–Sat, 10:00 AM – 5:30 PM IST' }}</span>
           </li>
         </ul>
         <div class="mt-3 mt-md-4">
           <a href="{% url 'leads:get_quote' %}" class="btn-footer-quote">
-            Request a Quote
+            Request a Quote <i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
       </div>
@@ -103,7 +107,7 @@
     <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 text-center text-md-start">
       <!-- Left: Copyright -->
       <p class="footer-copyright-text mb-0">
-        &copy; {% now "Y" %} Code Yari. All rights reserved. Sirf code nahi, Yari ke saath solution.
+        &copy; {% now "Y" %} Code Yari. All rights reserved. <span class="footer-pipe mx-1">|</span> <span class="footer-tagline-blue">Sirf code nahi, Yari ke saath solution.</span>
       </p>
 
       <!-- Right: Legal Links -->
