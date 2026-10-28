@@ -65,7 +65,7 @@ class SiteSettings(models.Model):
 
     @property
     def linkedin_url(self):
-        return self.linkedin or 'https://linkedin.com'
+        return self.linkedin or 'https://www.linkedin.com/in/code-yari-435964441/'
 
     @property
     def youtube_url(self):
