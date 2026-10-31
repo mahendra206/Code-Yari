@@ -4,26 +4,28 @@ Automatically populates database with initial content (Team, Services,
 Projects, Blogs, FAQs, Testimonials, Settings) if tables are empty.
 Runs zero-touch without needing manual terminal commands on live servers.
 """
-import sys
-from pathlib import Path
+import logging
 from django.conf import settings
+from django.core.management import call_command
+
+logger = logging.getLogger(__name__)
 
 def ensure_initial_data():
     """
-    Checks if initial content is missing, and if so, safely loads seed_data.json.
+    Checks if initial content is missing, and if so, safely runs seed_demo_data.
     """
     try:
+        from apps.services.models import Service
         from apps.core.models import TeamMember
-        # If team members don't exist, database is fresh/empty
-        if not TeamMember.objects.exists():
-            from django.core.management import call_command
-            fixture_file = settings.BASE_DIR / 'seed_data.json'
-            if fixture_file.exists():
-                call_command('loaddata', str(fixture_file))
-                print("[AutoSeed] Successfully populated database from seed_data.json.")
+        from apps.portfolio.models import PortfolioProject
+
+        # If any core content is missing, automatically seed the database
+        if not Service.objects.exists() or not TeamMember.objects.exists() or not PortfolioProject.objects.exists():
+            print("[AutoSeed] Missing content detected in database. Seeding initial data...")
+            call_command('seed_demo_data')
+            print("[AutoSeed] Initial content seeded successfully!")
     except Exception as e:
-        # Ignore errors during table creation or migration phases
-        pass
+        logger.warning(f"[AutoSeed] Notice during auto-seed: {e}")
 
 
 def auto_seed_on_migrate(sender, **kwargs):

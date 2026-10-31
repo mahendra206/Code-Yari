@@ -21,6 +21,10 @@ from apps.blog.models import BlogPost
 
 def home(request):
     """Homepage view with all dynamic sections."""
+    if not Service.objects.exists() or not TeamMember.objects.exists():
+        from .auto_seed import ensure_initial_data
+        ensure_initial_data()
+
     featured_services = Service.objects.filter(
         is_active=True, is_featured=True
     ).order_by('order')[:6]
