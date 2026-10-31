@@ -21,7 +21,7 @@ from apps.blog.models import BlogPost
 
 def home(request):
     """Homepage view with all dynamic sections."""
-    if not Service.objects.exists() or not TeamMember.objects.exists():
+    if not Service.objects.exists() or not TeamMember.objects.exists() or not PortfolioProject.objects.exists():
         from .auto_seed import ensure_initial_data
         ensure_initial_data()
 
