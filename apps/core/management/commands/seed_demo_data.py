@@ -36,11 +36,17 @@ class Command(BaseCommand):
         ))
 
     def _seed_admin(self):
-        if not User.objects.filter(is_superuser=True).exists():
-            User.objects.create_superuser('admin', 'admin@codeyari.com', 'admin123')
-            self.stdout.write('  [OK] Default Superuser created (user: admin, pass: admin123)')
-        else:
-            self.stdout.write('  [OK] Superuser already exists')
+        import os
+        username = os.environ.get('ADMIN_USERNAME', 'foundercodeyari')
+        email = os.environ.get('ADMIN_EMAIL', 'codeyari7307@gmail.com')
+        password = os.environ.get('ADMIN_PASSWORD', 'M@codeyari7307')
+
+        user, created = User.objects.get_or_create(username=username, defaults={'email': email})
+        user.is_staff = True
+        user.is_superuser = True
+        user.set_password(password)
+        user.save()
+        self.stdout.write(f'  [OK] Superuser "{username}" ensured with custom credentials')
 
     def _seed_site_settings(self):
         settings, _ = SiteSettings.objects.get_or_create(pk=1)

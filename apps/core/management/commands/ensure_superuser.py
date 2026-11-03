@@ -8,9 +8,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # 1. Ensure Superuser
-        username = os.environ.get('ADMIN_USERNAME', 'admin')
-        email = os.environ.get('ADMIN_EMAIL', 'admin@codeyari.com')
-        password = os.environ.get('ADMIN_PASSWORD', 'admin123')
+        username = os.environ.get('ADMIN_USERNAME', 'foundercodeyari')
+        email = os.environ.get('ADMIN_EMAIL', 'codeyari7307@gmail.com')
+        password = os.environ.get('ADMIN_PASSWORD', 'M@codeyari7307')
 
         user, created = User.objects.get_or_create(username=username, defaults={'email': email})
         user.is_staff = True
