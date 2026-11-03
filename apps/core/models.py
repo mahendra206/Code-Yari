@@ -16,9 +16,9 @@ class SiteSettings(models.Model):
     )
     logo_text = models.CharField(max_length=50, default='</> Code Yari')
     email = models.EmailField(default='codeyari7307@gmail.com')
-    phone = models.CharField(max_length=20, default='+91 98765 43210')
-    phone_display = models.CharField(max_length=30, default='+91 98765-43210', blank=True)
-    whatsapp = models.CharField(max_length=20, blank=True, help_text='WhatsApp number with country code')
+    phone = models.CharField(max_length=20, default='+91 93052 87312')
+    phone_display = models.CharField(max_length=30, default='+91 93052 87312', blank=True)
+    whatsapp = models.CharField(max_length=20, default='919305287312', blank=True, help_text='WhatsApp number with country code')
     address = models.TextField(blank=True, default='India')
     city = models.CharField(max_length=100, blank=True, default='India')
 

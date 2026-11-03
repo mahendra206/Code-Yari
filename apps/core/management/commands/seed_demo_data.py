@@ -55,6 +55,7 @@ class Command(BaseCommand):
         settings.alt_tagline = 'Sirf code nahi, Yari ke saath solution.'
         settings.email = 'codeyari7307@gmail.com'
         settings.phone = '+91 93052 87312'
+        settings.phone_display = '+91 93052 87312'
         settings.whatsapp = '919305287312'
         settings.address = 'India'
         settings.business_hours = 'Mon–Sat, 10:00 AM – 5:30 PM IST'
