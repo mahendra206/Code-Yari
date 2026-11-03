@@ -1,5 +1,174 @@
 {% load static %}
-<footer class="site-footer" style="background: linear-gradient(180deg, #0B132B 0%, #060B18 100%) !important; border-top: 1px solid rgba(56, 189, 248, 0.15) !important;">
+<style>
+  /* 🌟 High-Contrast Ultra-Modern Dark Navy Footer — 100% Matches Screenshot */
+  .site-footer {
+    background: linear-gradient(180deg, #0B132B 0%, #060B18 100%) !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.15) !important;
+    color: #94A3B8 !important;
+    padding: 4.5rem 0 2rem 0 !important;
+  }
+  .site-footer .footer-heading {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 1.25rem !important;
+    letter-spacing: -0.01em !important;
+  }
+  .site-footer .footer-heading-line {
+    display: none !important;
+  }
+  .site-footer .footer-bio-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    color: #94A3B8 !important;
+    margin-top: 0.85rem !important;
+  }
+  .site-footer .logo-word-code .logo-char,
+  .site-footer .logo-word-code {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+  }
+  .site-footer .logo-word-yari {
+    color: #38BDF8 !important;
+    font-weight: 800 !important;
+  }
+  .site-footer .footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .site-footer .footer-links li {
+    margin-bottom: 0.8rem !important;
+    font-size: 0.92rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  .site-footer .footer-bullet {
+    color: #38BDF8 !important;
+    font-size: 0.72rem !important;
+    line-height: 1 !important;
+  }
+  .site-footer .footer-links li a {
+    color: #94A3B8 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+  }
+  .site-footer .footer-links li a:hover {
+    color: #38BDF8 !important;
+    transform: translateX(4px) !important;
+  }
+  .site-footer .footer-contact-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .site-footer .footer-contact-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+    margin-bottom: 0.85rem !important;
+    font-size: 0.92rem !important;
+    line-height: 1.45 !important;
+    color: #94A3B8 !important;
+  }
+  .site-footer .footer-contact-item a {
+    color: #94A3B8 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+  }
+  .site-footer .footer-contact-item a:hover {
+    color: #38BDF8 !important;
+  }
+  .site-footer .footer-contact-item span {
+    color: #94A3B8 !important;
+  }
+  .site-footer .contact-icon {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+  }
+  .site-footer .contact-icon-email { color: #38BDF8 !important; }
+  .site-footer .contact-icon-phone { color: #38BDF8 !important; }
+  .site-footer .contact-icon-whatsapp { color: #22C55E !important; }
+  .site-footer .contact-icon-location { color: #EF4444 !important; }
+  .site-footer .contact-icon-clock { color: #F59E0B !important; }
+  .site-footer .social-circle-link {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.05rem !important;
+    color: #38BDF8 !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+  }
+  .site-footer .social-circle-link:hover {
+    background-color: #2563EB !important;
+    color: #FFFFFF !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+  }
+  .site-footer .btn-footer-quote {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 50px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    background: #2563EB !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.45) !important;
+    transition: all 0.25s ease !important;
+    width: 100% !important;
+    max-width: 240px !important;
+  }
+  .site-footer .btn-footer-quote:hover {
+    background: #1D4ED8 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 24px rgba(56, 189, 248, 0.6) !important;
+    transform: translateY(-2px) !important;
+  }
+  .site-footer .footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-top: 1.75rem !important;
+    margin-top: 3.5rem !important;
+  }
+  .site-footer .footer-copyright-text {
+    font-size: 0.88rem !important;
+    color: #64748B !important;
+  }
+  .site-footer .footer-pipe {
+    color: #334155 !important;
+  }
+  .site-footer .footer-tagline-blue {
+    color: #38BDF8 !important;
+    font-weight: 600 !important;
+  }
+  .site-footer .footer-legal-links a {
+    color: #94A3B8 !important;
+    text-decoration: none !important;
+    font-size: 0.88rem !important;
+    transition: color 0.2s ease !important;
+  }
+  .site-footer .footer-legal-links a:hover {
+    color: #38BDF8 !important;
+  }
+  .site-footer .legal-dot {
+    color: #334155 !important;
+  }
+</style>
+
+<footer class="site-footer">
   <div class="container">
     <div class="row g-4 g-lg-5 mb-5">
       <!-- Col 1: Brand & Bio -->
@@ -29,7 +198,6 @@
       <!-- Col 2: Services -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Services</h4>
-        <div class="footer-heading-line"></div>
         <ul class="footer-links">
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'web-development' %}">Web Development</a></li>
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'services:detail' 'app-development' %}">Mobile App Development</a></li>
@@ -43,7 +211,6 @@
       <!-- Col 3: Company -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Company</h4>
-        <div class="footer-heading-line"></div>
         <ul class="footer-links">
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:about' %}">About Us</a></li>
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'core:team' %}">Our Team</a></li>
@@ -58,7 +225,6 @@
       <!-- Col 4: Resources -->
       <div class="col-lg-2 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Resources</h4>
-        <div class="footer-heading-line"></div>
         <ul class="footer-links">
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'blog:list' %}">Blog</a></li>
           <li><span class="footer-bullet"><i class="bi bi-chevron-right"></i></span><a href="{% url 'portfolio:list' %}">Case Studies</a></li>
@@ -72,19 +238,18 @@
       <!-- Col 5: Get in Touch -->
       <div class="col-lg-3 col-md-3 col-6 mb-4 mb-md-0">
         <h4 class="footer-heading">Get in Touch</h4>
-        <div class="footer-heading-line"></div>
         <ul class="footer-contact-list">
           <li class="footer-contact-item">
             <i class="bi bi-envelope-fill contact-icon contact-icon-email"></i>
-            <a href="mailto:{{ site_settings.email|default:'codeyari7307@gmail.com' }}">{{ site_settings.email|default:'codeyari7307@gmail.com' }}</a>
+            <a href="mailto:{{ site_settings.email|default:'codeyari7307@gmail.com' }}">codeyari7307@gmail.com</a>
           </li>
           <li class="footer-contact-item">
             <i class="bi bi-telephone-fill contact-icon contact-icon-phone"></i>
-            <a href="tel:{{ site_settings.phone|default:'+919305287312' }}">{{ site_settings.phone_display|default:'+91 93052 87312' }}</a>
+            <a href="tel:+919305287312">+91 93052 87312</a>
           </li>
           <li class="footer-contact-item">
             <i class="bi bi-whatsapp contact-icon contact-icon-whatsapp"></i>
-            <a href="https://wa.me/{{ site_settings.whatsapp|default:'919305287312' }}?text=Hi%20Code%20Yari!" target="_blank" rel="noopener noreferrer">+91 93052 87312 (WhatsApp)</a>
+            <a href="https://wa.me/919305287312?text=Hi%20Code%20Yari!" target="_blank" rel="noopener noreferrer">+91 93052 87312 (WhatsApp)</a>
           </li>
           <li class="footer-contact-item">
             <i class="bi bi-geo-alt-fill contact-icon contact-icon-location"></i>
