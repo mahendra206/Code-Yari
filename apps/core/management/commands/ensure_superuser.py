@@ -140,7 +140,7 @@ class Command(BaseCommand):
         settings = SiteSettings.get_settings()
         settings.whatsapp = '919305287312'
         settings.phone = '+919305287312'
-        settings.phone_display = '+91 93052-87312'
+        settings.phone_display = '+91 93052 87312'
         settings.email = 'codeyari7307@gmail.com'
         settings.save()
         self.stdout.write(self.style.SUCCESS('[OK] SiteSettings WhatsApp, Phone & Email configured.'))
