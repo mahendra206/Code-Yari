@@ -60,7 +60,7 @@ def home(request):
     stats = StatItem.objects.filter(is_active=True).order_by('order')
 
     context = {
-        'page_title': 'Code Yari — Code. Create. Grow.',
+        'page_title': 'Code Yari — Web & Mobile App Development Company in India',
         'meta_description': 'Code Yari is a young digital technology team building websites, apps, SEO, digital marketing, UI/UX, AI and automation solutions to grow your business online.',
         'featured_services': featured_services,
         'all_services': all_services,
